@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El SDR del futuro: humano + IA, no humano vs IA | GGC</title>
+  <meta name="description" content="La IA no va a reemplazar a los SDRs. Va a hacer que los buenos sean imparables y los malos, irrelevantes. As&iacute; funciona el modelo h&iacute;brido que ya estamos usando.">
+  <link rel="canonical" href="https://globalgrowth.consulting/blog/sdr-futuro-humano-ia">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://globalgrowth.consulting/blog/sdr-futuro-humano-ia">
+  <meta property="og:title" content="El SDR del futuro: humano + IA, no humano vs IA">
+  <meta property="og:description" content="La IA no va a reemplazar a los SDRs. Va a hacer que los buenos sean imparables y los malos, irrelevantes. As&iacute; funciona el modelo h&iacute;brido que ya estamos usando.">
+  <meta property="og:locale" content="es_ES">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:author" content="Xavi Fortuna">
+  <meta property="article:section" content="IA en ventas B2B">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Xavi Fortuna">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "El SDR del futuro: humano + IA, no humano vs IA",
+    "description": "La IA no va a reemplazar a los SDRs. Va a hacer que los buenos sean imparables y los malos, irrelevantes. As&iacute; funciona el modelo h&iacute;brido que ya estamos usando.",
+    "datePublished": "2026-04-05",
+    "dateModified": "2026-04-05",
+    "author": {
+      "@type": "Person",
+      "name": "Xavi Fortuna",
+      "jobTitle": "CEO & Head of Growth",
+      "url": "https://linkedin.c../xavierfortuna/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Global Growth Consulting",
+      "url": "https://globalgrowth.consulting",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://globalgrowth.consulting/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://globalgrowth.consulting/blog/sdr-futuro-humano-ia"
+    },
+    "articleSection": "IA en ventas B2B",
+    "wordCount": 1700,
+    "timeRequired": "PT8M"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#8A8A8A',700:'#6B6B6B'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-outline{border:1px solid rgba(139,92,246,0.4);color:#8B5CF6;transition:all .3s ease}
+    .btn-outline:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.08)}
+
+    .nav-blur{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(12,10,29,0.7);border-bottom:1px solid rgba(255,255,255,0.06)}
+
+    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+
+    /* Article typography */
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;margin-top:2.5rem;margin-bottom:1rem;line-height:1.3}
+    .article-body h3{font-size:1.25rem;font-weight:600;color:#fff;margin-top:2rem;margin-bottom:0.75rem;line-height:1.4}
+    .article-body p{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:1.25rem}
+    .article-body ul,.article-body ol{margin-bottom:1.25rem;padding-left:1.5rem}
+    .article-body li{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:0.5rem}
+    .article-body strong{color:#e0e0e0;font-weight:600}
+    .article-body blockquote{border-left:3px solid transparent;border-image:linear-gradient(180deg,#8B5CF6,#EC4899) 1;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#999}
+
+    /* Scroll popup */
+    .scroll-popup{transform:translateY(120%);transition:transform .4s ease,opacity .4s ease;opacity:0}
+    .scroll-popup.show{transform:translateY(0);opacity:1}
+
+    /* Focus */
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+
+    @media(prefers-reduced-motion:reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      .btn-g,.btn-outline{transition:none}
+      .btn-g::after{animation:none}
+      .scroll-popup{transition:none}
+    }
+
+    section[id]{scroll-margin-top:80px}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+<div id="progress" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);z-index:100;width:0;transition:width .1s"></div>
+
+<!-- NAV -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="../index.html#sistema" class="text-sm text-gray-400 hover:text-white transition-colors">Sistema</a>
+      <a href="../index.html#resultados" class="text-sm text-gray-400 hover:text-white transition-colors">Resultados</a>
+      <a href="../blog.html" class="text-sm text-white font-medium transition-colors">Blog</a>
+      <a href="../index.html#proceso" class="text-sm text-gray-400 hover:text-white transition-colors">Proceso</a>
+      <a href="../agendar.html" class="btn-g px-5 py-2.5 rounded-lg text-sm">Aplica ahora</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Abrir menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h1../svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-72 bg-[#151331] z-50 flex flex-col p-8 gap-6 md:hidden">
+    <button id="closeMenu" class="self-end text-white mb-4" aria-label="Cerrar menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 1../svg>
+    </button>
+    <a href="../index.html#sistema" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Sistema</a>
+    <a href="../index.html#resultados" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Resultados</a>
+    <a href="../blog.html" class="text-lg text-white font-medium transition-colors mobile-link">Blog</a>
+    <a href="../index.html#proceso" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Proceso</a>
+    <a href="../agendar.html" class="btn-g px-5 py-3 rounded-lg text-center text-sm mt-4 mobile-link">Aplica ahora</a>
+  </div>
+</nav>
+
+<!-- ARTICLE -->
+<main class="pt-28 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 reveal" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="../index.html" class="hover:text-gray-300 transition-colors">Inicio</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><span class="text-[#8B5CF6]">IA en ventas B2B</span></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li class="text-gray-400 truncate max-w-[200px]">Este articulo</li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="max-w-3xl mx-auto mb-12 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">IA en ventas B2B</span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        El SDR del futuro: humano + IA, no humano vs IA
+      </h1>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+        <span class="font-medium text-white">Xavi Fortuna</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>5 de abril de 2026</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>8 min lectura</span>
+      </div>
+    </header>
+
+    <!-- Article Body -->
+    <article class="max-w-3xl mx-auto article-body">
+
+      <!-- Opening hook -->
+      <div class="reveal">
+        <p>
+          Cada semana alguien me pregunta lo mismo: &laquo;&iquest;La IA va a reemplazar a los SDRs?&raquo;
+        </p>
+        <p>
+          Mi respuesta siempre es la misma: no. Pero va a hacer que los buenos sean imparables y los malos, irrelevantes.
+        </p>
+        <p>
+          El debate est&aacute; mal planteado. No es humano contra m&aacute;quina. Es humano con m&aacute;quina contra humano sin m&aacute;quina. Y esa batalla ya tiene ganador.
+        </p>
+        <p>
+          Llevamos m&aacute;s de 627 empresas B2B construyendo infraestructura comercial. Hemos visto equipos de ventas de todos los tama&ntilde;os: desde un founder haciendo cold calling solo hasta equipos de 30 SDRs con herramientas de &uacute;ltima generaci&oacute;n. Y lo que hemos aprendido es que la tecnolog&iacute;a no sustituye al humano. Lo amplifica. Para bien o para mal.
+        </p>
+        <p>
+          Un SDR malo con IA produce spam m&aacute;s r&aacute;pido. Un SDR bueno con IA produce pipeline de calidad a una velocidad que antes era imposible.
+        </p>
+      </div>
+
+      <!-- El debate mal planteado -->
+      <div class="reveal">
+        <h2>El debate mal planteado: IA vs humanos en ventas</h2>
+        <p>
+          Abre LinkedIn un martes cualquiera. Encontrar&aacute;s 50 posts sobre c&oacute;mo la IA va a eliminar el puesto de SDR. Y otros 50 diciendo que la IA nunca podr&aacute; reemplazar la conexi&oacute;n humana. Los dos bandos tienen parte de raz&oacute;n. Y los dos se equivocan en lo fundamental.
+        </p>
+        <p>
+          La realidad: hay tareas que la IA hace mucho mejor que un humano. Y hay tareas que un humano hace mucho mejor que la IA. El futuro no es elegir. Es combinar.
+        </p>
+        <p>
+          Los datos lo confirman. Los SDRs que usan IA como herramienta producen entre 3x y 5x m&aacute;s que los que no la usan. No porque sean m&aacute;s inteligentes. Porque dedican su tiempo a lo que realmente importa en lugar de a tareas que una m&aacute;quina puede hacer en segundos.
+        </p>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">3-5x</span>
+            <span class="text-gray-400 text-sm">Productividad de un SDR que usa IA como copiloto frente a uno que trabaja sin ella</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lo que la IA hace mejor -->
+      <div class="reveal">
+        <h2>Lo que la IA hace mejor que cualquier humano</h2>
+        <p>
+          Hay un grupo de tareas donde la IA arrasa. No tiene comparaci&oacute;n. Ning&uacute;n humano, por bueno que sea, puede competir con una m&aacute;quina en esto:
+        </p>
+        <h3>Research y enriquecimiento de datos</h3>
+        <p>
+          Un SDR tarda 15-20 minutos investigando un prospect manualmente. Busca en LinkedIn, mira la web, revisa noticias. La IA lo hace en 30 segundos. Y no se cansa. No se despista. No se salta datos porque tiene prisa.
+        </p>
+        <h3>Gesti&oacute;n de cadencias</h3>
+        <p>
+          Programar secuencias multicanal, hacer seguimiento de qui&eacute;n abri&oacute; qu&eacute;, cu&aacute;ndo hacer follow-up, qu&eacute; canal usar en cada paso. La IA gestiona esto sin errores. Un humano se pierde despu&eacute;s de 30 prospects en paralelo. La IA gestiona 300 sin pesta&ntilde;ear.
+        </p>
+        <h3>An&aacute;lisis de patrones</h3>
+        <p>
+          &iquest;Qu&eacute; asuntos de email funcionan mejor? &iquest;Qu&eacute; hora del d&iacute;a genera m&aacute;s respuestas? &iquest;Qu&eacute; segmento convierte m&aacute;s? La IA detecta patrones en miles de interacciones que un humano nunca ver&iacute;a. Y los detecta r&aacute;pido.
+        </p>
+        <h3>Personalizaci&oacute;n a escala</h3>
+        <p>
+          Escribir un email personalizado es f&aacute;cil. Escribir 50 al d&iacute;a, cada uno con referencias espec&iacute;ficas al prospect, es agotador. La IA genera borradores personalizados basados en datos reales. El SDR revisa, ajusta el tono y env&iacute;a. El resultado: personalizaci&oacute;n real multiplicada por 10.
+        </p>
+
+        <div class="space-y-4 my-8">
+          <div class="glass rounded-xl p-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold gr">50 prospects/d&iacute;a</span>
+              <span class="text-gray-400 text-sm">Un SDR con IA investiga y personaliza mensajes para 50 prospects al d&iacute;a</span>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold text-white">8-12 prospects/d&iacute;a</span>
+              <span class="text-gray-400 text-sm">Un SDR sin IA, haciendo research manual, cubre 8-12 como m&aacute;ximo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lo que el humano hace mejor -->
+      <div class="reveal">
+        <h2>Lo que el humano hace mejor que cualquier IA</h2>
+        <p>
+          Ahora el otro lado. Porque la IA tiene l&iacute;mites claros. Y en ventas B2B, esos l&iacute;mites importan mucho.
+        </p>
+        <h3>Estrategia y criterio</h3>
+        <p>
+          Decidir a qu&eacute; cuentas ir, c&oacute;mo posicionar tu servicio frente a un competidor concreto, cu&aacute;ndo cambiar de enfoque. Eso requiere criterio. Experiencia. Intuici&oacute;n comercial. La IA puede darte datos, pero la decisi&oacute;n estrat&eacute;gica sigue siendo humana.
+        </p>
+        <h3>Construcci&oacute;n de relaciones</h3>
+        <p>
+          La venta B2B no es transaccional. Es relacional. Conectar con un prospect, entender su situaci&oacute;n real (no la que aparece en LinkedIn), generar confianza. Eso no lo hace un bot. Lo hace una persona que sabe escuchar y que ha estado en situaciones parecidas.
+        </p>
+        <h3>Negociaci&oacute;n y cierre</h3>
+        <p>
+          Cuando la conversaci&oacute;n se pone seria &mdash;presupuesto, plazos, condiciones, objeciones reales&mdash; necesitas un humano. Alguien que lea el lenguaje corporal en la videollamada. Que detecte cu&aacute;ndo el prospect dice &laquo;s&iacute;&raquo; con la boca pero &laquo;no&raquo; con el gesto. Que sepa cu&aacute;ndo empujar y cu&aacute;ndo retroceder.
+        </p>
+        <h3>Empat&iacute;a aut&eacute;ntica</h3>
+        <p>
+          Un prospect que acaba de perder un cliente grande no necesita un email automatizado. Necesita que alguien le diga &laquo;entiendo la situaci&oacute;n, hablemos cuando est&eacute;s listo&raquo;. La IA puede simular empat&iacute;a. Un humano la siente. Y el prospect nota la diferencia.
+        </p>
+
+        <blockquote>
+          La IA multiplica la capacidad. El humano aporta el juicio. Sin juicio, la capacidad multiplicada solo produce ruido m&aacute;s r&aacute;pido.
+        </blockquote>
+      </div>
+
+      <!-- El modelo h&iacute;brido -->
+      <div class="reveal">
+        <h2>El modelo h&iacute;brido: IA como copiloto, no como sustituto</h2>
+        <p>
+          As&iacute; funciona el modelo que ya estamos implementando en los equipos de nuestros clientes:
+        </p>
+        <ul>
+          <li><strong>La IA investiga.</strong> Enriquece datos, busca se&ntilde;ales de timing, genera res&uacute;menes de cuenta. El SDR recibe un briefing completo de cada prospect antes de hacer nada</li>
+          <li><strong>La IA redacta borradores.</strong> Primeras l&iacute;neas de email, mensajes de LinkedIn, scripts de llamada adaptados al contexto del prospect. El SDR revisa, ajusta el tono y a&ntilde;ade su toque personal</li>
+          <li><strong>La IA gestiona la cadencia.</strong> Follow-ups autom&aacute;ticos, recordatorios, cambios de canal cuando un email no se abre. El SDR se enfoca en las conversaciones activas, no en perseguir fantasmas</li>
+          <li><strong>El humano decide.</strong> Qu&eacute; cuentas priorizar. Cu&aacute;ndo salirse del script. C&oacute;mo manejar una objeci&oacute;n inesperada. Cu&aacute;ndo pedir la reuni&oacute;n y cu&aacute;ndo esperar</li>
+          <li><strong>El humano conecta.</strong> La llamada donde se genera confianza. La videollamada donde se cualifica de verdad. La negociaci&oacute;n donde se cierra el deal</li>
+        </ul>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">80/20</span>
+            <span class="text-gray-400 text-sm">La IA maneja el 80% del trabajo operativo. El humano aporta el 20% que marca la diferencia entre pipeline y cierre</span>
+          </div>
+        </div>
+
+        <p>
+          El resultado: un SDR con este modelo gestiona 3-5 veces m&aacute;s cuentas activas sin perder calidad. No trabaja m&aacute;s horas. Trabaja en cosas diferentes. Pasa de ser &laquo;el que env&iacute;a emails&raquo; a ser &laquo;el que cierra reuniones&raquo;.
+        </p>
+      </div>
+
+      <!-- El perfil del SDR de 2026 -->
+      <div class="reveal">
+        <h2>El perfil del SDR de 2026</h2>
+        <p>
+          El SDR cl&aacute;sico era alguien que hac&iacute;a 80 llamadas al d&iacute;a, enviaba 50 emails y viv&iacute;a pegado al tel&eacute;fono. Su m&eacute;trica principal: actividad. M&aacute;s llamadas, m&aacute;s emails, m&aacute;s mensajes. Volumen puro.
+        </p>
+        <p>
+          El SDR de 2026 es otra cosa. Es un orquestador de sistemas. No hace el trabajo operativo porque la IA lo hace por &eacute;l. Se enfoca en tres cosas:
+        </p>
+        <ul>
+          <li><strong>Selecci&oacute;n estrat&eacute;gica:</strong> decide a qu&eacute; cuentas dedicar tiempo de calidad. No todas las cuentas merecen el mismo esfuerzo. El SDR de 2026 sabe priorizar</li>
+          <li><strong>Conversaciones de alto valor:</strong> las llamadas que tienen, las reuniones que lideran, los mensajes que escriben personalmente &mdash;todo tiene intenci&oacute;n y contexto. Cero spam, cero genericidad</li>
+          <li><strong>Optimizaci&oacute;n del sistema:</strong> revisan qu&eacute; funciona y qu&eacute; no. Ajustan prompts de IA, afinan el scoring, modifican secuencias. Son parte ingeniero, parte vendedor</li>
+        </ul>
+        <p>
+          Su m&eacute;trica principal ya no es actividad. Es conversi&oacute;n. Reuniones cualificadas por hora de trabajo real. Y ah&iacute; es donde el modelo h&iacute;brido gana por goleada.
+        </p>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">Orquestador</span>
+            <span class="text-gray-400 text-sm">El SDR de 2026 no ejecuta tareas mec&aacute;nicas. Orquesta un sistema de IA + humano que genera pipeline predecible</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Implicaciones para hiring -->
+      <div class="reveal">
+        <h2>Qu&eacute; significa esto para contratar SDRs</h2>
+        <p>
+          Si est&aacute;s contratando SDRs en 2026 con los mismos criterios de 2020, vas a tener problemas. El perfil ha cambiado radicalmente.
+        </p>
+        <p>
+          Lo que ya no basta:
+        </p>
+        <ul>
+          <li>&laquo;Hunter agresivo&raquo; que vive de hacer 100 llamadas al d&iacute;a. Eso ya lo hace la IA</li>
+          <li>&laquo;Experiencia en cold calling&raquo; como skill principal. El cold calling sigue siendo relevante, pero es una pieza, no el centro</li>
+          <li>&laquo;Resistente al rechazo&raquo; como cualidad estrella. Si tu sistema depende de la resistencia al rechazo de tu equipo, tu sistema est&aacute; mal dise&ntilde;ado</li>
+        </ul>
+        <p>
+          Lo que necesitas ahora:
+        </p>
+        <ul>
+          <li><strong>Tech-savvy:</strong> que sepa moverse con herramientas de IA, automatizaci&oacute;n, enriquecimiento de datos. No necesita ser programador, pero s&iacute; curioso y capaz de aprender r&aacute;pido</li>
+          <li><strong>Pensamiento estrat&eacute;gico:</strong> que entienda por qu&eacute; contactar a una cuenta y no a otra. Que sepa leer se&ntilde;ales de mercado, no solo seguir una lista</li>
+          <li><strong>Comunicaci&oacute;n de alto nivel:</strong> que cuando hable con un prospect, genere confianza. Que sepa hacer preguntas inteligentes. Que escuche m&aacute;s de lo que habla</li>
+          <li><strong>Mentalidad de sistema:</strong> que no vea su trabajo como &laquo;hacer llamadas&raquo; sino como &laquo;optimizar un sistema de generaci&oacute;n de pipeline&raquo;</li>
+        </ul>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">+40%</span>
+            <span class="text-gray-400 text-sm">Los equipos con SDRs tech-savvy que dominan herramientas de IA generan un 40% m&aacute;s de reuniones cualificadas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cierre -->
+      <div class="reveal">
+        <h2>El futuro ya est&aacute; aqu&iacute;. La pregunta es si tu equipo est&aacute; preparado</h2>
+        <p>
+          No estamos hablando de 2030. Estamos hablando de ahora. Los equipos comerciales que ya operan con el modelo h&iacute;brido est&aacute;n generando m&aacute;s pipeline con menos gente. No porque hayan despedido SDRs, sino porque cada SDR produce m&aacute;s.
+        </p>
+        <p>
+          Los que siguen operando como en 2020 &mdash;listas est&aacute;ticas, emails gen&eacute;ricos, volumen bruto&mdash; se quedan atr&aacute;s cada d&iacute;a que pasa. Y la brecha se acelera.
+        </p>
+        <p>
+          Esto es exactamente lo que construimos con APEX OS. No vendemos herramientas de IA. Instalamos el modelo h&iacute;brido completo: la infraestructura tecnol&oacute;gica, los workflows, la formaci&oacute;n del equipo y los procesos de optimizaci&oacute;n continua. Cuando terminamos, el sistema es tuyo. Se queda en tu propiedad.
+        </p>
+        <p>
+          Si quieres evaluar si tu equipo comercial est&aacute; preparado para el modelo humano + IA, <a href="../agendar.html" class="text-[#8B5CF6] hover:text-[#EC4899] transition-colors font-medium underline underline-offset-4">reserva 30 minutos con nosotros</a>. Hacemos un diagn&oacute;stico r&aacute;pido y te decimos por d&oacute;nde empezar. Sin compromiso.
+        </p>
+      </div>
+
+      <!-- LEAD MAGNET INLINE -->
+      <div class="my-12 glass rounded-2xl p-8 border border-[#8B5CF6]/20 relative overflow-hidden reveal">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]"></div>
+        <div class="md:flex items-start gap-8">
+          <div class="flex-1">
+            <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Recurso gratuito</p>
+            <h3 class="text-xl font-bold text-white mb-2" style="margin-top:0">Scorecard: Eval&uacute;a si tu equipo comercial est&aacute; preparado para el modelo humano + IA</h3>
+            <p class="text-gray-400 text-sm mb-4">Descarga el scorecard con 15 criterios para evaluar la preparaci&oacute;n de tu equipo. Incluye benchmark por sector y recomendaciones de acci&oacute;n inmediata.</p>
+            <!-- Lead capture form -->
+            <form id="leadMagnetForm" class="space-y-3">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <label class="flex items-start gap-2 cursor-pointer">
+                <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+                <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+              </label>
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm">Descargar scorecard gratuito</button>
+            </form>
+            <div id="leadMagnetSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+              Te lo enviamos al email en 2 minutos.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- CTA FINAL DOBLE -->
+    <div class="max-w-3xl mx-auto mt-16 grid md:grid-cols-2 gap-6 reveal">
+      <!-- Left: Scorecard CTA -->
+      <div class="glass rounded-2xl p-8 border border-white/5 text-center">
+        <div class="text-3xl mb-4">&#128205;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Descarga el scorecard</h3>
+        <p class="text-gray-400 text-sm mb-6">15 criterios para evaluar si tu equipo comercial est&aacute; preparado para el modelo humano + IA.</p>
+        <button onclick="document.getElementById('leadMagnetForm').scrollIntoView({behavior:'smooth'})" class="btn-outline px-6 py-3 rounded-lg text-sm w-full">Descargar gratis</button>
+      </div>
+      <!-- Right: Agendar CTA -->
+      <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+        <div class="text-3xl mb-4">&#128197;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Agendar discovery call</h3>
+        <p class="text-gray-400 text-sm mb-6">Sin compromiso. 30 minutos. Evaluamos tu equipo y te decimos por d&oacute;nde empezar con el modelo h&iacute;brido.</p>
+        <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Reservar mi plaza</a>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <div class="max-w-3xl mx-auto px-6 mb-16">
+      <div class="gc p-6 sm:p-8 rounded-2xl flex items-start gap-5">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0 text-lg font-bold" style="background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(236,72,153,.2));color:#8B5CF6">XF</div>
+        <div>
+          <p class="font-bold text-white text-lg">Xavi Fortuna</p>
+          <p class="text-sm text-gray-400 mb-2">CEO & Head of Growth &middot; Global Growth Consulting</p>
+          <p class="text-sm text-gray-400 leading-relaxed">10 a&ntilde;os construyendo infraestructura comercial para empresas B2B. +627 clientes en 3 continentes. Si tu empresa depende de ti para vender, probablemente podamos ayudarte.</p>
+          <a href="https://linkedin.c../xavierfortuna/" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm mt-2 hover:underline" style="color:#8B5CF6">LinkedIn <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="max-w-3xl mx-auto mt-16 text-center reveal">
+      <div class="glass rounded-2xl p-8 border border-white/5">
+        <h3 class="text-xl font-bold text-white mb-2">&iquest;Te ha parecido &uacute;til? Recibe 1 insight semanal.</h3>
+        <p class="text-gray-400 text-sm mb-6">Estrategia comercial B2B sin relleno. Un email a la semana. Te das de baja cuando quieras.</p>
+        <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input type="email" name="email" placeholder="tu@empresa.com" required class="flex-1 px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+            <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+          </label>
+          <button type="submit" class="btn-g px-6 py-3 rounded-lg text-sm whitespace-nowrap">Suscribirme</button>
+        </form>
+        <div id="newsletterSuccess" class="hidden mt-4 text-green-400 text-sm">Apuntado. Bienvenido.</div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="max-w-5xl mx-auto mt-20 reveal">
+      <h2 class="font-display text-2xl font-bold text-white mb-8">Tambi&eacute;n te puede interesar</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="../ia-reuniones-cualificadas.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">IA en ventas B2B</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">IA para reuniones cualificadas</h3>
+          <p class="text-gray-500 text-sm">C&oacute;mo usamos IA para generar reuniones que realmente se convierten en oportunidades de negocio.</p>
+        </a>
+        <a href="../framework-20-reuniones.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Revenue Infrastructure</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">De 0 a 20 reuniones/semana</h3>
+          <p class="text-gray-500 text-sm">El framework exacto que usamos para llenar el calendario de nuestros clientes con reuniones cualificadas.</p>
+        </a>
+        <a href="../proceso-comercial-depende-2-personas.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Revenue Infrastructure</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">Tu proceso comercial depende de 2 personas</h3>
+          <p class="text-gray-500 text-sm">Si tu facturaci&oacute;n depende de 1-2 personas, no tienes un sistema. Tienes un riesgo.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- NEWSLETTER SCROLL POPUP -->
+<div id="scrollPopup" class="scroll-popup fixed bottom-6 right-6 z-40 w-80 glass rounded-2xl p-6 border border-[#8B5CF6]/20 shadow-2xl">
+  <button id="closePopup" class="absolute top-3 right-3 text-gray-500 hover:text-white transition-colors" aria-label="Cerrar">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 1../svg>
+  </button>
+  <p class="text-white font-bold text-sm mb-1">1 insight semanal. Sin spam.</p>
+  <p class="text-gray-400 text-xs mb-4">Estrategia comercial B2B directa al grano. Cada viernes.</p>
+  <form id="popupForm" class="space-y-2">
+    <input type="email" name="email" placeholder="tu@empresa.com" required class="w-full px-3 py-2.5 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+    <label class="flex items-start gap-2 cursor-pointer">
+      <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+      <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>.</span>
+    </label>
+    <button type="submit" class="btn-g w-full px-4 py-2.5 rounded-lg text-xs">Suscribirme</button>
+  </form>
+  <div id="popupSuccess" class="hidden mt-3 text-green-400 text-xs">Apuntado. Bienvenido.</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div>
+        <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto mb-4">
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Infraestructura comercial B2B permanente. No somos agencia. Instalamos sistemas que se quedan en tu propiedad.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Navegaci&oacute;n</h4>
+        <ul class="space-y-3">
+          <li><a href="../index.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Inicio</a></li>
+          <li><a href="../index.html#sistema" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Sistema</a></li>
+          <li><a href="../index.html#resultados" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Resultados</a></li>
+          <li><a href="../index.html#proceso" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Proceso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Recursos</h4>
+        <ul class="space-y-3">
+          <li><a href="../blog.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Blog</a></li>
+          <li><a href="../agendar.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Agendar</a></li>
+          <li><a href="../privacidad.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Privacidad</a></li>
+          <li><a href="../aviso-legal.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Aviso Legal</a></li>
+          <li><a href="../cookies.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Contacto</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="mailto:soporte@globalgrowth.consulting" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2../svg>
+              soporte@globalgrowth.consulting
+            </a>
+          </li>
+          <li class="text-gray-500 text-xs leading-relaxed">Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</li>
+          <li>
+            <a href="https://linkedin.c../xavierfortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003../svg>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/sir.fortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881../svg>
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 text-center">
+      <p class="text-gray-500 text-xs">&copy; 2016&ndash;2026 Global Growth Consulting by Digital Insta Media. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+(function(){
+  'use strict';
+
+  // -- Mobile menu --
+  var menuBtn = document.getElementById('menuBtn');
+  var closeBtn = document.getElementById('closeMenu');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  if(menuBtn && mobileMenu){
+    menuBtn.addEventListener('click', function(){ mobileMenu.classList.add('open'); });
+  }
+  if(closeBtn && mobileMenu){
+    closeBtn.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach(function(link){
+    link.addEventListener('click', function(){ if(mobileMenu) mobileMenu.classList.remove('open'); });
+  });
+
+  // -- Scroll reveals (Intersection Observer) --
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced){
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el){ observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  // -- Reading progress bar --
+  window.addEventListener('scroll', function(){
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress').style.width = progress + '%';
+  });
+
+  // -- Lead Magnet Form --
+  var leadForm = document.getElementById('leadMagnetForm');
+  if(leadForm){
+    leadForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(leadForm);
+      var obj = {};
+      data.forEach(function(v,k){ obj[k] = v; });
+      obj.source = 'blog_scorecard_sdr_ia';
+      obj.page = window.location.pathname;
+
+      fetch('/api/lead-magnet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(obj)
+      }).then(function(){
+        leadForm.style.display = 'none';
+        document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+      }).catch(function(){
+        leadForm.style.display = 'none';
+        document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+  // -- Newsletter Form --
+  var nlForm = document.getElementById('newsletterForm');
+  if(nlForm){
+    nlForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = nlForm.querySelector('input[name="email"]').value;
+
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'blog_article_newsletter', page: window.location.pathname })
+      }).then(function(){
+        nlForm.style.display = 'none';
+        document.getElementById('newsletterSuccess').classList.remove('hidden');
+      }).catch(function(){
+        nlForm.style.display = 'none';
+        document.getElementById('newsletterSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+  // -- Scroll Popup (70% scroll, once per session) --
+  var popup = document.getElementById('scrollPopup');
+  var closePopupBtn = document.getElementById('closePopup');
+  var popupShown = sessionStorage.getItem('popupShown');
+
+  if(popup && !popupShown){
+    var popupTriggered = false;
+    window.addEventListener('scroll', function(){
+      if(popupTriggered) return;
+      var scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if(scrollPercent > 0.7){
+        popupTriggered = true;
+        popup.classList.add('show');
+        sessionStorage.setItem('popupShown', '1');
+      }
+    });
+  }
+
+  if(closePopupBtn && popup){
+    closePopupBtn.addEventListener('click', function(){
+      popup.classList.remove('show');
+    });
+  }
+
+  // -- Popup Form --
+  var popupForm = document.getElementById('popupForm');
+  if(popupForm){
+    popupForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = popupForm.querySelector('input[name="email"]').value;
+
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'blog_scroll_popup', page: window.location.pathname })
+      }).then(function(){
+        popupForm.style.display = 'none';
+        document.getElementById('popupSuccess').classList.remove('hidden');
+      }).catch(function(){
+        popupForm.style.display = 'none';
+        document.getElementById('popupSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>

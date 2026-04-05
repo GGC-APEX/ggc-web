@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 Prompts de IA para Investigar Cuentas B2B en 2 Minutos | GGC</title>
+  <meta name="description" content="15 prompts de IA listos para copiar y pegar. Investiga cualquier cuenta B2B en 2 minutos: empresa, decisores, triggers y personalizacion.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="15 Prompts de IA para Investigar Cuentas B2B - GGC">
+  <meta property="og:description" content="Prompts listos para usar que convierten ChatGPT en tu analista de cuentas B2B.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .prompt-block{background:#0C0A1D;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:16px;font-family:'DM Sans',monospace;font-size:13px;line-height:1.6;color:#D4D4D4;position:relative;white-space:pre-wrap;word-break:break-word}
+    .copy-btn{position:absolute;top:8px;right:8px;background:rgba(139,92,246,0.2);border:1px solid rgba(139,92,246,0.3);color:#8B5CF6;font-size:11px;padding:4px 10px;border-radius:4px;cursor:pointer;transition:all .2s}
+    .copy-btn:hover{background:rgba(139,92,246,0.4)}
+    .copy-btn.copied{background:rgba(34,211,238,0.2);border-color:rgba(34,211,238,0.3);color:#22D3EE}
+
+    .tab-btn{padding:8px 16px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;border:1px solid transparent;color:#B0B0B0;background:transparent}
+    .tab-btn:hover{color:#fff;background:rgba(255,255,255,0.05)}
+    .tab-btn.active{background:linear-gradient(135deg,rgba(59,130,246,0.2),rgba(139,92,246,0.2));border-color:rgba(139,92,246,0.3);color:#fff}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}}
+    @media print{body{background:#fff;color:#000}.glass{background:#f5f5f5;border:1px solid #ddd}.prompt-block{background:#f9f9f9;border:1px solid #ddd;color:#333}.copy-btn{display:none}header,footer,.tab-btn{display:none}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Gu&iacute;a de Prompts</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">15 Prompts de IA para<br><span class="gr">Investigar Cuentas B2B</span> en 2 Minutos</h1>
+    <p class="text-gray-500 max-w-2xl mx-auto text-base sm:text-lg">Copia, pega y adapta. Cada prompt est&aacute; dise&ntilde;ado para extraer inteligencia comercial accionable de cualquier cuenta objetivo.</p>
+  </div>
+
+  <!-- FILTER TABS -->
+  <div class="flex flex-wrap gap-2 mb-8 justify-center" id="filterTabs">
+    <button class="tab-btn active" data-cat="all">Todos (15)</button>
+    <button class="tab-btn" data-cat="empresa">Empresa</button>
+    <button class="tab-btn" data-cat="decisor">Decisores</button>
+    <button class="tab-btn" data-cat="trigger">Triggers</button>
+    <button class="tab-btn" data-cat="competencia">Competencia</button>
+    <button class="tab-btn" data-cat="personalizacion">Personalizaci&oacute;n</button>
+  </div>
+
+  <!-- PROMPTS GRID -->
+  <div class="space-y-6" id="promptsContainer">
+
+    <!-- PRO TIP: Empresa -->
+    <div class="glass rounded-xl p-4 text-sm text-cyan" data-cat="empresa" data-tip="true">
+      <span class="font-bold text-cyan">&#128161; Pro tip &mdash; Investigaci&oacute;n de Empresa:</span> <span class="text-gray-400">Empieza siempre por el prompt #1 para tener contexto. Luego profundiza con los dem&aacute;s seg&uacute;n tu objetivo.</span>
+    </div>
+
+    <!-- 1 -->
+    <div class="glass rounded-xl p-6" data-cat="empresa">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#1 &mdash; Empresa</span>
+          <h3 class="text-lg font-bold mt-1">Radiograf&iacute;a R&aacute;pida de la Empresa</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Anal&iacute;zame la empresa [NOMBRE] ([WEB]). Dame: 1) Qu&eacute; venden exactamente y a qui&eacute;n. 2) Modelo de negocio (SaaS, servicios, producto). 3) Tama&ntilde;o estimado (empleados, facturaci&oacute;n si es p&uacute;blica). 4) &Uacute;ltimas noticias o movimientos relevantes (funding, adquisiciones, lanzamientos). 5) Su principal reto de crecimiento probable. S&eacute; concreto, sin relleno.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Contexto completo para personalizar cualquier primer mensaje.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Siempre como primer paso antes de contactar una cuenta nueva.</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="glass rounded-xl p-6" data-cat="empresa">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#2 &mdash; Empresa</span>
+          <h3 class="text-lg font-bold mt-1">An&aacute;lisis del Stack Tecnol&oacute;gico</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Basándote en la web de [EMPRESA] ([URL]) y lo que sepas de ellos: 1) ¿Qu&eacute; CRM es probable que usen? 2) ¿Qu&eacute; herramientas de marketing/ventas podr&iacute;an tener? 3) ¿Usan automatizaci&oacute;n de email? ¿Outbound? 4) ¿D&oacute;nde hay gaps evidentes en su stack? Dame hip&oacute;tesis basadas en su tama&ntilde;o y sector.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Oportunidades para posicionar tu soluci&oacute;n como pieza que falta.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Cuando vendes software o servicios de infraestructura comercial.</p>
+    </div>
+
+    <!-- 3 -->
+    <div class="glass rounded-xl p-6" data-cat="empresa">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#3 &mdash; Empresa</span>
+          <h3 class="text-lg font-bold mt-1">Mapa de Dolor del Sector</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Dame los 5 principales dolores comerciales que tienen las empresas del sector [SECTOR] con tama&ntilde;o [RANGO EMPLEADOS] en Espa&ntilde;a en 2026. Para cada dolor: 1) Descripci&oacute;n en una frase. 2) Impacto econ&oacute;mico estimado. 3) Soluci&oacute;n t&iacute;pica que intentan. 4) Por qu&eacute; no funciona. Necesito datos que pueda usar en un email de prospecci&oacute;n.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Dolores espec&iacute;ficos del sector para abrir conversaciones relevantes.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Al preparar campa&ntilde;as outbound segmentadas por vertical.</p>
+    </div>
+
+    <!-- PRO TIP: Decisores -->
+    <div class="glass rounded-xl p-4 text-sm text-cyan" data-cat="decisor" data-tip="true">
+      <span class="font-bold text-cyan">&#128161; Pro tip &mdash; Decisores:</span> <span class="text-gray-400">Combina el prompt #4 con una b&uacute;squeda en LinkedIn Sales Navigator para validar los nombres que te da la IA.</span>
+    </div>
+
+    <!-- 4 -->
+    <div class="glass rounded-xl p-6" data-cat="decisor">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#4 &mdash; Decisores</span>
+          <h3 class="text-lg font-bold mt-1">Identificar al Comprador Real</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Vendo [TU_SERVICIO] a empresas como [EMPRESA]. ¿Qui&eacute;n toma la decisi&oacute;n de compra t&iacute;picamente? Dame: 1) T&iacute;tulo/cargo m&aacute;s probable del decisor. 2) T&iacute;tulo del influenciador t&eacute;cnico. 3) T&iacute;tulo del usuario final. 4) ¿Qui&eacute;n tiene el presupuesto? 5) Organigrama probable del &aacute;rea. ¿C&oacute;mo es el proceso de compra t&iacute;pico en este tipo de empresa?<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Mapa completo de poder de decisi&oacute;n dentro de la cuenta.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Antes de lanzar secuencias multicontacto.</p>
+    </div>
+
+    <!-- 5 -->
+    <div class="glass rounded-xl p-6" data-cat="decisor">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#5 &mdash; Decisores</span>
+          <h3 class="text-lg font-bold mt-1">Perfil del Decisor en LinkedIn</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Analiza este perfil de LinkedIn de [NOMBRE, CARGO, EMPRESA]: [PEGA LA URL O RESUMEN]. Dame: 1) Sus prioridades probables ahora mismo. 2) ¿Qu&eacute; le quita el sue&ntilde;o? 3) Estilo de comunicaci&oacute;n (formal, t&eacute;cnico, directo). 4) 3 ganchos de apertura personalizados para un email fr&iacute;o. 5) Temas a evitar.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> &Aacute;ngulos de personalizaci&oacute;n basados en el perfil real del contacto.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Para cuentas de alto valor donde necesitas un primer mensaje perfecto.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="glass rounded-xl p-6" data-cat="decisor">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#6 &mdash; Decisores</span>
+          <h3 class="text-lg font-bold mt-1">Contenido Publicado por el Decisor</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Busca contenido p&uacute;blico de [NOMBRE] (CEO/VP de [EMPRESA]): posts en LinkedIn, art&iacute;culos, entrevistas, podcasts. 1) ¿Sobre qu&eacute; temas escribe o habla? 2) ¿Qu&eacute; opiniones fuertes tiene? 3) ¿Qu&eacute; logros recientes menciona? 4) Dame 2 formas de referenciar su contenido en un primer contacto sin parecer stalker.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Material para conectar a nivel personal con el decisor.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Para ABM de cuentas tier-1 donde cada contacto cuenta.</p>
+    </div>
+
+    <!-- PRO TIP: Triggers -->
+    <div class="glass rounded-xl p-4 text-sm text-cyan" data-cat="trigger" data-tip="true">
+      <span class="font-bold text-cyan">&#128161; Pro tip &mdash; Trigger Events:</span> <span class="text-gray-400">Los triggers son la raz&oacute;n por la que contactas AHORA y no hace 3 meses. Sin trigger, eres spam. Con trigger, eres relevante.</span>
+    </div>
+
+    <!-- 7 -->
+    <div class="glass rounded-xl p-6" data-cat="trigger">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#7 &mdash; Triggers</span>
+          <h3 class="text-lg font-bold mt-1">Detectar Eventos de Cambio</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Busca se&ntilde;ales de cambio recientes en [EMPRESA]: 1) ¿Han contratado o despedido a alguien relevante? 2) ¿Han cerrado ronda de financiaci&oacute;n? 3) ¿Han lanzado algo nuevo? 4) ¿Han cambiado de estrategia (pivotado, expandido mercado)? 5) ¿Hay noticias negativas (recortes, p&eacute;rdida de clientes)? Para cada evento, dime por qu&eacute; ser&iacute;a un buen momento para contactarles si vendo [TU_SERVICIO].<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Momento exacto y raz&oacute;n leg&iacute;tima para el outreach.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Antes de cada batch de emails para priorizar cuentas calientes.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="glass rounded-xl p-6" data-cat="trigger">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#8 &mdash; Triggers</span>
+          <h3 class="text-lg font-bold mt-1">Ofertas de Empleo como Se&ntilde;al</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">[EMPRESA] est&aacute; publicando ofertas de empleo para [CARGO/&Aacute;REA]. Basándote en esto: 1) ¿Qu&eacute; nos dice esto sobre sus prioridades actuales? 2) ¿Qu&eacute; problemas est&aacute;n intentando resolver? 3) ¿Es se&ntilde;al de crecimiento o de reemplazo? 4) Escr&iacute;beme un email de 4 l&iacute;neas que use esta oferta de empleo como gancho para ofrecer [TU_SERVICIO].<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Prioridades estrat&eacute;gicas reales basadas en d&oacute;nde invierten en equipo.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Cuando detectas ofertas de empleo relevantes en cuentas objetivo.</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="glass rounded-xl p-6" data-cat="trigger">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#9 &mdash; Triggers</span>
+          <h3 class="text-lg font-bold mt-1">Se&ntilde;ales de Intenci&oacute;n de Compra</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">¿Qu&eacute; se&ntilde;ales de intenci&oacute;n de compra deber&iacute;a buscar en una empresa del sector [SECTOR] que podr&iacute;a necesitar [TU_SERVICIO]? Dame: 1) 5 se&ntilde;ales digitales (visitas web, descargas, etc.). 2) 5 se&ntilde;ales de negocio (funding, contrataciones, cambios org). 3) 5 se&ntilde;ales sociales (posts, comentarios, interacciones). Para cada una, indica la urgencia (alta/media/baja) y el mejor canal de contacto.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Framework completo de intent signals para tu sector.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Al dise&ntilde;ar tu sistema de scoring y priorizaci&oacute;n de cuentas.</p>
+    </div>
+
+    <!-- PRO TIP: Competencia -->
+    <div class="glass rounded-xl p-4 text-sm text-cyan" data-cat="competencia" data-tip="true">
+      <span class="font-bold text-cyan">&#128161; Pro tip &mdash; Intel Competitiva:</span> <span class="text-gray-400">No uses la intel competitiva para hablar mal del competidor. &Uacute;sala para posicionarte mejor frente a lo que el prospect ya conoce.</span>
+    </div>
+
+    <!-- 10 -->
+    <div class="glass rounded-xl p-6" data-cat="competencia">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#10 &mdash; Competencia</span>
+          <h3 class="text-lg font-bold mt-1">Qu&eacute; Usa el Prospect Actualmente</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Si [EMPRESA] del sector [SECTOR] con [X] empleados necesita resolver [PROBLEMA], ¿qu&eacute; soluciones es probable que est&eacute;n usando ahora? 1) Lista las 3 opciones m&aacute;s probables. 2) Debilidades principales de cada una. 3) ¿Por qu&eacute; podr&iacute;an estar frustrados? 4) ¿Qu&eacute; argumento me diferenciar&iacute;a de cada una? Necesito puntos de conversaci&oacute;n, no un ensayo.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Landscape competitivo espec&iacute;fico de esa cuenta.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Antes de la primera llamada o reuni&oacute;n con una cuenta nueva.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="glass rounded-xl p-6" data-cat="competencia">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#11 &mdash; Competencia</span>
+          <h3 class="text-lg font-bold mt-1">Battle Card Express</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Crea una battle card r&aacute;pida: yo soy [TU_EMPRESA] y vendo [TU_SERVICIO]. Mi competidor principal es [COMPETIDOR]. Formato tabla: 1) Caracter&iacute;stica / Nosotros / Ellos. 2) 3 preguntas trampa para el prospect que nos favorecen. 3) Objeci&oacute;n m&aacute;s com&uacute;n al compararnos y respuesta ideal. 4) Frase de cierre diferenciadora.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Argumentos de venta directos contra cada competidor.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Cuando sabes que el prospect est&aacute; evaluando alternativas.</p>
+    </div>
+
+    <!-- 12 -->
+    <div class="glass rounded-xl p-6" data-cat="competencia">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#12 &mdash; Competencia</span>
+          <h3 class="text-lg font-bold mt-1">Analizar Reviews del Competidor</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Busca rese&ntilde;as y opiniones sobre [COMPETIDOR] en G2, Capterra, Trustpilot o foros. Dame: 1) Las 3 quejas m&aacute;s frecuentes. 2) Lo que m&aacute;s valoran los usuarios. 3) ¿D&oacute;nde fallan consistentemente? 4) Citas textuales de clientes frustrados que pueda usar como referencia (sin mencionar la fuente al prospect). Formato bullet points.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Puntos d&eacute;biles reales del competidor desde la voz del cliente.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Para preparar demos y reuniones competitivas.</p>
+    </div>
+
+    <!-- PRO TIP: Personalizacion -->
+    <div class="glass rounded-xl p-4 text-sm text-cyan" data-cat="personalizacion" data-tip="true">
+      <span class="font-bold text-cyan">&#128161; Pro tip &mdash; Personalizaci&oacute;n:</span> <span class="text-gray-400">La personalizaci&oacute;n no es meter el nombre de la empresa. Es demostrar que entiendes su situaci&oacute;n espec&iacute;fica.</span>
+    </div>
+
+    <!-- 13 -->
+    <div class="glass rounded-xl p-6" data-cat="personalizacion">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#13 &mdash; Personalizaci&oacute;n</span>
+          <h3 class="text-lg font-bold mt-1">Primer Email Hiperpersonalizado</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Con esta informaci&oacute;n sobre [NOMBRE] de [EMPRESA]: [PEGA TU RESEARCH PREVIO]. Escr&iacute;beme un email fr&iacute;o de m&aacute;ximo 80 palabras que: 1) Abra con algo espec&iacute;fico de ellos (no gen&eacute;rico). 2) Conecte su situaci&oacute;n con mi soluci&oacute;n en 1 frase. 3) Incluya un dato o insight que demuestre que he investigado. 4) Cierre con pregunta directa, no &ldquo;¿te interesar&iacute;a?&rdquo;. Tono: directo, sin adulaci&oacute;n, de CEO a CEO.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Borrador de email listo para revisar y enviar.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Despu&eacute;s de haber usado 2-3 prompts previos sobre la cuenta.</p>
+    </div>
+
+    <!-- 14 -->
+    <div class="glass rounded-xl p-6" data-cat="personalizacion">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#14 &mdash; Personalizaci&oacute;n</span>
+          <h3 class="text-lg font-bold mt-1">Mensaje de LinkedIn Personalizado</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Escr&iacute;beme un mensaje de conexi&oacute;n de LinkedIn (m&aacute;x 300 caracteres) para [NOMBRE, CARGO] de [EMPRESA]. Contexto: [TRIGGER O DATO RELEVANTE]. Mi servicio: [QU&Eacute; HAGO]. Reglas: nada de &ldquo;me gustar&iacute;a conectar&rdquo;, nada de pitch directo, tiene que provocar curiosidad. Dame 3 versiones con &aacute;ngulos distintos.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Mensajes de conexi&oacute;n que no parecen spam automatizado.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> Para outreach multicanal combinado con email.</p>
+    </div>
+
+    <!-- 15 -->
+    <div class="glass rounded-xl p-6" data-cat="personalizacion">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <span class="text-xs font-semibold gr uppercase tracking-wider">#15 &mdash; Personalizaci&oacute;n</span>
+          <h3 class="text-lg font-bold mt-1">Preparar la Primera Llamada</h3>
+        </div>
+      </div>
+      <div class="prompt-block mb-3">Tengo una llamada ma&ntilde;ana con [NOMBRE, CARGO] de [EMPRESA]. Lo que s&eacute;: [PEGA TU RESEARCH]. Prep&aacute;rame: 1) 3 preguntas de descubrimiento que demuestren que he investigado. 2) 2 insights del sector que pueda mencionar. 3) 1 hip&oacute;tesis de problema que puedo validar. 4) Posibles objeciones y c&oacute;mo manejarlas. 5) Propuesta de agenda para 25 minutos. Formato esquem&aacute;tico, no prosa.<button class="copy-btn" onclick="copyPrompt(this)">Copiar</button></div>
+      <p class="text-xs text-gray-500 mb-1"><strong class="text-gray-400">Qu&eacute; revela:</strong> Gu&iacute;a completa de preparaci&oacute;n para cerrar la primera llamada.</p>
+      <p class="text-xs text-gray-500"><strong class="text-gray-400">Cu&aacute;ndo usarlo:</strong> 15 minutos antes de cualquier discovery call.</p>
+    </div>
+
+  </div>
+
+  <!-- STATS -->
+  <div class="grid grid-cols-3 gap-4 mt-12 mb-12">
+    <div class="glass rounded-xl p-6 text-center">
+      <div class="text-2xl font-bold gr">2 min</div>
+      <div class="text-xs text-gray-500 mt-1">Tiempo medio por prompt</div>
+    </div>
+    <div class="glass rounded-xl p-6 text-center">
+      <div class="text-2xl font-bold gr">15</div>
+      <div class="text-xs text-gray-500 mt-1">Prompts listos para usar</div>
+    </div>
+    <div class="glass rounded-xl p-6 text-center">
+      <div class="text-2xl font-bold gr">5x</div>
+      <div class="text-xs text-gray-500 mt-1">M&aacute;s r&aacute;pido que investigaci&oacute;n manual</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="glass rounded-2xl p-8 sm:p-10 text-center mt-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-3">¿Quieres que estos prompts<br>trabajen en <span class="gr">piloto autom&aacute;tico</span>?</h2>
+    <p class="text-gray-500 mb-6 max-w-xl mx-auto">En GGC instalamos la infraestructura que ejecuta este research autom&aacute;ticamente para cada cuenta nueva que entra en tu pipeline.</p>
+    <a href="../agendar.html" class="btn-g inline-block px-8 py-4 rounded-lg text-sm">Agendar sesi&oacute;n estrat&eacute;gica &rarr;</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Copy to clipboard
+  window.copyPrompt = function(btn){
+    var block = btn.parentElement;
+    var text = block.textContent.replace('Copiar','').replace('Copiado','').trim();
+    navigator.clipboard.writeText(text).then(function(){
+      btn.textContent = 'Copiado';
+      btn.classList.add('copied');
+      setTimeout(function(){ btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2000);
+    });
+  };
+
+  // Filter tabs
+  var tabs = document.querySelectorAll('.tab-btn');
+  var cards = document.querySelectorAll('#promptsContainer > div');
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var cat = tab.getAttribute('data-cat');
+
+      cards.forEach(function(card){
+        if(cat === 'all'){
+          card.style.display = '';
+        } else {
+          card.style.display = card.getAttribute('data-cat') === cat ? '' : 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

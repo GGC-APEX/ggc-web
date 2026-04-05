@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora ROI: Infraestructura vs Fee de Agencia | GGC</title>
+  <meta name="description" content="Compara el coste real de una agencia de generacion de leads vs instalar tu propia infraestructura comercial. Calculadora interactiva con ROI a 24 meses.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Calculadora ROI Infraestructura vs Agencia - GGC">
+  <meta property="og:description" content="Descubre cuanto ahorras y cuanto mas generas con infraestructura propia vs fee de agencia.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Slider styling */
+    input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;outline:none;cursor:pointer;background:rgba(255,255,255,0.08)}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);border:2px solid #fff;cursor:pointer;box-shadow:0 0 10px rgba(139,92,246,0.4);transition:box-shadow .2s}
+    input[type="range"]::-webkit-slider-thumb:hover{box-shadow:0 0 20px rgba(139,92,246,0.6)}
+    input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);border:2px solid #fff;cursor:pointer;box-shadow:0 0 10px rgba(139,92,246,0.4)}
+    input[type="range"]::-moz-range-track{height:6px;border-radius:3px;background:rgba(255,255,255,0.08)}
+
+    /* Fade in */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    /* Chart area */
+    .chart-area{position:relative;width:100%;height:280px;overflow:hidden}
+    @media(min-width:640px){.chart-area{height:320px}}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.pulse-glow{animation:none}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Calculadora ROI</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      Infraestructura propia vs <span class="gr">fee de agencia</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      Compara el coste real, el ROI y el punto de break-even entre pagar un fee mensual a una agencia o instalar tu propia infraestructura comercial.
+    </p>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div class="grid lg:grid-cols-5 gap-8">
+
+    <!-- LEFT: Inputs (3 cols) -->
+    <div class="lg:col-span-3 space-y-4">
+
+      <div class="glass rounded-2xl p-6 space-y-5">
+        <h2 class="text-lg font-bold text-white">Modelo agencia / consultor actual</h2>
+
+        <!-- Slider 1: Fee mensual -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="text-sm text-gray-400">Fee mensual de agencia</label>
+            <span id="s1Val" class="text-sm font-bold gr">3.000 EUR</span>
+          </div>
+          <input type="range" id="s1" min="1000" max="15000" step="250" value="3000" oninput="calc()">
+          <div class="flex justify-between text-xs text-gray-500 mt-1"><span>1.000 EUR</span><span>15.000 EUR</span></div>
+        </div>
+
+        <!-- Slider 2: Meses contrato -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="text-sm text-gray-400">Meses de contrato tipico</label>
+            <span id="s2Val" class="text-sm font-bold gr">12</span>
+          </div>
+          <input type="range" id="s2" min="3" max="24" step="1" value="12" oninput="calc()">
+          <div class="flex justify-between text-xs text-gray-500 mt-1"><span>3 meses</span><span>24 meses</span></div>
+        </div>
+
+        <!-- Slider 3: Reuniones agencia -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="text-sm text-gray-400">Reuniones que genera la agencia/mes</label>
+            <span id="s3Val" class="text-sm font-bold gr">4</span>
+          </div>
+          <input type="range" id="s3" min="0" max="20" step="1" value="4" oninput="calc()">
+          <div class="flex justify-between text-xs text-gray-500 mt-1"><span>0</span><span>20</span></div>
+        </div>
+
+        <!-- Slider 4: Ticket medio -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="text-sm text-gray-400">Ticket medio por cliente</label>
+            <span id="s4Val" class="text-sm font-bold gr">15.000 EUR</span>
+          </div>
+          <input type="range" id="s4" min="5000" max="100000" step="1000" value="15000" oninput="calc()">
+          <div class="flex justify-between text-xs text-gray-500 mt-1"><span>5.000 EUR</span><span>100.000 EUR</span></div>
+        </div>
+
+        <!-- Slider 5: Tasa cierre -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="text-sm text-gray-400">Tasa de cierre actual</label>
+            <span id="s5Val" class="text-sm font-bold gr">20%</span>
+          </div>
+          <input type="range" id="s5" min="5" max="50" step="1" value="20" oninput="calc()">
+          <div class="flex justify-between text-xs text-gray-500 mt-1"><span>5%</span><span>50%</span></div>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl p-6 space-y-5">
+        <h2 class="text-lg font-bold text-white">Modelo infraestructura propia</h2>
+
+        <!-- Slider 6: Inversion infra -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="text-sm text-gray-400">Inversion en infraestructura (one-time)</label>
+            <span id="s6Val" class="text-sm font-bold gr">20.000 EUR</span>
+          </div>
+          <input type="range" id="s6" min="10000" max="50000" step="1000" value="20000" oninput="calc()">
+          <div class="flex justify-between text-xs text-gray-500 mt-1"><span>10.000 EUR</span><span>50.000 EUR</span></div>
+        </div>
+
+        <!-- Slider 7: Reuniones infra -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="text-sm text-gray-400">Reuniones que genera la infraestructura/mes</label>
+            <span id="s7Val" class="text-sm font-bold gr">15</span>
+          </div>
+          <input type="range" id="s7" min="5" max="40" step="1" value="15" oninput="calc()">
+          <div class="flex justify-between text-xs text-gray-500 mt-1"><span>5</span><span>40</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results (2 cols) -->
+    <div class="lg:col-span-2 space-y-4">
+
+      <!-- Highlight card -->
+      <div class="glass rounded-2xl p-6 text-center border border-[#8B5CF6]/20 pulse-glow">
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">En 24 meses</p>
+        <p class="text-sm text-gray-400 mb-1">Ahorras</p>
+        <p id="ahorro24" class="text-2xl sm:text-3xl font-bold text-green-400" style="font-family:'DM Sans',sans-serif">--</p>
+        <p class="text-sm text-gray-400 mt-3 mb-1">Y generas de mas</p>
+        <p id="revExtra24" class="text-2xl sm:text-3xl font-bold gr" style="font-family:'DM Sans',sans-serif">--</p>
+      </div>
+
+      <!-- Comparison cards -->
+      <div class="grid grid-cols-2 gap-3">
+        <div class="glass rounded-xl p-4 text-center">
+          <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Coste/reunion</p>
+          <p class="text-xs text-gray-400 mb-0.5">Agencia</p>
+          <p id="cprAgencia" class="text-lg font-bold text-red-400" style="font-family:'DM Sans',sans-serif">--</p>
+        </div>
+        <div class="glass rounded-xl p-4 text-center">
+          <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Coste/reunion</p>
+          <p class="text-xs text-gray-400 mb-0.5">Infraestructura</p>
+          <p id="cprInfra" class="text-lg font-bold text-green-400" style="font-family:'DM Sans',sans-serif">--</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div class="glass rounded-xl p-4 text-center">
+          <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">ROI Agencia</p>
+          <p id="roiAgencia" class="text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif">--</p>
+        </div>
+        <div class="glass rounded-xl p-4 text-center">
+          <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">ROI Infraestructura</p>
+          <p id="roiInfra" class="text-lg font-bold gr" style="font-family:'DM Sans',sans-serif">--</p>
+        </div>
+      </div>
+
+      <!-- Break-even -->
+      <div class="glass rounded-xl p-4 text-center">
+        <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Punto de break-even</p>
+        <p id="breakeven" class="text-lg font-bold text-cyan-400" style="font-family:'DM Sans',sans-serif">--</p>
+        <p class="text-xs text-gray-500 mt-0.5">Mes en que infraestructura supera a agencia</p>
+      </div>
+
+      <!-- Coste total comparison -->
+      <div class="glass rounded-xl p-4">
+        <p class="text-[10px] text-gray-500 uppercase tracking-wider mb-3 text-center">Coste total en 24 meses</p>
+        <div class="space-y-2">
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-gray-400">Agencia</span><span id="costeAgencia24" class="text-red-400 font-semibold">--</span></div>
+            <div class="h-3 rounded-full bg-white/5 overflow-hidden"><div id="barAgencia" class="h-full rounded-full bg-red-500/70 transition-all duration-500" style="width:100%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-gray-400">Infraestructura</span><span id="costeInfra24" class="text-green-400 font-semibold">--</span></div>
+            <div class="h-3 rounded-full bg-white/5 overflow-hidden"><div id="barInfra" class="h-full rounded-full transition-all duration-500" style="width:50%;background:linear-gradient(90deg,#22C55E,#16A34A)"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHART: Coste acumulado en el tiempo -->
+  <div class="mt-10 glass rounded-2xl p-6">
+    <h2 class="text-lg font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Coste acumulado en el tiempo</h2>
+    <p class="text-xs text-gray-500 mb-4">Comparativa mes a mes durante 24 meses</p>
+    <div class="chart-area" id="chartContainer">
+      <svg id="chart" width="100%" height="100%" viewBox="0 0 700 280" preserveAspectRatio="none" style="overflow:visible">
+        <!-- Grid lines -->
+        <line x1="50" y1="20" x2="50" y2="240" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="50" y1="240" x2="680" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="50" y1="185" x2="680" y2="185" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="50" y1="130" x2="680" y2="130" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="50" y1="75" x2="680" y2="75" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="50" y1="20" x2="680" y2="20" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+
+        <!-- Y axis labels -->
+        <text id="yLabel0" x="45" y="244" text-anchor="end" fill="#666" font-size="10" font-family="DM Sans,sans-serif">0</text>
+        <text id="yLabel1" x="45" y="189" text-anchor="end" fill="#666" font-size="10" font-family="DM Sans,sans-serif">--</text>
+        <text id="yLabel2" x="45" y="134" text-anchor="end" fill="#666" font-size="10" font-family="DM Sans,sans-serif">--</text>
+        <text id="yLabel3" x="45" y="79" text-anchor="end" fill="#666" font-size="10" font-family="DM Sans,sans-serif">--</text>
+        <text id="yLabel4" x="45" y="24" text-anchor="end" fill="#666" font-size="10" font-family="DM Sans,sans-serif">--</text>
+
+        <!-- X axis labels -->
+        <text x="50" y="258" text-anchor="middle" fill="#666" font-size="10" font-family="DM Sans,sans-serif">0</text>
+        <text x="181" y="258" text-anchor="middle" fill="#666" font-size="10" font-family="DM Sans,sans-serif">6</text>
+        <text x="313" y="258" text-anchor="middle" fill="#666" font-size="10" font-family="DM Sans,sans-serif">12</text>
+        <text x="444" y="258" text-anchor="middle" fill="#666" font-size="10" font-family="DM Sans,sans-serif">18</text>
+        <text x="680" y="258" text-anchor="middle" fill="#666" font-size="10" font-family="DM Sans,sans-serif">24</text>
+        <text x="365" y="275" text-anchor="middle" fill="#555" font-size="10" font-family="DM Sans,sans-serif">Meses</text>
+
+        <!-- Lines will be drawn by JS -->
+        <polyline id="lineAgencia" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points=""/>
+        <polyline id="lineInfra" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points=""/>
+
+        <!-- Break-even marker -->
+        <line id="beLine" x1="0" y1="20" x2="0" y2="240" stroke="#22D3EE" stroke-width="1" stroke-dasharray="4,4" opacity="0"/>
+        <text id="beLabel" x="0" y="16" text-anchor="middle" fill="#22D3EE" font-size="9" font-family="DM Sans,sans-serif" opacity="0">BE</text>
+      </svg>
+    </div>
+    <div class="flex items-center justify-center gap-6 mt-3 text-xs">
+      <span class="flex items-center gap-2"><span class="w-3 h-0.5 bg-red-500 inline-block rounded"></span><span class="text-gray-400">Agencia (coste acumulado)</span></span>
+      <span class="flex items-center gap-2"><span class="w-3 h-0.5 bg-green-500 inline-block rounded"></span><span class="text-gray-400">Infraestructura (coste acumulado)</span></span>
+      <span class="flex items-center gap-2"><span class="w-3 h-0.5 bg-cyan-400 inline-block rounded" style="border-bottom:1px dashed #22D3EE"></span><span class="text-gray-400">Break-even</span></span>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE -->
+  <div class="mt-12" id="leadCapture">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Analisis completo</p>
+      <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe el analisis ROI completo para tu caso</h3>
+      <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te enviamos el desglose detallado con proyecciones a 12, 24 y 36 meses + recomendaciones concretas para tu empresa.</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="source" value="calculadora-roi-infraestructura">
+        <input type="hidden" name="ahorro_24m" id="hiddenAhorro24" value="">
+        <input type="hidden" name="roi_infra" id="hiddenRoiInfra" value="">
+        <input type="hidden" name="breakeven_mes" id="hiddenBreakevenMes" value="">
+        <input type="hidden" name="coste_reunion_agencia" id="hiddenCprAgencia" value="">
+        <input type="hidden" name="coste_reunion_infra" id="hiddenCprInfra" value="">
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+          <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white">politica de privacidad</a>. Recibire comunicaciones que puedo cancelar en cualquier momento.</span>
+        </label>
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Recibe el analisis ROI completo para tu caso</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los proximos 2 minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo tu analisis con los numeros.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  // Infra running cost per month (tools, maintenance, etc.)
+  var INFRA_MONTHLY = 200;
+
+  function fmtEur(n){
+    if(Math.abs(n) >= 1000000) return (n/1000000).toFixed(1).replace('.',',') + 'M EUR';
+    return Math.round(n).toLocaleString('es-ES') + ' EUR';
+  }
+
+  function fmtPct(n){
+    if(n > 9999) return '+9.999%';
+    return Math.round(n) + '%';
+  }
+
+  window.calc = function(){
+    var fee = parseFloat(document.getElementById('s1').value);
+    var meses = parseFloat(document.getElementById('s2').value);
+    var reunAgencia = parseFloat(document.getElementById('s3').value);
+    var ticket = parseFloat(document.getElementById('s4').value);
+    var cierre = parseFloat(document.getElementById('s5').value) / 100;
+    var inversion = parseFloat(document.getElementById('s6').value);
+    var reunInfra = parseFloat(document.getElementById('s7').value);
+
+    // Update slider labels
+    document.getElementById('s1Val').textContent = Math.round(fee).toLocaleString('es-ES') + ' EUR';
+    document.getElementById('s2Val').textContent = meses;
+    document.getElementById('s3Val').textContent = reunAgencia;
+    document.getElementById('s4Val').textContent = Math.round(ticket).toLocaleString('es-ES') + ' EUR';
+    document.getElementById('s5Val').textContent = Math.round(cierre * 100) + '%';
+    document.getElementById('s6Val').textContent = Math.round(inversion).toLocaleString('es-ES') + ' EUR';
+    document.getElementById('s7Val').textContent = reunInfra;
+
+    // --- COST CALCULATIONS (24 months) ---
+    var costeAgencia24 = fee * 24;
+    var costeInfra24 = inversion + (INFRA_MONTHLY * 24);
+
+    // --- REVENUE CALCULATIONS (24 months) ---
+    var revAgencia24 = reunAgencia * cierre * ticket * 24;
+    var revInfra24 = reunInfra * cierre * ticket * 24;
+
+    // --- COST PER MEETING ---
+    var totalMeetingsAgencia = reunAgencia * 24;
+    var totalMeetingsInfra = reunInfra * 24;
+    var cprAgencia = totalMeetingsAgencia > 0 ? costeAgencia24 / totalMeetingsAgencia : 0;
+    var cprInfra = totalMeetingsInfra > 0 ? costeInfra24 / totalMeetingsInfra : 0;
+
+    // --- ROI ---
+    var roiAgencia = costeAgencia24 > 0 ? ((revAgencia24 - costeAgencia24) / costeAgencia24) * 100 : 0;
+    var roiInfra = costeInfra24 > 0 ? ((revInfra24 - costeInfra24) / costeInfra24) * 100 : 0;
+
+    // --- AHORRO 24 meses ---
+    var ahorro24 = costeAgencia24 - costeInfra24;
+
+    // --- Revenue extra ---
+    var revExtra24 = revInfra24 - revAgencia24;
+
+    // --- BREAK-EVEN ---
+    // Month where cumulative infra cost < cumulative agency cost
+    var breakEvenMes = 0;
+    for(var m = 1; m <= 24; m++){
+      var cumAgencia = fee * m;
+      var cumInfra = inversion + (INFRA_MONTHLY * m);
+      if(cumInfra < cumAgencia){
+        breakEvenMes = m;
+        break;
+      }
+    }
+
+    // --- UPDATE UI ---
+    document.getElementById('ahorro24').textContent = ahorro24 > 0 ? fmtEur(ahorro24) : '0 EUR';
+    document.getElementById('revExtra24').textContent = revExtra24 > 0 ? fmtEur(revExtra24) : '0 EUR';
+    document.getElementById('cprAgencia').textContent = cprAgencia > 0 ? fmtEur(cprAgencia) : '--';
+    document.getElementById('cprInfra').textContent = cprInfra > 0 ? fmtEur(cprInfra) : '--';
+    document.getElementById('roiAgencia').textContent = fmtPct(roiAgencia);
+    document.getElementById('roiInfra').textContent = fmtPct(roiInfra);
+    document.getElementById('breakeven').textContent = breakEvenMes > 0 ? 'Mes ' + breakEvenMes : 'Siempre mas barato con agencia';
+    document.getElementById('costeAgencia24').textContent = fmtEur(costeAgencia24);
+    document.getElementById('costeInfra24').textContent = fmtEur(costeInfra24);
+
+    // Cost bars
+    var maxCoste = Math.max(costeAgencia24, costeInfra24);
+    document.getElementById('barAgencia').style.width = (costeAgencia24 / maxCoste * 100) + '%';
+    document.getElementById('barInfra').style.width = (costeInfra24 / maxCoste * 100) + '%';
+
+    // --- Hidden fields ---
+    document.getElementById('hiddenAhorro24').value = Math.round(ahorro24);
+    document.getElementById('hiddenRoiInfra').value = Math.round(roiInfra);
+    document.getElementById('hiddenBreakevenMes').value = breakEvenMes;
+    document.getElementById('hiddenCprAgencia').value = Math.round(cprAgencia);
+    document.getElementById('hiddenCprInfra').value = Math.round(cprInfra);
+
+    // --- CHART ---
+    drawChart(fee, inversion, INFRA_MONTHLY, breakEvenMes);
+  };
+
+  function drawChart(fee, inversion, infraMonthly, breakEvenMes){
+    var agPoints = [];
+    var inPoints = [];
+    var maxVal = 0;
+
+    for(var m = 0; m <= 24; m++){
+      var cumAg = fee * m;
+      var cumIn = (m === 0) ? inversion : inversion + (infraMonthly * m);
+      agPoints.push(cumAg);
+      inPoints.push(cumIn);
+      if(cumAg > maxVal) maxVal = cumAg;
+      if(cumIn > maxVal) maxVal = cumIn;
+    }
+
+    // Add 10% padding to max
+    maxVal = maxVal * 1.1;
+    if(maxVal === 0) maxVal = 1;
+
+    // Chart dimensions
+    var xStart = 50, xEnd = 680, yStart = 240, yEnd = 20;
+    var xRange = xEnd - xStart;
+    var yRange = yStart - yEnd;
+
+    function toX(month){ return xStart + (month / 24) * xRange; }
+    function toY(val){ return yStart - (val / maxVal) * yRange; }
+
+    // Build polyline points
+    var agStr = '', inStr = '';
+    for(var i = 0; i <= 24; i++){
+      agStr += toX(i).toFixed(1) + ',' + toY(agPoints[i]).toFixed(1) + ' ';
+      inStr += toX(i).toFixed(1) + ',' + toY(inPoints[i]).toFixed(1) + ' ';
+    }
+
+    document.getElementById('lineAgencia').setAttribute('points', agStr.trim());
+    document.getElementById('lineInfra').setAttribute('points', inStr.trim());
+
+    // Y axis labels
+    var step = maxVal / 4;
+    document.getElementById('yLabel1').textContent = fmtShort(step);
+    document.getElementById('yLabel2').textContent = fmtShort(step * 2);
+    document.getElementById('yLabel3').textContent = fmtShort(step * 3);
+    document.getElementById('yLabel4').textContent = fmtShort(step * 4);
+
+    // Break-even line
+    var beLine = document.getElementById('beLine');
+    var beLabel = document.getElementById('beLabel');
+    if(breakEvenMes > 0){
+      var beX = toX(breakEvenMes);
+      beLine.setAttribute('x1', beX);
+      beLine.setAttribute('x2', beX);
+      beLine.setAttribute('opacity', '1');
+      beLabel.setAttribute('x', beX);
+      beLabel.setAttribute('opacity', '1');
+      beLabel.textContent = 'Mes ' + breakEvenMes;
+    } else {
+      beLine.setAttribute('opacity', '0');
+      beLabel.setAttribute('opacity', '0');
+    }
+  }
+
+  function fmtShort(n){
+    if(n >= 1000000) return (n/1000000).toFixed(1).replace('.',',') + 'M';
+    if(n >= 1000) return Math.round(n/1000) + 'K';
+    return Math.round(n) + '';
+  }
+
+  function fmtEur(n){
+    if(Math.abs(n) >= 1000000) return (n/1000000).toFixed(1).replace('.',',') + 'M EUR';
+    return Math.round(n).toLocaleString('es-ES') + ' EUR';
+  }
+
+  // Initial calc
+  calc();
+
+  // --- LEAD FORM ---
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      source: 'calculadora-roi-infraestructura',
+      ahorro_24m: form.ahorro_24m.value,
+      roi_infra: form.roi_infra.value,
+      breakeven_mes: form.breakeven_mes.value,
+      coste_reunion_agencia: form.coste_reunion_agencia.value,
+      coste_reunion_infra: form.coste_reunion_infra.value,
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

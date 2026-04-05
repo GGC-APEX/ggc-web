@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Las 5 capas de una infraestructura comercial B2B que funciona | GGC</title>
+  <meta name="description" content="La mayor&iacute;a de empresas B2B tienen herramientas sueltas. APEX OS instala 5 capas integradas: ICP, contenido, outbound, cualificaci&oacute;n y datos. As&iacute; funciona.">
+  <link rel="canonical" href="https://globalgrowth.consulting/blog/5-capas-infraestructura-comercial-b2b">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://globalgrowth.consulting/blog/5-capas-infraestructura-comercial-b2b">
+  <meta property="og:title" content="Las 5 capas de una infraestructura comercial B2B que funciona">
+  <meta property="og:description" content="La mayor&iacute;a de empresas B2B tienen herramientas sueltas. APEX OS instala 5 capas integradas: ICP, contenido, outbound, cualificaci&oacute;n y datos. As&iacute; funciona.">
+  <meta property="og:locale" content="es_ES">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:author" content="Xavi Fortuna">
+  <meta property="article:section" content="APEX OS">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Xavi Fortuna">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Las 5 capas de una infraestructura comercial B2B que funciona",
+    "description": "La mayoría de empresas B2B tienen herramientas sueltas. APEX OS instala 5 capas integradas: ICP, contenido, outbound, cualificación y datos. Así funciona.",
+    "datePublished": "2026-04-05",
+    "dateModified": "2026-04-05",
+    "author": {
+      "@type": "Person",
+      "name": "Xavi Fortuna",
+      "jobTitle": "CEO & Head of Growth",
+      "url": "https://linkedin.c../xavierfortuna/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Global Growth Consulting",
+      "url": "https://globalgrowth.consulting",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://globalgrowth.consulting/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://globalgrowth.consulting/blog/5-capas-infraestructura-comercial-b2b"
+    },
+    "articleSection": "APEX OS",
+    "wordCount": 1700,
+    "timeRequired": "PT8M"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#8A8A8A',700:'#6B6B6B'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-outline{border:1px solid rgba(139,92,246,0.4);color:#8B5CF6;transition:all .3s ease}
+    .btn-outline:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.08)}
+
+    .nav-blur{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(12,10,29,0.7);border-bottom:1px solid rgba(255,255,255,0.06)}
+
+    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+
+    /* Article typography */
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;margin-top:2.5rem;margin-bottom:1rem;line-height:1.3}
+    .article-body h3{font-size:1.25rem;font-weight:600;color:#fff;margin-top:2rem;margin-bottom:0.75rem;line-height:1.4}
+    .article-body p{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:1.25rem}
+    .article-body ul,.article-body ol{margin-bottom:1.25rem;padding-left:1.5rem}
+    .article-body li{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:0.5rem}
+    .article-body strong{color:#e0e0e0;font-weight:600}
+    .article-body blockquote{border-left:3px solid transparent;border-image:linear-gradient(180deg,#8B5CF6,#EC4899) 1;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#999}
+
+    /* Scroll popup */
+    .scroll-popup{transform:translateY(120%);transition:transform .4s ease,opacity .4s ease;opacity:0}
+    .scroll-popup.show{transform:translateY(0);opacity:1}
+
+    /* Focus */
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+
+    @media(prefers-reduced-motion:reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      .btn-g,.btn-outline{transition:none}
+      .btn-g::after{animation:none}
+      .scroll-popup{transition:none}
+    }
+
+    section[id]{scroll-margin-top:80px}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+<div id="progress" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);z-index:100;width:0;transition:width .1s"></div>
+
+<!-- NAV -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="../index.html#sistema" class="text-sm text-gray-400 hover:text-white transition-colors">Sistema</a>
+      <a href="../index.html#resultados" class="text-sm text-gray-400 hover:text-white transition-colors">Resultados</a>
+      <a href="../blog.html" class="text-sm text-white font-medium transition-colors">Blog</a>
+      <a href="../index.html#proceso" class="text-sm text-gray-400 hover:text-white transition-colors">Proceso</a>
+      <a href="../agendar.html" class="btn-g px-5 py-2.5 rounded-lg text-sm">Aplica ahora</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Abrir menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h1../svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-72 bg-[#151331] z-50 flex flex-col p-8 gap-6 md:hidden">
+    <button id="closeMenu" class="self-end text-white mb-4" aria-label="Cerrar menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 1../svg>
+    </button>
+    <a href="../index.html#sistema" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Sistema</a>
+    <a href="../index.html#resultados" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Resultados</a>
+    <a href="../blog.html" class="text-lg text-white font-medium transition-colors mobile-link">Blog</a>
+    <a href="../index.html#proceso" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Proceso</a>
+    <a href="../agendar.html" class="btn-g px-5 py-3 rounded-lg text-center text-sm mt-4 mobile-link">Aplica ahora</a>
+  </div>
+</nav>
+
+<!-- ARTICLE -->
+<main class="pt-28 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 reveal" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="../index.html" class="hover:text-gray-300 transition-colors">Inicio</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><span class="text-[#8B5CF6]">APEX OS</span></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li class="text-gray-400 truncate max-w-[200px]">Este articulo</li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="max-w-3xl mx-auto mb-12 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">APEX OS</span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        Las 5 capas de una infraestructura comercial B2B que funciona
+      </h1>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+        <span class="font-medium text-white">Xavi Fortuna</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>5 de abril de 2026</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>8 min lectura</span>
+      </div>
+    </header>
+
+    <!-- Article Body -->
+    <article class="max-w-3xl mx-auto article-body">
+
+      <!-- Opening hook -->
+      <div class="reveal">
+        <p>
+          Tienes un CRM. Tienes una herramienta de email. Tienes LinkedIn Sales Navigator. Quiz&aacute; hasta un sistema de automatizaci&oacute;n que alguien configur&oacute; hace meses y nadie toca. Herramientas no te faltan.
+        </p>
+        <p>
+          Lo que te falta es arquitectura.
+        </p>
+        <p>
+          Es como tener ladrillos, cemento, tuber&iacute;as y cables tirados en un solar. Los materiales est&aacute;n. Pero sin planos, sin cimientos y sin alguien que sepa en qu&eacute; orden van las cosas, no tienes una casa. Tienes un solar con trastos.
+        </p>
+        <p>
+          Despu&eacute;s de instalar infraestructura comercial en m&aacute;s de 627 empresas B2B, hemos identificado un patr&oacute;n que se repite siempre. Las empresas que generan reuniones cualificadas de forma predecible &mdash;mes tras mes, sin depender de contactos o de &laquo;rachas buenas&raquo;&mdash; tienen 5 capas funcionando de forma integrada. No 3. No 7. Cinco.
+        </p>
+        <p>
+          Cuando falta una, el sistema cojea. Cuando faltan dos o m&aacute;s, lo que tienes no es un sistema. Es improvisaci&oacute;n con herramientas caras.
+        </p>
+        <p>
+          Vamos capa por capa.
+        </p>
+      </div>
+
+      <!-- Capa 1 -->
+      <div class="reveal">
+        <h2>Capa 1 &mdash; Definici&oacute;n de ICP y targeting</h2>
+        <p>
+          Todo empieza aqu&iacute;. Si no sabes exactamente a qui&eacute;n le vendes, todo lo que construyas encima va a fallar. Y cuando digo &laquo;exactamente&raquo;, no me refiero a &laquo;empresas de 50 o m&aacute;s empleados en Espa&ntilde;a&raquo;. Eso no es un ICP. Eso es una hoja de c&aacute;lculo de 200.000 filas donde el 98% son irrelevantes.
+        </p>
+        <p>
+          Un ICP real tiene cuatro dimensiones:
+        </p>
+        <ul>
+          <li><strong>Firmogr&aacute;fica:</strong> sector, tama&ntilde;o, facturaci&oacute;n, geograf&iacute;a, estructura organizativa</li>
+          <li><strong>Tecnogr&aacute;fica:</strong> qu&eacute; herramientas usan, qu&eacute; stack tienen, qu&eacute; problemas genera ese stack</li>
+          <li><strong>Comportamental:</strong> c&oacute;mo compran, qui&eacute;n decide, cu&aacute;nto tarda el ciclo de venta, qu&eacute; objeciones aparecen</li>
+          <li><strong>Se&ntilde;ales de timing:</strong> eventos que indican que ahora es un buen momento &mdash; contrataciones, rondas de financiaci&oacute;n, cambios de liderazgo, expansi&oacute;n a nuevos mercados</li>
+        </ul>
+        <p>
+          Cuando defines tu ICP con esta profundidad, todo cambia. Tu lista de prospeci&oacute;n pasa de 10.000 contactos gen&eacute;ricos a 400 cuentas de alto valor. Tu mensaje deja de ser gen&eacute;rico y se vuelve espec&iacute;fico. Tu tasa de respuesta se multiplica.
+        </p>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">3x</span>
+            <span class="text-gray-400 text-sm">Las empresas con ICP definido en las 4 dimensiones convierten 3 veces m&aacute;s desde outreach hasta reuni&oacute;n</span>
+          </div>
+        </div>
+
+        <p>
+          La mayor&iacute;a de equipos se saltan este paso o lo hacen a medias. Quieren empezar a contactar ya. Es un error caro. Cada hora invertida en definir bien el ICP ahorra 20 horas de outreach desperdiciado despu&eacute;s.
+        </p>
+      </div>
+
+      <!-- Capa 2 -->
+      <div class="reveal">
+        <h2>Capa 2 &mdash; Motor de contenido y posicionamiento</h2>
+        <p>
+          Antes de que env&iacute;es un solo email o hagas una sola llamada, tu prospect ya te ha buscado. Ha mirado tu LinkedIn. Ha revisado tu web. Ha le&iacute;do &mdash;o no ha encontrado&mdash; contenido que le diga por qu&eacute; deber&iacute;a prestarte atenci&oacute;n.
+        </p>
+        <p>
+          Seg&uacute;n Gartner, el 78% de los compradores B2B investigan a los proveedores antes del primer contacto. Si cuando te buscan encuentran un perfil de LinkedIn muerto, una web gen&eacute;rica y cero contenido relevante, ya has perdido antes de empezar.
+        </p>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">78%</span>
+            <span class="text-gray-400 text-sm">de los compradores B2B investigan proveedores antes de responder al primer mensaje (Gartner)</span>
+          </div>
+        </div>
+
+        <p>
+          El motor de contenido no va de publicar por publicar. Va de posicionar al CEO o al fundador como la autoridad en su nicho. Contenido estrat&eacute;gico, mapeado al recorrido del comprador:
+        </p>
+        <ul>
+          <li><strong>Top of funnel:</strong> posts en LinkedIn que muestran visi&oacute;n, opini&oacute;n, experiencia real. No contenido motivacional. Contenido que hace pensar &laquo;esta persona sabe de lo que habla&raquo;</li>
+          <li><strong>Mid funnel:</strong> art&iacute;culos de blog, casos de estudio, frameworks concretos que demuestran metodolog&iacute;a</li>
+          <li><strong>Bottom funnel:</strong> newsletter con insights semanales que mantienen la relaci&oacute;n hasta que el prospect est&aacute; listo para comprar</li>
+        </ul>
+        <p>
+          LinkedIn, blog y newsletter funcionan como un ecosistema. Cada pieza refuerza a las dem&aacute;s. El resultado: cuando tu SDR env&iacute;a un mensaje, el prospect ya sabe qui&eacute;n eres. La tasa de respuesta sube. La confianza sube. El ciclo de venta se acorta.
+        </p>
+      </div>
+
+      <!-- Capa 3 -->
+      <div class="reveal">
+        <h2>Capa 3 &mdash; Sistema de outbound multicanal</h2>
+        <p>
+          Aqu&iacute; es donde la mayor&iacute;a de empresas empieza &mdash;y se equivoca&mdash;. Compran una herramienta de automatizaci&oacute;n de email, cargan una lista de 5.000 contactos y lanzan secuencias gen&eacute;ricas. El resultado: 1-2% de respuesta, la mayor&iacute;a negativas, y un dominio quemado en dos meses.
+        </p>
+        <p>
+          El outbound que funciona en 2026 es otra cosa. Es multicanal, personalizado y basado en investigaci&oacute;n.
+        </p>
+        <ul>
+          <li><strong>Multicanal:</strong> email + LinkedIn + llamada telef&oacute;nica. No uno u otro. Los tres, coordinados en secuencias de 14-21 d&iacute;as</li>
+          <li><strong>Personalizado:</strong> cada mensaje hace referencia a algo espec&iacute;fico del prospect &mdash; un post reciente, un cambio en su empresa, un problema concreto de su sector</li>
+          <li><strong>Basado en investigaci&oacute;n:</strong> 50 contactos bien investigados generan m&aacute;s que 500 contactos gen&eacute;ricos. Siempre</li>
+        </ul>
+
+        <div class="space-y-4 my-8">
+          <div class="glass rounded-xl p-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold gr">8-12%</span>
+              <span class="text-gray-400 text-sm">Tasa de respuesta con outbound multicanal personalizado</span>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold text-white">1-2%</span>
+              <span class="text-gray-400 text-sm">Tasa de respuesta con emails masivos gen&eacute;ricos</span>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          La diferencia es brutal. Y no es cuesti&oacute;n de talento ni de suerte. Es cuesti&oacute;n de sistema. Cuando el ICP est&aacute; bien definido (capa 1) y el contenido te posiciona como autoridad (capa 2), el outbound deja de ser &laquo;spam fr&iacute;o&raquo; y se convierte en una conversaci&oacute;n relevante.
+        </p>
+      </div>
+
+      <!-- Capa 4 -->
+      <div class="reveal">
+        <h2>Capa 4 &mdash; Cualificaci&oacute;n y gesti&oacute;n del pipeline</h2>
+        <p>
+          Generar reuniones est&aacute; bien. Pero si no cualificas, llenas tu pipeline de aire. He visto empresas con 30 reuniones al mes y una tasa de cierre del 5%. Y empresas con 12 reuniones al mes cerrando al 35%. La diferencia no est&aacute; en el volumen. Est&aacute; en la cualificaci&oacute;n.
+        </p>
+        <p>
+          Esta capa tiene tres componentes:
+        </p>
+        <ul>
+          <li><strong>Criterios de cualificaci&oacute;n autom&aacute;ticos:</strong> antes de que un prospect llegue a reuni&oacute;n, pasa por filtros objetivos. Presupuesto, autoridad de decisi&oacute;n, necesidad real, timing. Si no cumple los m&iacute;nimos, no entra al pipeline. Sin excepciones</li>
+          <li><strong>Etapas del pipeline con criterios de salida claros:</strong> cada etapa tiene condiciones concretas para pasar a la siguiente. No &laquo;me pareci&oacute; buena reuni&oacute;n&raquo;. Datos. &iquest;Ha confirmado presupuesto? &iquest;Hay fecha para la propuesta? &iquest;Tenemos acceso al decisor final?</li>
+          <li><strong>CRM como sistema de verdad:</strong> no como vertedero de datos. El CRM refleja la realidad del pipeline en tiempo real. Las notas son estructuradas. Los campos se rellenan. Las alertas de seguimiento funcionan</li>
+        </ul>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">+28%</span>
+            <span class="text-gray-400 text-sm">Las empresas con criterios de cualificaci&oacute;n definidos cierran un 28% m&aacute;s de oportunidades</span>
+          </div>
+        </div>
+
+        <p>
+          Suena b&aacute;sico. Pero la realidad es que el 80% de los CRMs que vemos son un caos. Oportunidades sin actualizar desde hace semanas. Etapas que no significan nada. Forecasts basados en intuici&oacute;n, no en datos. Arreglar esto solo &mdash;sin tocar nada m&aacute;s&mdash; ya mejora los resultados un 20-30%.
+        </p>
+      </div>
+
+      <!-- Capa 5 -->
+      <div class="reveal">
+        <h2>Capa 5 &mdash; Datos, iteraci&oacute;n y optimizaci&oacute;n</h2>
+        <p>
+          Las cuatro capas anteriores ponen el sistema en marcha. Esta quinta capa es la que lo hace imparable con el tiempo.
+        </p>
+        <p>
+          Sin datos, est&aacute;s volando a ciegas. Tomas decisiones basadas en sensaciones. &laquo;Creo que los emails funcionan bien.&raquo; &laquo;Me parece que este sector responde mejor.&raquo; Creer y parecer no son m&eacute;tricas. Son excusas para no medir.
+        </p>
+        <p>
+          La capa de datos incluye:
+        </p>
+        <ul>
+          <li><strong>Revisi&oacute;n semanal de m&eacute;tricas:</strong> tasa de apertura, respuesta, conversi&oacute;n a reuni&oacute;n, conversi&oacute;n a propuesta, tasa de cierre, ciclo medio de venta. Cada semana. Sin falta</li>
+          <li><strong>A/B testing continuo:</strong> asuntos de email, mensajes de LinkedIn, scripts de llamada, propuestas de valor. Todo se testea. Las hip&oacute;tesis se validan con datos, no con opiniones</li>
+          <li><strong>Iteraci&oacute;n basada en se&ntilde;ales:</strong> si un vertical responde mejor, se duplica el esfuerzo ah&iacute;. Si un mensaje convierte el doble, se replica y se adapta. Si una etapa del pipeline tiene un cuello de botella, se interviene</li>
+          <li><strong>Efecto compuesto:</strong> una mejora del 10% en cada m&eacute;trica no genera un 10% m&aacute;s de resultados. Genera un 60% m&aacute;s cuando las mejoras se acumulan a lo largo de las 5 capas</li>
+        </ul>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">90 d&iacute;as</span>
+            <span class="text-gray-400 text-sm">Despu&eacute;s de 90 d&iacute;as de iteraci&oacute;n, el sistema genera reuniones con mantenimiento m&iacute;nimo</span>
+          </div>
+        </div>
+
+        <p>
+          Esto es lo que m&aacute;s cuesta de entender a los CEOs acostumbrados a resultados inmediatos. Las primeras semanas son de calibraci&oacute;n. El mes 1 da se&ntilde;ales. El mes 2 da tendencias. El mes 3 da previsibilidad. A partir de ah&iacute;, el sistema se mantiene con 2-3 horas semanales de revisi&oacute;n y ajuste.
+        </p>
+      </div>
+
+      <!-- Por qu&eacute; las capas importan -->
+      <div class="reveal">
+        <h2>Por qu&eacute; las capas importan m&aacute;s que las herramientas</h2>
+        <p>
+          Puedes tener el mejor CRM del mercado. La herramienta de automatizaci&oacute;n m&aacute;s cara. El Sales Navigator premium. Si no tienes las 5 capas funcionando de forma integrada, esas herramientas son coches sin carretera.
+        </p>
+        <p>
+          Las capas crean un efecto flywheel. Cada una alimenta a la siguiente:
+        </p>
+        <ul>
+          <li>Un ICP bien definido hace que el contenido sea m&aacute;s relevante</li>
+          <li>El contenido relevante hace que el outbound funcione mejor</li>
+          <li>Un outbound efectivo genera reuniones que realmente se cualifican</li>
+          <li>Un pipeline cualificado genera datos limpios</li>
+          <li>Los datos limpios permiten optimizar el ICP, el contenido y el outbound</li>
+        </ul>
+        <p>
+          El c&iacute;rculo se retroalimenta. Cada vuelta es mejor que la anterior. Eso no lo consigues con herramientas sueltas. Lo consigues con capas integradas.
+        </p>
+
+        <blockquote>
+          Las herramientas son los ladrillos. Las capas son la arquitectura. Sin arquitectura, los ladrillos no hacen una casa.
+        </blockquote>
+
+        <p>
+          Esto es exactamente lo que instalamos con APEX OS. No vendemos herramientas. No damos consultor&iacute;a te&oacute;rica. Construimos las 5 capas dentro de tu empresa, con tus herramientas, tu equipo y tus procesos. Y cuando terminamos, el sistema es tuyo. Se queda en tu propiedad.
+        </p>
+        <p>
+          Si quieres ver c&oacute;mo aplicar&iacute;an estas 5 capas a tu empresa concreta, <a href="../agendar.html" class="text-[#8B5CF6] hover:text-[#EC4899] transition-colors font-medium underline underline-offset-4">reserva 30 minutos con nosotros</a>. Miramos tu situaci&oacute;n, identificamos qu&eacute; capas te faltan y te decimos por d&oacute;nde empezar. Sin compromiso.
+        </p>
+      </div>
+
+      <!-- LEAD MAGNET INLINE -->
+      <div class="my-12 glass rounded-2xl p-8 border border-[#8B5CF6]/20 relative overflow-hidden reveal">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]"></div>
+        <div class="md:flex items-start gap-8">
+          <div class="flex-1">
+            <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Recurso gratuito</p>
+            <h3 class="text-xl font-bold text-white mb-2" style="margin-top:0">Blueprint: Mapa visual de las 5 capas de infraestructura comercial B2B</h3>
+            <p class="text-gray-400 text-sm mb-4">Descarga el mapa visual con las 5 capas, sus componentes clave y c&oacute;mo se conectan entre s&iacute;. Incluye checklist de diagn&oacute;stico para evaluar en qu&eacute; nivel est&aacute; cada capa en tu empresa.</p>
+            <!-- Lead capture form -->
+            <form id="leadMagnetForm" class="space-y-3">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <label class="flex items-start gap-2 cursor-pointer">
+                <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+                <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+              </label>
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm">Descargar blueprint gratuito</button>
+            </form>
+            <div id="leadMagnetSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+              Te lo enviamos al email en 2 minutos.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- CTA FINAL DOBLE -->
+    <div class="max-w-3xl mx-auto mt-16 grid md:grid-cols-2 gap-6 reveal">
+      <!-- Left: Blueprint CTA -->
+      <div class="glass rounded-2xl p-8 border border-white/5 text-center">
+        <div class="text-3xl mb-4">&#128205;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Descarga el blueprint</h3>
+        <p class="text-gray-400 text-sm mb-6">Mapa visual de las 5 capas con checklist de diagn&oacute;stico. Eval&uacute;a d&oacute;nde est&aacute; tu empresa en 10 minutos.</p>
+        <button onclick="document.getElementById('leadMagnetForm').scrollIntoView({behavior:'smooth'})" class="btn-outline px-6 py-3 rounded-lg text-sm w-full">Descargar gratis</button>
+      </div>
+      <!-- Right: Agendar CTA -->
+      <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+        <div class="text-3xl mb-4">&#128197;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Agendar discovery call</h3>
+        <p class="text-gray-400 text-sm mb-6">Sin compromiso. 30 minutos. Identificamos qu&eacute; capas te faltan y por d&oacute;nde empezar.</p>
+        <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Reservar mi plaza</a>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <div class="max-w-3xl mx-auto px-6 mb-16">
+      <div class="gc p-6 sm:p-8 rounded-2xl flex items-start gap-5">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0 text-lg font-bold" style="background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(236,72,153,.2));color:#8B5CF6">XF</div>
+        <div>
+          <p class="font-bold text-white text-lg">Xavi Fortuna</p>
+          <p class="text-sm text-gray-400 mb-2">CEO & Head of Growth &middot; Global Growth Consulting</p>
+          <p class="text-sm text-gray-400 leading-relaxed">10 a&ntilde;os construyendo infraestructura comercial para empresas B2B. +627 clientes en 3 continentes. Si tu empresa depende de ti para vender, probablemente podamos ayudarte.</p>
+          <a href="https://linkedin.c../xavierfortuna/" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm mt-2 hover:underline" style="color:#8B5CF6">LinkedIn <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="max-w-3xl mx-auto mt-16 text-center reveal">
+      <div class="glass rounded-2xl p-8 border border-white/5">
+        <h3 class="text-xl font-bold text-white mb-2">&iquest;Te ha parecido &uacute;til? Recibe 1 insight semanal.</h3>
+        <p class="text-gray-400 text-sm mb-6">Estrategia comercial B2B sin relleno. Un email a la semana. Te das de baja cuando quieras.</p>
+        <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input type="email" name="email" placeholder="tu@empresa.com" required class="flex-1 px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+            <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+          </label>
+          <button type="submit" class="btn-g px-6 py-3 rounded-lg text-sm whitespace-nowrap">Suscribirme</button>
+        </form>
+        <div id="newsletterSuccess" class="hidden mt-4 text-green-400 text-sm">Apuntado. Bienvenido.</div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="max-w-5xl mx-auto mt-20 reveal">
+      <h2 class="font-display text-2xl font-bold text-white mb-8">Tambi&eacute;n te puede interesar</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="../infraestructura-vs-herramientas.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Revenue Infrastructure</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">Herramientas vs. Infraestructura</h3>
+          <p class="text-gray-500 text-sm">La mayor&iacute;a de empresas B2B acumulan herramientas sin tener un sistema. Descubre la diferencia.</p>
+        </a>
+        <a href="../framework-20-reuniones.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Revenue Infrastructure</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">De 0 a 20 reuniones/semana</h3>
+          <p class="text-gray-500 text-sm">El framework exacto que usamos para llenar el calendario de nuestros clientes con reuniones cualificadas.</p>
+        </a>
+        <a href="../outbound-2026.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Outbound</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">El outbound masivo ha muerto</h3>
+          <p class="text-gray-500 text-sm">El spam gen&eacute;rico ya no funciona. As&iacute; es el outbound que genera reuniones en 2026.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- NEWSLETTER SCROLL POPUP -->
+<div id="scrollPopup" class="scroll-popup fixed bottom-6 right-6 z-40 w-80 glass rounded-2xl p-6 border border-[#8B5CF6]/20 shadow-2xl">
+  <button id="closePopup" class="absolute top-3 right-3 text-gray-500 hover:text-white transition-colors" aria-label="Cerrar">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 1../svg>
+  </button>
+  <p class="text-white font-bold text-sm mb-1">1 insight semanal. Sin spam.</p>
+  <p class="text-gray-400 text-xs mb-4">Estrategia comercial B2B directa al grano. Cada viernes.</p>
+  <form id="popupForm" class="space-y-2">
+    <input type="email" name="email" placeholder="tu@empresa.com" required class="w-full px-3 py-2.5 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+    <label class="flex items-start gap-2 cursor-pointer">
+      <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+      <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>.</span>
+    </label>
+    <button type="submit" class="btn-g w-full px-4 py-2.5 rounded-lg text-xs">Suscribirme</button>
+  </form>
+  <div id="popupSuccess" class="hidden mt-3 text-green-400 text-xs">Apuntado. Bienvenido.</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div>
+        <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto mb-4">
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Infraestructura comercial B2B permanente. No somos agencia. Instalamos sistemas que se quedan en tu propiedad.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Navegaci&oacute;n</h4>
+        <ul class="space-y-3">
+          <li><a href="../index.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Inicio</a></li>
+          <li><a href="../index.html#sistema" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Sistema</a></li>
+          <li><a href="../index.html#resultados" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Resultados</a></li>
+          <li><a href="../index.html#proceso" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Proceso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Recursos</h4>
+        <ul class="space-y-3">
+          <li><a href="../blog.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Blog</a></li>
+          <li><a href="../agendar.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Agendar</a></li>
+          <li><a href="../privacidad.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Privacidad</a></li>
+          <li><a href="../aviso-legal.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Aviso Legal</a></li>
+          <li><a href="../cookies.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Contacto</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="mailto:soporte@globalgrowth.consulting" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2../svg>
+              soporte@globalgrowth.consulting
+            </a>
+          </li>
+          <li class="text-gray-500 text-xs leading-relaxed">Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</li>
+          <li>
+            <a href="https://linkedin.c../xavierfortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003../svg>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/sir.fortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881../svg>
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 text-center">
+      <p class="text-gray-500 text-xs">&copy; 2016&ndash;2026 Global Growth Consulting by Digital Insta Media. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+(function(){
+  'use strict';
+
+  // -- Mobile menu --
+  var menuBtn = document.getElementById('menuBtn');
+  var closeBtn = document.getElementById('closeMenu');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  if(menuBtn && mobileMenu){
+    menuBtn.addEventListener('click', function(){ mobileMenu.classList.add('open'); });
+  }
+  if(closeBtn && mobileMenu){
+    closeBtn.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach(function(link){
+    link.addEventListener('click', function(){ if(mobileMenu) mobileMenu.classList.remove('open'); });
+  });
+
+  // -- Scroll reveals (Intersection Observer) --
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced){
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el){ observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  // -- Reading progress bar --
+  window.addEventListener('scroll', function(){
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress').style.width = progress + '%';
+  });
+
+  // -- Lead Magnet Form --
+  var leadForm = document.getElementById('leadMagnetForm');
+  if(leadForm){
+    leadForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(leadForm);
+      var obj = {};
+      data.forEach(function(v,k){ obj[k] = v; });
+      obj.source = 'blog_blueprint_5capas';
+      obj.page = window.location.pathname;
+
+      fetch('/api/lead-magnet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(obj)
+      }).then(function(){
+        leadForm.style.display = 'none';
+        document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+      }).catch(function(){
+        leadForm.style.display = 'none';
+        document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+  // -- Newsletter Form --
+  var nlForm = document.getElementById('newsletterForm');
+  if(nlForm){
+    nlForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = nlForm.querySelector('input[name="email"]').value;
+
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'blog_article_newsletter', page: window.location.pathname })
+      }).then(function(){
+        nlForm.style.display = 'none';
+        document.getElementById('newsletterSuccess').classList.remove('hidden');
+      }).catch(function(){
+        nlForm.style.display = 'none';
+        document.getElementById('newsletterSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+  // -- Scroll Popup (70% scroll, once per session) --
+  var popup = document.getElementById('scrollPopup');
+  var closePopupBtn = document.getElementById('closePopup');
+  var popupShown = sessionStorage.getItem('popupShown');
+
+  if(popup && !popupShown){
+    var popupTriggered = false;
+    window.addEventListener('scroll', function(){
+      if(popupTriggered) return;
+      var scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if(scrollPercent > 0.7){
+        popupTriggered = true;
+        popup.classList.add('show');
+        sessionStorage.setItem('popupShown', '1');
+      }
+    });
+  }
+
+  if(closePopupBtn && popup){
+    closePopupBtn.addEventListener('click', function(){
+      popup.classList.remove('show');
+    });
+  }
+
+  // -- Popup Form --
+  var popupForm = document.getElementById('popupForm');
+  if(popupForm){
+    popupForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = popupForm.querySelector('input[name="email"]').value;
+
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'blog_scroll_popup', page: window.location.pathname })
+      }).then(function(){
+        popupForm.style.display = 'none';
+        document.getElementById('popupSuccess').classList.remove('hidden');
+      }).catch(function(){
+        popupForm.style.display = 'none';
+        document.getElementById('popupSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>

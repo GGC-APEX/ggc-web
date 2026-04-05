@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparativa: Modelo Agencia vs Modelo Infraestructura | GGC</title>
+  <meta name="description" content="Comparativa interactiva de 10 dimensiones entre el modelo agencia y el modelo infraestructura comercial. Descubre cual genera mas resultado real.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Modelo Agencia vs Modelo Infraestructura: 10 dimensiones comparadas">
+  <meta property="og:description" content="Compara visualmente los dos modelos y descubre por que la infraestructura gana en todas las dimensiones que importan.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Comparison row */
+    .comp-row{transition:all .2s ease;cursor:pointer;border:1px solid rgba(255,255,255,0.06)}
+    .comp-row:hover{border-color:rgba(139,92,246,0.2)}
+    .comp-row.expanded{border-color:rgba(139,92,246,0.3);background:rgba(139,92,246,0.03)}
+
+    /* Score bar animation */
+    @keyframes fillScore{from{width:0}to{width:var(--target-width)}}
+    .score-fill{animation:fillScore 1s ease forwards}
+
+    /* Fade in */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    /* Agency side - muted */
+    .agency-col{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04)}
+    .infra-col{background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(236,72,153,0.05));border:1px solid rgba(139,92,246,0.15)}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.comp-row{transition:none}.score-fill{animation:none;width:var(--target-width)}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Comparativa interactiva</span>
+    <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+      Modelo agencia vs<br><span class="gr">modelo infraestructura</span>
+    </h1>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-2">
+      10 dimensiones comparadas. Expande cada fila para ver el detalle. Descubre por que el modelo de infraestructura genera resultados que el modelo agencia no puede replicar.
+    </p>
+    <p class="text-gray-500 text-sm">Basado en el analisis de 627+ empresas B2B de servicios profesionales.</p>
+  </div>
+
+  <!-- SCORE SUMMARY -->
+  <div class="glass rounded-2xl p-6 mb-8 fade-in" style="animation-delay:.1s">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="text-center">
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Modelo agencia</p>
+        <div class="flex items-center justify-center gap-2">
+          <span id="agencyScore" class="text-3xl font-bold text-gray-500">0</span>
+          <span class="text-sm text-gray-600">/ 10</span>
+        </div>
+        <div class="mt-2 h-1.5 rounded-full bg-white/5 overflow-hidden">
+          <div id="agencyBar" class="h-full rounded-full bg-gray-600 transition-all duration-700" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Modelo infraestructura</p>
+        <div class="flex items-center justify-center gap-2">
+          <span id="infraScore" class="text-3xl font-bold gr">10</span>
+          <span class="text-sm text-gray-500">/ 10</span>
+        </div>
+        <div class="mt-2 h-1.5 rounded-full bg-white/5 overflow-hidden">
+          <div id="infraBar" class="h-full rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] transition-all duration-700" style="width:100%"></div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-xs text-gray-500 mt-4">Pulsa cada dimension para ver el analisis detallado</p>
+  </div>
+
+  <!-- COMPARISON ROWS -->
+  <div id="compRows" class="space-y-3 fade-in" style="animation-delay:.2s"></div>
+
+  <!-- VERDICT -->
+  <div class="glass rounded-2xl p-8 mt-10 mb-8 text-center fade-in" style="animation-delay:.3s">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-3">Veredicto</p>
+    <h2 class="text-xl md:text-2xl font-bold text-white mb-3" style="font-family:'Playfair Display',serif">La agencia te da una campana.<br>La infraestructura te da un sistema.</h2>
+    <p class="text-gray-400 text-sm max-w-xl mx-auto mb-4">
+      Una campana acaba. Un sistema se queda. El modelo de infraestructura no es mejor porque lo digamos nosotros. Es mejor porque los numeros no mienten: menos dependencia, menos coste a largo plazo, mas control y resultados que escalan.
+    </p>
+    <div class="flex flex-wrap justify-center gap-3 text-xs">
+      <span class="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/5 text-gray-400">627+ clientes B2B</span>
+      <span class="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/5 text-gray-400">4-8 semanas a primeras reuniones</span>
+      <span class="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/5 text-gray-400">Modelo success-based</span>
+    </div>
+  </div>
+
+  <!-- INTERACTION STATS -->
+  <div class="glass rounded-2xl p-6 mb-8 fade-in" style="animation-delay:.4s">
+    <div class="grid grid-cols-3 gap-4 text-center">
+      <div>
+        <p class="text-2xl font-bold gr">10</p>
+        <p class="text-xs text-gray-500">Dimensiones</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold gr" id="expandedCount">0</p>
+        <p class="text-xs text-gray-500">Exploradas</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold gr">10-0</p>
+        <p class="text-xs text-gray-500">A favor infra.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE -->
+  <div id="leadCapture" class="mt-12">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Analisis completo</p>
+      <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe el analisis completo con casos reales</h3>
+      <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te enviamos la comparativa ampliada con datos de empresas reales, numeros concretos y un roadmap para migrar de modelo agencia a infraestructura propia.</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="filas_expandidas" id="hiddenFilasExpandidas" value="0">
+        <input type="hidden" name="source" value="comparativa-agencia-vs-infraestructura">
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+          <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white">politica de privacidad</a>. Recibire comunicaciones que puedo cancelar en cualquier momento.</span>
+        </label>
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Recibe el analisis completo con casos reales</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los proximos 2 minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo el analisis.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  var expandedRows = {};
+
+  var dimensions = [
+    {
+      id: 1,
+      label: 'Propiedad del sistema',
+      agency: 'De la agencia',
+      infra: 'Tuyo para siempre',
+      detail: 'Cuando contratas una agencia, los procesos, templates, automatizaciones y configuraciones viven en sus cuentas. Si la relacion termina, te quedas con las manos vacias. Con el modelo infraestructura, cada pieza que se instala queda en tus herramientas, con tus accesos, bajo tu control total. Es como la diferencia entre alquilar y comprar.'
+    },
+    {
+      id: 2,
+      label: 'Dependencia',
+      agency: 'Alta -- si se van, se va todo',
+      infra: 'Cero -- tu equipo lo opera',
+      detail: 'La agencia crea una dependencia estructural: cuanto mas tiempo llevas con ellos, mas dificil es salir. El modelo infraestructura incluye formacion y transferencia de conocimiento a tu equipo. Cuando el proyecto de instalacion termina, tu equipo sabe operar el sistema completo de forma autonoma.'
+    },
+    {
+      id: 3,
+      label: 'Coste mensual',
+      agency: 'Fee recurrente indefinido',
+      infra: 'Inversion con fin de proyecto',
+      detail: 'Las agencias cobran un retainer mensual que se paga mientras dura la relacion -- meses, anos, indefinidamente. El modelo infraestructura tiene un coste de instalacion definido con fecha de fin. Una vez instalado, el coste operativo es solo el de las herramientas y el tiempo de tu equipo.'
+    },
+    {
+      id: 4,
+      label: 'Escalabilidad',
+      agency: 'Pagas mas por mas',
+      infra: 'Crece sin coste adicional',
+      detail: 'Necesitas mas campanas, mas mercados, mas volumen? La agencia te cobra mas. Con infraestructura propia, escalar significa usar mas lo que ya tienes. El coste marginal de enviar 1.000 emails mas o anadir un nuevo segmento de ICP es practicamente cero.'
+    },
+    {
+      id: 5,
+      label: 'Personalizacion',
+      agency: 'Soluciones genericas',
+      infra: '100% adaptado a tu ICP',
+      detail: 'Las agencias usan los mismos playbooks para todos sus clientes con ajustes cosmeticos. El modelo infraestructura parte de tu ICP, tu propuesta de valor y tu ciclo de venta especifico para construir procesos a medida. No es un template con tu logo -- es un sistema disenado para tu mercado.'
+    },
+    {
+      id: 6,
+      label: 'Tiempo de resultados',
+      agency: '3-6 meses para ver traccion',
+      infra: '4-8 semanas primeras reuniones',
+      detail: 'Las agencias necesitan meses para "aprender tu mercado" y "optimizar campanas". El modelo infraestructura instala un sistema probado con playbooks validados en 627+ empresas B2B. Las primeras reuniones cualificadas llegan en 4-8 semanas porque el framework ya esta testado.'
+    },
+    {
+      id: 7,
+      label: 'Transparencia',
+      agency: 'Reportes mensuales de vanity metrics',
+      infra: 'Dashboard en tiempo real con KPIs reales',
+      detail: 'La agencia te manda un PDF mensual con impresiones, clics y CPM. El modelo infraestructura te da acceso a un dashboard en tiempo real con las metricas que importan: reuniones agendadas, pipeline generado, coste por reunion, tasa de conversion por etapa y revenue atribuido.'
+    },
+    {
+      id: 8,
+      label: 'Conocimiento',
+      agency: 'Queda en la agencia',
+      infra: 'Transferido a tu equipo',
+      detail: 'Cuando la agencia se va, el know-how se va con ellos. No te dejan un manual de operaciones, ni forman a tu equipo, ni documentan los procesos. El modelo infraestructura incluye documentacion completa, sesiones de formacion y un playbook operativo que tu equipo puede ejecutar sin ayuda externa.'
+    },
+    {
+      id: 9,
+      label: 'Alineacion de incentivos',
+      agency: 'Cobran por hacer, no por resultado',
+      infra: 'Modelo success-based',
+      detail: 'La agencia cobra su fee hagas o no revenue. Su incentivo es mantener la relacion, no generar resultados. El modelo infraestructura con componente success-based alinea los incentivos: si tu no generas reuniones y pipeline, nosotros no cobramos la parte variable. Mismo lado de la mesa.'
+    },
+    {
+      id: 10,
+      label: 'Resultado final',
+      agency: 'Campana que acaba',
+      infra: 'Infraestructura que se queda',
+      detail: 'La agencia ejecuta campanas con principio y fin. Cuando se acaba el presupuesto, se acaba la traccion. El modelo infraestructura construye un activo permanente: bases de datos propias, procesos documentados, automatizaciones configuradas y un equipo formado. Es capital acumulado, no gasto recurrente.'
+    }
+  ];
+
+  function renderRows(){
+    var container = document.getElementById('compRows');
+    var html = '';
+
+    dimensions.forEach(function(d, idx){
+      var delay = (idx * 0.05) + 's';
+      html += '<div class="comp-row glass rounded-xl overflow-hidden fade-in" style="animation-delay:' + delay + '" data-id="' + d.id + '" onclick="toggleRow(' + d.id + ')">';
+
+      // Header
+      html += '<div class="p-5">';
+      html += '<div class="flex items-center justify-between gap-3 mb-3">';
+      html += '<div class="flex items-center gap-3">';
+      html += '<span class="text-xs font-bold text-gray-500 w-6">' + (idx < 9 ? '0' : '') + (idx + 1) + '</span>';
+      html += '<h3 class="text-sm font-bold text-white">' + d.label + '</h3>';
+      html += '</div>';
+      html += '<svg class="w-4 h-4 text-gray-500 flex-shrink-0 transition-transform" id="rowArrow-' + d.id + '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>';
+      html += '</div>';
+
+      // Two columns
+      html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-3">';
+
+      // Agency column
+      html += '<div class="agency-col rounded-lg p-4">';
+      html += '<p class="text-[0.6rem] uppercase tracking-widest text-gray-600 mb-1.5">Agencia</p>';
+      html += '<p class="text-sm text-gray-400">' + d.agency + '</p>';
+      html += '</div>';
+
+      // Infrastructure column
+      html += '<div class="infra-col rounded-lg p-4">';
+      html += '<p class="text-[0.6rem] uppercase tracking-widest text-[#8B5CF6] mb-1.5">Infraestructura</p>';
+      html += '<p class="text-sm text-white font-medium">' + d.infra + '</p>';
+      html += '</div>';
+
+      html += '</div>';
+
+      // Detail (hidden)
+      html += '<div id="rowDetail-' + d.id + '" class="hidden mt-4 p-4 rounded-lg bg-white/[0.02] border border-white/5">';
+      html += '<p class="text-sm text-gray-300 leading-relaxed">' + d.detail + '</p>';
+      html += '</div>';
+
+      html += '</div>';
+      html += '</div>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  window.toggleRow = function(id){
+    var detail = document.getElementById('rowDetail-' + id);
+    var arrow = document.getElementById('rowArrow-' + id);
+    var row = detail.closest('.comp-row');
+    if(!detail) return;
+
+    if(detail.classList.contains('hidden')){
+      detail.classList.remove('hidden');
+      arrow.style.transform = 'rotate(180deg)';
+      row.classList.add('expanded');
+      if(!expandedRows[id]){
+        expandedRows[id] = true;
+        var count = Object.keys(expandedRows).length;
+        document.getElementById('expandedCount').textContent = count;
+        document.getElementById('hiddenFilasExpandidas').value = count;
+      }
+    } else {
+      detail.classList.add('hidden');
+      arrow.style.transform = 'rotate(0deg)';
+      row.classList.remove('expanded');
+    }
+  };
+
+  // Initial render
+  renderRows();
+
+  // Animate score bars on load
+  setTimeout(function(){
+    document.getElementById('agencyScore').textContent = '0';
+    document.getElementById('agencyBar').style.width = '0%';
+    document.getElementById('infraScore').textContent = '10';
+    document.getElementById('infraBar').style.width = '100%';
+  }, 500);
+
+  // Lead form submission
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      filas_expandidas: document.getElementById('hiddenFilasExpandidas').value,
+      source: 'comparativa-agencia-vs-infraestructura',
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'Error al enviar. Intentalo de nuevo.';
+      btn.style.background = 'linear-gradient(135deg, #EF4444, #DC2626)';
+      setTimeout(function(){ btn.textContent = 'Recibe el analisis completo con casos reales'; btn.style.background = ''; }, 3000);
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

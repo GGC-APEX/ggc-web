@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap: Las 4 fases de escalado comercial B2B | GGC</title>
+  <meta name="description" content="Descubre en qu&eacute; fase de escalado comercial est&aacute;s y qu&eacute; necesitas para pasar a la siguiente. Roadmap interactivo con checklist y m&eacute;tricas.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Roadmap: Las 4 fases de escalado comercial B2B &mdash; GGC">
+  <meta property="og:description" content="De 0 a 2M+. Las 4 fases que toda empresa B2B de servicios atraviesa para escalar sus ventas.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    .phase-btn{transition:all .2s ease;cursor:pointer;border:2px solid transparent}
+    .phase-btn:hover{border-color:rgba(139,92,246,0.3);transform:translateY(-2px)}
+    .phase-btn.active{border-color:rgba(139,92,246,0.6);background:rgba(139,92,246,0.08)}
+
+    .check-item{display:flex;align-items:flex-start;gap:0.5rem;padding:0.375rem 0}
+    .check-item .check-box{width:18px;height:18px;border:2px solid rgba(255,255,255,0.15);border-radius:4px;flex-shrink:0;margin-top:1px;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center}
+    .check-item .check-box.checked{border-color:#8B5CF6;background:linear-gradient(135deg,#8B5CF6,#EC4899)}
+    .check-item .check-box.checked::after{content:'\2713';color:#fff;font-size:11px;font-weight:700}
+    .check-item .check-box:hover{border-color:rgba(139,92,246,0.5)}
+
+    .timeline-line{position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);transform:translateX(-50%)}
+    .timeline-dot{width:16px;height:16px;border-radius:50%;border:3px solid #0C0A1D;position:relative;z-index:2;transition:all .3s ease}
+
+    .mistake-tag{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);color:#EF4444;border-radius:6px;padding:2px 8px;font-size:0.7rem;font-weight:600}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+    @media print{body{background:#fff;color:#000}.glass{background:#f5f5f5;border-color:#ddd}header,.btn-g{display:none}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Roadmap de escalado</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      Las 4 fases de<br class="hidden sm:block"> <span class="gr">escalado comercial B2B</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      Toda empresa B2B de servicios pasa por las mismas fases. Selecciona en cu&aacute;l est&aacute;s y te mostramos exactamente qu&eacute; necesitas para avanzar.
+    </p>
+  </div>
+
+  <!-- PHASE SELECTOR -->
+  <div class="mb-8">
+    <p class="text-sm text-gray-400 text-center mb-4">&iquest;En qu&eacute; fase est&aacute;s ahora?</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="phaseSelector"></div>
+  </div>
+
+  <!-- PROGRESS INDICATOR -->
+  <div class="relative mb-12">
+    <div class="flex items-center justify-between">
+      <div id="progressDots" class="flex items-center w-full"></div>
+    </div>
+  </div>
+
+  <!-- PHASE DETAIL -->
+  <div id="phaseDetail" class="fade-in"></div>
+
+  <!-- NEXT STEPS -->
+  <div id="nextSteps" class="glass rounded-2xl p-8 mt-10 fade-in" style="display:none">
+    <h3 class="text-xl font-bold text-white mb-2">&iquest;Qu&eacute; necesitas para pasar a la siguiente fase?</h3>
+    <p id="nextStepsDesc" class="text-sm text-gray-400 mb-6"></p>
+    <div id="nextStepsList" class="space-y-3"></div>
+  </div>
+
+  <!-- Context section -->
+  <div class="glass rounded-2xl p-8 mt-10 fade-in">
+    <h3 class="text-xl font-bold text-white mb-4">&iquest;Por qu&eacute; la mayor&iacute;a se atasca entre la Fase 1 y la Fase 2?</h3>
+    <p class="text-sm text-gray-400 mb-3">
+      El 80% de las empresas B2B de servicios se quedan atrapadas en la Fase 1. El CEO vende bien, la empresa crece, pero no hay sistema. Todo depende de una persona.
+    </p>
+    <p class="text-sm text-gray-400 mb-3">
+      El salto de Fase 1 a Fase 2 es el m&aacute;s dif&iacute;cil porque requiere algo que va contra el instinto del CEO: <strong class="text-white">dejar de vender para construir el sistema que vender&aacute; por &eacute;l</strong>. Es una inversi&oacute;n de tiempo que a corto plazo parece improductiva.
+    </p>
+    <p class="text-sm text-gray-400">
+      Pero es la &uacute;nica forma de escalar. Sin sistema, m&aacute;s ventas = m&aacute;s horas del CEO. Con sistema, m&aacute;s ventas = m&aacute;s capacidad del equipo.
+    </p>
+  </div>
+
+  <!-- Key stats -->
+  <div class="grid sm:grid-cols-4 gap-4 mt-8">
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-cyan mb-1" style="font-family:'DM Sans',sans-serif">80%</p>
+      <p class="text-xs text-gray-400">Se atascan en Fase 1</p>
+    </div>
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-blue mb-1" style="font-family:'DM Sans',sans-serif">6-8</p>
+      <p class="text-xs text-gray-400">Semanas para sistematizar</p>
+    </div>
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-purple mb-1" style="font-family:'DM Sans',sans-serif">3:1</p>
+      <p class="text-xs text-gray-400">LTV:CAC objetivo en Fase 3</p>
+    </div>
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-pink mb-1" style="font-family:'DM Sans',sans-serif">627+</p>
+      <p class="text-xs text-gray-400">Empresas han escalado con GGC</p>
+    </div>
+  </div>
+
+  <!-- Comparison table -->
+  <div class="glass rounded-2xl p-8 mt-8">
+    <h3 class="text-lg font-bold text-white mb-4">CEO vendiendo vs. Sistema vendiendo</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-white/10">
+            <th class="text-left text-gray-500 py-3 pr-4 font-normal text-xs"></th>
+            <th class="text-center text-pink py-3 px-4 font-semibold text-xs">CEO vendiendo</th>
+            <th class="text-center text-cyan py-3 pl-4 font-semibold text-xs">Sistema/equipo</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-300">
+          <tr class="border-b border-white/5">
+            <td class="py-2.5 pr-4 text-gray-400">Escalabilidad</td>
+            <td class="text-center py-2.5 px-4">Limitada a tus horas</td>
+            <td class="text-center py-2.5 pl-4 text-cyan">Ilimitada</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-2.5 pr-4 text-gray-400">Consistencia</td>
+            <td class="text-center py-2.5 px-4">Depende de tu energ&iacute;a</td>
+            <td class="text-center py-2.5 pl-4 text-cyan">24/7 autom&aacute;tico</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-2.5 pr-4 text-gray-400">Coste de oportunidad</td>
+            <td class="text-center py-2.5 px-4">Muy alto</td>
+            <td class="text-center py-2.5 pl-4 text-cyan">Bajo</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-2.5 pr-4 text-gray-400">Riesgo</td>
+            <td class="text-center py-2.5 px-4">Concentrado en 1 persona</td>
+            <td class="text-center py-2.5 pl-4 text-cyan">Distribuido</td>
+          </tr>
+          <tr>
+            <td class="py-2.5 pr-4 text-gray-400">Valoraci&oacute;n empresa</td>
+            <td class="text-center py-2.5 px-4">Baja (depende del fundador)</td>
+            <td class="text-center py-2.5 pl-4 text-cyan">Alta (sistema replicable)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="text-center py-12">
+    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">&iquest;En qu&eacute; fase est&aacute;s? <span class="gr">Te ayudamos a avanzar</span></h3>
+    <p class="text-gray-400 mb-6 max-w-lg mx-auto text-sm">Agenda un diagn&oacute;stico gratuito y te mostramos el plan espec&iacute;fico para tu fase.</p>
+    <a href="../agendar.html" class="btn-g inline-block px-8 py-3.5 rounded-xl text-sm">Agendar diagn&oacute;stico gratuito &rarr;</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 mt-4">
+  <div class="max-w-5xl mx-auto px-6 py-6 text-center">
+    <p class="text-xs text-gray-600">&copy; 2026 Global Growth Consulting. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  var PHASES = [
+    {
+      name: 'Fase 1: Fundaci\u00f3n',
+      range: '0 \u2013 500K\u20AC',
+      color: '#22D3EE',
+      duration: '12-18 meses',
+      icon: '\u2693',
+      objective: 'El CEO vende, valida el mercado y documenta lo que funciona.',
+      description: 'En esta fase t\u00fa eres el motor comercial. Est\u00e1 bien \u2014 nadie conoce tu servicio como t\u00fa. Pero el error es quedarse aqu\u00ed demasiado tiempo sin documentar nada.',
+      actions: [
+        'Definir ICP (perfil de cliente ideal) con criterios objetivos',
+        'Documentar el proceso de venta paso a paso',
+        'Crear un pitch deck y propuesta tipo reutilizable',
+        'Registrar cada interacci\u00f3n en un CRM b\u00e1sico',
+        'Identificar los 3 canales de adquisici\u00f3n que mejor funcionan',
+        'Escribir los scripts de llamada y emails de seguimiento'
+      ],
+      metrics: [
+        'N\u00famero de reuniones cualificadas / semana',
+        'Tasa de cierre del CEO',
+        'Ticket medio y ciclo de venta',
+        'Fuentes de leads (de d\u00f3nde vienen)'
+      ],
+      mistakes: [
+        'No documentar nada (\u201cya lo tengo en la cabeza\u201d)',
+        'Vender sin ICP definido (perseguir a todos)',
+        'No usar CRM (\u201ces solo yo, no lo necesito\u201d)',
+        'Subcontratar ventas antes de validar el proceso'
+      ]
+    },
+    {
+      name: 'Fase 2: Sistemizaci\u00f3n',
+      range: '500K \u2013 1M\u20AC',
+      color: '#3B82F6',
+      duration: '6-12 meses',
+      icon: '\u2699',
+      objective: 'Convertir lo que funciona en un proceso replicable con herramientas.',
+      description: 'Ya sabes vender tu servicio. Ahora toca convertir tu conocimiento t\u00e1cito en un sistema que alguien m\u00e1s pueda operar. Es la fase m\u00e1s cr\u00edtica y donde m\u00e1s empresas se atascan.',
+      actions: [
+        'Implementar CRM profesional con pipelines definidos',
+        'Crear playbook comercial completo (cualificaci\u00f3n, objecciones, cierre)',
+        'Automatizar seguimiento con secuencias de email',
+        'Definir SLAs entre marketing y ventas',
+        'Configurar herramientas de prospecci\u00f3n outbound',
+        'Dise\u00f1ar el onboarding para el primer comercial'
+      ],
+      metrics: [
+        'Pipeline value total y velocidad',
+        'Conversi\u00f3n por etapa del funnel',
+        'Coste de adquisici\u00f3n de cliente (CAC)',
+        'Tiempo medio de ciclo de venta',
+        'Reuniones generadas por canal'
+      ],
+      mistakes: [
+        'Contratar comercial sin proceso documentado',
+        'Comprar herramientas sin estrategia (shiny object syndrome)',
+        'Copiar el proceso de una empresa grande sin adaptarlo',
+        'No medir nada \u2014 \u201cvamos bien, creo\u201d'
+      ]
+    },
+    {
+      name: 'Fase 3: Escalado',
+      range: '1M \u2013 2M\u20AC',
+      color: '#8B5CF6',
+      duration: '6-12 meses',
+      icon: '\u26A1',
+      objective: 'Equipo comercial operativo. El CEO solo interviene en deals estrat\u00e9gicos.',
+      description: 'El sistema funciona. Ahora toca meter gasolina: m\u00e1s personas, m\u00e1s canales, m\u00e1s volumen. El CEO pasa de vender a liderar y optimizar.',
+      actions: [
+        'Contratar y formar equipo comercial (SDR + closer)',
+        'Implementar infraestructura completa: CRM + outbound + tracking',
+        'Crear dashboards autom\u00e1ticos de rendimiento',
+        'A\u00f1adir canales de adquisici\u00f3n (content, partnerships, referrals)',
+        'Establecer reuniones semanales de pipeline review',
+        'Optimizar pricing y packaging para maximizar LTV'
+      ],
+      metrics: [
+        'Revenue por comercial',
+        'CAC por canal y payback period',
+        'LTV:CAC ratio (objetivo: >3:1)',
+        'Pipeline coverage ratio (3-4x objetivo)',
+        'Win rate por segmento y tama\u00f1o de deal'
+      ],
+      mistakes: [
+        'CEO que no suelta el control de las llamadas',
+        'Escalar sin unit economics claros',
+        'No invertir en enablement y formaci\u00f3n',
+        'A\u00f1adir complejidad sin medir impacto'
+      ]
+    },
+    {
+      name: 'Fase 4: Optimizaci\u00f3n',
+      range: '2M+\u20AC',
+      color: '#EC4899',
+      duration: 'Continuo',
+      icon: '\uD83C\uDFAF',
+      objective: 'M\u00e1quina comercial data-driven. CEO fuera del d\u00eda a d\u00eda de ventas.',
+      description: 'Tu sistema comercial funciona de forma aut\u00f3noma. El CEO se enfoca en estrategia, producto y visi\u00f3n. Las ventas se optimizan con datos, no con instinto.',
+      actions: [
+        'Implementar revenue operations (RevOps)',
+        'A/B testing sistem\u00e1tico de mensajes, canales y cadencias',
+        'Crear modelos predictivos de pipeline',
+        'Expandir a nuevos mercados o segmentos',
+        'Construir marca personal del CEO como canal de adquisici\u00f3n',
+        'Integrar IA para scoring, priorizaci\u00f3n y personalizaci\u00f3n'
+      ],
+      metrics: [
+        'Revenue growth rate trimestral',
+        'Net Revenue Retention (NRR)',
+        'Sales efficiency (revenue / coste comercial total)',
+        'Pipeline predictability score',
+        'Customer acquisition mix por canal'
+      ],
+      mistakes: [
+        'Dejar de innovar en el proceso (\u201cya funciona\u201d)',
+        'No invertir en retenci\u00f3n y expansi\u00f3n',
+        'Perder contacto con el mercado',
+        'Sobre-optimizar en lugar de explorar nuevos mercados'
+      ]
+    }
+  ];
+
+  var selectedPhase = 0;
+
+  function buildSelector(){
+    var c = document.getElementById('phaseSelector');
+    c.innerHTML = '';
+    for(var i=0;i<PHASES.length;i++){
+      var p = PHASES[i];
+      var btn = document.createElement('button');
+      btn.className = 'phase-btn glass rounded-xl p-4 text-left' + (i === selectedPhase ? ' active' : '');
+      btn.innerHTML = '<span class="text-lg mb-1 block">' + p.icon + '</span>' +
+        '<p class="text-xs font-bold text-white mb-0.5">' + p.name + '</p>' +
+        '<p class="text-xs text-gray-500">' + p.range + '</p>';
+      (function(idx){ btn.onclick = function(){ selectPhase(idx); }; })(i);
+      c.appendChild(btn);
+    }
+  }
+
+  function buildProgress(){
+    var c = document.getElementById('progressDots');
+    c.innerHTML = '';
+    for(var i=0;i<PHASES.length;i++){
+      var dot = document.createElement('div');
+      dot.className = 'flex flex-col items-center flex-1';
+      var isActive = i === selectedPhase;
+      var isPast = i < selectedPhase;
+      var dotColor = isPast || isActive ? PHASES[i].color : 'rgba(255,255,255,0.1)';
+      dot.innerHTML = '<div class="timeline-dot" style="background:' + dotColor + ';' + (isActive ? 'box-shadow:0 0 12px ' + PHASES[i].color + ';width:20px;height:20px' : '') + '"></div>' +
+        (i < PHASES.length - 1 ? '<div class="w-full h-0.5 mt-[-9px] mb-2" style="background:' + (isPast ? 'linear-gradient(90deg,' + PHASES[i].color + ',' + PHASES[i+1].color + ')' : 'rgba(255,255,255,0.06)') + '"></div>' : '<div class="mb-2"></div>');
+      c.appendChild(dot);
+    }
+  }
+
+  function renderPhase(){
+    var p = PHASES[selectedPhase];
+    var d = document.getElementById('phaseDetail');
+
+    var html = '<div class="glass rounded-2xl p-8 mb-6">' +
+      '<div class="flex items-center gap-3 mb-4">' +
+      '<span class="text-2xl">' + p.icon + '</span>' +
+      '<div><h2 class="text-xl sm:text-2xl font-bold text-white">' + p.name + '</h2>' +
+      '<p class="text-sm" style="color:' + p.color + '">' + p.range + ' &middot; Duraci\u00f3n t\u00edpica: ' + p.duration + '</p></div></div>' +
+      '<p class="text-sm font-semibold text-white mb-2">' + p.objective + '</p>' +
+      '<p class="text-sm text-gray-400">' + p.description + '</p></div>';
+
+    // Actions checklist
+    html += '<div class="glass rounded-2xl p-8 mb-6">' +
+      '<h3 class="text-lg font-bold text-white mb-4">Acciones clave</h3>' +
+      '<div class="space-y-1">';
+    for(var a=0;a<p.actions.length;a++){
+      html += '<div class="check-item"><div class="check-box" data-phase="' + selectedPhase + '" data-idx="' + a + '" onclick="toggleCheck(this)" role="checkbox" tabindex="0" aria-checked="false"></div><span class="text-sm text-gray-300">' + p.actions[a] + '</span></div>';
+    }
+    html += '</div></div>';
+
+    // Metrics
+    html += '<div class="grid sm:grid-cols-2 gap-6 mb-6">';
+    html += '<div class="glass rounded-2xl p-6"><h3 class="text-lg font-bold text-white mb-4">M&eacute;tricas a controlar</h3><ul class="space-y-2">';
+    for(var m=0;m<p.metrics.length;m++){
+      html += '<li class="flex items-start gap-2"><span style="color:' + p.color + '">&#9656;</span><span class="text-sm text-gray-300">' + p.metrics[m] + '</span></li>';
+    }
+    html += '</ul></div>';
+
+    // Mistakes
+    html += '<div class="glass rounded-2xl p-6"><h3 class="text-lg font-bold text-white mb-4">Errores comunes</h3><ul class="space-y-2">';
+    for(var e=0;e<p.mistakes.length;e++){
+      html += '<li class="flex items-start gap-2"><span class="mistake-tag">!</span><span class="text-sm text-gray-300">' + p.mistakes[e] + '</span></li>';
+    }
+    html += '</ul></div></div>';
+
+    d.innerHTML = html;
+    d.classList.remove('fade-in');
+    void d.offsetWidth;
+    d.classList.add('fade-in');
+
+    // Restore checks
+    var checks = d.querySelectorAll('.check-box');
+    for(var c=0;c<checks.length;c++){
+      var key = 'rm_p' + checks[c].getAttribute('data-phase') + '_' + checks[c].getAttribute('data-idx');
+      if(localStorage.getItem(key) === '1'){
+        checks[c].classList.add('checked');
+        checks[c].setAttribute('aria-checked','true');
+      }
+    }
+
+    // Next steps
+    renderNextSteps();
+  }
+
+  function renderNextSteps(){
+    var ns = document.getElementById('nextSteps');
+    var nsl = document.getElementById('nextStepsList');
+    var nsd = document.getElementById('nextStepsDesc');
+
+    if(selectedPhase >= PHASES.length - 1){
+      ns.style.display = 'none';
+      return;
+    }
+
+    ns.style.display = '';
+    var next = PHASES[selectedPhase + 1];
+    nsd.textContent = 'Para pasar de ' + PHASES[selectedPhase].name + ' a ' + next.name + ', necesitas:';
+
+    var TRANSITIONS = [
+      ['Proceso de ventas documentado paso a paso', 'CRM con datos de al menos 3 meses', 'ICP validado con al menos 10 clientes cerrados', 'Scripts y plantillas reutilizables creados'],
+      ['Playbook comercial completo y testado', 'Herramientas de prospecci\u00f3n configuradas', 'Perfil de primer comercial definido', 'M\u00e9tricas base establecidas (CAC, ciclo, win rate)'],
+      ['Equipo comercial autosuficiente', 'Unit economics validados (LTV:CAC > 3:1)', 'CEO fuera de las llamadas del d\u00eda a d\u00eda', 'Revenue predecible con pipeline coverage > 3x']
+    ];
+
+    nsl.innerHTML = '';
+    var items = TRANSITIONS[selectedPhase];
+    for(var i=0;i<items.length;i++){
+      var div = document.createElement('div');
+      div.className = 'flex items-start gap-3';
+      div.innerHTML = '<span class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background:' + next.color + ';color:#0C0A1D">' + (i+1) + '</span>' +
+        '<span class="text-sm text-gray-300">' + items[i] + '</span>';
+      nsl.appendChild(div);
+    }
+  }
+
+  window.selectPhase = function(idx){
+    selectedPhase = idx;
+    buildSelector();
+    buildProgress();
+    renderPhase();
+  };
+
+  window.toggleCheck = function(el){
+    el.classList.toggle('checked');
+    var isChecked = el.classList.contains('checked');
+    el.setAttribute('aria-checked', isChecked ? 'true' : 'false');
+    var key = 'rm_p' + el.getAttribute('data-phase') + '_' + el.getAttribute('data-idx');
+    if(isChecked){
+      localStorage.setItem(key, '1');
+    } else {
+      localStorage.removeItem(key);
+    }
+  };
+
+  // Keyboard support for checkboxes
+  document.addEventListener('keydown', function(e){
+    if((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('check-box')){
+      e.preventDefault();
+      toggleCheck(e.target);
+    }
+  });
+
+  // Init
+  buildSelector();
+  buildProgress();
+  renderPhase();
+
+})();
+</script>
+
+</body>
+</html>

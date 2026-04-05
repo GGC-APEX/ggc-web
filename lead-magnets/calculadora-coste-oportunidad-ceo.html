@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora: El coste de oportunidad del CEO que vende | GGC</title>
+  <meta name="description" content="Calcula cu&aacute;nto le cuesta a tu empresa que el CEO siga vendiendo. Coste de oportunidad, comparativa con un sistema y break-even.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Calculadora: Coste de oportunidad del CEO que vende &mdash; GGC">
+  <meta property="og:description" content="Descubre el coste real de que el CEO dedique su tiempo a vender en lugar de a escalar.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    input[type="number"]{-moz-appearance:textfield}
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+    input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(255,255,255,0.08);outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#EC4899);cursor:pointer;box-shadow:0 0 10px rgba(139,92,246,0.4)}
+    input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#EC4899);cursor:pointer;border:none;box-shadow:0 0 10px rgba(139,92,246,0.4)}
+
+    .input-field{width:100%;padding:0.75rem 1rem;border-radius:0.5rem;background:#0C0A1D;border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:0.875rem;font-family:'DM Sans',sans-serif;transition:border-color .2s}
+    .input-field::placeholder{color:#6B7280}
+    .input-field:focus{border-color:#8B5CF6;outline:none}
+
+    .big-num{font-size:2.25rem;font-weight:800;line-height:1;font-family:'DM Sans',sans-serif}
+    @media(min-width:640px){.big-num{font-size:2.75rem}}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    .bar-comp{height:32px;border-radius:6px;transition:width .6s ease;min-width:8px;display:flex;align-items:center;padding:0 8px}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.bar-comp{transition:none}.pulse-glow{animation:none}.btn-g::after{animation:none}}
+    @media print{body{background:#fff;color:#000}.glass{background:#f5f5f5;border-color:#ddd}header,.btn-g{display:none}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Calculadora para CEOs</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      El coste de oportunidad del<br class="hidden sm:block"> <span class="gr">CEO que vende</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      Cada hora que dedicas a vender es una hora que no dedicas a escalar. Introduce tus n&uacute;meros y descubre cu&aacute;nto te cuesta realmente.
+    </p>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div class="grid lg:grid-cols-5 gap-8">
+
+    <!-- LEFT: Inputs (3 cols) -->
+    <div class="lg:col-span-3 space-y-6">
+
+      <!-- 1. Facturacion -->
+      <div class="glass rounded-2xl p-6">
+        <label class="text-sm font-semibold text-white block mb-1">1. Facturaci&oacute;n anual de la empresa</label>
+        <p class="text-xs text-gray-500 mb-3">Revenue total anual de tu empresa en euros.</p>
+        <div class="flex items-center gap-4">
+          <input type="range" id="facturacion" min="300000" max="5000000" step="50000" value="1000000" oninput="calc()">
+          <span id="facturacionVal" class="text-sm font-bold text-cyan w-24 text-right">1.000K&euro;</span>
+        </div>
+      </div>
+
+      <!-- 2. Horas vendiendo -->
+      <div class="glass rounded-2xl p-6">
+        <label class="text-sm font-semibold text-white block mb-1">2. Horas/semana que el CEO dedica a vender</label>
+        <p class="text-xs text-gray-500 mb-3">Incluye prospecci&oacute;n, llamadas, demos, seguimiento, propuestas y negociaci&oacute;n.</p>
+        <div class="flex items-center gap-4">
+          <input type="range" id="horasCeo" min="5" max="40" step="1" value="20" oninput="calc()">
+          <span id="horasCeoVal" class="text-sm font-bold text-cyan w-16 text-right">20h</span>
+        </div>
+      </div>
+
+      <!-- 3. Valor hora CEO -->
+      <div class="glass rounded-2xl p-6">
+        <label class="text-sm font-semibold text-white block mb-1">3. Valor hora del CEO</label>
+        <p class="text-xs text-gray-500 mb-3">Auto-calculado a partir de tu facturaci&oacute;n, o int&oacute;ducelo manualmente.</p>
+        <div class="flex items-center gap-3">
+          <div class="relative flex-1">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm pointer-events-none">&euro;</span>
+            <input type="number" id="valorHora" class="input-field pl-7" value="" min="20" max="2000" step="10" placeholder="Auto" oninput="calc(true)">
+          </div>
+          <button onclick="resetValorHora()" class="text-xs text-purple hover:text-white transition px-3 py-2 border border-purple/30 rounded-lg">Auto</button>
+        </div>
+        <p id="valorHoraNote" class="text-xs text-gray-600 mt-2"></p>
+      </div>
+
+      <!-- 4. Tasa de cierre -->
+      <div class="glass rounded-2xl p-6">
+        <label class="text-sm font-semibold text-white block mb-1">4. Tasa de cierre actual del CEO</label>
+        <p class="text-xs text-gray-500 mb-3">&iquest;Qu&eacute; porcentaje de reuniones cualificadas cierras?</p>
+        <div class="flex items-center gap-4">
+          <input type="range" id="tasaCierre" min="10" max="60" step="1" value="25" oninput="calc()">
+          <span id="tasaCierreVal" class="text-sm font-bold text-cyan w-12 text-right">25%</span>
+        </div>
+      </div>
+
+      <!-- 5. Ticket medio -->
+      <div class="glass rounded-2xl p-6">
+        <label class="text-sm font-semibold text-white block mb-1">5. Ticket medio por cliente</label>
+        <p class="text-xs text-gray-500 mb-3">Valor medio anual de un contrato cerrado.</p>
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm pointer-events-none">&euro;</span>
+          <input type="number" id="ticket" class="input-field pl-7" value="12000" min="1000" max="500000" step="500" placeholder="12000" oninput="calc()">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Results (2 cols) -->
+    <div class="lg:col-span-2 space-y-6">
+
+      <!-- Coste annual CEO vendiendo -->
+      <div class="glass rounded-2xl p-6 pulse-glow sticky top-6">
+        <p class="text-xs font-semibold gr uppercase tracking-widest mb-6">Tu coste de oportunidad</p>
+
+        <div class="text-center mb-6">
+          <p id="costeAnual" class="big-num gr">--</p>
+          <p class="text-sm text-gray-400 mt-1">coste anual del CEO vendiendo</p>
+        </div>
+
+        <div class="border-t border-white/5 pt-4 space-y-4">
+
+          <div>
+            <p class="text-xs text-gray-500 mb-1">Revenue que dejas de generar</p>
+            <p id="revPerdido" class="text-lg font-bold text-pink">--</p>
+            <p class="text-xs text-gray-600">en estrategia, producto y partnerships</p>
+          </div>
+
+          <div>
+            <p class="text-xs text-gray-500 mb-1">Horas anuales vendiendo</p>
+            <p id="horasAnuales" class="text-lg font-bold text-white">--</p>
+          </div>
+
+          <div class="border-t border-white/5 pt-4">
+            <p class="text-xs text-gray-500 mb-1">% de tu tiempo en ventas</p>
+            <div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+              <div id="tiempoBar" class="h-full rounded-full transition-all duration-500" style="width:0%;background:linear-gradient(90deg,#8B5CF6,#EC4899)"></div>
+            </div>
+            <p id="tiempoPct" class="text-xs text-gray-400 mt-1 text-right">--</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Comparativa -->
+      <div class="glass rounded-2xl p-6">
+        <p class="text-xs font-semibold text-white uppercase tracking-widest mb-4">CEO vendiendo vs. Sistema</p>
+
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-gray-400">CEO vendiendo</span>
+              <span id="compCeo" class="text-pink font-bold">--</span>
+            </div>
+            <div class="w-full bg-white/5 rounded-lg overflow-hidden">
+              <div id="barCeo" class="bar-comp" style="background:linear-gradient(90deg,#EC4899,#D946EF);width:0%">
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-gray-400">Sistema/equipo vendiendo</span>
+              <span id="compSistema" class="text-cyan font-bold">--</span>
+            </div>
+            <div class="w-full bg-white/5 rounded-lg overflow-hidden">
+              <div id="barSistema" class="bar-comp" style="background:linear-gradient(90deg,#22D3EE,#3B82F6);width:0%">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-white/5 mt-4 pt-4">
+          <p class="text-xs text-gray-500 mb-1">Break-even de un sistema comercial</p>
+          <p id="breakeven" class="text-lg font-bold text-cyan">--</p>
+          <p class="text-xs text-gray-600">meses para que el sistema se pague solo</p>
+        </div>
+      </div>
+
+      <!-- ROI timeline -->
+      <div class="glass rounded-2xl p-6">
+        <p class="text-xs font-semibold text-white uppercase tracking-widest mb-4">ROI a 12 meses</p>
+        <div class="space-y-2" id="roiTimeline"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INSIGHT -->
+  <div class="glass rounded-2xl p-8 mt-10 border-l-4 border-cyan fade-in">
+    <p class="text-sm text-gray-300 mb-3">
+      <strong class="text-white">Con APEX OS&trade;</strong>, instalamos la infraestructura comercial que vende por ti. Los CEOs que han delegado ventas con nuestro sistema liberan una media de <strong class="text-cyan">15-20 horas semanales</strong> y ven el sistema generando pipeline propio en <strong class="text-cyan">6-8 semanas</strong>.
+    </p>
+    <p class="text-sm text-gray-400">
+      No es subcontratar ventas. Es instalar un sistema permanente que queda en propiedad de tu empresa. T&uacute; dejas de vender; tu infraestructura sigue vendiendo.
+    </p>
+  </div>
+
+  <!-- Context cards -->
+  <div class="grid sm:grid-cols-3 gap-4 mt-8">
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-cyan mb-1" style="font-family:'DM Sans',sans-serif">627+</p>
+      <p class="text-xs text-gray-400">Empresas han instalado APEX OS</p>
+    </div>
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-purple mb-1" style="font-family:'DM Sans',sans-serif">15-20h</p>
+      <p class="text-xs text-gray-400">Horas/semana liberadas de media</p>
+    </div>
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-pink mb-1" style="font-family:'DM Sans',sans-serif">6-8 sem</p>
+      <p class="text-xs text-gray-400">Hasta pipeline aut&oacute;nomo</p>
+    </div>
+  </div>
+
+  <!-- Explainer -->
+  <div class="glass rounded-2xl p-6 mt-8">
+    <h3 class="text-lg font-bold text-white mb-3">&iquest;C&oacute;mo funciona esta calculadora?</h3>
+    <div class="space-y-3">
+      <p class="text-sm text-gray-400">
+        <strong class="text-white">Coste anual del CEO vendiendo:</strong> las horas que dedicas a vender multiplicadas por tu valor hora. Es dinero que podr&iacute;as invertir en actividades de mayor apalancamiento.
+      </p>
+      <p class="text-sm text-gray-400">
+        <strong class="text-white">Revenue perdido:</strong> estimamos que cada hora del CEO en actividades estrat&eacute;gicas (partnerships, producto, visi&oacute;n) genera 1.5x m&aacute;s valor que una hora vendiendo. Es el coste invisible.
+      </p>
+      <p class="text-sm text-gray-400">
+        <strong class="text-white">Comparativa CEO vs. Sistema:</strong> un sistema comercial bien implementado alcanza el 80% de la eficacia del CEO vendiendo, pero sin el coste de oportunidad. El neto es casi siempre superior.
+      </p>
+      <p class="text-sm text-gray-400">
+        <strong class="text-white">Break-even:</strong> cu&aacute;ntos meses tarda el sistema en generar m&aacute;s revenue del que cuesta. Con APEX OS, la media est&aacute; en 2-3 meses.
+      </p>
+    </div>
+  </div>
+
+  <!-- What CEOs say -->
+  <div class="glass rounded-2xl p-8 mt-8">
+    <h3 class="text-lg font-bold text-white mb-4">Lo que dicen CEOs que ya delegaron</h3>
+    <div class="space-y-4">
+      <div class="border-l-2 border-cyan/30 pl-4">
+        <p class="text-sm text-gray-300 italic mb-1">&ldquo;Pens&eacute; que nadie pod&iacute;a vender como yo. Result&oacute; que el problema no era encontrar a alguien tan bueno, sino tener un sistema que cualquiera pudiera ejecutar.&rdquo;</p>
+        <p class="text-xs text-gray-500">&mdash; CEO de consultor&iacute;a tecnol&oacute;gica, 1.2M&euro; facturaci&oacute;n</p>
+      </div>
+      <div class="border-l-2 border-purple/30 pl-4">
+        <p class="text-sm text-gray-300 italic mb-1">&ldquo;Las 15 horas que liber&eacute; las invert&iacute; en partnerships. En 6 meses, esos partnerships generaron m&aacute;s revenue que yo vendiendo directamente.&rdquo;</p>
+        <p class="text-xs text-gray-500">&mdash; CEO de agencia de marketing B2B, 800K&euro; facturaci&oacute;n</p>
+      </div>
+      <div class="border-l-2 border-pink/30 pl-4">
+        <p class="text-sm text-gray-300 italic mb-1">&ldquo;Mi error fue esperar 3 a&ntilde;os para delegar. Cada mes que pasaba vendiendo era un mes que no escalaba.&rdquo;</p>
+        <p class="text-xs text-gray-500">&mdash; CEO de firma de servicios financieros, 2.1M&euro; facturaci&oacute;n</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Typical scenarios -->
+  <div class="glass rounded-2xl p-6 mt-8">
+    <h3 class="text-lg font-bold text-white mb-4">Escenarios t&iacute;picos</h3>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="rounded-xl p-4" style="background:rgba(34,211,238,0.05);border:1px solid rgba(34,211,238,0.1)">
+        <p class="text-xs font-bold text-cyan mb-2">Consultor&iacute;a peque&ntilde;a</p>
+        <p class="text-xs text-gray-400">500K&euro; &middot; CEO 25h/sem vendiendo</p>
+        <p class="text-xs text-gray-500 mt-1">Coste oportunidad: ~52K&euro;/a&ntilde;o</p>
+      </div>
+      <div class="rounded-xl p-4" style="background:rgba(139,92,246,0.05);border:1px solid rgba(139,92,246,0.1)">
+        <p class="text-xs font-bold text-purple mb-2">Agencia en crecimiento</p>
+        <p class="text-xs text-gray-400">1M&euro; &middot; CEO 20h/sem vendiendo</p>
+        <p class="text-xs text-gray-500 mt-1">Coste oportunidad: ~80K&euro;/a&ntilde;o</p>
+      </div>
+      <div class="rounded-xl p-4" style="background:rgba(236,72,153,0.05);border:1px solid rgba(236,72,153,0.1)">
+        <p class="text-xs font-bold text-pink mb-2">Firma de servicios</p>
+        <p class="text-xs text-gray-400">2M&euro; &middot; CEO 15h/sem vendiendo</p>
+        <p class="text-xs text-gray-500 mt-1">Coste oportunidad: ~120K&euro;/a&ntilde;o</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warning -->
+  <div class="glass rounded-xl p-5 mt-8 border-l-4 border-pink">
+    <p class="text-sm text-gray-300">
+      <strong class="text-white">Aviso:</strong> esta calculadora usa estimaciones conservadoras. El coste de oportunidad real suele ser mayor porque no incluye el desgaste, la falta de foco estrat&eacute;gico y el impacto en la valoraci&oacute;n de tu empresa (las empresas donde el CEO vende se val&uacute;an hasta un 40% menos).
+    </p>
+  </div>
+
+  <!-- CTA -->
+  <div class="text-center py-12">
+    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">&iquest;Quieres dejar de ser el &uacute;nico que vende?</h3>
+    <p class="text-gray-400 mb-6 max-w-lg mx-auto text-sm">Agenda un diagn&oacute;stico gratuito y te mostramos c&oacute;mo instalar un sistema que venda sin ti.</p>
+    <a href="../agendar.html" class="btn-g inline-block px-8 py-3.5 rounded-xl text-sm">Agendar diagn&oacute;stico gratuito &rarr;</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 mt-4">
+  <div class="max-w-5xl mx-auto px-6 py-6 text-center">
+    <p class="text-xs text-gray-600">&copy; 2026 Global Growth Consulting. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  var SEMANAS_ANO = 48;
+  var HORAS_SEMANA_CEO = 50;
+  var COSTE_SISTEMA_MENSUAL = 4500; // Coste estimado de un sistema/equipo comercial
+
+  function fmt(n){
+    if(n >= 1000000) return (n/1000000).toFixed(1).replace('.',',') + 'M\u20AC';
+    if(n >= 1000) return Math.round(n/1000).toLocaleString('es-ES') + 'K\u20AC';
+    return Math.round(n).toLocaleString('es-ES') + '\u20AC';
+  }
+
+  function fmtFull(n){
+    return Math.round(n).toLocaleString('es-ES') + ' \u20AC';
+  }
+
+  var manualValorHora = false;
+
+  window.resetValorHora = function(){
+    manualValorHora = false;
+    document.getElementById('valorHora').value = '';
+    calc();
+  };
+
+  window.calc = function(isManual){
+    if(isManual) manualValorHora = true;
+
+    var facturacion = parseInt(document.getElementById('facturacion').value) || 1000000;
+    var horasCeo = parseInt(document.getElementById('horasCeo').value) || 20;
+    var tasaCierre = parseInt(document.getElementById('tasaCierre').value) || 25;
+    var ticket = parseInt(document.getElementById('ticket').value) || 12000;
+
+    // Update slider labels
+    document.getElementById('facturacionVal').textContent = fmt(facturacion);
+    document.getElementById('horasCeoVal').textContent = horasCeo + 'h';
+    document.getElementById('tasaCierreVal').textContent = tasaCierre + '%';
+
+    // Valor hora CEO
+    var valorHora;
+    if(manualValorHora && document.getElementById('valorHora').value){
+      valorHora = parseFloat(document.getElementById('valorHora').value);
+      document.getElementById('valorHoraNote').textContent = 'Valor manual introducido.';
+    } else {
+      valorHora = Math.round(facturacion / (HORAS_SEMANA_CEO * SEMANAS_ANO));
+      document.getElementById('valorHora').placeholder = valorHora + '';
+      document.getElementById('valorHoraNote').textContent = 'Calculado: facturaci\u00f3n \u00F7 ' + (HORAS_SEMANA_CEO * SEMANAS_ANO).toLocaleString('es-ES') + ' horas anuales = ' + valorHora + '\u20AC/h';
+    }
+
+    // Core calcs
+    var horasAnuales = horasCeo * SEMANAS_ANO;
+    var costeAnual = horasAnuales * valorHora;
+    var pctTiempo = Math.round((horasCeo / HORAS_SEMANA_CEO) * 100);
+
+    // Revenue perdido: lo que el CEO podr&iacute;a generar en estrategia
+    // Estimacion: 2x multiplicador sobre valor hora en actividades estrategicas
+    var revPerdido = horasAnuales * valorHora * 1.5;
+
+    // CEO vendiendo: revenue que genera
+    // Asumimos 2 reuniones/semana por cada 10h vendiendo
+    var reunionesSemana = (horasCeo / 10) * 2;
+    var dealsCeoAnual = reunionesSemana * SEMANAS_ANO * (tasaCierre / 100);
+    var revCeo = dealsCeoAnual * ticket;
+
+    // Sistema vendiendo: 80% eficacia del CEO pero sin coste de oportunidad
+    var revSistema = revCeo * 0.8;
+    var costeSistemaAnual = COSTE_SISTEMA_MENSUAL * 12;
+    var netCeo = revCeo - costeAnual;
+    var netSistema = revSistema - costeSistemaAnual;
+
+    // Break-even
+    var breakeven = costeSistemaAnual > 0 ? Math.ceil(costeSistemaAnual / (revSistema / 12)) : 0;
+    if(breakeven < 1) breakeven = 1;
+    if(breakeven > 24) breakeven = 24;
+
+    // Update UI
+    document.getElementById('costeAnual').textContent = fmtFull(costeAnual);
+    document.getElementById('revPerdido').textContent = fmtFull(revPerdido);
+    document.getElementById('horasAnuales').textContent = horasAnuales.toLocaleString('es-ES') + ' horas';
+    document.getElementById('tiempoBar').style.width = pctTiempo + '%';
+    document.getElementById('tiempoPct').textContent = pctTiempo + '% de tu semana';
+
+    // Comparativa bars
+    var maxRev = Math.max(netCeo, netSistema, 1);
+    var pctCeo = Math.max(5, Math.round((Math.max(0, netCeo) / maxRev) * 100));
+    var pctSis = Math.max(5, Math.round((Math.max(0, netSistema) / maxRev) * 100));
+
+    document.getElementById('compCeo').textContent = fmt(Math.max(0, netCeo)) + ' neto';
+    document.getElementById('barCeo').style.width = pctCeo + '%';
+    document.getElementById('compSistema').textContent = fmt(Math.max(0, netSistema)) + ' neto + CEO libre';
+    document.getElementById('barSistema').style.width = pctSis + '%';
+    document.getElementById('breakeven').textContent = breakeven + ' meses';
+
+    // ROI Timeline
+    var tl = document.getElementById('roiTimeline');
+    tl.innerHTML = '';
+    var meses = [3, 6, 9, 12];
+    for(var i=0;i<meses.length;i++){
+      var m = meses[i];
+      var revSisM = (revSistema / 12) * m;
+      var costeSisM = COSTE_SISTEMA_MENSUAL * m;
+      var roiM = revSisM - costeSisM;
+      var tiempoLib = horasCeo * (m * 4);
+      var row = document.createElement('div');
+      row.className = 'flex items-center justify-between py-2 border-b border-white/5';
+      row.innerHTML = '<span class="text-xs text-gray-400">Mes ' + m + '</span>' +
+        '<span class="text-xs font-bold ' + (roiM >= 0 ? 'text-cyan' : 'text-pink') + '">' + fmt(roiM) + '</span>' +
+        '<span class="text-xs text-gray-500">' + tiempoLib + 'h liberadas</span>';
+      tl.appendChild(row);
+    }
+  };
+
+  calc();
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de dependencias criticas en tu proceso comercial | GGC</title>
+  <meta name="description" content="Mapea las dependencias criticas de tu proceso comercial. Descubre que areas dependen de personas clave y cuales estan sistematizadas.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Mapa de dependencias criticas en tu proceso comercial">
+  <meta property="og:description" content="Herramienta interactiva para mapear las dependencias de tu proceso comercial. Diagnostico visual inmediato.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    .btn-outline{border:1px solid rgba(139,92,246,0.4);color:#8B5CF6;background:transparent;transition:all .2s ease}
+    .btn-outline:hover{background:rgba(139,92,246,0.05);border-color:rgba(139,92,246,0.6)}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+    @keyframes countUp{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
+    @keyframes barGrow{from{width:0}to{width:var(--target-width)}}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}}
+
+    .fade-in{animation:fadeIn .5s ease forwards}
+    .scale-in{animation:scaleIn .5s ease forwards}
+    .score-number{animation:countUp .6s ease forwards}
+
+    .quiz-section{display:none}
+    .quiz-section.active{display:block}
+
+    /* Radio option styling */
+    .area-option{transition:all .2s ease;cursor:pointer;position:relative}
+    .area-option:hover{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.3)}
+    .area-option.selected{background:rgba(139,92,246,0.1);border-color:rgba(139,92,246,0.5)}
+    .area-option.selected::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(59,130,246,0.05),rgba(139,92,246,0.08));pointer-events:none}
+    .area-option .opt-radio{width:18px;height:18px;border:2px solid rgba(139,92,246,0.4);border-radius:50%;flex-shrink:0;transition:all .2s ease;position:relative}
+    .area-option.selected .opt-radio{border-color:#8B5CF6;background:linear-gradient(135deg,#8B5CF6,#EC4899)}
+    .area-option.selected .opt-radio::after{content:'';position:absolute;top:4px;left:4px;width:6px;height:6px;border-radius:50%;background:#fff}
+
+    /* Dependency bar colors */
+    .dep-bar-critical{background:linear-gradient(90deg,#EF4444,#F87171)}
+    .dep-bar-partial{background:linear-gradient(90deg,#F59E0B,#FBBF24)}
+    .dep-bar-system{background:linear-gradient(90deg,#10B981,#34D399)}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 py-12">
+
+  <!-- INTRO SECTION -->
+  <section id="introSection" class="quiz-section active">
+    <div class="text-center mb-10 fade-in">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Herramienta de mapeo</span>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+        Dependencias criticas<br><span class="gr">en tu proceso comercial</span>
+      </h1>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-3">
+        Cada area de tu proceso comercial que depende de una persona concreta es un punto de fallo. Mapea tus dependencias y descubre donde esta el riesgo real.
+      </p>
+      <p class="text-gray-500 text-sm mb-8">6 areas. 2 minutos. Mapa visual de dependencias.</p>
+      <button onclick="startMapping()" class="btn-g px-10 py-4 rounded-xl text-base">
+        Empezar el mapeo
+      </button>
+      <p class="text-xs text-gray-500 mt-4">Sin registro previo. Resultado inmediato.</p>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-8 fade-in" style="animation-delay:.2s">
+      <div class="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-2xl font-bold text-white mb-1">6</p>
+        <p class="text-xs text-gray-500">Areas</p>
+      </div>
+      <div class="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-2xl font-bold text-white mb-1">2 min</p>
+        <p class="text-xs text-gray-500">Duracion</p>
+      </div>
+      <div class="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-2xl font-bold text-white mb-1">18</p>
+        <p class="text-xs text-gray-500">Puntos max</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPPING SECTION -->
+  <section id="mappingSection" class="quiz-section">
+
+    <!-- Progress -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-sm text-gray-400">Area <span id="currentArea">1</span> de 6</span>
+        <span id="progressPct" class="text-sm font-semibold text-white">0%</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-white/5 overflow-hidden">
+        <div id="progressBar" class="h-full rounded-full bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] transition-all duration-400 ease-out" style="width:0%"></div>
+      </div>
+      <div class="flex items-center justify-between mt-4 px-4">
+        <div class="progress-dot active" data-dot="0" style="width:10px;height:10px;border-radius:50%;background:#8B5CF6;box-shadow:0 0 8px rgba(139,92,246,0.4);transition:all .3s ease"></div>
+        <div class="progress-dot" data-dot="1" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all .3s ease"></div>
+        <div class="progress-dot" data-dot="2" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all .3s ease"></div>
+        <div class="progress-dot" data-dot="3" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all .3s ease"></div>
+        <div class="progress-dot" data-dot="4" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all .3s ease"></div>
+        <div class="progress-dot" data-dot="5" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all .3s ease"></div>
+      </div>
+    </div>
+
+    <!-- Area container -->
+    <div id="areaContainer" class="glass rounded-2xl p-8 md:p-10">
+      <div id="areaContent"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex items-center justify-between mt-6">
+      <button id="backBtn" onclick="prevArea()" class="btn-outline px-6 py-3 rounded-xl text-sm" style="display:none">
+        &#8592; Anterior
+      </button>
+      <div class="flex-1"></div>
+      <button id="nextBtn" onclick="nextArea()" class="btn-g px-8 py-3 rounded-xl text-sm" disabled>
+        Siguiente &#8594;
+      </button>
+    </div>
+
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section id="resultsSection" class="quiz-section">
+
+    <!-- Score hero -->
+    <div class="text-center mb-10 scale-in">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Tu mapa de dependencias</span>
+      <div class="mb-4">
+        <span id="scoreNumber" class="text-7xl md:text-8xl font-bold gr score-number inline-block">0</span>
+        <span class="text-3xl text-gray-500 font-light">/18</span>
+      </div>
+      <p id="scoreTier" class="text-xl font-semibold mb-2"></p>
+      <p id="scoreSubtitle" class="text-gray-400 text-sm max-w-lg mx-auto"></p>
+    </div>
+
+    <!-- Visual dependency map -->
+    <div class="glass rounded-2xl p-8 mb-8 fade-in" style="animation-delay:.1s">
+      <h3 class="text-lg font-bold text-white mb-6" style="font-family:'DM Sans',sans-serif">Mapa visual de dependencias</h3>
+      <div id="dependencyMap" class="space-y-5"></div>
+      <div class="flex items-center justify-center gap-6 mt-6 pt-4 border-t border-white/5">
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-red-500"></span><span class="text-xs text-gray-500">Persona clave</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-yellow-500"></span><span class="text-xs text-gray-500">Parcial</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-green-500"></span><span class="text-xs text-gray-500">Sistematizado</span></div>
+      </div>
+    </div>
+
+    <!-- Diagnosis card -->
+    <div class="glass rounded-2xl p-8 mb-8 fade-in" style="animation-delay:.2s">
+      <h3 class="text-lg font-bold text-white mb-4" style="font-family:'DM Sans',sans-serif">Diagnostico</h3>
+      <p id="diagnosisText" class="text-gray-300 text-sm leading-relaxed"></p>
+    </div>
+
+    <!-- Risk areas -->
+    <div id="riskAreasCard" class="glass rounded-2xl p-8 mb-8 fade-in" style="animation-delay:.3s">
+      <h3 class="text-lg font-bold text-white mb-4" style="font-family:'DM Sans',sans-serif">Areas de riesgo</h3>
+      <div id="riskAreasList" class="space-y-3"></div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="grid md:grid-cols-2 gap-4 mb-8 fade-in" style="animation-delay:.4s">
+      <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-sm text-gray-400 mb-3">¿Quieres sistematizar estas areas?</p>
+        <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Agendar diagnostico con GGC</a>
+        <p class="text-xs text-gray-500 mt-2">30 min. Sin compromiso.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-sm text-gray-400 mb-3">Explora el blog</p>
+        <a href="../blog.html" class="inline-block px-6 py-3 rounded-lg text-sm w-full border border-[#8B5CF6]/40 text-[#8B5CF6] hover:bg-[#8B5CF6]/5 transition-colors">Articulos sobre sistematizacion B2B</a>
+        <p class="text-xs text-gray-500 mt-2">Contenido practico y sin humo</p>
+      </div>
+    </div>
+
+    <!-- LEAD CAPTURE -->
+    <div id="leadCapture" class="mt-10">
+      <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+        <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Tu plan personalizado</p>
+        <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe tu mapa de dependencias con plan de sistematizacion</h3>
+        <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te enviamos un resumen con tu mapa completo, las areas de riesgo y un plan concreto para sistematizar cada una.</p>
+
+        <form id="leadForm" class="max-w-md mx-auto space-y-3">
+          <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          <input type="hidden" name="source" value="mapa-dependencias-criticas">
+          <input type="hidden" name="score" id="hiddenScore" value="">
+          <input type="hidden" name="areas_criticas" id="hiddenAreasCriticas" value="">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+            <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white">politica de privacidad</a>. Recibire comunicaciones que puedo cancelar en cualquier momento.</span>
+          </label>
+          <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Recibe tu mapa de dependencias con plan de sistematizacion</button>
+        </form>
+        <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+          Enviado. Revisa tu bandeja en los proximos 2 minutos.
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 mt-16">
+  <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-600">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-6">
+      <a href="../blog.html" class="text-xs text-gray-500 hover:text-white transition-colors">Blog</a>
+      <a href="../privacidad.html" class="text-xs text-gray-500 hover:text-white transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="text-xs text-gray-500 hover:text-white transition-colors">Agendar</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var TOTAL_AREAS = 6;
+
+  var areas = [
+    {
+      name: 'Prospeccion',
+      description: '¿Como generais oportunidades nuevas? ¿Quien identifica y contacta potenciales clientes?',
+      options: [
+        { text: 'Depende de una persona clave. Solo una persona prospecta y si no esta, no entran leads nuevos.', score: 1, level: 'persona' },
+        { text: 'Parcialmente documentado. Hay un proceso basico pero depende mucho de quien lo ejecute.', score: 2, level: 'parcial' },
+        { text: 'Totalmente sistematizado. Hay canales activos, secuencias automatizadas y cualquiera del equipo puede ejecutar.', score: 3, level: 'sistema' }
+      ]
+    },
+    {
+      name: 'Cualificacion',
+      description: '¿Como decidis si un lead merece tiempo? ¿Quien evalua si una oportunidad es real?',
+      options: [
+        { text: 'Depende de una persona clave. Solo el fundador o un senior sabe distinguir un buen lead de uno malo.', score: 1, level: 'persona' },
+        { text: 'Parcialmente documentado. Hay criterios, pero la decision final siempre pasa por alguien especifico.', score: 2, level: 'parcial' },
+        { text: 'Totalmente sistematizado. Hay scoring, criterios claros y el equipo cualifica sin necesitar aprobacion.', score: 3, level: 'sistema' }
+      ]
+    },
+    {
+      name: 'Propuesta',
+      description: '¿Como se crean y presentan las propuestas comerciales?',
+      options: [
+        { text: 'Depende de una persona clave. Solo una persona sabe montar propuestas que conviertan.', score: 1, level: 'persona' },
+        { text: 'Parcialmente documentado. Hay templates pero requieren personalizacion que solo algunos saben hacer bien.', score: 2, level: 'parcial' },
+        { text: 'Totalmente sistematizado. Templates modulares, pricing definido, cualquiera puede generar una propuesta profesional.', score: 3, level: 'sistema' }
+      ]
+    },
+    {
+      name: 'Negociacion',
+      description: '¿Quien maneja objeciones, descuentos y condiciones especiales?',
+      options: [
+        { text: 'Depende de una persona clave. Solo el fundador o director comercial puede negociar. El resto no tiene autonomia.', score: 1, level: 'persona' },
+        { text: 'Parcialmente documentado. Hay rangos definidos pero las negociaciones complejas siempre escalan arriba.', score: 2, level: 'parcial' },
+        { text: 'Totalmente sistematizado. Marcos de negociacion claros, autonomia por niveles, objeciones documentadas con respuestas.', score: 3, level: 'sistema' }
+      ]
+    },
+    {
+      name: 'Cierre',
+      description: '¿Como se cierran los deals? ¿Quien firma y formaliza?',
+      options: [
+        { text: 'Depende de una persona clave. Solo una persona cierra. Sin ella, los deals se quedan en el limbo.', score: 1, level: 'persona' },
+        { text: 'Parcialmente documentado. Varios pueden cerrar pero los deals importantes siempre necesitan al jefe.', score: 2, level: 'parcial' },
+        { text: 'Totalmente sistematizado. Proceso de cierre definido, contratos estandarizados, el equipo cierra con autonomia.', score: 3, level: 'sistema' }
+      ]
+    },
+    {
+      name: 'Postventa',
+      description: '¿Como gestionais la relacion despues del cierre? ¿Quien detecta oportunidades de expansion?',
+      options: [
+        { text: 'Depende de una persona clave. El account manager o fundador es el unico que mantiene la relacion. Sin el, los clientes se pierden.', score: 1, level: 'persona' },
+        { text: 'Parcialmente documentado. Hay check-ins programados pero la deteccion de upsell depende de quien atiende.', score: 2, level: 'parcial' },
+        { text: 'Totalmente sistematizado. Onboarding definido, NPS automatizado, triggers de expansion, playbook de retencion.', score: 3, level: 'sistema' }
+      ]
+    }
+  ];
+
+  var currentArea = 0;
+  var answers = new Array(TOTAL_AREAS).fill(null);
+
+  // ─── START ───
+  window.startMapping = function(){
+    document.getElementById('introSection').classList.remove('active');
+    document.getElementById('mappingSection').classList.add('active');
+    renderArea();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // ─── RENDER AREA ───
+  function renderArea(){
+    var a = areas[currentArea];
+    var content = document.getElementById('areaContent');
+
+    content.className = 'fade-in';
+
+    var optionsHTML = '';
+    a.options.forEach(function(opt, i){
+      var selected = answers[currentArea] === i ? 'selected' : '';
+      optionsHTML += '<div class="area-option glass rounded-xl p-5 mb-3 ' + selected + '" onclick="selectAreaOption(' + i + ')" role="button" tabindex="0" aria-label="' + opt.text + '">' +
+        '<div class="flex items-start gap-4">' +
+        '<div class="opt-radio mt-0.5"></div>' +
+        '<div>' +
+        '<p class="text-sm text-gray-200 leading-relaxed">' + opt.text + '</p>' +
+        '</div></div></div>';
+    });
+
+    content.innerHTML = '<p class="text-xs text-[#8B5CF6] font-semibold uppercase tracking-widest mb-2">Area ' + (currentArea + 1) + ' de ' + TOTAL_AREAS + '</p>' +
+      '<h2 class="text-xl md:text-2xl font-bold text-white mb-2" style="font-family:\'Playfair Display\',serif">' + a.name + '</h2>' +
+      '<p class="text-gray-400 text-sm mb-6">' + a.description + '</p>' +
+      '<div class="space-y-0">' + optionsHTML + '</div>';
+
+    // Progress
+    document.getElementById('currentArea').textContent = currentArea + 1;
+    var pct = Math.round((currentArea / TOTAL_AREAS) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
+
+    // Dots
+    document.querySelectorAll('.progress-dot').forEach(function(dot, i){
+      if(i < currentArea){
+        dot.style.background = 'linear-gradient(135deg,#3B82F6,#8B5CF6)';
+        dot.style.boxShadow = '0 0 6px rgba(139,92,246,0.3)';
+      } else if(i === currentArea){
+        dot.style.background = '#8B5CF6';
+        dot.style.boxShadow = '0 0 8px rgba(139,92,246,0.4)';
+      } else {
+        dot.style.background = 'rgba(255,255,255,0.1)';
+        dot.style.boxShadow = 'none';
+      }
+    });
+
+    document.getElementById('backBtn').style.display = currentArea > 0 ? 'block' : 'none';
+    updateNextBtn();
+  }
+
+  function updateNextBtn(){
+    var btn = document.getElementById('nextBtn');
+    if(answers[currentArea] !== null){
+      btn.disabled = false;
+      btn.textContent = currentArea === TOTAL_AREAS - 1 ? 'Ver mapa' : 'Siguiente \u2192';
+    } else {
+      btn.disabled = true;
+      btn.textContent = currentArea === TOTAL_AREAS - 1 ? 'Ver mapa' : 'Siguiente \u2192';
+    }
+  }
+
+  // ─── SELECT ───
+  window.selectAreaOption = function(index){
+    answers[currentArea] = index;
+
+    document.querySelectorAll('.area-option').forEach(function(card, i){
+      card.classList.toggle('selected', i === index);
+    });
+
+    updateNextBtn();
+
+    if(currentArea < TOTAL_AREAS - 1){
+      setTimeout(function(){ nextArea(); }, 350);
+    }
+  };
+
+  // ─── NAVIGATION ───
+  window.nextArea = function(){
+    if(answers[currentArea] === null) return;
+    if(currentArea < TOTAL_AREAS - 1){
+      currentArea++;
+      renderArea();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      showResults();
+    }
+  };
+
+  window.prevArea = function(){
+    if(currentArea > 0){
+      currentArea--;
+      renderArea();
+    }
+  };
+
+  document.addEventListener('keydown', function(e){
+    if(!document.getElementById('mappingSection').classList.contains('active')) return;
+    if(e.key === 'Enter' && answers[currentArea] !== null){
+      nextArea();
+    }
+  });
+
+  // ─── SHOW RESULTS ───
+  function showResults(){
+    var totalScore = 0;
+    var criticalAreas = [];
+    var areaResults = [];
+
+    answers.forEach(function(ansIndex, i){
+      if(ansIndex !== null){
+        var opt = areas[i].options[ansIndex];
+        totalScore += opt.score;
+        areaResults.push({ name: areas[i].name, score: opt.score, level: opt.level });
+        if(opt.level === 'persona'){
+          criticalAreas.push(areas[i].name);
+        }
+      }
+    });
+
+    // Set hidden fields
+    document.getElementById('hiddenScore').value = totalScore + '/18';
+    document.getElementById('hiddenAreasCriticas').value = criticalAreas.length > 0 ? criticalAreas.join(', ') : 'Ninguna';
+
+    // Determine tier
+    var tierLabel, tierColor, diagnosis;
+
+    if(totalScore <= 8){
+      tierLabel = 'Dependencia critica';
+      tierColor = '#EF4444';
+      diagnosis = 'Tu proceso comercial tiene dependencias graves. La mayoria de las areas clave estan en manos de personas concretas. Si alguna de esas personas se va, enferma o simplemente tiene un mal mes, el impacto es directo en facturacion. No es un problema de personas — es un problema de arquitectura. Lo que necesitas es convertir el conocimiento que esta en cabezas individuales en procesos que cualquiera pueda ejecutar. Empieza por las areas marcadas en rojo: son tus puntos de fallo mas criticos.';
+    } else if(totalScore <= 13){
+      tierLabel = 'Dependencia parcial';
+      tierColor = '#F59E0B';
+      diagnosis = 'Tienes algunas areas sistematizadas pero otras siguen dependiendo de personas concretas. Es la situacion mas comun en empresas en crecimiento: has empezado a documentar y delegar, pero el proceso no esta completo. El riesgo es que las areas no sistematizadas son precisamente las que mas dano hacen cuando fallan. Prioriza las areas en rojo, refuerza las amarillas y asegura que las verdes no se degraden por falta de mantenimiento.';
+    } else {
+      tierLabel = 'Alta sistematizacion';
+      tierColor = '#10B981';
+      diagnosis = 'Tu proceso comercial tiene un alto nivel de sistematizacion. Las dependencias de personas concretas son minimas y el equipo puede operar con autonomia. Esto no es comun — la mayoria de empresas B2B dependen mucho mas de personas clave de lo que creen. Tu reto ahora es mantener y optimizar: los sistemas se degradan si no se iteran, el mercado cambia y lo que funciona hoy puede no funcionar manana. Sigue invirtiendo en la infraestructura que te ha traido hasta aqui.';
+    }
+
+    // Switch sections
+    document.getElementById('mappingSection').classList.remove('active');
+    document.getElementById('resultsSection').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Animate score
+    var scoreEl = document.getElementById('scoreNumber');
+    var counter = 0;
+    var increment = totalScore / 30;
+    var timer = setInterval(function(){
+      counter += increment;
+      if(counter >= totalScore){
+        counter = totalScore;
+        clearInterval(timer);
+      }
+      scoreEl.textContent = Math.round(counter);
+    }, 40);
+
+    // Tier info
+    document.getElementById('scoreTier').textContent = tierLabel;
+    document.getElementById('scoreTier').style.color = tierColor;
+    document.getElementById('scoreSubtitle').textContent = totalScore + ' de 18 puntos — ' + (criticalAreas.length > 0 ? criticalAreas.length + ' area' + (criticalAreas.length > 1 ? 's' : '') + ' con dependencia de persona clave' : 'Sin dependencias criticas');
+    document.getElementById('diagnosisText').textContent = diagnosis;
+
+    // Render dependency map
+    renderDependencyMap(areaResults);
+
+    // Render risk areas
+    renderRiskAreas(areaResults);
+  }
+
+  // ─── DEPENDENCY MAP ───
+  function renderDependencyMap(results){
+    var mapEl = document.getElementById('dependencyMap');
+    mapEl.innerHTML = '';
+
+    results.forEach(function(r, i){
+      var barClass, barLabel, barWidth, dotColor;
+
+      if(r.level === 'persona'){
+        barClass = 'dep-bar-critical';
+        barLabel = 'Persona clave';
+        barWidth = '33%';
+        dotColor = '#EF4444';
+      } else if(r.level === 'parcial'){
+        barClass = 'dep-bar-partial';
+        barLabel = 'Parcialmente documentado';
+        barWidth = '66%';
+        dotColor = '#F59E0B';
+      } else {
+        barClass = 'dep-bar-system';
+        barLabel = 'Sistematizado';
+        barWidth = '100%';
+        dotColor = '#10B981';
+      }
+
+      mapEl.innerHTML += '<div class="fade-in" style="animation-delay:' + (i * 0.1) + 's">' +
+        '<div class="flex items-center justify-between mb-2">' +
+        '<div class="flex items-center gap-2">' +
+        '<span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:' + dotColor + '"></span>' +
+        '<span class="text-sm font-semibold text-white">' + r.name + '</span>' +
+        '</div>' +
+        '<span class="text-xs" style="color:' + dotColor + '">' + barLabel + '</span>' +
+        '</div>' +
+        '<div class="w-full h-3 rounded-full bg-white/5 overflow-hidden">' +
+        '<div class="h-full rounded-full ' + barClass + ' transition-all duration-700" style="width:' + barWidth + '"></div>' +
+        '</div></div>';
+    });
+  }
+
+  // ─── RISK AREAS ───
+  function renderRiskAreas(results){
+    var listEl = document.getElementById('riskAreasList');
+    listEl.innerHTML = '';
+
+    var risks = results.filter(function(r){ return r.level === 'persona'; });
+    var partials = results.filter(function(r){ return r.level === 'parcial'; });
+
+    if(risks.length === 0 && partials.length === 0){
+      listEl.innerHTML = '<div class="p-4 rounded-lg bg-green-500/5 border border-green-500/10 text-green-400 text-sm">No hay areas con dependencia critica. Tu proceso comercial esta bien sistematizado.</div>';
+      return;
+    }
+
+    if(risks.length > 0){
+      risks.forEach(function(r){
+        var rec = getRecommendation(r.name);
+        listEl.innerHTML += '<div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">' +
+          '<div class="flex items-center gap-2 mb-2">' +
+          '<span class="text-xs font-semibold px-2 py-0.5 rounded" style="background:rgba(239,68,68,0.1);color:#EF4444">Critico</span>' +
+          '<span class="text-sm font-semibold text-white">' + r.name + '</span>' +
+          '</div>' +
+          '<p class="text-sm text-gray-300 leading-relaxed">' + rec + '</p>' +
+          '</div>';
+      });
+    }
+
+    if(partials.length > 0){
+      partials.forEach(function(r){
+        var rec = getRecommendation(r.name);
+        listEl.innerHTML += '<div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">' +
+          '<div class="flex items-center gap-2 mb-2">' +
+          '<span class="text-xs font-semibold px-2 py-0.5 rounded" style="background:rgba(245,158,11,0.1);color:#F59E0B">Mejorable</span>' +
+          '<span class="text-sm font-semibold text-white">' + r.name + '</span>' +
+          '</div>' +
+          '<p class="text-sm text-gray-300 leading-relaxed">' + rec + '</p>' +
+          '</div>';
+      });
+    }
+
+    listEl.innerHTML += '<div class="p-5 rounded-xl border border-[#8B5CF6]/20 bg-[#8B5CF6]/5 mt-2">' +
+      '<p class="text-sm text-gray-200 leading-relaxed">' +
+      'En GGC ayudamos a empresas B2B de servicios a eliminar dependencias criticas con <strong class="text-white">APEX OS&#8482;</strong> — infraestructura comercial permanente que han instalado +627 empresas.' +
+      '</p>' +
+      '<a href="../agendar.html" class="inline-block mt-3 text-sm font-semibold text-[#8B5CF6] hover:text-white transition-colors">Agendar diagnostico gratuito &#8594;</a>' +
+      '</div>';
+  }
+
+  function getRecommendation(areaName){
+    var recs = {
+      'Prospeccion': 'Instala canales de adquisicion que funcionen sin una persona concreta. Secuencias de outbound automatizadas, contenido que genera inbound, partnerships. El objetivo: que los leads entren aunque el prospector estrella no este.',
+      'Cualificacion': 'Define criterios objetivos de cualificacion (ICP, presupuesto, timeline, autoridad). Crea un scorecard que cualquiera pueda aplicar. Si la cualificacion depende de intuicion, no es un proceso — es una apuesta.',
+      'Propuesta': 'Construye templates modulares con bloques reutilizables, pricing estandarizado y ejemplos de personalizacion. El equipo debe poder generar una propuesta profesional sin consultar a nadie.',
+      'Negociacion': 'Documenta un marco de negociacion con rangos de descuento por nivel, respuestas a las 15 objeciones mas comunes y criterios de escalado. Da autonomia real con limites claros.',
+      'Cierre': 'Estandariza el proceso de cierre: contratos tipo, flujo de firma, checklist de cierre. Entrena al equipo con role-plays hasta que puedan cerrar sin supervision. Tu rol pasa de closer a coach.',
+      'Postventa': 'Implementa un proceso de onboarding definido, check-ins programados, NPS automatizado y triggers de expansion. La postventa predecible genera mas revenue que la prospeccion en frio.'
+    };
+    return recs[areaName] || '';
+  }
+
+  // ─── LEAD FORM ───
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      score: form.score.value,
+      areas_criticas: form.areas_criticas.value,
+      source: 'mapa-dependencias-criticas',
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

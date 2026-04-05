@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflow de Seguimiento Automatizado con IA | GGC</title>
+  <meta name="description" content="Plantilla visual de workflow: automatiza el seguimiento comercial B2B con IA. 7 pasos, herramientas recomendadas y calculadora de ROI incluida.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Workflow de Seguimiento Automatizado con IA - GGC">
+  <meta property="og:description" content="Automatiza tu follow-up B2B con IA. Workflow visual paso a paso con herramientas y plantillas.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .step-card{cursor:pointer;transition:all .3s ease}
+    .step-card:hover{border-color:rgba(139,92,246,0.3)}
+    .step-card.active{border-color:rgba(139,92,246,0.4);box-shadow:0 0 30px rgba(139,92,246,0.1)}
+    .step-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
+    .step-card.active .step-detail{max-height:600px}
+    .step-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+    .connector{width:2px;height:24px;margin:0 auto;background:linear-gradient(to bottom,rgba(139,92,246,0.3),rgba(139,92,246,0.05))}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;outline:none;cursor:pointer;background:rgba(255,255,255,0.08)}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);border:2px solid #fff;cursor:pointer;box-shadow:0 0 10px rgba(139,92,246,0.4)}
+    input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);border:2px solid #fff;cursor:pointer}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}}
+    @media print{body{background:#fff;color:#000}.glass{background:#f5f5f5;border:1px solid #ddd}.connector{background:#ccc}header,footer{display:none}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Plantilla de Workflow</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Workflow de Seguimiento<br><span class="gr">Automatizado con IA</span></h1>
+    <p class="text-gray-500 max-w-2xl mx-auto text-base sm:text-lg">7 pasos para pasar de seguimiento manual a una m&aacute;quina de follow-up que funciona sola. Haz clic en cada paso para ver el detalle.</p>
+  </div>
+
+  <!-- TOOL BADGES -->
+  <div class="flex flex-wrap justify-center gap-3 mb-10">
+    <span class="glass rounded-full px-4 py-1.5 text-xs text-gray-400">ChatGPT / Claude</span>
+    <span class="glass rounded-full px-4 py-1.5 text-xs text-gray-400">Clay</span>
+    <span class="glass rounded-full px-4 py-1.5 text-xs text-gray-400">Instantly</span>
+    <span class="glass rounded-full px-4 py-1.5 text-xs text-gray-400">Make / Zapier</span>
+    <span class="glass rounded-full px-4 py-1.5 text-xs text-gray-400">HubSpot / Pipedrive</span>
+  </div>
+
+  <!-- WORKFLOW STEPS -->
+  <div class="max-w-3xl mx-auto" id="workflowSteps">
+
+    <!-- Step 1 -->
+    <div class="step-card glass rounded-xl p-6 mb-1" data-step="1">
+      <div class="flex items-center gap-4">
+        <div class="step-num bg-gradient-to-br from-cyan to-blue text-white">1</div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold">Trigger: Nuevo Lead Entra al CRM</h3>
+          <p class="text-sm text-gray-500">Autom&aacute;tico &mdash; se activa con cada nuevo contacto</p>
+        </div>
+        <span class="text-gray-500 text-xl transition-transform duration-300" data-arrow>&#9660;</span>
+      </div>
+      <div class="step-detail">
+        <div class="mt-4 pt-4 border-t border-white/5 space-y-3">
+          <p class="text-sm text-gray-400"><strong class="text-white">Descripci&oacute;n:</strong> Cuando un lead entra en tu CRM (v&iacute;a formulario, importaci&oacute;n, o integraci&oacute;n), se dispara autom&aacute;ticamente la secuencia de seguimiento con IA.</p>
+          <p class="text-sm text-gray-400"><strong class="text-white">Herramienta:</strong> HubSpot, Pipedrive o cualquier CRM con webhooks. Conecta con Make/Zapier para iniciar el workflow.</p>
+          <div class="bg-[#0C0A1D] rounded-lg p-3 text-xs text-gray-400 font-mono">Trigger: CRM &rarr; Nuevo contacto creado &rarr; Webhook a Make &rarr; Inicia secuencia</div>
+          <p class="text-xs text-cyan"><strong>Tip:</strong> Filtra por fuente. No todos los leads necesitan la misma secuencia. Un lead de web no es lo mismo que uno de LinkedIn.</p>
+        </div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <!-- Step 2 -->
+    <div class="step-card glass rounded-xl p-6 mb-1" data-step="2">
+      <div class="flex items-center gap-4">
+        <div class="step-num bg-gradient-to-br from-blue to-purple text-white">2</div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold">Research Autom&aacute;tico con IA</h3>
+          <p class="text-sm text-gray-500">30 segundos &mdash; la IA investiga la cuenta</p>
+        </div>
+        <span class="text-gray-500 text-xl transition-transform duration-300" data-arrow>&#9660;</span>
+      </div>
+      <div class="step-detail">
+        <div class="mt-4 pt-4 border-t border-white/5 space-y-3">
+          <p class="text-sm text-gray-400"><strong class="text-white">Descripci&oacute;n:</strong> La IA recibe el nombre de la empresa y el contacto. Investiga autom&aacute;ticamente: web, LinkedIn, noticias recientes, stack tecnol&oacute;gico.</p>
+          <p class="text-sm text-gray-400"><strong class="text-white">Herramienta:</strong> Clay (ideal) o ChatGPT/Claude v&iacute;a API conectado a Make. Clay puede enriquecer con 50+ fuentes en segundos.</p>
+          <div class="bg-[#0C0A1D] rounded-lg p-3 text-xs text-gray-400 font-mono">Input: {nombre, empresa, email, web} &rarr; Clay/API &rarr; Output: {sector, tama&ntilde;o, tecnolog&iacute;a, noticias, dolor_probable}</div>
+          <p class="text-xs text-cyan"><strong>Tip:</strong> Guarda el research en un campo del CRM. Lo necesitar&aacute;s para los seguimientos posteriores.</p>
+        </div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <!-- Step 3 -->
+    <div class="step-card glass rounded-xl p-6 mb-1" data-step="3">
+      <div class="flex items-center gap-4">
+        <div class="step-num bg-gradient-to-br from-purple to-pink text-white">3</div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold">Generar Mensaje Personalizado</h3>
+          <p class="text-sm text-gray-500">10 segundos &mdash; email &uacute;nico por cuenta</p>
+        </div>
+        <span class="text-gray-500 text-xl transition-transform duration-300" data-arrow>&#9660;</span>
+      </div>
+      <div class="step-detail">
+        <div class="mt-4 pt-4 border-t border-white/5 space-y-3">
+          <p class="text-sm text-gray-400"><strong class="text-white">Descripci&oacute;n:</strong> Con el research del paso anterior, la IA genera un primer email personalizado. No es un template con {{nombre}} &mdash; es un mensaje que demuestra que has investigado.</p>
+          <p class="text-sm text-gray-400"><strong class="text-white">Herramienta:</strong> ChatGPT/Claude API v&iacute;a Make. Usa un prompt sistema que defina tu tono + el research como contexto.</p>
+          <div class="bg-[#0C0A1D] rounded-lg p-3 text-xs text-gray-400 font-mono">Prompt: "Eres un SDR senior. Con este research: {data}. Escribe email de 60 palabras. Tono: directo, sin adulaci&oacute;n. Gancho: {trigger_detectado}"</div>
+          <p class="text-xs text-cyan"><strong>Tip:</strong> Genera 2-3 versiones y rota. Nunca env&iacute;es el mismo &aacute;ngulo a todos los leads del mismo lote.</p>
+        </div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <!-- Step 4 -->
+    <div class="step-card glass rounded-xl p-6 mb-1" data-step="4">
+      <div class="flex items-center gap-4">
+        <div class="step-num bg-gradient-to-br from-pink to-magenta text-white">4</div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold">Env&iacute;o Multicanal Escalonado</h3>
+          <p class="text-sm text-gray-500">Autom&aacute;tico &mdash; email + LinkedIn en secuencia</p>
+        </div>
+        <span class="text-gray-500 text-xl transition-transform duration-300" data-arrow>&#9660;</span>
+      </div>
+      <div class="step-detail">
+        <div class="mt-4 pt-4 border-t border-white/5 space-y-3">
+          <p class="text-sm text-gray-400"><strong class="text-white">Descripci&oacute;n:</strong> D&iacute;a 1: email. D&iacute;a 3: vista de perfil LinkedIn. D&iacute;a 5: solicitud de conexi&oacute;n. D&iacute;a 7: segundo email con &aacute;ngulo distinto. D&iacute;a 10: &uacute;ltimo toque.</p>
+          <p class="text-sm text-gray-400"><strong class="text-white">Herramienta:</strong> Instantly (email) + Make (orquestaci&oacute;n) + LinkedIn manual o herramienta complementaria.</p>
+          <div class="bg-[#0C0A1D] rounded-lg p-3 text-xs text-gray-400 font-mono">Secuencia: Email 1 (D1) &rarr; LinkedIn View (D3) &rarr; Connection (D5) &rarr; Email 2 (D7) &rarr; Breakup (D10)</div>
+          <p class="text-xs text-cyan"><strong>Tip:</strong> El email de breakup (&ldquo;&uacute;ltimo mensaje&rdquo;) tiene la tasa de respuesta m&aacute;s alta. No lo subestimes.</p>
+        </div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <!-- Step 5 -->
+    <div class="step-card glass rounded-xl p-6 mb-1" data-step="5">
+      <div class="flex items-center gap-4">
+        <div class="step-num bg-gradient-to-br from-cyan to-purple text-white">5</div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold">Tracking de Engagement</h3>
+          <p class="text-sm text-gray-500">Autom&aacute;tico &mdash; mide cada interacci&oacute;n</p>
+        </div>
+        <span class="text-gray-500 text-xl transition-transform duration-300" data-arrow>&#9660;</span>
+      </div>
+      <div class="step-detail">
+        <div class="mt-4 pt-4 border-t border-white/5 space-y-3">
+          <p class="text-sm text-gray-400"><strong class="text-white">Descripci&oacute;n:</strong> Registra aperturas, clics, respuestas y visitas al perfil. Asigna puntuaci&oacute;n de engagement a cada lead para priorizar seguimiento humano.</p>
+          <p class="text-sm text-gray-400"><strong class="text-white">Herramienta:</strong> Instantly (tracking nativo) + Make (sincroniza datos al CRM) + campo de scoring personalizado en tu CRM.</p>
+          <div class="bg-[#0C0A1D] rounded-lg p-3 text-xs text-gray-400 font-mono">Score: apertura=1pt, clic=3pts, respuesta=10pts, visita web=5pts. Hot lead &ge; 10pts.</div>
+          <p class="text-xs text-cyan"><strong>Tip:</strong> No hagas seguimiento a leads fr&iacute;os (0 puntos despu&eacute;s de 2 emails). Invierte tu tiempo en los que dan se&ntilde;ales.</p>
+        </div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <!-- Step 6 -->
+    <div class="step-card glass rounded-xl p-6 mb-1" data-step="6">
+      <div class="flex items-center gap-4">
+        <div class="step-num bg-gradient-to-br from-blue to-pink text-white">6</div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold">IA Ajusta el Mensaje Siguiente</h3>
+          <p class="text-sm text-gray-500">Inteligente &mdash; adapta seg&uacute;n comportamiento</p>
+        </div>
+        <span class="text-gray-500 text-xl transition-transform duration-300" data-arrow>&#9660;</span>
+      </div>
+      <div class="step-detail">
+        <div class="mt-4 pt-4 border-t border-white/5 space-y-3">
+          <p class="text-sm text-gray-400"><strong class="text-white">Descripci&oacute;n:</strong> Si abri&oacute; pero no respondi&oacute;, la IA genera un follow-up con otro &aacute;ngulo. Si hizo clic en un enlace, adapta el mensaje al tema que le interes&oacute;.</p>
+          <p class="text-sm text-gray-400"><strong class="text-white">Herramienta:</strong> Make (l&oacute;gica condicional) + ChatGPT/Claude API (generaci&oacute;n din&aacute;mica).</p>
+          <div class="bg-[#0C0A1D] rounded-lg p-3 text-xs text-gray-400 font-mono">Si: abri&oacute; 3x pero no respondi&oacute; &rarr; Prompt: "Genera follow-up corto, nuevo &aacute;ngulo, pregunta directa"<br>Si: hizo clic en caso de estudio &rarr; Prompt: "Menciona resultados del caso, ofrece llamada"</div>
+          <p class="text-xs text-cyan"><strong>Tip:</strong> Cada seguimiento debe aportar algo nuevo: un dato, un caso, una pregunta. Nunca &ldquo;solo quer&iacute;a hacer seguimiento&rdquo;.</p>
+        </div>
+      </div>
+    </div>
+    <div class="connector"></div>
+
+    <!-- Step 7 -->
+    <div class="step-card glass rounded-xl p-6 mb-1" data-step="7">
+      <div class="flex items-center gap-4">
+        <div class="step-num bg-gradient-to-br from-purple to-cyan text-white">7</div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold">Reporte y Optimizaci&oacute;n Semanal</h3>
+          <p class="text-sm text-gray-500">15 min/semana &mdash; mejora continua</p>
+        </div>
+        <span class="text-gray-500 text-xl transition-transform duration-300" data-arrow>&#9660;</span>
+      </div>
+      <div class="step-detail">
+        <div class="mt-4 pt-4 border-t border-white/5 space-y-3">
+          <p class="text-sm text-gray-400"><strong class="text-white">Descripci&oacute;n:</strong> Revisa m&eacute;tricas semanales: tasa de apertura, respuesta, reuniones agendadas. La IA analiza qu&eacute; mensajes funcionaron y sugiere cambios.</p>
+          <p class="text-sm text-gray-400"><strong class="text-white">Herramienta:</strong> Instantly (dashboard) + ChatGPT (an&aacute;lisis de copy que funcion&oacute; vs no) + Spreadsheet autom&aacute;tico v&iacute;a Make.</p>
+          <div class="bg-[#0C0A1D] rounded-lg p-3 text-xs text-gray-400 font-mono">Prompt semanal: "Estos son mis 5 mejores emails (tasa respuesta) y mis 5 peores. Anal&iacute;zalos y dime qu&eacute; patrones ves. Sugiere 3 cambios para la pr&oacute;xima semana."</div>
+          <p class="text-xs text-cyan"><strong>Tip:</strong> El sistema mejora cada semana. En 4 semanas tendr&aacute;s un motor de seguimiento que supera a cualquier SDR junior.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ROI CALCULATOR -->
+  <div class="glass rounded-2xl p-8 mt-12" id="roiCalc">
+    <h2 class="text-2xl font-bold text-center mb-2">Calculadora: <span class="gr">Tiempo Ahorrado por Semana</span></h2>
+    <p class="text-gray-500 text-center text-sm mb-8">Compara el seguimiento manual vs este workflow automatizado</p>
+
+    <div class="grid sm:grid-cols-2 gap-8">
+      <div>
+        <label class="text-sm text-gray-400 block mb-2">Leads nuevos por semana: <strong class="text-white" id="leadsVal">20</strong></label>
+        <input type="range" id="leadsRange" min="5" max="100" value="20" step="5">
+      </div>
+      <div>
+        <label class="text-sm text-gray-400 block mb-2">Minutos por lead (manual): <strong class="text-white" id="minsVal">15</strong></label>
+        <input type="range" id="minsRange" min="5" max="45" value="15" step="5">
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+      <div class="bg-[#0C0A1D] rounded-xl p-4 text-center">
+        <div class="text-xs text-gray-500 mb-1">Tiempo manual/semana</div>
+        <div class="text-xl font-bold text-pink" id="timeManual">5h</div>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-xl p-4 text-center">
+        <div class="text-xs text-gray-500 mb-1">Tiempo con IA/semana</div>
+        <div class="text-xl font-bold text-cyan" id="timeAI">1h</div>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-xl p-4 text-center">
+        <div class="text-xs text-gray-500 mb-1">Horas ahorradas/mes</div>
+        <div class="text-xl font-bold gr" id="savedMonth">16h</div>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-xl p-4 text-center">
+        <div class="text-xs text-gray-500 mb-1">Reducci&oacute;n de tiempo</div>
+        <div class="text-xl font-bold gr" id="reduction">80%</div>
+      </div>
+    </div>
+
+    <!-- Visual bar comparison -->
+    <div class="mt-8 space-y-3">
+      <div>
+        <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Manual</span><span id="barManualLabel">5h/sem</span></div>
+        <div class="w-full h-3 rounded-full bg-white/5 overflow-hidden"><div class="h-full rounded-full bg-pink transition-all duration-500" id="barManual" style="width:100%"></div></div>
+      </div>
+      <div>
+        <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Con IA</span><span id="barAILabel">1h/sem</span></div>
+        <div class="w-full h-3 rounded-full bg-white/5 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-cyan to-purple transition-all duration-500" id="barAI" style="width:20%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="glass rounded-2xl p-8 sm:p-10 text-center mt-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-3">¿Quieres este workflow<br><span class="gr">instalado y funcionando</span>?</h2>
+    <p class="text-gray-500 mb-6 max-w-xl mx-auto">No tienes que montarlo t&uacute;. En GGC instalamos esta infraestructura de seguimiento completa en tu empresa. Lista para generar reuniones desde la semana 1.</p>
+    <a href="../agendar.html" class="btn-g inline-block px-8 py-4 rounded-lg text-sm">Agendar sesi&oacute;n estrat&eacute;gica &rarr;</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Accordion steps
+  var steps = document.querySelectorAll('.step-card');
+  steps.forEach(function(step){
+    step.addEventListener('click', function(){
+      var wasActive = step.classList.contains('active');
+      steps.forEach(function(s){ s.classList.remove('active'); });
+      if(!wasActive) step.classList.add('active');
+    });
+  });
+
+  // ROI Calculator
+  var leadsRange = document.getElementById('leadsRange');
+  var minsRange = document.getElementById('minsRange');
+
+  function calcROI(){
+    var leads = parseInt(leadsRange.value);
+    var mins = parseInt(minsRange.value);
+
+    document.getElementById('leadsVal').textContent = leads;
+    document.getElementById('minsVal').textContent = mins;
+
+    var manualHrs = (leads * mins) / 60;
+    var aiMins = 3; // 3 min per lead with automation
+    var aiHrs = (leads * aiMins) / 60;
+    var savedPerMonth = (manualHrs - aiHrs) * 4;
+    var reductionPct = Math.round(((manualHrs - aiHrs) / manualHrs) * 100);
+
+    document.getElementById('timeManual').textContent = manualHrs.toFixed(1) + 'h';
+    document.getElementById('timeAI').textContent = aiHrs.toFixed(1) + 'h';
+    document.getElementById('savedMonth').textContent = savedPerMonth.toFixed(0) + 'h';
+    document.getElementById('reduction').textContent = reductionPct + '%';
+
+    document.getElementById('barManualLabel').textContent = manualHrs.toFixed(1) + 'h/sem';
+    document.getElementById('barAILabel').textContent = aiHrs.toFixed(1) + 'h/sem';
+    document.getElementById('barManual').style.width = '100%';
+    document.getElementById('barAI').style.width = ((aiHrs / manualHrs) * 100) + '%';
+  }
+
+  leadsRange.addEventListener('input', calcROI);
+  minsRange.addEventListener('input', calcROI);
+  calcROI();
+})();
+</script>
+
+</body>
+</html>

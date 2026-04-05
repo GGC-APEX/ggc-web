@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack de Enriquecimiento de Datos B2B: Tutorial Completo | GGC</title>
+  <meta name="description" content="Tutorial paso a paso para montar tu pipeline de enriquecimiento de datos B2B. Comparativa de herramientas, calculadora de costes y checklist de setup.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Stack de Enriquecimiento de Datos B2B - GGC">
+  <meta property="og:description" content="Monta tu pipeline de datos B2B: fuentes, enriquecimiento, verificacion, scoring y CRM. Con calculadora de costes.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .layer-num{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+    .pipe-line{width:2px;height:20px;margin:0 auto;background:linear-gradient(to bottom,rgba(139,92,246,0.3),rgba(139,92,246,0.05))}
+
+    .tool-tag{display:inline-block;padding:2px 10px;border-radius:4px;font-size:11px;font-weight:500}
+    .check-item{cursor:pointer;transition:all .2s}
+    .check-item:hover{background:rgba(255,255,255,0.03)}
+    .check-item.done{opacity:0.5}
+    .check-item.done .check-label{text-decoration:line-through}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}}
+    @media print{body{background:#fff;color:#000}.glass{background:#f5f5f5;border:1px solid #ddd}header,footer{display:none}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Tutorial Paso a Paso</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Stack de Enriquecimiento<br><span class="gr">de Datos B2B</span></h1>
+    <p class="text-gray-500 max-w-2xl mx-auto text-base sm:text-lg">De datos b&aacute;sicos a inteligencia comercial completa. 5 capas, herramientas comparadas y calculadora de presupuesto.</p>
+  </div>
+
+  <!-- PIPELINE DIAGRAM -->
+  <div class="max-w-3xl mx-auto mb-12">
+    <div class="flex items-center justify-between text-center text-xs mb-6 overflow-x-auto gap-2 pb-2">
+      <div class="flex flex-col items-center min-w-[80px]"><div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan to-blue flex items-center justify-center text-white font-bold mb-1">1</div><span class="text-gray-400">Fuente</span></div>
+      <div class="text-gray-500">&rarr;</div>
+      <div class="flex flex-col items-center min-w-[80px]"><div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue to-purple flex items-center justify-center text-white font-bold mb-1">2</div><span class="text-gray-400">Enriquecer</span></div>
+      <div class="text-gray-500">&rarr;</div>
+      <div class="flex flex-col items-center min-w-[80px]"><div class="w-10 h-10 rounded-lg bg-gradient-to-br from-purple to-pink flex items-center justify-center text-white font-bold mb-1">3</div><span class="text-gray-400">Verificar</span></div>
+      <div class="text-gray-500">&rarr;</div>
+      <div class="flex flex-col items-center min-w-[80px]"><div class="w-10 h-10 rounded-lg bg-gradient-to-br from-pink to-magenta flex items-center justify-center text-white font-bold mb-1">4</div><span class="text-gray-400">Puntuar</span></div>
+      <div class="text-gray-500">&rarr;</div>
+      <div class="flex flex-col items-center min-w-[80px]"><div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan to-purple flex items-center justify-center text-white font-bold mb-1">5</div><span class="text-gray-400">CRM</span></div>
+    </div>
+  </div>
+
+  <!-- LAYER 1 -->
+  <div class="glass rounded-xl p-6 mb-2">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="layer-num bg-gradient-to-br from-cyan to-blue text-white">1</div>
+      <div>
+        <h3 class="text-lg font-bold">Capa 1: Fuentes de Datos</h3>
+        <p class="text-sm text-gray-500">De d&oacute;nde sacas tus listas de empresas y contactos</p>
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-cyan/20 text-cyan">Apollo.io</span><span class="text-xs text-gray-500">Desde 49&euro;/mes</span></div>
+        <p class="text-sm text-gray-400">Base de datos de 275M+ contactos. Filtros por sector, tama&ntilde;o, tecnolog&iacute;a, ubicaci&oacute;n. La mejor relaci&oacute;n calidad-precio para empezar.</p>
+        <p class="text-xs text-gray-500 mt-2"><strong class="text-gray-300">A&ntilde;ade:</strong> Nombre, email, cargo, empresa, LinkedIn, tel&eacute;fono</p>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-blue/20 text-blue">LinkedIn Sales Navigator</span><span class="text-xs text-gray-500">Desde 79&euro;/mes</span></div>
+        <p class="text-sm text-gray-400">La fuente m&aacute;s fiable para decisores B2B. Filtros avanzados, alertas de cambio de cargo, InMail. Esencial para ABM.</p>
+        <p class="text-xs text-gray-300 mt-2"><strong>A&ntilde;ade:</strong> Perfil profesional completo, actividad reciente, conexiones</p>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-purple/20 text-purple">Clay</span><span class="text-xs text-gray-500">Desde 149&euro;/mes</span></div>
+        <p class="text-sm text-gray-400">Agregador que busca en 50+ fuentes simult&aacute;neamente. Ideal como fuente + enriquecimiento en uno. El m&aacute;s potente.</p>
+        <p class="text-xs text-gray-300 mt-2"><strong>A&ntilde;ade:</strong> Todo lo anterior + datos de IA, se&ntilde;ales de intent, noticias</p>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-pink/20 text-pink">Scraping propio</span><span class="text-xs text-gray-500">Variable</span></div>
+        <p class="text-sm text-gray-400">Google Maps, directorios sectoriales, webs de eventos. M&aacute;s trabajo manual pero datos &uacute;nicos que tu competencia no tiene.</p>
+        <p class="text-xs text-gray-300 mt-2"><strong>A&ntilde;ade:</strong> Datos nicho espec&iacute;ficos de tu vertical</p>
+      </div>
+    </div>
+  </div>
+  <div class="pipe-line"></div>
+
+  <!-- LAYER 2 -->
+  <div class="glass rounded-xl p-6 mb-2">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="layer-num bg-gradient-to-br from-blue to-purple text-white">2</div>
+      <div>
+        <h3 class="text-lg font-bold">Capa 2: Enriquecimiento</h3>
+        <p class="text-sm text-gray-500">A&ntilde;adir datos que no ten&iacute;as al contacto base</p>
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-purple/20 text-purple">Clay</span><span class="text-xs text-gray-500">149-349&euro;/mes</span></div>
+        <p class="text-sm text-gray-400">El l&iacute;der. Enriquece con IA: tecnolog&iacute;a usada, funding, noticias, intent signals, lookalikes. Waterfall de proveedores autom&aacute;tico.</p>
+        <p class="text-xs text-gray-300 mt-2"><strong>A&ntilde;ade:</strong> Stack tecnol&oacute;gico, funding, ingresos estimados, se&ntilde;ales de compra</p>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-cyan/20 text-cyan">Clearbit (ahora Breeze)</span><span class="text-xs text-gray-500">Desde 99&euro;/mes</span></div>
+        <p class="text-sm text-gray-400">Enriquecimiento de empresa por dominio. Muy fiable para datos firmogr&aacute;ficos. Se integra nativo con HubSpot.</p>
+        <p class="text-xs text-gray-300 mt-2"><strong>A&ntilde;ade:</strong> Sector, empleados, facturaci&oacute;n, ubicaci&oacute;n, descripci&oacute;n</p>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-blue/20 text-blue">IA (ChatGPT/Claude API)</span><span class="text-xs text-gray-500">Desde 20&euro;/mes</span></div>
+        <p class="text-sm text-gray-400">Pasa la web del prospect a la IA y extrae: propuesta de valor, dolores probables, &aacute;ngulo de personalizaci&oacute;n. El m&aacute;s flexible.</p>
+        <p class="text-xs text-gray-300 mt-2"><strong>A&ntilde;ade:</strong> An&aacute;lisis cualitativo, personalizaci&oacute;n autom&aacute;tica, hooks de apertura</p>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-pink/20 text-pink">BuiltWith / Wappalyzer</span><span class="text-xs text-gray-500">Desde 0&euro; (free tier)</span></div>
+        <p class="text-sm text-gray-400">Detectan qu&eacute; tecnolog&iacute;as usa una web: CRM, analytics, ads, frameworks. Perfecto para vender software o integraciones.</p>
+        <p class="text-xs text-gray-300 mt-2"><strong>A&ntilde;ade:</strong> Stack tecnol&oacute;gico detallado, herramientas de marketing, CRM usado</p>
+      </div>
+    </div>
+  </div>
+  <div class="pipe-line"></div>
+
+  <!-- LAYER 3 -->
+  <div class="glass rounded-xl p-6 mb-2">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="layer-num bg-gradient-to-br from-purple to-pink text-white">3</div>
+      <div>
+        <h3 class="text-lg font-bold">Capa 3: Verificaci&oacute;n</h3>
+        <p class="text-sm text-gray-500">Asegurar que los datos son correctos antes de usarlos</p>
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-cyan/20 text-cyan">ZeroBounce</span><span class="text-xs text-gray-500">Desde 16&euro;/2000 emails</span></div>
+        <p class="text-sm text-gray-400">Verificaci&oacute;n de email con 99% de precisi&oacute;n. Detecta emails inv&aacute;lidos, catch-all, y trampas de spam. Imprescindible.</p>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2"><span class="tool-tag bg-blue/20 text-blue">MillionVerifier</span><span class="text-xs text-gray-500">Desde 37&euro;/10.000 emails</span></div>
+        <p class="text-sm text-gray-400">El m&aacute;s econ&oacute;mico para volumen alto. Buenos resultados, especialmente con dominios corporativos europeos.</p>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-4 sm:col-span-2">
+        <p class="text-sm text-gray-400"><strong class="text-white">&#9888;&#65039; Cr&iacute;tico:</strong> Enviar emails a direcciones inv&aacute;lidas destruye tu reputaci&oacute;n de dominio. Un bounce rate superior al 3% es una bandera roja. Verifica SIEMPRE antes de enviar.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pipe-line"></div>
+
+  <!-- LAYER 4 -->
+  <div class="glass rounded-xl p-6 mb-2">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="layer-num bg-gradient-to-br from-pink to-magenta text-white">4</div>
+      <div>
+        <h3 class="text-lg font-bold">Capa 4: Scoring</h3>
+        <p class="text-sm text-gray-500">Priorizar: qui&eacute;n contactar primero</p>
+      </div>
+    </div>
+    <div class="bg-[#0C0A1D] rounded-lg p-4 mb-4">
+      <p class="text-sm text-gray-400 mb-3">El scoring combina datos firmogr&aacute;ficos (tama&ntilde;o, sector) con se&ntilde;ales de intent (contrataciones, cambios, actividad). Ejemplo de modelo:</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+        <div class="bg-navy rounded-lg p-3"><div class="text-xs text-gray-500">ICP fit</div><div class="text-lg font-bold text-cyan">40%</div></div>
+        <div class="bg-navy rounded-lg p-3"><div class="text-xs text-gray-500">Intent signals</div><div class="text-lg font-bold text-blue">25%</div></div>
+        <div class="bg-navy rounded-lg p-3"><div class="text-xs text-gray-500">Engagement</div><div class="text-lg font-bold text-purple">20%</div></div>
+        <div class="bg-navy rounded-lg p-3"><div class="text-xs text-gray-500">Recencia</div><div class="text-lg font-bold text-pink">15%</div></div>
+      </div>
+    </div>
+    <p class="text-sm text-gray-400"><strong class="text-white">Herramientas:</strong> HubSpot (lead scoring nativo), Clay (custom scoring con IA), o un Google Sheet con f&oacute;rmulas si est&aacute;s empezando.</p>
+  </div>
+  <div class="pipe-line"></div>
+
+  <!-- LAYER 5 -->
+  <div class="glass rounded-xl p-6 mb-8">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="layer-num bg-gradient-to-br from-cyan to-purple text-white">5</div>
+      <div>
+        <h3 class="text-lg font-bold">Capa 5: CRM + Activaci&oacute;n</h3>
+        <p class="text-sm text-gray-500">Todo llega limpio, enriquecido y priorizado a tu CRM</p>
+      </div>
+    </div>
+    <p class="text-sm text-gray-400 mb-3">El CRM recibe contactos listos para activar. Cada registro incluye: datos b&aacute;sicos verificados + enriquecimiento + score + notas de IA para personalizaci&oacute;n.</p>
+    <div class="grid sm:grid-cols-3 gap-3">
+      <div class="bg-[#0C0A1D] rounded-lg p-3 text-center"><span class="tool-tag bg-cyan/20 text-cyan mb-1">HubSpot</span><p class="text-xs text-gray-500 mt-2">El est&aacute;ndar. Free CRM potente. Integraciones nativas con casi todo.</p></div>
+      <div class="bg-[#0C0A1D] rounded-lg p-3 text-center"><span class="tool-tag bg-blue/20 text-blue mb-1">Pipedrive</span><p class="text-xs text-gray-500 mt-2">Simple y visual. Ideal para equipos peque&ntilde;os que priorizan pipeline.</p></div>
+      <div class="bg-[#0C0A1D] rounded-lg p-3 text-center"><span class="tool-tag bg-purple/20 text-purple mb-1">Salesforce</span><p class="text-xs text-gray-500 mt-2">Para equipos +10 comerciales. Potente pero complejo y caro.</p></div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE TOOL COMPARISON -->
+  <div class="glass rounded-2xl p-6 sm:p-8 mb-8">
+    <h2 class="text-2xl font-bold text-center mb-6">Comparativa de <span class="gr">Herramientas</span></h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left">
+        <thead>
+          <tr class="border-b border-white/10">
+            <th class="py-3 pr-4 text-gray-500 font-medium">Herramienta</th>
+            <th class="py-3 px-3 text-gray-500 font-medium">Capa</th>
+            <th class="py-3 px-3 text-gray-500 font-medium">Precio/mes</th>
+            <th class="py-3 px-3 text-gray-500 font-medium">Mejor para</th>
+            <th class="py-3 pl-3 text-gray-500 font-medium">Integraci&oacute;n</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-400">
+          <tr class="border-b border-white/5"><td class="py-3 pr-4 text-white font-medium">Apollo.io</td><td class="py-3 px-3"><span class="tool-tag bg-cyan/20 text-cyan">Fuente</span></td><td class="py-3 px-3">49-99&euro;</td><td class="py-3 px-3">Empezar r&aacute;pido</td><td class="py-3 pl-3">API, Zapier, nativo CRM</td></tr>
+          <tr class="border-b border-white/5"><td class="py-3 pr-4 text-white font-medium">Clay</td><td class="py-3 px-3"><span class="tool-tag bg-purple/20 text-purple">Todo</span></td><td class="py-3 px-3">149-349&euro;</td><td class="py-3 px-3">Equipos avanzados</td><td class="py-3 pl-3">API, Make, 50+ fuentes</td></tr>
+          <tr class="border-b border-white/5"><td class="py-3 pr-4 text-white font-medium">Clearbit</td><td class="py-3 px-3"><span class="tool-tag bg-blue/20 text-blue">Enriquecer</span></td><td class="py-3 px-3">99-199&euro;</td><td class="py-3 px-3">Datos firmogr&aacute;ficos</td><td class="py-3 pl-3">HubSpot nativo, API</td></tr>
+          <tr class="border-b border-white/5"><td class="py-3 pr-4 text-white font-medium">Sales Nav</td><td class="py-3 px-3"><span class="tool-tag bg-cyan/20 text-cyan">Fuente</span></td><td class="py-3 px-3">79-139&euro;</td><td class="py-3 px-3">ABM, decisores</td><td class="py-3 pl-3">Manual, scraping</td></tr>
+          <tr class="border-b border-white/5"><td class="py-3 pr-4 text-white font-medium">ZeroBounce</td><td class="py-3 px-3"><span class="tool-tag bg-pink/20 text-pink">Verificar</span></td><td class="py-3 px-3">16-50&euro;</td><td class="py-3 px-3">Verificaci&oacute;n email</td><td class="py-3 pl-3">API, Zapier, bulk</td></tr>
+          <tr><td class="py-3 pr-4 text-white font-medium">ChatGPT API</td><td class="py-3 px-3"><span class="tool-tag bg-blue/20 text-blue">Enriquecer</span></td><td class="py-3 px-3">20-50&euro;</td><td class="py-3 px-3">Personalizaci&oacute;n</td><td class="py-3 pl-3">API, Make, Clay</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BUDGET CALCULATOR -->
+  <div class="glass rounded-2xl p-6 sm:p-8 mb-8" id="budgetCalc">
+    <h2 class="text-2xl font-bold text-center mb-2">Calculadora de <span class="gr">Presupuesto Mensual</span></h2>
+    <p class="text-gray-500 text-center text-sm mb-6">Selecciona las herramientas que necesitas</p>
+
+    <div class="space-y-3" id="toolCheckboxes">
+      <label class="flex items-center justify-between bg-[#0C0A1D] rounded-lg p-4 cursor-pointer hover:bg-white/[0.02] transition-colors">
+        <div class="flex items-center gap-3"><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4" data-cost="79" checked><span class="text-sm text-white">Apollo.io (Starter)</span></div><span class="text-sm text-gray-500">79&euro;</span>
+      </label>
+      <label class="flex items-center justify-between bg-[#0C0A1D] rounded-lg p-4 cursor-pointer hover:bg-white/[0.02] transition-colors">
+        <div class="flex items-center gap-3"><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4" data-cost="79"><span class="text-sm text-white">LinkedIn Sales Navigator</span></div><span class="text-sm text-gray-500">79&euro;</span>
+      </label>
+      <label class="flex items-center justify-between bg-[#0C0A1D] rounded-lg p-4 cursor-pointer hover:bg-white/[0.02] transition-colors">
+        <div class="flex items-center gap-3"><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4" data-cost="199"><span class="text-sm text-white">Clay (Explorer)</span></div><span class="text-sm text-gray-500">199&euro;</span>
+      </label>
+      <label class="flex items-center justify-between bg-[#0C0A1D] rounded-lg p-4 cursor-pointer hover:bg-white/[0.02] transition-colors">
+        <div class="flex items-center gap-3"><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4" data-cost="99"><span class="text-sm text-white">Clearbit / Breeze</span></div><span class="text-sm text-gray-500">99&euro;</span>
+      </label>
+      <label class="flex items-center justify-between bg-[#0C0A1D] rounded-lg p-4 cursor-pointer hover:bg-white/[0.02] transition-colors">
+        <div class="flex items-center gap-3"><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4" data-cost="30" checked><span class="text-sm text-white">ZeroBounce (5.000 cr&eacute;ditos)</span></div><span class="text-sm text-gray-500">30&euro;</span>
+      </label>
+      <label class="flex items-center justify-between bg-[#0C0A1D] rounded-lg p-4 cursor-pointer hover:bg-white/[0.02] transition-colors">
+        <div class="flex items-center gap-3"><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4" data-cost="20" checked><span class="text-sm text-white">ChatGPT/Claude API</span></div><span class="text-sm text-gray-500">20&euro;</span>
+      </label>
+      <label class="flex items-center justify-between bg-[#0C0A1D] rounded-lg p-4 cursor-pointer hover:bg-white/[0.02] transition-colors">
+        <div class="flex items-center gap-3"><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4" data-cost="29" checked><span class="text-sm text-white">Make (Core)</span></div><span class="text-sm text-gray-500">29&euro;</span>
+      </label>
+      <label class="flex items-center justify-between bg-[#0C0A1D] rounded-lg p-4 cursor-pointer hover:bg-white/[0.02] transition-colors">
+        <div class="flex items-center gap-3"><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4" data-cost="0"><span class="text-sm text-white">HubSpot CRM (Free)</span></div><span class="text-sm text-gray-500">0&euro;</span>
+      </label>
+    </div>
+
+    <div class="mt-6 bg-[#0C0A1D] rounded-xl p-6 text-center">
+      <div class="text-sm text-gray-500 mb-1">Coste mensual estimado</div>
+      <div class="text-4xl font-bold gr" id="totalCost">158&euro;</div>
+      <div class="text-xs text-gray-500 mt-2">Coste anual: <strong class="text-white" id="annualCost">1.896&euro;</strong></div>
+    </div>
+  </div>
+
+  <!-- SETUP CHECKLIST -->
+  <div class="glass rounded-2xl p-6 sm:p-8 mb-8">
+    <h2 class="text-2xl font-bold text-center mb-2">Checklist de <span class="gr">Implementaci&oacute;n</span></h2>
+    <p class="text-gray-500 text-center text-sm mb-6">Haz clic en cada paso cuando lo completes</p>
+
+    <div class="mb-3">
+      <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Progreso</span><span id="checkProgress">0 / 10</span></div>
+      <div class="w-full h-2 rounded-full bg-white/5 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-cyan to-purple transition-all duration-500" id="checkBar" style="width:0%"></div></div>
+    </div>
+
+    <div class="space-y-2" id="setupChecklist">
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Definir tu ICP (sector, tama&ntilde;o, geograf&iacute;a, cargo)</span></div>
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Elegir y configurar tu fuente de datos principal</span></div>
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Crear cuenta en herramienta de enriquecimiento</span></div>
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Configurar verificaci&oacute;n de email (ZeroBounce o similar)</span></div>
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Dise&ntilde;ar modelo de scoring (ICP fit + intent + engagement)</span></div>
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Configurar CRM con campos personalizados para datos enriquecidos</span></div>
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Conectar todo con Make/Zapier (fuente &rarr; enriquecer &rarr; verificar &rarr; CRM)</span></div>
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Hacer test con 50 contactos y validar calidad de datos</span></div>
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Ajustar scoring basado en resultados del test</span></div>
+      <div class="check-item flex items-center gap-3 bg-[#0C0A1D] rounded-lg p-3" data-check><input type="checkbox" class="accent-[#8B5CF6] w-4 h-4 flex-shrink-0"><span class="check-label text-sm text-gray-400">Activar pipeline en producci&oacute;n con primer batch de 200+ contactos</span></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="glass rounded-2xl p-8 sm:p-10 text-center mt-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-3">¿Quieres este stack<br><span class="gr">montado por expertos</span>?</h2>
+    <p class="text-gray-500 mb-6 max-w-xl mx-auto">En GGC configuramos e integramos todo el pipeline de enriquecimiento. T&uacute; solo tienes que usar los datos para cerrar reuniones.</p>
+    <a href="../agendar.html" class="btn-g inline-block px-8 py-4 rounded-lg text-sm">Agendar sesi&oacute;n estrat&eacute;gica &rarr;</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Budget calculator
+  var checkboxes = document.querySelectorAll('#toolCheckboxes input[type="checkbox"]');
+  function calcBudget(){
+    var total = 0;
+    checkboxes.forEach(function(cb){ if(cb.checked) total += parseInt(cb.getAttribute('data-cost')); });
+    document.getElementById('totalCost').textContent = total + '\u20AC';
+    document.getElementById('annualCost').textContent = (total * 12).toLocaleString('es-ES') + '\u20AC';
+  }
+  checkboxes.forEach(function(cb){ cb.addEventListener('change', calcBudget); });
+  calcBudget();
+
+  // Setup checklist
+  var items = document.querySelectorAll('#setupChecklist .check-item');
+  var total = items.length;
+  function updateProgress(){
+    var done = document.querySelectorAll('#setupChecklist input:checked').length;
+    document.getElementById('checkProgress').textContent = done + ' / ' + total;
+    document.getElementById('checkBar').style.width = ((done / total) * 100) + '%';
+  }
+  items.forEach(function(item){
+    var cb = item.querySelector('input');
+    item.addEventListener('click', function(e){
+      if(e.target !== cb){ cb.checked = !cb.checked; }
+      item.classList.toggle('done', cb.checked);
+      updateProgress();
+    });
+  });
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>

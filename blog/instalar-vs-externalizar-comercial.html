@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instalar vs externalizar: por qu&eacute; dejamos activos, no informes | GGC</title>
+  <meta name="description" content="Las agencias entregan informes. Nosotros instalamos activos que se quedan en tu propiedad. La diferencia entre alquilar resultados y construir infraestructura comercial permanente.">
+  <link rel="canonical" href="https://globalgrowth.consulting/blog/instalar-vs-externalizar-comercial">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://globalgrowth.consulting/blog/instalar-vs-externalizar-comercial">
+  <meta property="og:title" content="Instalar vs externalizar: por qu&eacute; dejamos activos, no informes">
+  <meta property="og:description" content="Las agencias entregan informes. Nosotros instalamos activos que se quedan en tu propiedad. La diferencia entre alquilar resultados y construir infraestructura comercial permanente.">
+  <meta property="og:locale" content="es_ES">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:author" content="Xavi Fortuna">
+  <meta property="article:section" content="APEX OS">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Xavi Fortuna">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Instalar vs externalizar: por qu\u00e9 dejamos activos, no informes",
+    "description": "Las agencias entregan informes. Nosotros instalamos activos que se quedan en tu propiedad. La diferencia entre alquilar resultados y construir infraestructura comercial permanente.",
+    "datePublished": "2026-04-05",
+    "dateModified": "2026-04-05",
+    "author": {
+      "@type": "Person",
+      "name": "Xavi Fortuna",
+      "jobTitle": "CEO & Head of Growth",
+      "url": "https://linkedin.c../xavierfortuna/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Global Growth Consulting",
+      "url": "https://globalgrowth.consulting",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://globalgrowth.consulting/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://globalgrowth.consulting/blog/instalar-vs-externalizar-comercial"
+    },
+    "articleSection": "APEX OS",
+    "wordCount": 1700,
+    "timeRequired": "PT7M"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#8A8A8A',700:'#6B6B6B'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-outline{border:1px solid rgba(139,92,246,0.4);color:#8B5CF6;transition:all .3s ease}
+    .btn-outline:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.08)}
+
+    .nav-blur{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(12,10,29,0.7);border-bottom:1px solid rgba(255,255,255,0.06)}
+
+    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+
+    /* Article typography */
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;margin-top:2.5rem;margin-bottom:1rem;line-height:1.3}
+    .article-body h3{font-size:1.25rem;font-weight:600;color:#fff;margin-top:2rem;margin-bottom:0.75rem;line-height:1.4}
+    .article-body p{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:1.25rem}
+    .article-body ul,.article-body ol{margin-bottom:1.25rem;padding-left:1.5rem}
+    .article-body li{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:0.5rem}
+    .article-body strong{color:#e0e0e0;font-weight:600}
+    .article-body blockquote{border-left:3px solid transparent;border-image:linear-gradient(180deg,#8B5CF6,#EC4899) 1;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#999}
+
+    /* Scroll popup */
+    .scroll-popup{transform:translateY(120%);transition:transform .4s ease,opacity .4s ease;opacity:0}
+    .scroll-popup.show{transform:translateY(0);opacity:1}
+
+    /* Focus */
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+
+    @media(prefers-reduced-motion:reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      .btn-g,.btn-outline{transition:none}
+      .btn-g::after{animation:none}
+      .scroll-popup{transition:none}
+    }
+
+    section[id]{scroll-margin-top:80px}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+<div id="progress" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);z-index:100;width:0;transition:width .1s"></div>
+
+<!-- NAV -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="../index.html#sistema" class="text-sm text-gray-400 hover:text-white transition-colors">Sistema</a>
+      <a href="../index.html#resultados" class="text-sm text-gray-400 hover:text-white transition-colors">Resultados</a>
+      <a href="../blog.html" class="text-sm text-white font-medium transition-colors">Blog</a>
+      <a href="../index.html#proceso" class="text-sm text-gray-400 hover:text-white transition-colors">Proceso</a>
+      <a href="../agendar.html" class="btn-g px-5 py-2.5 rounded-lg text-sm">Aplica ahora</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Abrir menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h1../svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-72 bg-[#151331] z-50 flex flex-col p-8 gap-6 md:hidden">
+    <button id="closeMenu" class="self-end text-white mb-4" aria-label="Cerrar menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 1../svg>
+    </button>
+    <a href="../index.html#sistema" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Sistema</a>
+    <a href="../index.html#resultados" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Resultados</a>
+    <a href="../blog.html" class="text-lg text-white font-medium transition-colors mobile-link">Blog</a>
+    <a href="../index.html#proceso" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Proceso</a>
+    <a href="../agendar.html" class="btn-g px-5 py-3 rounded-lg text-center text-sm mt-4 mobile-link">Aplica ahora</a>
+  </div>
+</nav>
+
+<!-- ARTICLE -->
+<main class="pt-28 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 reveal" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="../index.html" class="hover:text-gray-300 transition-colors">Inicio</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><span class="text-[#8B5CF6]">APEX OS</span></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li class="text-gray-400 truncate max-w-[200px]">Este articulo</li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="max-w-3xl mx-auto mb-12 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">APEX OS</span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        Instalar vs externalizar: por qu&eacute; dejamos activos, no informes
+      </h1>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+        <span class="font-medium text-white">Xavi Fortuna</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>5 de abril de 2026</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>7 min lectura</span>
+      </div>
+    </header>
+
+    <!-- Article Body -->
+    <article class="max-w-3xl mx-auto article-body">
+
+      <!-- Opening hook -->
+      <div class="reveal">
+        <p>
+          Cada mes hablo con CEOs que han gastado entre 50.000 y 100.000&euro; en agencias durante el &uacute;ltimo a&ntilde;o. Tienen informes. Decks de diapositivas. Llamadas mensuales donde alguien les ense&ntilde;a m&eacute;tricas en una pantalla compartida.
+        </p>
+        <p>
+          Lo que no tienen: un sistema que funcione sin la agencia.
+        </p>
+        <p>
+          El d&iacute;a que cancelan el contrato, todo se para. Los leads dejan de entrar. Las secuencias se apagan. El acceso a las herramientas se revoca. Vuelta a la casilla de salida.
+        </p>
+        <p>
+          Eso no es una soluci&oacute;n. Es una suscripci&oacute;n a la dependencia.
+        </p>
+        <p>
+          Y es exactamente el problema que decidimos resolver cuando dise&ntilde;amos APEX OS. Pero antes de hablar de lo que hacemos, vamos a desmontar por qu&eacute; el modelo tradicional est&aacute; roto de ra&iacute;z.
+        </p>
+      </div>
+
+      <!-- H2: El modelo agencia tiene un fallo de diseño -->
+      <div class="reveal">
+        <h2>El modelo &laquo;agencia&raquo; tiene un fallo de dise&ntilde;o</h2>
+        <p>
+          No es que las agencias sean malas. Muchas tienen gente competente haciendo buen trabajo. El problema es estructural: su modelo de negocio est&aacute; dise&ntilde;ado para mantenerte dentro, no para dejarte volar.
+        </p>
+        <p>
+          Pi&eacute;nsalo un segundo. Una agencia cobra una cuota mensual recurrente por trabajo continuo. Su incentivo econ&oacute;mico es que t&uacute; sigas pagando. Si te ense&ntilde;an a hacerlo solo, pierden un cliente. Si construyen algo que funcione sin ellos, se quedan sin trabajo.
+        </p>
+        <p>
+          No digo que lo hagan a prop&oacute;sito. Es simplemente c&oacute;mo funcionan los incentivos. Cuando tu modelo de negocio depende de la recurrencia del cliente, no est&aacute;s incentivado a hacer al cliente independiente.
+        </p>
+        <p>
+          Los datos lo confirman. La empresa B2B media gasta entre 3.000 y 5.000&euro; al mes en agencias de generaci&oacute;n de demanda o desarrollo comercial. Eso son 36.000-60.000&euro; al a&ntilde;o. &iquest;Qu&eacute; activos transferibles tiene al final de esos 12 meses? Normalmente, cero. Tiene informes en PDF. Tiene un hist&oacute;rico de campa&ntilde;as en la plataforma de la agencia. Tiene recuerdos de reuniones de seguimiento.
+        </p>
+        <p>
+          Pero nada que pueda tocar, usar o ejecutar por su cuenta.
+        </p>
+      </div>
+
+      <!-- H2: Qué significa instalar vs externalizar -->
+      <div class="reveal">
+        <h2>Qu&eacute; significa &laquo;instalar&raquo; vs &laquo;externalizar&raquo;</h2>
+        <p>
+          La distinci&oacute;n es sencilla pero fundamental.
+        </p>
+        <p>
+          <strong>Externalizar</strong> es alquilar la capacidad de otro. Pagas por el uso. Cuando dejas de pagar, el uso se termina. No te queda nada. Es como pagar la factura de la luz cada mes: mientras pagas, hay electricidad. Dejas de pagar, oscuridad.
+        </p>
+        <p>
+          <strong>Instalar</strong> es construir activos que se quedan en tu propiedad. Es poner placas solares en tu tejado. La instalaci&oacute;n tiene un coste, pero una vez hecha, la energ&iacute;a es tuya. No dependes de nadie. Y el sistema sigue produciendo a&ntilde;o tras a&ntilde;o.
+        </p>
+        <p>
+          Esa es exactamente la filosof&iacute;a detr&aacute;s de lo que hacemos. APEX OS no es un servicio que &laquo;hacemos por ti&raquo;. Es infraestructura comercial que instalamos dentro de tu empresa. Cuando terminamos, el sistema es tuyo. Las secuencias son tuyas. Los templates son tuyos. El CRM configurado es tuyo. Los playbooks son tuyos.
+        </p>
+        <p>
+          Te quedas con todo. Y todo sigue funcionando.
+        </p>
+      </div>
+
+      <!-- H2: Los 4 activos vs 4 entregables -->
+      <div class="reveal">
+        <h2>Los 4 activos que dejamos vs los 4 entregables t&iacute;picos de agencia</h2>
+        <p>
+          Esto es lo que hace concreta la diferencia. Vamos a poner los dos modelos lado a lado.
+        </p>
+
+        <h3>Lo que nosotros dejamos instalado (tuyo para siempre)</h3>
+        <ul>
+          <li><strong>Secuencias de outbound automatizadas:</strong> configuradas, testadas, optimizadas. Corren en tus herramientas, con tus credenciales. T&uacute; controlas cada variable. Si ma&ntilde;ana desaparecemos, siguen enviando</li>
+          <li><strong>Motor de contenido con templates:</strong> frameworks de email, guiones de llamada, plantillas de seguimiento, todo documentado y replicable. Tu equipo puede crear nuevas versiones sin depender de nadie externo</li>
+          <li><strong>CRM configurado con tu pipeline espec&iacute;fico:</strong> etapas definidas, automatizaciones de movimiento, alertas, scoring. No un CRM gen&eacute;rico. Uno que refleja exactamente c&oacute;mo vendes t&uacute;</li>
+          <li><strong>Playbooks y SOPs documentados:</strong> cada proceso paso a paso. Onboarding de nuevos comerciales en semanas, no en meses. El conocimiento est&aacute; en el sistema, no en la cabeza de nadie</li>
+        </ul>
+
+        <h3>Lo que una agencia t&iacute;pica entrega (se va con ellos)</h3>
+        <ul>
+          <li><strong>Informe mensual de rendimiento:</strong> un PDF bonito con gr&aacute;ficos que te dice lo que pas&oacute;. &Uacute;til para mirar, in&uacute;til para ejecutar</li>
+          <li><strong>Deck de &laquo;estrategia&raquo;:</strong> un PowerPoint con recomendaciones. Que en muchos casos ya te dieron hace seis meses con ligeras variaciones</li>
+          <li><strong>Acceso a sus herramientas:</strong> mientras pagues. El d&iacute;a que cancelas, se revoca el acceso. Los datos, las campa&ntilde;as, los contactos &mdash; todo en su plataforma, no en la tuya</li>
+          <li><strong>Reuniones de seguimiento:</strong> llamadas semanales o quincenales que dependen de que ellos sigan trabajando. Sin ellos, no hay continuidad</li>
+        </ul>
+
+        <!-- Glass comparison cards -->
+        <div class="grid md:grid-cols-2 gap-4 my-8">
+          <div class="glass rounded-xl p-6 border border-green-500/20">
+            <p class="text-xs font-semibold text-green-400 uppercase tracking-widest mb-3">Instalar (APEX OS)</p>
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold text-white">4 activos</span>
+              <span class="text-gray-400 text-sm">en tu propiedad permanente</span>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-6 border border-red-500/20">
+            <p class="text-xs font-semibold text-red-400 uppercase tracking-widest mb-3">Externalizar (Agencia)</p>
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold text-white">4 entregables</span>
+              <span class="text-gray-400 text-sm">que desaparecen al cancelar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- H2: El test de los 90 días -->
+      <div class="reveal">
+        <h2>El test de los 90 d&iacute;as</h2>
+        <p>
+          Hay una pregunta que le hago a todos los CEOs con los que hablo. Es sencilla y brutalmente reveladora:
+        </p>
+        <blockquote>
+          Si tu proveedor comercial desapareciera ma&ntilde;ana, &iquest;qu&eacute; seguir&iacute;a funcionando?
+        </blockquote>
+        <p>
+          Si la respuesta es &laquo;nada&raquo; o &laquo;casi nada&raquo;, no est&aacute;s construyendo. Est&aacute;s alquilando. Y alquilar tiene un problema fundamental: el coste nunca se amortiza. Pagas el mes 1 igual que el mes 36. No hay efecto compuesto. No hay acumulaci&oacute;n de valor.
+        </p>
+        <p>
+          Nuestro est&aacute;ndar es diferente. Despu&eacute;s de 90 d&iacute;as trabajando con un cliente, el sistema corre de forma independiente. El equipo del cliente ejecuta las secuencias. Gestiona el pipeline. Usa los playbooks. Optimiza basado en datos.
+        </p>
+        <p>
+          No necesitan llamarnos para que funcione. Funciona porque est&aacute; instalado.
+        </p>
+
+        <div class="space-y-4 my-8">
+          <div class="glass rounded-xl p-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold gr">85%</span>
+              <span class="text-gray-400 text-sm">de nuestros clientes mantienen el mismo volumen de reuniones 6 meses despu&eacute;s de terminar el engagement</span>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold gr">90 d&iacute;as</span>
+              <span class="text-gray-400 text-sm">hasta que el sistema funciona de forma aut&oacute;noma sin nuestra intervenci&oacute;n</span>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold text-white">0&euro;/mes</span>
+              <span class="text-gray-400 text-sm">coste recurrente despu&eacute;s de la instalaci&oacute;n. El sistema es tuyo</span>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Ese 85% es el n&uacute;mero que m&aacute;s nos importa. No cu&aacute;ntas reuniones generamos mientras estamos. Sino cu&aacute;ntas siguen generando cuando ya no estamos. Porque eso demuestra que lo que construimos es real. No depende de nosotros. Depende del sistema.
+        </p>
+      </div>
+
+      <!-- H2: Por qué el modelo success-based cambia todo -->
+      <div class="reveal">
+        <h2>Por qu&eacute; el modelo success-based cambia todo</h2>
+        <p>
+          El modelo de agencia tradicional funciona as&iacute;: pagas una cuota fija cada mes, independientemente de los resultados. Si el mes fue bueno, pagas lo mismo. Si el mes fue desastroso, pagas lo mismo. Los incentivos est&aacute;n desalineados desde el d&iacute;a uno.
+        </p>
+        <p>
+          Nuestro modelo es diferente. Nuestro revenue est&aacute; vinculado a resultados. Esto cambia todo porque alinea incentivos de forma natural.
+        </p>
+        <p>
+          Si lo que construimos no funciona, no cobramos. As&iacute; de simple. Eso significa que tenemos que construir cosas que realmente funcionen. No cosas que queden bien en un informe. No cosas que parezcan impresionantes en una presentaci&oacute;n. Cosas que generen reuniones cualificadas de verdad.
+        </p>
+        <p>
+          Piensa en lo que eso implica para la calidad del trabajo. Una agencia que cobra 4.000&euro; al mes pase lo que pase puede permitirse entregar un trabajo mediocre. El cliente se ir&aacute; en 6-12 meses, pero para entonces ya ha pagado 24.000-48.000&euro;. El modelo lo permite.
+        </p>
+        <p>
+          Nosotros no podemos permitirnos eso. Si la infraestructura que instalamos no genera resultados, perdemos dinero. Punto. Eso nos obliga a ser buenos. Nos obliga a obsesionarnos con que funcione de verdad, no con que parezca que funciona.
+        </p>
+        <p>
+          Y tiene otra consecuencia: solo aceptamos clientes donde estamos seguros de que podemos generar impacto. Si miramos tu situaci&oacute;n y vemos que el modelo no encaja, te lo decimos. No vamos a cobrar por algo que sabemos que no va a funcionar.
+        </p>
+      </div>
+
+      <!-- LEAD MAGNET INLINE -->
+      <div class="my-12 glass rounded-2xl p-8 border border-[#8B5CF6]/20 relative overflow-hidden reveal">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]"></div>
+        <div class="md:flex items-start gap-8">
+          <div class="flex-1">
+            <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Recurso gratuito</p>
+            <h3 class="text-xl font-bold text-white mb-2" style="margin-top:0">Comparativa: Agencia vs. Infraestructura propia &mdash; qu&eacute; te cuesta cada modelo a 12 meses</h3>
+            <p class="text-gray-400 text-sm mb-4">Descarga la comparativa detallada con n&uacute;meros reales: coste total, activos transferibles, dependencia operativa y ROI acumulado de cada modelo. Con datos de m&aacute;s de 627 clientes B2B.</p>
+            <!-- Lead capture form -->
+            <form id="leadMagnetForm" class="space-y-3">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <label class="flex items-start gap-2 cursor-pointer">
+                <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+                <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+              </label>
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm">Descargar comparativa gratuita</button>
+            </form>
+            <div id="leadMagnetSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+              Te la enviamos al email en 2 minutos.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- H2: Cuándo SÍ tiene sentido externalizar -->
+      <div class="reveal">
+        <h2>Cu&aacute;ndo S&Iacute; tiene sentido externalizar</h2>
+        <p>
+          Ser&iacute;a deshonesto por mi parte decir que externalizar siempre es mala idea. No lo es. Hay cosas que tiene todo el sentido del mundo delegar a un tercero.
+        </p>
+        <p>
+          <strong>Dise&ntilde;o gr&aacute;fico puntual.</strong> Si necesitas un rebranding o materiales de campa&ntilde;a, contrata a un buen estudio. Haz el proyecto, paga, y ten el entregable. No necesitas un dise&ntilde;ador in-house para eso.
+        </p>
+        <p>
+          <strong>Campa&ntilde;as de paid ads espec&iacute;ficas.</strong> Si quieres probar un canal nuevo con un presupuesto acotado y un objetivo concreto, una agencia especializada puede tener sentido. Es un proyecto con fecha de inicio y fin.
+        </p>
+        <p>
+          <strong>Consultor&iacute;a estrat&eacute;gica puntual.</strong> Una perspectiva externa para redefinir tu posicionamiento o tu ICP puede aportar mucho valor en un sprint corto.
+        </p>
+        <p>
+          Pero tu motor comercial &mdash; la m&aacute;quina que genera reuniones, cualifica prospects, gestiona el pipeline y cierra clientes &mdash; eso no se externaliza. Nunca. Externalizar tu capacidad de vender es como externalizar tu capacidad de respirar. Puedes hacerlo temporalmente con un respirador, pero no puedes vivir as&iacute;.
+        </p>
+        <p>
+          La infraestructura comercial es un activo estrat&eacute;gico. Se construye, se posee, se mejora con el tiempo. No se alquila.
+        </p>
+        <p>
+          Si est&aacute;s pagando a alguien para que venda por ti y no te est&aacute; dejando nada que puedas operar solo, tienes un problema. Uno que se hace m&aacute;s caro cada mes que pasa.
+        </p>
+        <p>
+          La buena noticia: tiene soluci&oacute;n. Y la soluci&oacute;n no es buscar otra agencia mejor. Es cambiar el modelo por completo.
+        </p>
+        <p>
+          Si quieres ver c&oacute;mo funcionar&iacute;a eso aplicado a tu empresa concreta, <a href="../agendar.html" class="text-[#8B5CF6] hover:text-[#EC4899] transition-colors font-medium underline underline-offset-4">reserva 30 minutos con nosotros</a>. Analizamos tu situaci&oacute;n actual, tus n&uacute;meros, lo que has probado antes. Y te decimos con honestidad si podemos ayudarte o no. Sin compromiso. Sin pitch.
+        </p>
+      </div>
+
+    </article>
+
+    <!-- CTA FINAL DOBLE -->
+    <div class="max-w-3xl mx-auto mt-16 grid md:grid-cols-2 gap-6 reveal">
+      <!-- Left: Comparativa CTA -->
+      <div class="glass rounded-2xl p-8 border border-white/5 text-center">
+        <div class="text-3xl mb-4">&#9745;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Descarga la comparativa</h3>
+        <p class="text-gray-400 text-sm mb-6">Agencia vs. Infraestructura propia. N&uacute;meros reales a 12 meses para que decidas con datos.</p>
+        <button onclick="document.getElementById('leadMagnetForm').scrollIntoView({behavior:'smooth'})" class="btn-outline px-6 py-3 rounded-lg text-sm w-full">Descargar gratis</button>
+      </div>
+      <!-- Right: Agendar CTA -->
+      <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+        <div class="text-3xl mb-4">&#128197;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Agendar discovery call</h3>
+        <p class="text-gray-400 text-sm mb-6">Sin compromiso. 30 minutos. Analizamos tu modelo comercial actual y te decimos d&oacute;nde est&aacute; la palanca.</p>
+        <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Reservar mi plaza</a>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <div class="max-w-3xl mx-auto px-6 mb-16">
+      <div class="gc p-6 sm:p-8 rounded-2xl flex items-start gap-5">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0 text-lg font-bold" style="background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(236,72,153,.2));color:#8B5CF6">XF</div>
+        <div>
+          <p class="font-bold text-white text-lg">Xavi Fortuna</p>
+          <p class="text-sm text-gray-400 mb-2">CEO & Head of Growth &middot; Global Growth Consulting</p>
+          <p class="text-sm text-gray-400 leading-relaxed">10 a&ntilde;os construyendo infraestructura comercial para empresas B2B. +627 clientes en 3 continentes. Si tu empresa depende de ti para vender, probablemente podamos ayudarte.</p>
+          <a href="https://linkedin.c../xavierfortuna/" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm mt-2 hover:underline" style="color:#8B5CF6">LinkedIn <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="max-w-3xl mx-auto mt-16 text-center reveal">
+      <div class="glass rounded-2xl p-8 border border-white/5">
+        <h3 class="text-xl font-bold text-white mb-2">&iquest;Te ha parecido &uacute;til? Recibe 1 insight semanal.</h3>
+        <p class="text-gray-400 text-sm mb-6">Estrategia comercial B2B sin relleno. Un email a la semana. Te das de baja cuando quieras.</p>
+        <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input type="email" name="email" placeholder="tu@empresa.com" required class="flex-1 px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+            <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+          </label>
+          <button type="submit" class="btn-g px-6 py-3 rounded-lg text-sm whitespace-nowrap">Suscribirme</button>
+        </form>
+        <div id="newsletterSuccess" class="hidden mt-4 text-green-400 text-sm">Apuntado. Bienvenido.</div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="max-w-5xl mx-auto mt-20 reveal">
+      <h2 class="font-display text-2xl font-bold text-white mb-8">Tambi&eacute;n te puede interesar</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="../infraestructura-vs-herramientas.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Revenue Infrastructure</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">Herramientas vs. Infraestructura</h3>
+          <p class="text-gray-500 text-sm">La mayor&iacute;a de empresas B2B acumulan herramientas sin tener un sistema. Descubre la diferencia.</p>
+        </a>
+        <a href="../precio-vs-empaquetado.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Revenue Infrastructure</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">Precio vs. Empaquetado</h3>
+          <p class="text-gray-500 text-sm">Tu problema no es el precio. Es c&oacute;mo presentas lo que vendes y qu&eacute; percepci&oacute;n de valor genera.</p>
+        </a>
+        <a href="../framework-20-reuniones.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Revenue Infrastructure</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">De 0 a 20 reuniones/semana</h3>
+          <p class="text-gray-500 text-sm">El framework exacto que usamos para llenar el calendario de nuestros clientes con reuniones cualificadas.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- NEWSLETTER SCROLL POPUP -->
+<div id="scrollPopup" class="scroll-popup fixed bottom-6 right-6 z-40 w-80 glass rounded-2xl p-6 border border-[#8B5CF6]/20 shadow-2xl">
+  <button id="closePopup" class="absolute top-3 right-3 text-gray-500 hover:text-white transition-colors" aria-label="Cerrar">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 1../svg>
+  </button>
+  <p class="text-white font-bold text-sm mb-1">1 insight semanal. Sin spam.</p>
+  <p class="text-gray-400 text-xs mb-4">Estrategia comercial B2B directa al grano. Cada viernes.</p>
+  <form id="popupForm" class="space-y-2">
+    <input type="email" name="email" placeholder="tu@empresa.com" required class="w-full px-3 py-2.5 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+    <label class="flex items-start gap-2 cursor-pointer">
+      <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+      <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>.</span>
+    </label>
+    <button type="submit" class="btn-g w-full px-4 py-2.5 rounded-lg text-xs">Suscribirme</button>
+  </form>
+  <div id="popupSuccess" class="hidden mt-3 text-green-400 text-xs">Apuntado. Bienvenido.</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div>
+        <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto mb-4">
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Infraestructura comercial B2B permanente. No somos agencia. Instalamos sistemas que se quedan en tu propiedad.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Navegaci&oacute;n</h4>
+        <ul class="space-y-3">
+          <li><a href="../index.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Inicio</a></li>
+          <li><a href="../index.html#sistema" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Sistema</a></li>
+          <li><a href="../index.html#resultados" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Resultados</a></li>
+          <li><a href="../index.html#proceso" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Proceso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Recursos</h4>
+        <ul class="space-y-3">
+          <li><a href="../blog.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Blog</a></li>
+          <li><a href="../agendar.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Agendar</a></li>
+          <li><a href="../privacidad.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Privacidad</a></li>
+          <li><a href="../aviso-legal.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Aviso Legal</a></li>
+          <li><a href="../cookies.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Contacto</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="mailto:soporte@globalgrowth.consulting" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2../svg>
+              soporte@globalgrowth.consulting
+            </a>
+          </li>
+          <li class="text-gray-500 text-xs leading-relaxed">Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</li>
+          <li>
+            <a href="https://linkedin.c../xavierfortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003../svg>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/sir.fortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881../svg>
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 text-center">
+      <p class="text-gray-500 text-xs">&copy; 2016&ndash;2026 Global Growth Consulting by Digital Insta Media. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+(function(){
+  'use strict';
+
+  // -- Mobile menu --
+  var menuBtn = document.getElementById('menuBtn');
+  var closeBtn = document.getElementById('closeMenu');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  if(menuBtn && mobileMenu){
+    menuBtn.addEventListener('click', function(){ mobileMenu.classList.add('open'); });
+  }
+  if(closeBtn && mobileMenu){
+    closeBtn.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach(function(link){
+    link.addEventListener('click', function(){ if(mobileMenu) mobileMenu.classList.remove('open'); });
+  });
+
+  // -- Scroll reveals (Intersection Observer) --
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced){
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el){ observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  // -- Reading progress bar --
+  window.addEventListener('scroll', function(){
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress').style.width = progress + '%';
+  });
+
+  // -- Lead Magnet Form --
+  var leadForm = document.getElementById('leadMagnetForm');
+  if(leadForm){
+    leadForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(leadForm);
+      var obj = {};
+      data.forEach(function(v,k){ obj[k] = v; });
+      obj.source = 'blog_comparativa_agencia_infra';
+      obj.page = window.location.pathname;
+
+      fetch('/api/lead-magnet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(obj)
+      }).then(function(){
+        leadForm.style.display = 'none';
+        document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+      }).catch(function(){
+        leadForm.style.display = 'none';
+        document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+  // -- Newsletter Form --
+  var nlForm = document.getElementById('newsletterForm');
+  if(nlForm){
+    nlForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = nlForm.querySelector('input[name="email"]').value;
+
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'blog_article_newsletter', page: window.location.pathname })
+      }).then(function(){
+        nlForm.style.display = 'none';
+        document.getElementById('newsletterSuccess').classList.remove('hidden');
+      }).catch(function(){
+        nlForm.style.display = 'none';
+        document.getElementById('newsletterSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+  // -- Scroll Popup (70% scroll, once per session) --
+  var popup = document.getElementById('scrollPopup');
+  var closePopupBtn = document.getElementById('closePopup');
+  var popupShown = sessionStorage.getItem('popupShown');
+
+  if(popup && !popupShown){
+    var popupTriggered = false;
+    window.addEventListener('scroll', function(){
+      if(popupTriggered) return;
+      var scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if(scrollPercent > 0.7){
+        popupTriggered = true;
+        popup.classList.add('show');
+        sessionStorage.setItem('popupShown', '1');
+      }
+    });
+  }
+
+  if(closePopupBtn && popup){
+    closePopupBtn.addEventListener('click', function(){
+      popup.classList.remove('show');
+    });
+  }
+
+  // -- Popup Form --
+  var popupForm = document.getElementById('popupForm');
+  if(popupForm){
+    popupForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = popupForm.querySelector('input[name="email"]').value;
+
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'blog_scroll_popup', page: window.location.pathname })
+      }).then(function(){
+        popupForm.style.display = 'none';
+        document.getElementById('popupSuccess').classList.remove('hidden');
+      }).catch(function(){
+        popupForm.style.display = 'none';
+        document.getElementById('popupSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagn&oacute;stico: Los 5 Factores que Hacen Fracasar Proyectos Comerciales B2B | GGC</title>
+  <meta name="description" content="Eval&uacute;a los 5 factores cr&iacute;ticos que hacen fracasar proyectos comerciales B2B. Diagn&oacute;stico interactivo con puntuaci&oacute;n y plan de acci&oacute;n personalizado.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Diagn&oacute;stico: 5 Factores de Fracaso B2B &mdash; GGC">
+  <meta property="og:description" content="Descubre cu&aacute;les son los factores que est&aacute;n frenando tu crecimiento comercial B2B.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    /* Toggle switch */
+    .toggle-track{width:48px;height:26px;border-radius:13px;background:#1A1740;border:1px solid rgba(255,255,255,0.1);position:relative;cursor:pointer;transition:background .2s}
+    .toggle-track.on{background:linear-gradient(135deg,#8B5CF6,#EC4899)}
+    .toggle-thumb{width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,0.3)}
+    .toggle-track.on .toggle-thumb{transform:translateX(22px)}
+
+    /* Gauge */
+    .gauge-container{position:relative;width:200px;height:110px;margin:0 auto}
+    .gauge-bg{fill:none;stroke:#1A1740;stroke-width:14;stroke-linecap:round}
+    .gauge-fill{fill:none;stroke-width:14;stroke-linecap:round;transition:stroke-dashoffset .8s ease,stroke 0.3s}
+    .gauge-label{font-family:'DM Sans',sans-serif;font-weight:800;font-size:2rem;fill:#fff;text-anchor:middle}
+    .gauge-sublabel{font-family:'DM Sans',sans-serif;font-size:0.75rem;fill:#9A9A9A;text-anchor:middle}
+
+    .risk-low{color:#34D399}
+    .risk-medium{color:#FBBF24}
+    .risk-high{color:#F87171}
+    .risk-critical{color:#EF4444}
+
+    .factor-card{transition:all .3s ease}
+    .factor-card.completed{opacity:0.7}
+    .factor-card.active{border-color:rgba(139,92,246,0.3)}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.pulse-glow{animation:none}.btn-g::after{animation:none}.gauge-fill{transition:none}.toggle-thumb{transition:none}}
+
+    @media print{body{background:#fff;color:#000}.glass{background:#f3f4f6;border-color:#e5e7eb}.gr{-webkit-text-fill-color:#7c3aed;color:#7c3aed}header,#cta-section{display:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-3">
+      <img src="../../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-16">
+    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-medium bg-purple/10 text-purple border border-purple/20 mb-6">DIAGN&Oacute;STICO INTERACTIVO &mdash; PILAR 5</span>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+      Los 5 factores que hacen<br><span class="gr">fracasar proyectos comerciales</span> B2B
+    </h1>
+    <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+      Responde a 20 preguntas r&aacute;pidas y descubre qu&eacute; factores est&aacute;n poniendo en riesgo tu crecimiento comercial. Resultado inmediato con plan de acci&oacute;n.
+    </p>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="mb-12">
+    <div class="flex justify-between text-xs text-gray-500 mb-2">
+      <span id="progress-label">Factor 1 de 5</span>
+      <span id="progress-pct">0%</span>
+    </div>
+    <div class="w-full bg-navy-card2 rounded-full h-2">
+      <div class="h-full rounded-full bg-gradient-to-r from-cyan via-purple to-pink transition-all duration-500" id="progress-bar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- DIAGNOSTIC SECTIONS -->
+  <div id="diagnostic-container">
+
+    <!-- FACTOR 1 -->
+    <section class="factor-section mb-8" data-factor="1">
+      <div class="glass rounded-2xl p-6 md:p-8 factor-card active" data-factor-card="1">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 font-bold">1</span>
+          <div>
+            <h2 class="text-xl font-bold">No hay ICP definido</h2>
+            <p class="text-gray-500 text-sm">Perfil de cliente ideal ausente o demasiado amplio</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="1" data-q="1">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Pod&eacute;is describir vuestro cliente ideal en una frase concreta (sector, tama&ntilde;o, problema)?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" aria-label="S&iacute; o No" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="1" data-q="2">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Ten&eacute;is documentados al menos 2 perfiles de cliente con datos demogr&aacute;ficos y firmogr&aacute;ficos?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="1" data-q="3">
+            <p class="text-gray-300 text-sm flex-1">&iquest;El equipo comercial sabe a qui&eacute;n NO debe vender (criterios de descualificaci&oacute;n)?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="1" data-q="4">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Revis&aacute;is el ICP al menos cada trimestre con datos reales de clientes ganados/perdidos?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-gray-500">Puntuaci&oacute;n factor: <span class="factor-score text-white font-bold" data-factor-score="1">0/4</span></span>
+          <div class="w-20 bg-navy-card2 rounded-full h-2"><div class="h-full rounded-full bg-red-400 transition-all" data-factor-bar="1" style="width:0%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACTOR 2 -->
+    <section class="factor-section mb-8" data-factor="2">
+      <div class="glass rounded-2xl p-6 md:p-8 factor-card" data-factor-card="2">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400 font-bold">2</span>
+          <div>
+            <h2 class="text-xl font-bold">Dependencia del CEO</h2>
+            <p class="text-gray-500 text-sm">Todo el proceso comercial pasa por una persona</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="2" data-q="1">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Hay alguien adem&aacute;s del CEO/fundador que pueda cerrar un deal de principio a fin?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="2" data-q="2">
+            <p class="text-gray-300 text-sm flex-1">&iquest;El pipeline sigue generando reuniones cuando el CEO est&aacute; de vacaciones?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="2" data-q="3">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Menos del 30% de las reuniones comerciales requieren la presencia del CEO?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="2" data-q="4">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Ten&eacute;is roles comerciales definidos (SDR, AE, AM) aunque sea a media jornada?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-gray-500">Puntuaci&oacute;n factor: <span class="factor-score text-white font-bold" data-factor-score="2">0/4</span></span>
+          <div class="w-20 bg-navy-card2 rounded-full h-2"><div class="h-full rounded-full bg-orange-400 transition-all" data-factor-bar="2" style="width:0%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACTOR 3 -->
+    <section class="factor-section mb-8" data-factor="3">
+      <div class="glass rounded-2xl p-6 md:p-8 factor-card" data-factor-card="3">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-400 font-bold">3</span>
+          <div>
+            <h2 class="text-xl font-bold">Sin proceso documentado</h2>
+            <p class="text-gray-500 text-sm">Se vende por instinto, no por sistema</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="3" data-q="1">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Ten&eacute;is un playbook comercial escrito que un nuevo empleado pueda seguir desde el d&iacute;a 1?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="3" data-q="2">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Las etapas de vuestro pipeline est&aacute;n definidas con criterios claros de avance?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="3" data-q="3">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Exist&eacute;n plantillas est&aacute;ndar para emails, propuestas y seguimientos?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="3" data-q="4">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Se registra cada interacci&oacute;n con un prospect en el CRM de forma consistente?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-gray-500">Puntuaci&oacute;n factor: <span class="factor-score text-white font-bold" data-factor-score="3">0/4</span></span>
+          <div class="w-20 bg-navy-card2 rounded-full h-2"><div class="h-full rounded-full bg-yellow-400 transition-all" data-factor-bar="3" style="width:0%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACTOR 4 -->
+    <section class="factor-section mb-8" data-factor="4">
+      <div class="glass rounded-2xl p-6 md:p-8 factor-card" data-factor-card="4">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-10 h-10 rounded-lg bg-blue/10 flex items-center justify-center text-blue font-bold">4</span>
+          <div>
+            <h2 class="text-xl font-bold">Herramientas sin estrategia</h2>
+            <p class="text-gray-500 text-sm">Se compran tools pero no se usan bien</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="4" data-q="1">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Pod&eacute;is decir con certeza cu&aacute;l de vuestras herramientas genera m&aacute;s ROI?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="4" data-q="2">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Vuestras herramientas est&aacute;n integradas entre s&iacute; (CRM, email, LinkedIn, analytics)?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="4" data-q="3">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Se usa el CRM a diario y con datos limpios (no como &laquo;cementerio de contactos&raquo;)?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="4" data-q="4">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Hab&eacute;is auditado vuestro stack tecnol&oacute;gico en los &uacute;ltimos 6 meses?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-gray-500">Puntuaci&oacute;n factor: <span class="factor-score text-white font-bold" data-factor-score="4">0/4</span></span>
+          <div class="w-20 bg-navy-card2 rounded-full h-2"><div class="h-full rounded-full bg-blue transition-all" data-factor-bar="4" style="width:0%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACTOR 5 -->
+    <section class="factor-section mb-8" data-factor="5">
+      <div class="glass rounded-2xl p-6 md:p-8 factor-card" data-factor-card="5">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-10 h-10 rounded-lg bg-purple/10 flex items-center justify-center text-purple font-bold">5</span>
+          <div>
+            <h2 class="text-xl font-bold">No miden lo correcto</h2>
+            <p class="text-gray-500 text-sm">M&eacute;tricas de vanidad en lugar de m&eacute;tricas de negocio</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="5" data-q="1">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Sab&eacute;is cu&aacute;nto os cuesta adquirir un cliente nuevo (CAC)?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="5" data-q="2">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Med&iacute;s tasas de conversi&oacute;n por etapa del pipeline (no solo al final)?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="5" data-q="3">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Ten&eacute;is un dashboard que revis&aacute;is semanalmente con m&eacute;tricas comerciales?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+          <div class="bg-navy rounded-xl p-4 flex items-center justify-between gap-4 question-row" data-factor="5" data-q="4">
+            <p class="text-gray-300 text-sm flex-1">&iquest;Pod&eacute;is predecir la facturaci&oacute;n del pr&oacute;ximo trimestre con &plusmn;15% de precisi&oacute;n?</p>
+            <div class="toggle-track shrink-0" role="switch" aria-checked="false" tabindex="0"><div class="toggle-thumb"></div></div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-gray-500">Puntuaci&oacute;n factor: <span class="factor-score text-white font-bold" data-factor-score="5">0/4</span></span>
+          <div class="w-20 bg-navy-card2 rounded-full h-2"><div class="h-full rounded-full bg-purple transition-all" data-factor-bar="5" style="width:0%"></div></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- RESULTS BUTTON -->
+  <div class="text-center mb-12">
+    <button id="show-results" class="btn-g px-8 py-4 rounded-xl text-lg cursor-pointer">
+      Ver mi diagn&oacute;stico completo &rarr;
+    </button>
+    <p class="text-gray-700 text-xs mt-3">Responde las preguntas arriba para obtener resultados personalizados</p>
+  </div>
+
+  <!-- RESULTS SECTION (hidden initially) -->
+  <div id="results-section" class="hidden">
+
+    <!-- GAUGE -->
+    <div class="text-center mb-12 fade-in">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Tu nivel de <span class="gr">riesgo global</span></h2>
+      <div class="glass rounded-2xl p-8 md:p-10 inline-block">
+        <div class="gauge-container">
+          <svg viewBox="0 0 200 110" width="200" height="110">
+            <path d="M 20 100 A 80 80 0 0 1 180 100" class="gauge-bg"/>
+            <path d="M 20 100 A 80 80 0 0 1 180 100" class="gauge-fill" id="gauge-arc" stroke="#8B5CF6"
+              stroke-dasharray="251" stroke-dashoffset="251"/>
+            <text x="100" y="90" class="gauge-label" id="gauge-value">0%</text>
+            <text x="100" y="106" class="gauge-sublabel" id="gauge-label">Calculando...</text>
+          </svg>
+        </div>
+        <p class="text-lg font-bold mt-4" id="risk-level-text">-</p>
+        <p class="text-gray-500 text-sm" id="risk-level-desc">-</p>
+      </div>
+    </div>
+
+    <!-- FACTOR BREAKDOWN -->
+    <div class="mb-12 fade-in">
+      <h3 class="text-xl font-bold mb-6 text-center">Desglose por factor</h3>
+      <div class="grid sm:grid-cols-5 gap-4" id="factor-breakdown">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- TOP RISKS -->
+    <div class="mb-12 fade-in" id="top-risks-container">
+      <h3 class="text-xl font-bold mb-6">Tus factores de mayor riesgo</h3>
+      <div id="top-risks" class="space-y-4">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="mb-16 fade-in">
+      <h3 class="text-xl font-bold mb-6">Plan de acci&oacute;n <span class="gr">personalizado</span></h3>
+      <div id="action-plan" class="space-y-4">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section id="cta-section" class="text-center py-12 fade-in">
+      <div class="glass rounded-2xl p-10 md:p-14 pulse-glow">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">&iquest;Quieres eliminar estos <span class="gr">factores de riesgo</span>?</h2>
+        <p class="text-gray-400 max-w-xl mx-auto mb-8">
+          En GGC hemos ayudado a m&aacute;s de 627 empresas a resolver exactamente estos problemas. No vendemos teor&iacute;a &mdash; instalamos sistemas que funcionan.
+        </p>
+        <a href="../../agendar.html" class="btn-g inline-block px-8 py-4 rounded-xl text-lg">
+          Agendar diagn&oacute;stico gratuito &rarr;
+        </a>
+        <p class="text-gray-700 text-xs mt-4">Sin compromiso &bull; 30 minutos &bull; An&aacute;lisis con datos</p>
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-700 text-xs">
+    <p>&copy; 2026 Global Growth Consulting. Todos los derechos reservados.</p>
+    <p>Basado en datos de 627+ proyectos comerciales B2B</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  // State: answers per factor (true = "yes" = good)
+  var answers = {1:{},2:{},3:{},4:{},5:{}};
+
+  var factorNames = {
+    1: 'No hay ICP definido',
+    2: 'Dependencia del CEO',
+    3: 'Sin proceso documentado',
+    4: 'Herramientas sin estrategia',
+    5: 'No miden lo correcto'
+  };
+
+  var factorColors = {1:'#F87171',2:'#FB923C',3:'#FBBF24',4:'#3B82F6',5:'#8B5CF6'};
+
+  var actionPlans = {
+    1: {
+      title: 'Definir tu ICP con datos',
+      actions: [
+        'Analiza tus 10 mejores clientes: sector, tama&ntilde;o, problema que resolv&iacute;as, ticket medio.',
+        'Documenta 2-3 perfiles de cliente ideal con criterios medibles.',
+        'Crea una lista de &laquo;no-go&raquo;: tipos de cliente a los que NO quer&eacute;is vender.',
+        'Rev&iacute;salo cada trimestre con datos reales de deals ganados y perdidos.'
+      ]
+    },
+    2: {
+      title: 'Desacoplar al CEO del proceso comercial',
+      actions: [
+        'Documenta el proceso que sigue el CEO paso a paso cuando cierra un deal.',
+        'Identifica qu&eacute; partes puede hacer otra persona (prospecci&oacute;n, cualificaci&oacute;n, seguimiento).',
+        'Contrata o forma un SDR que se encargue del top del embudo.',
+        'Monta secuencias automatizadas para que el pipeline no dependa de una persona.'
+      ]
+    },
+    3: {
+      title: 'Construir un playbook comercial',
+      actions: [
+        'Define las etapas de tu pipeline con criterios claros de avance.',
+        'Crea plantillas para emails, propuestas, y follow-ups.',
+        'Establece la regla de oro: si no est&aacute; en el CRM, no ha pasado.',
+        'Haz onboarding de cualquier nuevo comercial usando el playbook, no la tradici&oacute;n oral.'
+      ]
+    },
+    4: {
+      title: 'Auditar y conectar tu stack tecnol&oacute;gico',
+      actions: [
+        'Lista todas las herramientas que pag&aacute;is y su uso real (no el previsto).',
+        'Elimina las que no se usan o duplican funcionalidades.',
+        'Integra CRM + email + LinkedIn + analytics en un flujo continuo.',
+        'Asigna un responsable de mantener los datos limpios.'
+      ]
+    },
+    5: {
+      title: 'Implementar m&eacute;tricas que importan',
+      actions: [
+        'Define 5 KPIs comerciales: CAC, tasa de conversi&oacute;n por etapa, ciclo de venta, pipeline value, revenue por canal.',
+        'Monta un dashboard que se actualice autom&aacute;ticamente (no manual).',
+        'Rev&iacute;salo cada lunes con el equipo comercial.',
+        'Usa los datos para tomar decisiones, no para hacer informes bonitos.'
+      ]
+    }
+  };
+
+  // Toggle logic
+  document.querySelectorAll('.toggle-track').forEach(function(toggle){
+    function handleToggle(){
+      var isOn = toggle.classList.contains('on');
+      toggle.classList.toggle('on');
+      toggle.setAttribute('aria-checked', !isOn);
+
+      var row = toggle.closest('.question-row');
+      var factor = row.getAttribute('data-factor');
+      var q = row.getAttribute('data-q');
+      answers[factor][q] = !isOn;
+
+      updateFactorScore(factor);
+      updateProgress();
+    }
+
+    toggle.addEventListener('click', handleToggle);
+    toggle.addEventListener('keydown', function(e){
+      if(e.key === ' ' || e.key === 'Enter'){
+        e.preventDefault();
+        handleToggle();
+      }
+    });
+  });
+
+  function updateFactorScore(factor){
+    var score = 0;
+    for(var q in answers[factor]){
+      if(answers[factor][q]) score++;
+    }
+    var scoreEl = document.querySelector('[data-factor-score="'+factor+'"]');
+    var barEl = document.querySelector('[data-factor-bar="'+factor+'"]');
+    if(scoreEl) scoreEl.textContent = score + '/4';
+    if(barEl) barEl.style.width = (score * 25) + '%';
+  }
+
+  function updateProgress(){
+    var total = 0;
+    var answered = 0;
+    for(var f = 1; f <= 5; f++){
+      total += 4;
+      answered += Object.keys(answers[f]).length;
+    }
+    var pct = Math.round((answered / total) * 100);
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-pct').textContent = pct + '%';
+
+    var currentFactor = Math.min(5, Math.floor(answered / 4) + 1);
+    document.getElementById('progress-label').textContent = 'Factor ' + currentFactor + ' de 5';
+  }
+
+  // Show results
+  document.getElementById('show-results').addEventListener('click', function(){
+    var resultsSection = document.getElementById('results-section');
+    resultsSection.classList.remove('hidden');
+    resultsSection.scrollIntoView({behavior:'smooth'});
+
+    // Calculate scores (inverted: 0 "yes" = max risk)
+    var scores = {};
+    var totalRisk = 0;
+    for(var f = 1; f <= 5; f++){
+      var yesCount = 0;
+      for(var q in answers[f]){
+        if(answers[f][q]) yesCount++;
+      }
+      scores[f] = 4 - yesCount; // risk score: 0 = no risk, 4 = max risk
+      totalRisk += scores[f];
+    }
+
+    var riskPct = Math.round((totalRisk / 20) * 100);
+
+    // Update gauge
+    var arc = document.getElementById('gauge-arc');
+    var totalLen = 251;
+    var offset = totalLen - (totalLen * riskPct / 100);
+    arc.style.strokeDashoffset = offset;
+
+    // Gauge color
+    var gaugeColor;
+    if(riskPct <= 25) gaugeColor = '#34D399';
+    else if(riskPct <= 50) gaugeColor = '#FBBF24';
+    else if(riskPct <= 75) gaugeColor = '#F87171';
+    else gaugeColor = '#EF4444';
+    arc.setAttribute('stroke', gaugeColor);
+
+    document.getElementById('gauge-value').textContent = riskPct + '%';
+
+    var riskText, riskDesc, riskClass;
+    if(riskPct <= 25){
+      riskText = 'Riesgo bajo';
+      riskDesc = 'Tu infraestructura comercial est&aacute; bien encaminada. Hay margen de optimizaci&oacute;n pero no hay riesgo cr&iacute;tico.';
+      riskClass = 'risk-low';
+    } else if(riskPct <= 50){
+      riskText = 'Riesgo moderado';
+      riskDesc = 'Tienes bases pero hay factores que pueden frenar tu crecimiento si no se abordan pronto.';
+      riskClass = 'risk-medium';
+    } else if(riskPct <= 75){
+      riskText = 'Riesgo alto';
+      riskDesc = 'Varios factores cr&iacute;ticos est&aacute;n activos. Tu sistema comercial es fr&aacute;gil y depende de circunstancias, no de procesos.';
+      riskClass = 'risk-high';
+    } else {
+      riskText = 'Riesgo cr&iacute;tico';
+      riskDesc = 'Tu operativa comercial tiene fallos estructurales graves. Cada mes que pasa sin corregirlos te cuesta dinero y oportunidades.';
+      riskClass = 'risk-critical';
+    }
+
+    var rlText = document.getElementById('risk-level-text');
+    rlText.innerHTML = riskText;
+    rlText.className = 'text-lg font-bold mt-4 ' + riskClass;
+    document.getElementById('risk-level-desc').innerHTML = riskDesc;
+    document.getElementById('gauge-label').textContent = riskPct <= 50 ? 'de riesgo' : 'de riesgo';
+
+    // Factor breakdown cards
+    var breakdownEl = document.getElementById('factor-breakdown');
+    breakdownEl.innerHTML = '';
+    for(var f = 1; f <= 5; f++){
+      var risk = scores[f];
+      var pctF = Math.round((risk / 4) * 100);
+      var colorClass = pctF <= 25 ? 'text-green-400 border-green-400/30' : pctF <= 50 ? 'text-yellow-400 border-yellow-400/30' : pctF <= 75 ? 'text-orange-400 border-orange-400/30' : 'text-red-400 border-red-400/30';
+      var card = document.createElement('div');
+      card.className = 'glass rounded-xl p-4 text-center border ' + colorClass.split(' ')[1];
+      card.innerHTML = '<p class="text-3xl font-bold ' + colorClass.split(' ')[0] + '">' + pctF + '%</p>' +
+        '<p class="text-gray-500 text-xs mt-1">Factor ' + f + '</p>';
+      breakdownEl.appendChild(card);
+    }
+
+    // Top risks (sorted)
+    var sortedFactors = [1,2,3,4,5].sort(function(a,b){ return scores[b] - scores[a]; });
+    var topRisks = document.getElementById('top-risks');
+    topRisks.innerHTML = '';
+
+    sortedFactors.forEach(function(f, i){
+      if(scores[f] === 0) return;
+      var risk = scores[f];
+      var severity = risk >= 3 ? 'CR&Iacute;TICO' : risk >= 2 ? 'ALTO' : 'MODERADO';
+      var sevColor = risk >= 3 ? 'text-red-400 bg-red-500/10' : risk >= 2 ? 'text-orange-400 bg-orange-500/10' : 'text-yellow-400 bg-yellow-500/10';
+      var div = document.createElement('div');
+      div.className = 'glass rounded-xl p-5 flex items-start gap-4';
+      div.innerHTML = '<span class="px-2 py-1 rounded text-xs font-bold ' + sevColor + '">' + severity + '</span>' +
+        '<div><p class="text-white font-bold">' + factorNames[f] + '</p>' +
+        '<p class="text-gray-400 text-sm">Puntuaci&oacute;n de riesgo: ' + risk + '/4</p></div>';
+      topRisks.appendChild(div);
+    });
+
+    // Action plan
+    var planEl = document.getElementById('action-plan');
+    planEl.innerHTML = '';
+
+    sortedFactors.forEach(function(f){
+      if(scores[f] === 0) return;
+      var plan = actionPlans[f];
+      var div = document.createElement('div');
+      div.className = 'glass rounded-xl p-6';
+      var actionsHtml = plan.actions.map(function(a, i){
+        return '<li class="flex gap-2 items-start"><span class="text-purple font-bold shrink-0">' + (i+1) + '.</span><span>' + a + '</span></li>';
+      }).join('');
+      div.innerHTML = '<div class="flex items-center gap-3 mb-4"><span class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style="background:' + factorColors[f] + '20;color:' + factorColors[f] + '">' + f + '</span>' +
+        '<h4 class="text-white font-bold" style="font-family:\'DM Sans\',sans-serif">' + plan.title + '</h4></div>' +
+        '<ul class="space-y-2 text-gray-400 text-sm">' + actionsHtml + '</ul>';
+      planEl.appendChild(div);
+    });
+
+    // If all scores are 0
+    if(totalRisk === 0){
+      topRisks.innerHTML = '<div class="glass rounded-xl p-5 text-center"><p class="text-green-400 font-bold">Sin factores de riesgo detectados</p><p class="text-gray-400 text-sm">Tu infraestructura comercial est&aacute; bien montada. Sigue as&iacute;.</p></div>';
+      planEl.innerHTML = '<div class="glass rounded-xl p-5 text-center"><p class="text-gray-400 text-sm">No hay acciones urgentes. Considera optimizar para escalar a&uacute;n m&aacute;s.</p></div>';
+    }
+  });
+
+})();
+</script>
+</body>
+</html>

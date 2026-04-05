@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glosario: Revenue Infrastructure - 25 Terminos Clave | GGC</title>
+  <meta name="description" content="25 terminos clave de revenue infrastructure explicados sin jerga. Prospeccion, pipeline, metricas y tech stack comercial B2B.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Glosario: Revenue Infrastructure - 25 Terminos Clave">
+  <meta property="og:description" content="El vocabulario que necesitas dominar para construir una infraestructura comercial B2B real.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Tabs */
+    .tab-btn{transition:all .2s ease;border-bottom:2px solid transparent}
+    .tab-btn.active{border-color:#8B5CF6;color:#fff}
+    .tab-btn:not(.active){color:#9A9A9A}
+    .tab-btn:hover:not(.active){color:#D4D4D4}
+
+    /* Term cards */
+    .term-card{transition:all .2s ease;border:1px solid rgba(255,255,255,0.06)}
+    .term-card:hover{border-color:rgba(139,92,246,0.3);background:rgba(139,92,246,0.04)}
+
+    /* Search highlight */
+    .highlight{background:rgba(139,92,246,0.3);border-radius:2px;padding:0 2px}
+
+    /* Fade in */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    /* Counter badge */
+    .counter-badge{background:linear-gradient(135deg,#3B82F6,#8B5CF6);font-size:0.65rem;padding:2px 8px;border-radius:999px;font-weight:700}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.term-card{transition:none}.tab-btn{transition:none}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Glosario interactivo</span>
+    <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+      25 terminos clave de<br><span class="gr">revenue infrastructure</span>
+    </h1>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-2">
+      El vocabulario que necesitas dominar para construir, evaluar y optimizar tu infraestructura comercial B2B. Sin jerga innecesaria.
+    </p>
+    <p class="text-gray-500 text-sm">Busca, filtra por categoria y consulta cada termino en segundos.</p>
+  </div>
+
+  <!-- SEARCH BAR -->
+  <div class="glass rounded-2xl p-4 mb-6 fade-in sticky top-0 z-10" style="animation-delay:.1s">
+    <div class="flex items-center gap-3">
+      <svg class="w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      <input type="text" id="searchInput" placeholder="Busca un termino... (ej: ICP, pipeline, CAC)" class="w-full bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none" autocomplete="off">
+      <span id="resultCount" class="text-xs text-gray-500 whitespace-nowrap">25 terminos</span>
+    </div>
+  </div>
+
+  <!-- CATEGORY TABS -->
+  <div class="flex flex-wrap gap-2 mb-8 fade-in" style="animation-delay:.2s" id="tabsContainer">
+    <button class="tab-btn px-4 py-2 text-sm rounded-lg active" data-cat="all" onclick="filterCategory('all',this)">
+      Todos <span class="counter-badge ml-1">25</span>
+    </button>
+    <button class="tab-btn px-4 py-2 text-sm rounded-lg" data-cat="prospeccion" onclick="filterCategory('prospeccion',this)">
+      Prospeccion <span class="counter-badge ml-1">6</span>
+    </button>
+    <button class="tab-btn px-4 py-2 text-sm rounded-lg" data-cat="pipeline" onclick="filterCategory('pipeline',this)">
+      Pipeline <span class="counter-badge ml-1">6</span>
+    </button>
+    <button class="tab-btn px-4 py-2 text-sm rounded-lg" data-cat="infraestructura" onclick="filterCategory('infraestructura',this)">
+      Infraestructura <span class="counter-badge ml-1">7</span>
+    </button>
+    <button class="tab-btn px-4 py-2 text-sm rounded-lg" data-cat="metricas" onclick="filterCategory('metricas',this)">
+      Metricas <span class="counter-badge ml-1">6</span>
+    </button>
+  </div>
+
+  <!-- TERMS GRID -->
+  <div id="termsGrid" class="space-y-3 fade-in" style="animation-delay:.3s"></div>
+
+  <!-- NO RESULTS -->
+  <div id="noResults" class="hidden text-center py-12">
+    <p class="text-gray-500 text-sm">No se encontraron terminos para esa busqueda.</p>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="glass rounded-2xl p-6 mt-10 mb-8 fade-in" style="animation-delay:.4s">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div>
+        <p class="text-2xl font-bold gr">25</p>
+        <p class="text-xs text-gray-500">Terminos</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold gr">4</p>
+        <p class="text-xs text-gray-500">Categorias</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold gr" id="viewedCount">0</p>
+        <p class="text-xs text-gray-500">Consultados</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold gr">PDF</p>
+        <p class="text-xs text-gray-500">Descargable</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE -->
+  <div id="leadCapture" class="mt-12">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Recurso completo</p>
+      <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe el glosario completo en PDF</h3>
+      <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Version ampliada con ejemplos practicos, metricas de referencia y un framework para implementar cada concepto en tu empresa.</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="terminos_vistos" id="hiddenTermsViewed" value="0">
+        <input type="hidden" name="source" value="glosario-revenue-infrastructure">
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+          <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white">politica de privacidad</a>. Recibire comunicaciones que puedo cancelar en cualquier momento.</span>
+        </label>
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Recibe el glosario completo en PDF</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los proximos 2 minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo el glosario.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  var viewedTerms = {};
+
+  var terms = [
+    // PROSPECCION
+    {id:1, term:'ICP (Ideal Customer Profile)', cat:'prospeccion', catLabel:'Prospeccion',
+     def:'Definicion detallada del cliente ideal basada en criterios verificables: sector, tamano, cargo del decisor, problema que resuelves y capacidad de inversion. No es un buyer persona generico.',
+     why:'Sin un ICP claro, tu equipo dispara a todo lo que se mueve y el coste por reunion se dispara.'},
+    {id:2, term:'TAM (Total Addressable Market)', cat:'prospeccion', catLabel:'Prospeccion',
+     def:'El numero total de empresas que encajan con tu ICP en tu mercado objetivo. Se calcula cruzando criterios firmograficos con bases de datos verificadas.',
+     why:'Conocer tu TAM te dice cuanto runway de prospeccion tienes antes de saturar un segmento.'},
+    {id:3, term:'Outreach multicanal', cat:'prospeccion', catLabel:'Prospeccion',
+     def:'Estrategia de contacto en frio que combina email, LinkedIn, llamada y otros canales de forma coordinada con secuencias automatizadas y personalizacion a escala.',
+     why:'Un solo canal es ignorable. Tres canales coordinados multiplican la tasa de respuesta por 3-5x.'},
+    {id:4, term:'Cold email', cat:'prospeccion', catLabel:'Prospeccion',
+     def:'Email enviado a un prospecto que no te conoce, con el objetivo de generar interes y agendar una reunion. Requiere dominio propio, calentamiento y cumplimiento legal (RGPD).',
+     why:'Sigue siendo el canal mas escalable y rentable para generar reuniones B2B cualificadas.'},
+    {id:5, term:'Social selling', cat:'prospeccion', catLabel:'Prospeccion',
+     def:'Uso estrategico de redes profesionales (LinkedIn principalmente) para construir autoridad, generar confianza y abrir conversaciones comerciales con decision-makers.',
+     why:'En B2B, el 75% de los compradores investigan al vendedor en LinkedIn antes de responder un email.'},
+    {id:6, term:'Secuencia de prospeccion', cat:'prospeccion', catLabel:'Prospeccion',
+     def:'Serie automatizada de touchpoints (emails, mensajes, llamadas) espaciados en el tiempo con logica condicional. Cada paso tiene un objetivo claro y un trigger de avance.',
+     why:'Sin secuencia, tus comerciales hacen un intento y abandonan. Con secuencia, el follow-up es sistematico.'},
+
+    // PIPELINE
+    {id:7, term:'MQL (Marketing Qualified Lead)', cat:'pipeline', catLabel:'Pipeline',
+     def:'Lead que ha demostrado interes a traves de una accion de marketing (descarga, webinar, formulario) y cumple criterios minimos de tu ICP. Aun no esta listo para ventas.',
+     why:'Distinguir MQL de SQL evita que ventas pierda tiempo con leads que solo quieren informacion gratis.'},
+    {id:8, term:'SQL (Sales Qualified Lead)', cat:'pipeline', catLabel:'Pipeline',
+     def:'Lead que ha sido validado por el equipo comercial: tiene presupuesto, autoridad, necesidad y timing (BANT). Esta listo para una propuesta o demo.',
+     why:'El ratio MQL-a-SQL te dice si tu marketing atrae al perfil correcto o solo genera volumen vacio.'},
+    {id:9, term:'Pipeline velocity', cat:'pipeline', catLabel:'Pipeline',
+     def:'Velocidad a la que las oportunidades se mueven por tu pipeline. Se calcula como: (n.o oportunidades x valor medio x win rate) / duracion del ciclo de venta.',
+     why:'Es la metrica que realmente predice tu revenue futuro. Mas velocidad = mas revenue con el mismo pipeline.'},
+    {id:10, term:'Win rate', cat:'pipeline', catLabel:'Pipeline',
+     def:'Porcentaje de oportunidades que cierras frente al total que entran en pipeline. Se mide por etapa y por comercial para identificar donde se pierden los deals.',
+     why:'Un win rate bajo en etapas finales indica problema de pricing o propuesta. En etapas iniciales, problema de cualificacion.'},
+    {id:11, term:'Deal velocity', cat:'pipeline', catLabel:'Pipeline',
+     def:'Tiempo medio en dias que tarda una oportunidad en pasar de primera reunion a cierre. Cuanto mas corto, mas eficiente es tu proceso de ventas.',
+     why:'Cada dia adicional en tu ciclo de venta es un dia mas que el prospecto tiene para enfriarse o elegir a otro.'},
+    {id:12, term:'Forecast de ventas', cat:'pipeline', catLabel:'Pipeline',
+     def:'Prediccion del revenue que cerraras en un periodo basada en datos reales del pipeline: etapa, probabilidad ponderada, fecha estimada de cierre y historico del equipo.',
+     why:'Sin forecast fiable, tomas decisiones de contratacion, inversion y growth a ciegas.'},
+
+    // INFRAESTRUCTURA
+    {id:13, term:'Revenue operations (RevOps)', cat:'infraestructura', catLabel:'Infraestructura',
+     def:'Funcion que alinea marketing, ventas y customer success bajo una misma operativa, datos compartidos y metricas unificadas. Elimina silos entre departamentos.',
+     why:'Las empresas con RevOps crecen 3x mas rapido porque eliminan la friccion entre equipos que tocan revenue.'},
+    {id:14, term:'Tech stack comercial', cat:'infraestructura', catLabel:'Infraestructura',
+     def:'Conjunto de herramientas tecnologicas que soportan tu proceso comercial: CRM, herramientas de prospeccion, automatizacion de email, analytics, enriquecimiento de datos.',
+     why:'El stack correcto multiplica la productividad. El stack incorrecto genera mas trabajo del que ahorra.'},
+    {id:15, term:'Playbook de ventas', cat:'infraestructura', catLabel:'Infraestructura',
+     def:'Documento operativo que detalla cada paso del proceso comercial: scripts, objeciones, criterios de cualificacion, templates de email, y metricas objetivo por etapa.',
+     why:'Con playbook, cualquier comercial competente puede vender. Sin el, solo vende el fundador o el mejor vendedor.'},
+    {id:16, term:'Lead scoring', cat:'infraestructura', catLabel:'Infraestructura',
+     def:'Sistema de puntuacion que asigna un valor numerico a cada lead basado en criterios demograficos (cargo, empresa) y de comportamiento (emails abiertos, paginas visitadas).',
+     why:'Lead scoring prioriza el tiempo de ventas en los leads con mayor probabilidad de cierre.'},
+    {id:17, term:'CRM (Customer Relationship Management)', cat:'infraestructura', catLabel:'Infraestructura',
+     def:'Sistema central donde vive toda la informacion de tus contactos, empresas, oportunidades e interacciones. Es el sistema operativo de tu equipo comercial.',
+     why:'Sin CRM bien configurado no hay pipeline, no hay forecast y no hay datos para tomar decisiones.'},
+    {id:18, term:'Automatizacion comercial', cat:'infraestructura', catLabel:'Infraestructura',
+     def:'Uso de tecnologia para eliminar tareas manuales repetitivas del proceso de ventas: seguimiento, data entry, asignacion de leads, notificaciones y reportes.',
+     why:'Tu equipo comercial deberia vender, no rellenar campos en un CRM. La automatizacion libera horas productivas.'},
+    {id:19, term:'Dashboard de ventas', cat:'infraestructura', catLabel:'Infraestructura',
+     def:'Panel visual en tiempo real que muestra los KPIs clave del equipo comercial: reuniones agendadas, pipeline generado, deals en cada etapa, win rate y revenue cerrado.',
+     why:'Si no puedes ver los numeros en tiempo real, solo te enteras de los problemas cuando ya es tarde.'},
+
+    // METRICAS
+    {id:20, term:'CAC (Coste de Adquisicion de Cliente)', cat:'metricas', catLabel:'Metricas',
+     def:'Inversion total necesaria para adquirir un nuevo cliente: incluye salarios de marketing y ventas, herramientas, publicidad y cualquier coste asociado al proceso comercial.',
+     why:'Si tu CAC es mayor que el valor del primer contrato, estas perdiendo dinero con cada cliente nuevo.'},
+    {id:21, term:'LTV (Lifetime Value)', cat:'metricas', catLabel:'Metricas',
+     def:'Revenue total que genera un cliente durante toda la relacion con tu empresa. Se calcula como: ticket medio x frecuencia de compra x duracion media de la relacion.',
+     why:'El ratio LTV:CAC debe ser minimo 3:1. Por debajo, tu modelo de adquisicion no es rentable.'},
+    {id:22, term:'Coste por reunion', cat:'metricas', catLabel:'Metricas',
+     def:'Inversion total dividida entre el numero de reuniones cualificadas generadas en un periodo. Incluye herramientas, tiempo del equipo y costes directos de prospeccion.',
+     why:'Es la metrica mas honesta de tu motor de prospeccion. Te dice cuanto pagas realmente por cada oportunidad.'},
+    {id:23, term:'Tasa de conversion', cat:'metricas', catLabel:'Metricas',
+     def:'Porcentaje de prospectos que avanzan de una etapa a la siguiente en tu funnel: de contacto a respuesta, de respuesta a reunion, de reunion a propuesta, de propuesta a cierre.',
+     why:'Medir conversion por etapa revela el cuello de botella exacto. Arregla ese punto y todo el sistema mejora.'},
+    {id:24, term:'Churn rate', cat:'metricas', catLabel:'Metricas',
+     def:'Porcentaje de clientes que dejan de comprarte en un periodo determinado. En SaaS se mide mensual o anualmente. En servicios, por no-renovacion de contratos.',
+     why:'Adquirir un cliente nuevo cuesta 5-7x mas que retener uno. Un churn alto destruye cualquier crecimiento.'},
+    {id:25, term:'ARR / MRR', cat:'metricas', catLabel:'Metricas',
+     def:'ARR (Annual Recurring Revenue) y MRR (Monthly Recurring Revenue). Revenue predecible y recurrente que generas cada mes o ano. Excluye proyectos puntuales.',
+     why:'El revenue recurrente es el que te permite planificar, contratar e invertir con seguridad.'}
+  ];
+
+  var currentCat = 'all';
+  var currentSearch = '';
+
+  var catColors = {
+    prospeccion: '#3B82F6',
+    pipeline: '#8B5CF6',
+    infraestructura: '#EC4899',
+    metricas: '#22D3EE'
+  };
+
+  function escapeHtml(str){
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function highlightText(text, query){
+    if(!query) return escapeHtml(text);
+    var escaped = escapeHtml(text);
+    var regex = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')','gi');
+    return escaped.replace(regex, '<span class="highlight">$1</span>');
+  }
+
+  function renderTerms(){
+    var grid = document.getElementById('termsGrid');
+    var noResults = document.getElementById('noResults');
+    var countEl = document.getElementById('resultCount');
+    var query = currentSearch.toLowerCase().trim();
+
+    var filtered = terms.filter(function(t){
+      var matchesCat = currentCat === 'all' || t.cat === currentCat;
+      var matchesSearch = !query || t.term.toLowerCase().indexOf(query) !== -1 || t.def.toLowerCase().indexOf(query) !== -1 || t.why.toLowerCase().indexOf(query) !== -1;
+      return matchesCat && matchesSearch;
+    });
+
+    countEl.textContent = filtered.length + ' termino' + (filtered.length !== 1 ? 's' : '');
+
+    if(filtered.length === 0){
+      grid.innerHTML = '';
+      noResults.classList.remove('hidden');
+      return;
+    }
+
+    noResults.classList.add('hidden');
+
+    var html = '';
+    var lastCat = '';
+
+    filtered.forEach(function(t){
+      if(currentCat === 'all' && t.cat !== lastCat){
+        lastCat = t.cat;
+        var color = catColors[t.cat];
+        html += '<div class="mt-6 mb-3 first:mt-0"><h2 class="text-lg font-bold text-white flex items-center gap-2" style="font-family:\'Playfair Display\',serif"><span class="w-3 h-3 rounded-full inline-block" style="background:' + color + '"></span>' + t.catLabel + '</h2></div>';
+      }
+
+      var color = catColors[t.cat];
+      var isViewed = viewedTerms[t.id];
+
+      html += '<div class="term-card glass rounded-xl p-5 cursor-pointer' + (isViewed ? ' border-[rgba(139,92,246,0.2)]' : '') + '" data-id="' + t.id + '" onclick="toggleTerm(' + t.id + ')">';
+      html += '<div class="flex items-start justify-between gap-3">';
+      html += '<div class="flex-1 min-w-0">';
+      html += '<div class="flex items-center gap-2 flex-wrap mb-1">';
+      html += '<h3 class="text-sm font-bold text-white">' + highlightText(t.term, query) + '</h3>';
+      html += '<span class="text-[0.6rem] uppercase tracking-widest px-2 py-0.5 rounded-full border" style="color:' + color + ';border-color:' + color + '40;background:' + color + '10">' + t.catLabel + '</span>';
+      html += '</div>';
+      html += '<div id="termBody-' + t.id + '" class="hidden mt-3">';
+      html += '<p class="text-sm text-gray-300 leading-relaxed mb-3">' + highlightText(t.def, query) + '</p>';
+      html += '<div class="flex items-start gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5">';
+      html += '<span class="text-xs mt-0.5" style="color:' + color + '">&#9679;</span>';
+      html += '<p class="text-xs text-gray-400"><strong class="text-gray-300">Por que importa:</strong> ' + highlightText(t.why, query) + '</p>';
+      html += '</div></div></div>';
+      html += '<svg class="w-4 h-4 text-gray-500 flex-shrink-0 mt-1 transition-transform" id="termArrow-' + t.id + '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>';
+      html += '</div></div>';
+    });
+
+    grid.innerHTML = html;
+  }
+
+  window.toggleTerm = function(id){
+    var body = document.getElementById('termBody-' + id);
+    var arrow = document.getElementById('termArrow-' + id);
+    if(!body) return;
+
+    if(body.classList.contains('hidden')){
+      body.classList.remove('hidden');
+      arrow.style.transform = 'rotate(180deg)';
+      if(!viewedTerms[id]){
+        viewedTerms[id] = true;
+        var count = Object.keys(viewedTerms).length;
+        document.getElementById('viewedCount').textContent = count;
+        document.getElementById('hiddenTermsViewed').value = count;
+      }
+    } else {
+      body.classList.add('hidden');
+      arrow.style.transform = 'rotate(0deg)';
+    }
+  };
+
+  window.filterCategory = function(cat, btn){
+    currentCat = cat;
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    renderTerms();
+  };
+
+  document.getElementById('searchInput').addEventListener('input', function(e){
+    currentSearch = e.target.value;
+    renderTerms();
+  });
+
+  // Initial render
+  renderTerms();
+
+  // Lead form submission
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      terminos_vistos: document.getElementById('hiddenTermsViewed').value,
+      source: 'glosario-revenue-infrastructure',
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'Error al enviar. Intentalo de nuevo.';
+      btn.style.background = 'linear-gradient(135deg, #EF4444, #DC2626)';
+      setTimeout(function(){ btn.textContent = 'Recibe el glosario completo en PDF'; btn.style.background = ''; }, 3000);
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

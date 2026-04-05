@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist: Qu&eacute; Automatizar y Qu&eacute; No en Ventas B2B | GGC</title>
+  <meta name="description" content="Checklist interactivo: que tareas de ventas B2B debes automatizar y cuales nunca. Con framework de decision y nivel de automatizacion personalizado.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Qu&eacute; Automatizar y Qu&eacute; No en Ventas B2B - GGC">
+  <meta property="og:description" content="Checklist interactivo con 24 tareas. Descubre tu nivel de automatizacion ideal en ventas B2B.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .ci{cursor:pointer;transition:all .2s;border:1px solid transparent}
+    .ci:hover{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.08)}
+    .ci.checked{opacity:0.55}
+    .ci.checked .ci-name{text-decoration:line-through}
+    .risk-low{color:#22D3EE}.risk-med{color:#F59E0B}.risk-high{color:#EC4899}
+
+    .flow-node{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px;text-align:center;transition:all .3s}
+    .flow-node:hover{border-color:rgba(139,92,246,0.3)}
+    .flow-arrow{color:rgba(139,92,246,0.4);font-size:20px;display:flex;align-items:center;justify-content:center}
+    .flow-yes{color:#22D3EE;font-weight:700;font-size:12px}.flow-no{color:#EC4899;font-weight:700;font-size:12px}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}}
+    @media print{body{background:#fff;color:#000}.glass{background:#f5f5f5;border:1px solid #ddd}header,footer{display:none}.risk-low{color:#0891b2}.risk-med{color:#d97706}.risk-high{color:#db2777}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Checklist Interactivo</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Qu&eacute; Automatizar y Qu&eacute; No<br><span class="gr">en Ventas B2B</span></h1>
+    <p class="text-gray-500 max-w-2xl mx-auto text-base sm:text-lg">24 tareas de ventas analizadas. Marca las que ya revisaste para obtener tu nivel de automatizaci&oacute;n al final.</p>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="glass rounded-xl p-4 mb-8 sticky top-0 z-10">
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-sm text-gray-400">Progreso de revisi&oacute;n</span>
+      <span class="text-sm font-bold gr" id="progressText">0 / 24</span>
+    </div>
+    <div class="w-full h-2.5 rounded-full bg-white/5 overflow-hidden">
+      <div class="h-full rounded-full bg-gradient-to-r from-cyan via-purple to-pink transition-all duration-500" id="progressBar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- TWO COLUMNS -->
+  <div class="grid lg:grid-cols-2 gap-8 mb-12">
+
+    <!-- AUTOMATIZA ESTO -->
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-cyan/20 flex items-center justify-center text-cyan font-bold text-sm">&#10003;</div>
+        <h2 class="text-xl font-bold">Automatiza Esto</h2>
+      </div>
+      <div class="space-y-2" id="autoYes">
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Enriquecimiento de datos de contacto</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> 100% repetitivo. La IA lo hace mejor y m&aacute;s r&aacute;pido que cualquier humano.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">Clay, Apollo, Clearbit</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Verificaci&oacute;n de emails</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Hacerlo manual es imposible a escala. Un bounce rate alto destruye tu dominio.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">ZeroBounce, MillionVerifier</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Secuencias de email de primer contacto</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> La IA personaliza cada mensaje. Enviar 100 emails/d&iacute;a a mano no escala.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-med">&#9679; Riesgo medio</span><span class="text-xs text-gray-500">Instantly, Lemlist, Smartlead</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Lead scoring y priorizaci&oacute;n</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Reglas claras + datos = decisi&oacute;n autom&aacute;tica. No necesitas un humano para ordenar una lista.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">HubSpot, Clay, CRM scoring</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Recordatorios de seguimiento</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> El 80% de los deals se pierden por falta de follow-up. Las m&aacute;quinas no se olvidan.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">CRM tareas, Make, calendario</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Programaci&oacute;n de reuniones</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> El ping-pong de &ldquo;¿qu&eacute; hora te va bien?&rdquo; mata conversiones. Un enlace lo resuelve.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">Calendly, Cal.com, GoHighLevel</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Research de cuentas previo al contacto</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> La IA investiga en 30 seg lo que un SDR tarda 15 min. Misma (o mejor) calidad.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">ChatGPT, Clay, Perplexity</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Reportes y dashboards de actividad</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Rellenar reportes a mano es tiempo robado a vender. El CRM y las herramientas lo hacen solos.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">CRM dashboards, Instantly analytics</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Detecci&oacute;n de trigger events</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Monitorizar noticias y cambios de 500 cuentas a mano es inviable. Las alertas autom&aacute;ticas s&iacute; escalan.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">Clay, Google Alerts, Sales Nav</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Sincronizaci&oacute;n de datos entre herramientas</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Copiar datos de un sitio a otro es el peor uso del tiempo de un comercial. Conecta todo.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">Make, Zapier, integraciones nativas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Transcripci&oacute;n y resumen de llamadas</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> La IA transcribe, resume y extrae action items de cada llamada. Notas manuales son del pasado.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-low">&#9679; Riesgo bajo</span><span class="text-xs text-gray-500">Fireflies, Otter.ai, tl;dv</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="yes">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#22D3EE] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Nurturing de leads no listos para comprar</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Secuencias de contenido autom&aacute;ticas mantienen el contacto sin esfuerzo manual.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-med">&#9679; Riesgo medio</span><span class="text-xs text-gray-500">Email marketing, CRM workflows</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- NUNCA AUTOMATICES ESTO -->
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-pink/20 flex items-center justify-center text-pink font-bold text-sm">&#10007;</div>
+        <h2 class="text-xl font-bold">Nunca Automatices Esto</h2>
+      </div>
+      <div class="space-y-2" id="autoNo">
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Discovery calls y demos</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> El prospect necesita sentir que habla con alguien que entiende su problema. Los bots no cierran deals.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-high">&#9679; Riesgo alto si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Negociaci&oacute;n de precio y propuesta</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Cada deal tiene matices. Un descuento autom&aacute;tico puede costar miles de euros o destrozar la percepci&oacute;n de valor.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-high">&#9679; Riesgo alto si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Manejo de objeciones complejas</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Las objeciones reales requieren escucha activa y empatía. Un script autom&aacute;tico suena a lo que es: un script.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-high">&#9679; Riesgo alto si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Responder a leads calientes</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Un lead que responde a tu email necesita un humano en menos de 5 minutos. La rapidez + personalizaci&oacute;n cierra.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-high">&#9679; Riesgo alto si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Relaciones con cuentas estrat&eacute;gicas</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Las cuentas tier-1 se ganan con relaci&oacute;n, no con automatizaci&oacute;n. Cualquier toque rob&oacute;tico se nota y quema la cuenta.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-high">&#9679; Riesgo alto si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Comentarios personalizados en LinkedIn</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Los comentarios gen&eacute;ricos de IA (&ldquo;Great insight!&rdquo;) son detectables al instante. Destruyen tu credibilidad p&uacute;blicamente.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-high">&#9679; Riesgo alto si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Estrategia de cuenta y plan de acci&oacute;n</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> La IA puede darte datos, pero la estrategia requiere juicio humano: contexto pol&iacute;tico, timing, prioridades.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-med">&#9679; Riesgo medio si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Cualificaci&oacute;n final del deal</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Decidir si un deal es real requiere instinto + datos. Un modelo autom&aacute;tico no detecta se&ntilde;ales sutiles de no-compra.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-med">&#9679; Riesgo medio si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Onboarding de clientes nuevos</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> La primera impresi&oacute;n post-venta define la retenci&oacute;n. El cliente acaba de pagar; necesita atenci&oacute;n humana real.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-high">&#9679; Riesgo alto si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Feedback post-reuni&oacute;n al equipo</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Los matices de una conversaci&oacute;n (tono, dudas, lenguaje corporal) no se capturan con un CRM autom&aacute;tico.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-med">&#9679; Riesgo medio si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Pedir referrals a clientes</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Un email autom&aacute;tico pidiendo referidos se siente transaccional. Una llamada genuina genera 10x m&aacute;s referidos.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-med">&#9679; Riesgo medio si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci rounded-lg bg-[#0C0A1D] p-4" data-col="no">
+          <div class="flex items-start gap-3">
+            <input type="checkbox" class="accent-[#EC4899] w-4 h-4 mt-0.5 flex-shrink-0">
+            <div class="flex-1">
+              <div class="ci-name text-sm font-medium text-white">Gesti&oacute;n de crisis con clientes</div>
+              <p class="text-xs text-gray-500 mt-1"><strong class="text-gray-400">Por qu&eacute;:</strong> Cuando un cliente est&aacute; enfadado, un chatbot o email autom&aacute;tico es gasolina al fuego. Necesita un humano, ya.</p>
+              <div class="flex items-center gap-3 mt-2"><span class="text-xs risk-high">&#9679; Riesgo alto si automatizas</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DECISION FRAMEWORK -->
+  <div class="glass rounded-2xl p-6 sm:p-8 mb-8">
+    <h2 class="text-2xl font-bold text-center mb-6">Framework: <span class="gr">¿Deber&iacute;as Automatizar Esto?</span></h2>
+    <div class="max-w-2xl mx-auto">
+      <div class="flow-node mb-2">
+        <p class="text-sm font-bold">¿Es repetitivo y sigue reglas claras?</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 mb-2">
+        <div class="text-center"><span class="flow-yes">S&Iacute; &#8595;</span></div>
+        <div class="text-center"><span class="flow-no">NO &#8595;</span></div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 mb-2">
+        <div class="flow-node"><p class="text-sm font-bold">¿El error tiene impacto bajo?</p></div>
+        <div class="flow-node bg-pink/5 border-pink/20"><p class="text-sm text-pink font-bold">No automatices. Requiere juicio humano.</p></div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 mb-2">
+        <div>
+          <div class="grid grid-cols-2 gap-2 mb-2">
+            <div class="text-center"><span class="flow-yes">S&Iacute; &#8595;</span></div>
+            <div class="text-center"><span class="flow-no">NO &#8595;</span></div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="flow-node bg-cyan/5 border-cyan/20"><p class="text-xs text-cyan font-bold">Automatiza al 100%</p></div>
+            <div class="flow-node bg-blue/5 border-blue/20"><p class="text-xs text-blue font-bold">Automatiza con supervisi&oacute;n humana</p></div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+    <p class="text-xs text-gray-500 text-center mt-6">Regla simple: automatiza lo que te aburre, humaniza lo que te importa.</p>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="glass rounded-2xl p-8 text-center mb-8" id="resultSection">
+    <h2 class="text-2xl font-bold mb-4">Tu Nivel de <span class="gr">Automatizaci&oacute;n</span></h2>
+    <div class="text-6xl font-bold gr mb-2" id="scoreDisplay">0%</div>
+    <p class="text-gray-500 text-sm mb-4" id="scoreLabel">Marca los items que ya has revisado para ver tu puntuaci&oacute;n</p>
+
+    <div class="grid grid-cols-3 gap-4 max-w-md mx-auto mt-6">
+      <div class="bg-[#0C0A1D] rounded-lg p-3 text-center">
+        <div class="text-xs text-gray-500">Automatizables</div>
+        <div class="text-lg font-bold text-cyan" id="yesCount">0/12</div>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-3 text-center">
+        <div class="text-xs text-gray-500">No automatizables</div>
+        <div class="text-lg font-bold text-pink" id="noCount">0/12</div>
+      </div>
+      <div class="bg-[#0C0A1D] rounded-lg p-3 text-center">
+        <div class="text-xs text-gray-500">Total revisado</div>
+        <div class="text-lg font-bold gr" id="totalCount">0/24</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="glass rounded-2xl p-8 sm:p-10 text-center mt-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-3">¿Quieres automatizar lo correcto<br><span class="gr">sin cometer errores</span>?</h2>
+    <p class="text-gray-500 mb-6 max-w-xl mx-auto">En GGC instalamos la automatizaci&oacute;n que funciona y protegemos las partes que necesitan el toque humano. Sin experimentos.</p>
+    <a href="../agendar.html" class="btn-g inline-block px-8 py-4 rounded-lg text-sm">Agendar sesi&oacute;n estrat&eacute;gica &rarr;</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var allItems = document.querySelectorAll('.ci');
+  var totalItems = allItems.length;
+  var yesItems = document.querySelectorAll('#autoYes .ci');
+  var noItems = document.querySelectorAll('#autoNo .ci');
+  var yesTotal = yesItems.length;
+  var noTotal = noItems.length;
+
+  function update(){
+    var checked = 0;
+    var yesChecked = 0;
+    var noChecked = 0;
+
+    allItems.forEach(function(item){
+      var cb = item.querySelector('input[type="checkbox"]');
+      if(cb.checked){
+        checked++;
+        item.classList.add('checked');
+        if(item.getAttribute('data-col') === 'yes') yesChecked++;
+        else noChecked++;
+      } else {
+        item.classList.remove('checked');
+      }
+    });
+
+    // Progress
+    var pct = Math.round((checked / totalItems) * 100);
+    document.getElementById('progressText').textContent = checked + ' / ' + totalItems;
+    document.getElementById('progressBar').style.width = pct + '%';
+
+    // Counts
+    document.getElementById('yesCount').textContent = yesChecked + '/' + yesTotal;
+    document.getElementById('noCount').textContent = noChecked + '/' + noTotal;
+    document.getElementById('totalCount').textContent = checked + '/' + totalItems;
+
+    // Score
+    document.getElementById('scoreDisplay').textContent = pct + '%';
+
+    // Label
+    var label = '';
+    if(pct === 0) label = 'Marca los items que ya has revisado para ver tu puntuaci\u00F3n';
+    else if(pct < 30) label = 'Acabas de empezar. Sigue revisando cada tarea para tener claridad total.';
+    else if(pct < 60) label = 'Buen avance. Ya tienes criterio sobre la mitad de las tareas.';
+    else if(pct < 90) label = 'Casi completo. Est\u00E1s a punto de tener el mapa completo de automatizaci\u00F3n.';
+    else label = 'Excelente. Tienes claridad total sobre qu\u00E9 automatizar y qu\u00E9 no. Hora de ejecutar.';
+    document.getElementById('scoreLabel').textContent = label;
+  }
+
+  allItems.forEach(function(item){
+    var cb = item.querySelector('input[type="checkbox"]');
+    item.addEventListener('click', function(e){
+      if(e.target !== cb){ cb.checked = !cb.checked; }
+      update();
+    });
+  });
+
+  update();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C&oacute;mo usamos Clay + IA para enriquecer listas B2B | GGC</title>
+  <meta name="description" content="Las listas de contactos est&aacute;ticas no funcionan. As&iacute; usamos Clay + IA para enriquecer datos en tiempo real y generar listas B2B que realmente convierten.">
+  <link rel="canonical" href="https://globalgrowth.consulting/blog/clay-ia-enriquecer-listas-b2b">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://globalgrowth.consulting/blog/clay-ia-enriquecer-listas-b2b">
+  <meta property="og:title" content="C&oacute;mo usamos Clay + IA para enriquecer listas B2B (y por qu&eacute; tu Excel de contactos est&aacute; muerto)">
+  <meta property="og:description" content="Las listas de contactos est&aacute;ticas no funcionan. As&iacute; usamos Clay + IA para enriquecer datos en tiempo real y generar listas B2B que realmente convierten.">
+  <meta property="og:locale" content="es_ES">
+  <meta property="article:published_time" content="2026-04-05">
+  <meta property="article:author" content="Xavi Fortuna">
+  <meta property="article:section" content="IA en ventas B2B">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Xavi Fortuna">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../../logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "C&oacute;mo usamos Clay + IA para enriquecer listas B2B (y por qu&eacute; tu Excel de contactos est&aacute; muerto)",
+    "description": "Las listas de contactos est&aacute;ticas no funcionan. As&iacute; usamos Clay + IA para enriquecer datos en tiempo real y generar listas B2B que realmente convierten.",
+    "datePublished": "2026-04-05",
+    "dateModified": "2026-04-05",
+    "author": {
+      "@type": "Person",
+      "name": "Xavi Fortuna",
+      "jobTitle": "CEO & Head of Growth",
+      "url": "https://linkedin.com/in/xavierfortuna/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Global Growth Consulting",
+      "url": "https://globalgrowth.consulting",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://globalgrowth.consulting/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://globalgrowth.consulting/blog/clay-ia-enriquecer-listas-b2b"
+    },
+    "articleSection": "IA en ventas B2B",
+    "wordCount": 1800,
+    "timeRequired": "PT9M"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#8A8A8A',700:'#6B6B6B'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-outline{border:1px solid rgba(139,92,246,0.4);color:#8B5CF6;transition:all .3s ease}
+    .btn-outline:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.08)}
+
+    .nav-blur{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(12,10,29,0.7);border-bottom:1px solid rgba(255,255,255,0.06)}
+
+    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+
+    /* Article typography */
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;margin-top:2.5rem;margin-bottom:1rem;line-height:1.3}
+    .article-body h3{font-size:1.25rem;font-weight:600;color:#fff;margin-top:2rem;margin-bottom:0.75rem;line-height:1.4}
+    .article-body p{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:1.25rem}
+    .article-body ul,.article-body ol{margin-bottom:1.25rem;padding-left:1.5rem}
+    .article-body li{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:0.5rem}
+    .article-body strong{color:#e0e0e0;font-weight:600}
+    .article-body blockquote{border-left:3px solid transparent;border-image:linear-gradient(180deg,#8B5CF6,#EC4899) 1;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#999}
+
+    /* Scroll popup */
+    .scroll-popup{transform:translateY(120%);transition:transform .4s ease,opacity .4s ease;opacity:0}
+    .scroll-popup.show{transform:translateY(0);opacity:1}
+
+    /* Focus */
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+
+    @media(prefers-reduced-motion:reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      .btn-g,.btn-outline{transition:none}
+      .btn-g::after{animation:none}
+      .scroll-popup{transition:none}
+    }
+
+    section[id]{scroll-margin-top:80px}
+  </style>
+</head>
+<body>
+<div id="progress" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);z-index:100;width:0;transition:width .1s"></div>
+
+<!-- NAV -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-3">
+      <img src="../../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="../../index.html#sistema" class="text-sm text-gray-400 hover:text-white transition-colors">Sistema</a>
+      <a href="../../index.html#resultados" class="text-sm text-gray-400 hover:text-white transition-colors">Resultados</a>
+      <a href="../../blog.html" class="text-sm text-white font-medium transition-colors">Blog</a>
+      <a href="../../index.html#proceso" class="text-sm text-gray-400 hover:text-white transition-colors">Proceso</a>
+      <a href="../../agendar.html" class="btn-g px-5 py-2.5 rounded-lg text-sm">Aplica ahora</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Abrir menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-72 bg-[#151331] z-50 flex flex-col p-8 gap-6 md:hidden">
+    <button id="closeMenu" class="self-end text-white mb-4" aria-label="Cerrar menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <a href="../../index.html#sistema" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Sistema</a>
+    <a href="../../index.html#resultados" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Resultados</a>
+    <a href="../../blog.html" class="text-lg text-white font-medium transition-colors mobile-link">Blog</a>
+    <a href="../../index.html#proceso" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Proceso</a>
+    <a href="../../agendar.html" class="btn-g px-5 py-3 rounded-lg text-center text-sm mt-4 mobile-link">Aplica ahora</a>
+  </div>
+</nav>
+
+<!-- ARTICLE -->
+<main class="pt-28 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 reveal" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="../../index.html" class="hover:text-gray-300 transition-colors">Inicio</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><a href="../../blog.html" class="hover:text-gray-300 transition-colors">Blog</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><span class="text-[#8B5CF6]">IA en ventas B2B</span></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li class="text-gray-400 truncate max-w-[200px]">Este articulo</li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="max-w-3xl mx-auto mb-12 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">IA en ventas B2B</span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        C&oacute;mo usamos Clay + IA para enriquecer listas B2B (y por qu&eacute; tu Excel de contactos est&aacute; muerto)
+      </h1>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+        <span class="font-medium text-white">Xavi Fortuna</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>5 de abril de 2026</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>9 min lectura</span>
+      </div>
+    </header>
+
+    <!-- Article Body -->
+    <article class="max-w-3xl mx-auto article-body">
+
+      <!-- Opening hook -->
+      <div class="reveal">
+        <p>
+          Abre tu CRM. Busca la lista de prospectos que cargaste hace 6 meses. Mira los datos. Nombre, email, empresa, cargo. Quiz&aacute; un tel&eacute;fono. Eso es todo lo que tienes.
+        </p>
+        <p>
+          Ahora hazte una pregunta: &iquest;cu&aacute;ntos de esos emails siguen activos? &iquest;Cu&aacute;ntos de esos contactos siguen en el mismo cargo? &iquest;Cu&aacute;ntas de esas empresas han cambiado de direcci&oacute;n, han cerrado una ronda de financiaci&oacute;n o est&aacute;n contratando SDRs ahora mismo?
+        </p>
+        <p>
+          No lo sabes. Porque tu lista es est&aacute;tica. Es una foto de hace 6 meses. Y en B2B, 6 meses es una eternidad.
+        </p>
+        <p>
+          Llevamos m&aacute;s de 627 empresas B2B ayud&aacute;ndoles a montar infraestructura comercial. Y si hay algo que hemos aprendido es esto: la calidad de tu lista determina la calidad de tu pipeline. Si empiezas con datos mediocres, todo lo que construyas encima &mdash;los emails, las secuencias, las llamadas&mdash; ser&aacute; mediocre.
+        </p>
+        <p>
+          Hace dos a&ntilde;os, enriquecer una lista significaba pagar a un becario para que buscara datos en LinkedIn durante semanas. Hoy usamos Clay + IA. Y el resultado es otro planeta.
+        </p>
+      </div>
+
+      <!-- El problema de las listas est&aacute;ticas -->
+      <div class="reveal">
+        <h2>El problema de las listas est&aacute;ticas</h2>
+        <p>
+          La mayor&iacute;a de equipos comerciales trabajan con lo que yo llamo &laquo;listas zombi&raquo;. Listas que parecen vivas porque tienen miles de filas, pero est&aacute;n muertas por dentro. Datos desactualizados. Emails que rebotan. Cargos que ya no existen. Empresas que han pivotado o cerrado.
+        </p>
+        <p>
+          Los problemas concretos:
+        </p>
+        <ul>
+          <li><strong>Datos desactualizados:</strong> seg&uacute;n estudios del sector, el 30% de los datos B2B se degradan cada a&ntilde;o. Eso significa que una lista de 12 meses tiene casi un tercio de informaci&oacute;n in&uacute;til</li>
+          <li><strong>Sin contexto:</strong> saber que alguien es &laquo;Director de Ventas en Empresa X&raquo; no te dice nada sobre si es un buen prospect ahora. &iquest;Est&aacute;n creciendo? &iquest;Tienen problemas? &iquest;Acaban de cambiar de CRM?</li>
+          <li><strong>Sin se&ntilde;ales de timing:</strong> el mejor prospect contactado en el peor momento es una oportunidad perdida. Sin se&ntilde;ales de timing, est&aacute;s disparando a ciegas</li>
+          <li><strong>Volumen sin precisi&oacute;n:</strong> 10.000 contactos gen&eacute;ricos generan menos que 200 contactos bien perfilados. Pero la tentaci&oacute;n del volumen sigue ganando</li>
+        </ul>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">30%</span>
+            <span class="text-gray-400 text-sm">de los datos B2B se degradan cada a&ntilde;o. Tu lista de hace 12 meses tiene un tercio de basura</span>
+          </div>
+        </div>
+
+        <p>
+          El resultado: tasas de respuesta del 1-2%, dominios quemados, SDRs frustrados y CEOs que piensan que &laquo;el outbound no funciona&raquo;. No es que no funcione. Es que est&aacute;s trabajando con datos muertos.
+        </p>
+      </div>
+
+      <!-- Qu&eacute; es Clay -->
+      <div class="reveal">
+        <h2>Clay: el arma que cambia las reglas</h2>
+        <p>
+          Clay es una herramienta de enriquecimiento de datos que funciona como un Excel con superpoderes. Imagina una hoja de c&aacute;lculo donde cada columna puede conectarse a una fuente de datos externa &mdash;LinkedIn, Crunchbase, datos de hiring, tech stack, noticias&mdash; y rellenar informaci&oacute;n autom&aacute;ticamente.
+        </p>
+        <p>
+          Pero la magia real viene cuando a&ntilde;ades IA encima. Clay te permite usar modelos de lenguaje para sintetizar toda esa informaci&oacute;n y generar outputs &uacute;tiles: res&uacute;menes de empresa, an&aacute;lisis de fit con tu ICP, mensajes personalizados, scoring de prioridad.
+        </p>
+        <p>
+          No es una base de datos. No es un CRM. Es un motor de enriquecimiento y priorizaci&oacute;n que transforma datos brutos en inteligencia comercial accionable.
+        </p>
+        <p>
+          Lo que antes requer&iacute;a un equipo de research de 3 personas durante semanas, ahora lo haces en horas. No exagero.
+        </p>
+      </div>
+
+      <!-- El stack que usamos -->
+      <div class="reveal">
+        <h2>El stack que usamos: Clay + fuentes + IA</h2>
+        <p>
+          No usamos Clay solo. Lo integramos en un stack de enriquecimiento que tiene tres capas:
+        </p>
+        <h3>1. Fuentes de datos</h3>
+        <ul>
+          <li><strong>LinkedIn / Sales Navigator:</strong> cargo actual, antig&uuml;edad, tama&ntilde;o del equipo, actividad reciente, cambios de puesto</li>
+          <li><strong>Crunchbase:</strong> rondas de financiaci&oacute;n, inversores, crecimiento, adquisiciones</li>
+          <li><strong>Se&ntilde;ales de hiring:</strong> si una empresa est&aacute; contratando SDRs o un VP de Ventas, est&aacute; invirtiendo en crecimiento comercial. Se&ntilde;al directa</li>
+          <li><strong>Tech stack (BuiltWith, Wappalyzer):</strong> qu&eacute; herramientas usan. Si tienen HubSpot pero no herramienta de outbound, hay un gap que podemos cubrir</li>
+          <li><strong>Noticias y eventos:</strong> expansi&oacute;n internacional, lanzamiento de producto, cambio de CEO. Todo esto son se&ntilde;ales de timing</li>
+        </ul>
+        <h3>2. Enriquecimiento con Clay</h3>
+        <p>
+          Clay conecta todas esas fuentes en una sola tabla. Importas una lista de empresas y Clay rellena autom&aacute;ticamente docenas de campos. No tienes que ir fuente por fuente. Clay lo hace en paralelo.
+        </p>
+        <h3>3. S&iacute;ntesis con IA</h3>
+        <p>
+          Aqu&iacute; es donde el juego cambia. Usamos IA (integrada en Clay) para:
+        </p>
+        <ul>
+          <li>Generar un <strong>resumen ejecutivo</strong> de cada empresa en 3 l&iacute;neas: qu&eacute; hacen, cu&aacute;nto facturan, qu&eacute; se&ntilde;ales de timing tienen</li>
+          <li>Calcular un <strong>score de prioridad</strong> basado en fit con nuestro ICP + se&ntilde;ales de timing + tama&ntilde;o de oportunidad</li>
+          <li>Redactar <strong>primeras l&iacute;neas personalizadas</strong> para las secuencias de outbound, basadas en datos reales de cada prospect</li>
+          <li>Identificar <strong>el &aacute;ngulo de entrada</strong>: por qu&eacute; contactar a esta empresa ahora, qu&eacute; problema espec&iacute;fico podemos resolver</li>
+        </ul>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">4x</span>
+            <span class="text-gray-400 text-sm">Las listas enriquecidas con Clay + IA convierten 4 veces m&aacute;s que listas fr&iacute;as de base de datos est&aacute;ndar</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejemplo pr&aacute;ctico -->
+      <div class="reveal">
+        <h2>Ejemplo real: de 500 empresas a 80 cuentas prioritarias</h2>
+        <p>
+          Te cuento un caso reciente. Un cliente nuestro &mdash;consultor&iacute;a de transformaci&oacute;n digital, 40 personas&mdash; quer&iacute;a atacar el mercado de empresas industriales en Espa&ntilde;a que estuvieran digitalizando sus procesos comerciales.
+        </p>
+        <p>
+          Paso 1: sacamos una lista inicial de 500 empresas industriales con facturaci&oacute;n entre 5M y 50M. Datos b&aacute;sicos: nombre, web, sector, tama&ntilde;o.
+        </p>
+        <p>
+          Paso 2: la pasamos por Clay. Resultado despu&eacute;s del enriquecimiento:
+        </p>
+        <ul>
+          <li>87 empresas ten&iacute;an se&ntilde;ales de hiring de perfiles comerciales o digitales</li>
+          <li>124 hab&iacute;an aparecido en noticias sobre digitalizaci&oacute;n o expansi&oacute;n en los &uacute;ltimos 6 meses</li>
+          <li>203 no ten&iacute;an CRM visible o usaban herramientas b&aacute;sicas (Excel, hojas de Google)</li>
+          <li>62 ten&iacute;an un nuevo Director Comercial o VP de Ventas en los &uacute;ltimos 12 meses</li>
+        </ul>
+        <p>
+          Paso 3: la IA asign&oacute; un score de 0 a 100 a cada empresa cruzando todas las se&ntilde;ales. Las 80 empresas con score por encima de 70 pasaron a la lista prioritaria.
+        </p>
+        <p>
+          Paso 4: para esas 80, Clay gener&oacute; un resumen ejecutivo y una primera l&iacute;nea de email personalizada basada en sus se&ntilde;ales espec&iacute;ficas.
+        </p>
+
+        <div class="space-y-4 my-8">
+          <div class="glass rounded-xl p-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold gr">500 &rarr; 80</span>
+              <span class="text-gray-400 text-sm">De 500 empresas gen&eacute;ricas a 80 cuentas prioritarias con se&ntilde;ales de timing reales</span>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-2xl font-bold gr">14%</span>
+              <span class="text-gray-400 text-sm">Tasa de respuesta positiva en la secuencia de outbound con la lista enriquecida</span>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Resultado: 14% de tasa de respuesta positiva. 11 reuniones cualificadas en las primeras 3 semanas. Comparado con su m&eacute;todo anterior (lista comprada, emails gen&eacute;ricos), donde consegu&iacute;an 2-3 reuniones al mes con una tasa de respuesta del 2%.
+        </p>
+      </div>
+
+      <!-- El workflow paso a paso -->
+      <div class="reveal">
+        <h2>El workflow paso a paso</h2>
+        <p>
+          Si quieres replicar esto, aqu&iacute; tienes el proceso exacto que seguimos:
+        </p>
+        <h3>Paso 1: Definir el ICP con precisi&oacute;n quir&uacute;rgica</h3>
+        <p>
+          Antes de tocar Clay, necesitas saber exactamente a qui&eacute;n buscas. No &laquo;empresas de tecnolog&iacute;a&raquo;. Algo como: &laquo;SaaS B2B, 20-200 empleados, con equipo de ventas de al menos 3 personas, que usen HubSpot o Salesforce, con sede en Espa&ntilde;a, que hayan cerrado ronda Series A o B en los &uacute;ltimos 18 meses&raquo;. Eso es un ICP.
+        </p>
+        <h3>Paso 2: Importar la lista base en Clay</h3>
+        <p>
+          Puedes importar desde LinkedIn Sales Navigator, desde un CSV, desde Crunchbase, o usar los filtros propios de Clay para generar la lista. Empieza con 300-500 empresas. Suficiente para tener volumen, manejable para iterar.
+        </p>
+        <h3>Paso 3: Configurar los enrichments</h3>
+        <p>
+          A&ntilde;ade columnas de enriquecimiento: datos de LinkedIn del decisor, tech stack, se&ntilde;ales de hiring, financiaci&oacute;n reciente, noticias. Cada enrichment es una columna nueva que Clay rellena autom&aacute;ticamente. Configura entre 8 y 15 enrichments dependiendo de tu ICP.
+        </p>
+        <h3>Paso 4: Scoring con IA</h3>
+        <p>
+          Crea una columna de IA que lea todas las columnas de enriquecimiento y asigne un score de 0 a 100. Dale criterios claros: peso 30% a se&ntilde;ales de timing, 25% a fit con ICP, 25% a tama&ntilde;o de oportunidad, 20% a accesibilidad del decisor. La IA es sorprendentemente buena priorizando cuando le das un framework claro.
+        </p>
+        <h3>Paso 5: Exportar al CRM y lanzar secuencias</h3>
+        <p>
+          Filtra por score (nosotros cortamos en 65-70), exporta las cuentas prioritarias a tu CRM con todos los datos enriquecidos y las primeras l&iacute;neas personalizadas. Tu SDR empieza a trabajar una lista donde cada prospect tiene contexto, tiene se&ntilde;ales y tiene un motivo real para ser contactado ahora.
+        </p>
+
+        <blockquote>
+          La diferencia entre un SDR que trabaja con una lista enriquecida y uno que trabaja con un Excel est&aacute;tico es la misma que entre un cirujano con esc&aacute;ner y uno operando a ciegas.
+        </blockquote>
+      </div>
+
+      <!-- Por qu&eacute; tu Excel est&aacute; muerto -->
+      <div class="reveal">
+        <h2>Por qu&eacute; tu Excel de contactos est&aacute; muerto</h2>
+        <p>
+          No lo digo por provocar. Lo digo porque es matem&aacute;tica pura.
+        </p>
+        <p>
+          Un Excel de contactos es un fichero plano. No se actualiza solo. No te dice cu&aacute;ndo un prospect cambia de cargo. No te avisa de que una empresa acaba de cerrar una ronda. No cruza datos de 5 fuentes para decirte &laquo;esta cuenta es prioritaria ahora&raquo;.
+        </p>
+        <p>
+          Un Excel te da filas. Clay + IA te da inteligencia.
+        </p>
+        <p>
+          Y la brecha se est&aacute; ampliando. Los equipos que ya usan herramientas de enriquecimiento est&aacute;n jugando en otra liga. Su outbound es m&aacute;s preciso, su tasa de respuesta es m&aacute;s alta, su pipeline est&aacute; m&aacute;s cualificado. Los equipos que siguen con Excels est&aacute;ticos est&aacute;n compitiendo con cuchillos contra gente con rifles de precisi&oacute;n.
+        </p>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">3-5h</span>
+            <span class="text-gray-400 text-sm">Tiempo para enriquecer 500 empresas con Clay. Antes: 2-3 semanas de research manual</span>
+          </div>
+        </div>
+
+        <p>
+          El coste de no adoptar estas herramientas no es &laquo;perder eficiencia&raquo;. Es perder deals. Cada d&iacute;a que tu equipo trabaja con datos pobres, est&aacute; quemando oportunidades reales con prospectos que s&iacute; habr&iacute;an respondido si el mensaje hubiera sido relevante y oportuno.
+        </p>
+      </div>
+
+      <!-- C&oacute;mo integramos esto en APEX OS -->
+      <div class="reveal">
+        <h2>C&oacute;mo integramos Clay en APEX OS</h2>
+        <p>
+          Clay no es una herramienta aislada en nuestro stack. Es una pieza fundamental de la capa de ICP y targeting de APEX OS. As&iacute; encaja:
+        </p>
+        <ul>
+          <li><strong>Definici&oacute;n de ICP:</strong> usamos Clay para validar hip&oacute;tesis sobre el ICP. &iquest;Las empresas que cumplen X criterio realmente tienen se&ntilde;ales de compra? Clay nos lo dice con datos, no con opiniones</li>
+          <li><strong>Generaci&oacute;n de listas:</strong> cada mes, Clay genera listas frescas con datos actualizados. No reciclamos listas viejas. Cada ciclo de outbound empieza con datos nuevos</li>
+          <li><strong>Personalizaci&oacute;n a escala:</strong> la IA de Clay genera las primeras l&iacute;neas y los &aacute;ngulos de entrada para cada prospect. El SDR ajusta y env&iacute;a, pero el 80% del research ya est&aacute; hecho</li>
+          <li><strong>Feedback loop:</strong> los datos de respuesta del outbound vuelven a Clay. Si un segmento responde mejor, el scoring se ajusta. El sistema aprende</li>
+        </ul>
+        <p>
+          Esto es infraestructura comercial. No es &laquo;comprar una herramienta y ver qu&eacute; pasa&raquo;. Es integrar enriquecimiento de datos en un sistema que genera reuniones cualificadas de forma predecible.
+        </p>
+        <p>
+          Si quieres ver c&oacute;mo montar&iacute;amos este stack para tu empresa concreta, <a href="../../agendar.html" class="text-[#8B5CF6] hover:text-[#EC4899] transition-colors font-medium underline underline-offset-4">reserva 30 minutos con nosotros</a>. Te ense&ntilde;amos el proceso, miramos tu ICP y te decimos si Clay tiene sentido para tu caso. Sin compromiso.
+        </p>
+      </div>
+
+      <!-- LEAD MAGNET INLINE -->
+      <div class="my-12 glass rounded-2xl p-8 border border-[#8B5CF6]/20 relative overflow-hidden reveal">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]"></div>
+        <div class="md:flex items-start gap-8">
+          <div class="flex-1">
+            <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Recurso gratuito</p>
+            <h3 class="text-xl font-bold text-white mb-2" style="margin-top:0">Gu&iacute;a: C&oacute;mo montar tu sistema de enriquecimiento B2B con Clay (paso a paso)</h3>
+            <p class="text-gray-400 text-sm mb-4">Descarga la gu&iacute;a completa con el workflow exacto, los enrichments que recomendamos, la plantilla de scoring con IA y los errores m&aacute;s comunes que debes evitar.</p>
+            <!-- Lead capture form -->
+            <form id="leadMagnetForm" class="space-y-3">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <label class="flex items-start gap-2 cursor-pointer">
+                <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+                <span class="text-xs text-gray-500">Acepto la <a href="../../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+              </label>
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm">Descargar gu&iacute;a gratuita</button>
+            </form>
+            <div id="leadMagnetSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+              Te lo enviamos al email en 2 minutos.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- CTA FINAL DOBLE -->
+    <div class="max-w-3xl mx-auto mt-16 grid md:grid-cols-2 gap-6 reveal">
+      <!-- Left: Guide CTA -->
+      <div class="glass rounded-2xl p-8 border border-white/5 text-center">
+        <div class="text-3xl mb-4">&#128205;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Descarga la gu&iacute;a de Clay</h3>
+        <p class="text-gray-400 text-sm mb-6">Workflow completo, enrichments recomendados y plantilla de scoring con IA. Todo paso a paso.</p>
+        <button onclick="document.getElementById('leadMagnetForm').scrollIntoView({behavior:'smooth'})" class="btn-outline px-6 py-3 rounded-lg text-sm w-full">Descargar gratis</button>
+      </div>
+      <!-- Right: Agendar CTA -->
+      <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+        <div class="text-3xl mb-4">&#128197;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Agendar discovery call</h3>
+        <p class="text-gray-400 text-sm mb-6">Sin compromiso. 30 minutos. Te ense&ntilde;amos c&oacute;mo montar el stack de enriquecimiento para tu caso.</p>
+        <a href="../../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Reservar mi plaza</a>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <div class="max-w-3xl mx-auto px-6 mb-16">
+      <div class="gc p-6 sm:p-8 rounded-2xl flex items-start gap-5">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0 text-lg font-bold" style="background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(236,72,153,.2));color:#8B5CF6">XF</div>
+        <div>
+          <p class="font-bold text-white text-lg">Xavi Fortuna</p>
+          <p class="text-sm text-gray-400 mb-2">CEO & Head of Growth &middot; Global Growth Consulting</p>
+          <p class="text-sm text-gray-400 leading-relaxed">10 a&ntilde;os construyendo infraestructura comercial para empresas B2B. +627 clientes en 3 continentes. Si tu empresa depende de ti para vender, probablemente podamos ayudarte.</p>
+          <a href="https://linkedin.com/in/xavierfortuna/" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm mt-2 hover:underline" style="color:#8B5CF6">LinkedIn <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="max-w-3xl mx-auto mt-16 text-center reveal">
+      <div class="glass rounded-2xl p-8 border border-white/5">
+        <h3 class="text-xl font-bold text-white mb-2">&iquest;Te ha parecido &uacute;til? Recibe 1 insight semanal.</h3>
+        <p class="text-gray-400 text-sm mb-6">Estrategia comercial B2B sin relleno. Un email a la semana. Te das de baja cuando quieras.</p>
+        <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input type="email" name="email" placeholder="tu@empresa.com" required class="flex-1 px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+            <span class="text-xs text-gray-500">Acepto la <a href="../../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+          </label>
+          <button type="submit" class="btn-g px-6 py-3 rounded-lg text-sm whitespace-nowrap">Suscribirme</button>
+        </form>
+        <div id="newsletterSuccess" class="hidden mt-4 text-green-400 text-sm">Apuntado. Bienvenido.</div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="max-w-5xl mx-auto mt-20 reveal">
+      <h2 class="font-display text-2xl font-bold text-white mb-8">Tambi&eacute;n te puede interesar</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="../segmentacion-b2b-500-mejores-clientes.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">IA en ventas B2B</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">Segmentaci&oacute;n B2B: tus 500 mejores clientes</h3>
+          <p class="text-gray-500 text-sm">C&oacute;mo identificar y priorizar las cuentas que realmente van a comprar. Sin perder tiempo con el resto.</p>
+        </a>
+        <a href="../outbound-2026.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Outbound</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">El outbound masivo ha muerto</h3>
+          <p class="text-gray-500 text-sm">El spam gen&eacute;rico ya no funciona. As&iacute; es el outbound que genera reuniones en 2026.</p>
+        </a>
+        <a href="../linkedin-b2b-10000-mensajes.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Outbound</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">LinkedIn B2B: 10.000 mensajes despu&eacute;s</h3>
+          <p class="text-gray-500 text-sm">Lo que hemos aprendido despu&eacute;s de enviar 10.000 mensajes en LinkedIn. Qu&eacute; funciona y qu&eacute; no.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- NEWSLETTER SCROLL POPUP -->
+<div id="scrollPopup" class="scroll-popup fixed bottom-6 right-6 z-40 w-80 glass rounded-2xl p-6 border border-[#8B5CF6]/20 shadow-2xl">
+  <button id="closePopup" class="absolute top-3 right-3 text-gray-500 hover:text-white transition-colors" aria-label="Cerrar">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+  </button>
+  <p class="text-white font-bold text-sm mb-1">1 insight semanal. Sin spam.</p>
+  <p class="text-gray-400 text-xs mb-4">Estrategia comercial B2B directa al grano. Cada viernes.</p>
+  <form id="popupForm" class="space-y-2">
+    <input type="email" name="email" placeholder="tu@empresa.com" required class="w-full px-3 py-2.5 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+    <label class="flex items-start gap-2 cursor-pointer">
+      <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+      <span class="text-xs text-gray-500">Acepto la <a href="../../privacidad" class="underline hover:text-white">pol&iacute;tica de privacidad</a>.</span>
+    </label>
+    <button type="submit" class="btn-g w-full px-4 py-2.5 rounded-lg text-xs">Suscribirme</button>
+  </form>
+  <div id="popupSuccess" class="hidden mt-3 text-green-400 text-xs">Apuntado. Bienvenido.</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div>
+        <img src="../../logo.png" alt="Global Growth Consulting" class="h-8 w-auto mb-4">
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Infraestructura comercial B2B permanente. No somos agencia. Instalamos sistemas que se quedan en tu propiedad.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Navegaci&oacute;n</h4>
+        <ul class="space-y-3">
+          <li><a href="../../index.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Inicio</a></li>
+          <li><a href="../../index.html#sistema" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Sistema</a></li>
+          <li><a href="../../index.html#resultados" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Resultados</a></li>
+          <li><a href="../../index.html#proceso" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Proceso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Recursos</h4>
+        <ul class="space-y-3">
+          <li><a href="../../blog.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Blog</a></li>
+          <li><a href="../../agendar.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Agendar</a></li>
+          <li><a href="../../privacidad.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Privacidad</a></li>
+          <li><a href="../../aviso-legal.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Aviso Legal</a></li>
+          <li><a href="../../cookies.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Contacto</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="mailto:soporte@globalgrowth.consulting" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              soporte@globalgrowth.consulting
+            </a>
+          </li>
+          <li class="text-gray-500 text-xs leading-relaxed">Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</li>
+          <li>
+            <a href="https://linkedin.com/in/xavierfortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/sir.fortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 text-center">
+      <p class="text-gray-500 text-xs">&copy; 2016&ndash;2026 Global Growth Consulting by Digital Insta Media. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+(function(){
+  'use strict';
+
+  // -- Mobile menu --
+  var menuBtn = document.getElementById('menuBtn');
+  var closeBtn = document.getElementById('closeMenu');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  if(menuBtn && mobileMenu){
+    menuBtn.addEventListener('click', function(){ mobileMenu.classList.add('open'); });
+  }
+  if(closeBtn && mobileMenu){
+    closeBtn.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach(function(link){
+    link.addEventListener('click', function(){ if(mobileMenu) mobileMenu.classList.remove('open'); });
+  });
+
+  // -- Scroll reveals (Intersection Observer) --
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced){
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el){ observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  // -- Reading progress bar --
+  window.addEventListener('scroll', function(){
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress').style.width = progress + '%';
+  });
+
+  // -- Lead Magnet Form --
+  var leadForm = document.getElementById('leadMagnetForm');
+  if(leadForm){
+    leadForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(leadForm);
+      var obj = {};
+      data.forEach(function(v,k){ obj[k] = v; });
+      obj.source = 'blog_guia_clay_enriquecimiento';
+      obj.page = window.location.pathname;
+
+      fetch('/api/lead-magnet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(obj)
+      }).then(function(){
+        leadForm.style.display = 'none';
+        document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+      }).catch(function(){
+        leadForm.style.display = 'none';
+        document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+  // -- Newsletter Form --
+  var nlForm = document.getElementById('newsletterForm');
+  if(nlForm){
+    nlForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = nlForm.querySelector('input[name="email"]').value;
+
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'blog_article_newsletter', page: window.location.pathname })
+      }).then(function(){
+        nlForm.style.display = 'none';
+        document.getElementById('newsletterSuccess').classList.remove('hidden');
+      }).catch(function(){
+        nlForm.style.display = 'none';
+        document.getElementById('newsletterSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+  // -- Scroll Popup (70% scroll, once per session) --
+  var popup = document.getElementById('scrollPopup');
+  var closePopupBtn = document.getElementById('closePopup');
+  var popupShown = sessionStorage.getItem('popupShown');
+
+  if(popup && !popupShown){
+    var popupTriggered = false;
+    window.addEventListener('scroll', function(){
+      if(popupTriggered) return;
+      var scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if(scrollPercent > 0.7){
+        popupTriggered = true;
+        popup.classList.add('show');
+        sessionStorage.setItem('popupShown', '1');
+      }
+    });
+  }
+
+  if(closePopupBtn && popup){
+    closePopupBtn.addEventListener('click', function(){
+      popup.classList.remove('show');
+    });
+  }
+
+  // -- Popup Form --
+  var popupForm = document.getElementById('popupForm');
+  if(popupForm){
+    popupForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = popupForm.querySelector('input[name="email"]').value;
+
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'blog_scroll_popup', page: window.location.pathname })
+      }).then(function(){
+        popupForm.style.display = 'none';
+        document.getElementById('popupSuccess').classList.remove('hidden');
+      }).catch(function(){
+        popupForm.style.display = 'none';
+        document.getElementById('popupSuccess').classList.remove('hidden');
+      });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>

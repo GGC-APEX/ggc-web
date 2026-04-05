@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe: Benchmarks de Prospecci&oacute;n B2B en Espa&ntilde;a 2026 | GGC</title>
+  <meta name="description" content="Datos reales de prospecci&oacute;n B2B en Espa&ntilde;a: tasas de respuesta, coste por reuni&oacute;n, conversion rates y tiempos de ciclo. Basado en 627+ clientes.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Benchmarks de Prospecci&oacute;n B2B en Espa&ntilde;a 2026 &mdash; GGC">
+  <meta property="og:description" content="El informe m&aacute;s completo sobre m&eacute;tricas de prospecci&oacute;n B2B en el mercado espa&ntilde;ol. Datos de 627+ empresas.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    .bar-h{transition:height .8s ease;min-height:4px;border-radius:6px 6px 0 0}
+    .bar-w{transition:width .8s ease;min-width:4px;border-radius:0 6px 6px 0}
+
+    .sector-btn{transition:all .2s ease}
+    .sector-btn.active{background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.4);color:#8B5CF6}
+
+    .tier-green{color:#34D399;background:rgba(52,211,153,0.1)}
+    .tier-yellow{color:#FBBF24;background:rgba(251,191,36,0.1)}
+    .tier-red{color:#F87171;background:rgba(248,113,113,0.1)}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.pulse-glow{animation:none}.btn-g::after{animation:none}.bar-h,.bar-w{transition:none}}
+
+    @media print{body{background:#fff;color:#000}.glass{background:#f3f4f6;border-color:#e5e7eb}.gr{-webkit-text-fill-color:#7c3aed;color:#7c3aed}header,#cta-section{display:none}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-16">
+    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-medium bg-purple/10 text-purple border border-purple/20 mb-6">INFORME 2026 &mdash; PILAR 5</span>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+      Benchmarks de <span class="gr">Prospecci&oacute;n B2B</span><br>en Espa&ntilde;a
+    </h1>
+    <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+      Datos extra&iacute;dos de <strong class="text-white">627+ empresas</strong> clientes de GGC. Tasas de respuesta, costes, conversiones y tiempos reales &mdash; no teor&iacute;a.
+    </p>
+  </div>
+
+  <!-- SOURCE BADGE -->
+  <div class="glass rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4 mb-12">
+    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan to-purple flex items-center justify-center shrink-0">
+      <span class="text-white text-lg font-bold">D</span>
+    </div>
+    <div class="text-center sm:text-left">
+      <p class="text-white text-sm font-medium">Fuente: base de datos propietaria de Global Growth Consulting</p>
+      <p class="text-gray-500 text-xs">627 clientes &bull; Datos actualizados a Q1 2026 &bull; Mercado espa&ntilde;ol B2B</p>
+    </div>
+  </div>
+
+  <!-- SECTOR TOGGLE -->
+  <div class="mb-12">
+    <p class="text-gray-500 text-sm uppercase tracking-wider mb-4 text-center">Filtra por sector</p>
+    <div class="flex flex-wrap justify-center gap-2" id="sector-toggle" role="tablist" aria-label="Sectores">
+      <button role="tab" aria-selected="true" class="sector-btn active px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-navy-card" data-sector="all">Todos</button>
+      <button role="tab" aria-selected="false" class="sector-btn px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-navy-card text-gray-500" data-sector="tech">Tecnolog&iacute;a</button>
+      <button role="tab" aria-selected="false" class="sector-btn px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-navy-card text-gray-500" data-sector="consulting">Consultor&iacute;a</button>
+      <button role="tab" aria-selected="false" class="sector-btn px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-navy-card text-gray-500" data-sector="legal">Legal</button>
+      <button role="tab" aria-selected="false" class="sector-btn px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-navy-card text-gray-500" data-sector="marketing">Agencias MKT</button>
+    </div>
+  </div>
+
+  <!-- BENCHMARK 1: TASAS DE RESPUESTA POR CANAL -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-2">1. Tasas de respuesta <span class="gr">por canal</span></h2>
+    <p class="text-gray-500 mb-6">Porcentaje de respuestas positivas (interesados) sobre total de contactos.</p>
+
+    <div class="glass rounded-2xl p-6 md:p-8">
+      <div class="grid md:grid-cols-4 gap-4" id="response-rates">
+        <!-- Email frio -->
+        <div class="text-center">
+          <p class="text-gray-500 text-xs uppercase tracking-wider mb-3">Email fr&iacute;o</p>
+          <div class="h-40 flex items-end justify-center gap-2 mb-3">
+            <div class="w-8 bar-h bg-gray-700 rounded-t" data-bar="email-avg" title="Media sector"></div>
+            <div class="w-8 bar-h bg-gradient-to-t from-cyan to-blue rounded-t" data-bar="email-top" title="Top performers"></div>
+            <div class="w-8 bar-h bg-gradient-to-t from-purple to-pink rounded-t" data-bar="email-ggc" title="Clientes GGC"></div>
+          </div>
+          <div class="flex justify-center gap-1 text-xs">
+            <span class="text-gray-500" data-val="email-avg-label">3.2%</span>
+            <span class="text-blue" data-val="email-top-label">8.1%</span>
+            <span class="text-pink" data-val="email-ggc-label">11.4%</span>
+          </div>
+        </div>
+        <!-- LinkedIn -->
+        <div class="text-center">
+          <p class="text-gray-500 text-xs uppercase tracking-wider mb-3">LinkedIn</p>
+          <div class="h-40 flex items-end justify-center gap-2 mb-3">
+            <div class="w-8 bar-h bg-gray-700 rounded-t" data-bar="linkedin-avg"></div>
+            <div class="w-8 bar-h bg-gradient-to-t from-cyan to-blue rounded-t" data-bar="linkedin-top"></div>
+            <div class="w-8 bar-h bg-gradient-to-t from-purple to-pink rounded-t" data-bar="linkedin-ggc"></div>
+          </div>
+          <div class="flex justify-center gap-1 text-xs">
+            <span class="text-gray-500" data-val="linkedin-avg-label">5.8%</span>
+            <span class="text-blue" data-val="linkedin-top-label">14.2%</span>
+            <span class="text-pink" data-val="linkedin-ggc-label">18.7%</span>
+          </div>
+        </div>
+        <!-- Llamada -->
+        <div class="text-center">
+          <p class="text-gray-500 text-xs uppercase tracking-wider mb-3">Llamada fr&iacute;a</p>
+          <div class="h-40 flex items-end justify-center gap-2 mb-3">
+            <div class="w-8 bar-h bg-gray-700 rounded-t" data-bar="call-avg"></div>
+            <div class="w-8 bar-h bg-gradient-to-t from-cyan to-blue rounded-t" data-bar="call-top"></div>
+            <div class="w-8 bar-h bg-gradient-to-t from-purple to-pink rounded-t" data-bar="call-ggc"></div>
+          </div>
+          <div class="flex justify-center gap-1 text-xs">
+            <span class="text-gray-500" data-val="call-avg-label">1.8%</span>
+            <span class="text-blue" data-val="call-top-label">4.5%</span>
+            <span class="text-pink" data-val="call-ggc-label">6.2%</span>
+          </div>
+        </div>
+        <!-- Multicanal -->
+        <div class="text-center">
+          <p class="text-gray-500 text-xs uppercase tracking-wider mb-3">Multicanal</p>
+          <div class="h-40 flex items-end justify-center gap-2 mb-3">
+            <div class="w-8 bar-h bg-gray-700 rounded-t" data-bar="multi-avg"></div>
+            <div class="w-8 bar-h bg-gradient-to-t from-cyan to-blue rounded-t" data-bar="multi-top"></div>
+            <div class="w-8 bar-h bg-gradient-to-t from-purple to-pink rounded-t" data-bar="multi-ggc"></div>
+          </div>
+          <div class="flex justify-center gap-1 text-xs">
+            <span class="text-gray-500" data-val="multi-avg-label">7.4%</span>
+            <span class="text-blue" data-val="multi-top-label">16.8%</span>
+            <span class="text-pink" data-val="multi-ggc-label">22.3%</span>
+          </div>
+        </div>
+      </div>
+      <!-- Legend -->
+      <div class="flex flex-wrap justify-center gap-4 mt-6 pt-4 border-t border-white/5 text-xs">
+        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-gray-700 inline-block"></span> Media del sector</span>
+        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-gradient-to-r from-cyan to-blue inline-block"></span> Top performers</span>
+        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-gradient-to-r from-purple to-pink inline-block"></span> Clientes GGC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARK 2: COSTE POR REUNION -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-2">2. Coste por <span class="gr">reuni&oacute;n cualificada</span></h2>
+    <p class="text-gray-500 mb-6">Coste total (herramientas + tiempo + servicio) por cada reuni&oacute;n con decision maker.</p>
+
+    <div class="glass rounded-2xl p-6 md:p-8">
+      <div class="space-y-4" id="cost-bars">
+        <div>
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-300">Media del sector</span>
+            <span class="text-gray-500 font-bold" data-val="cost-avg">285&euro;</span>
+          </div>
+          <div class="w-full bg-navy-card2 rounded-full h-5"><div class="bar-w h-full bg-gray-600" data-bar="cost-sector-avg"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-300">Top performers (percentil 90)</span>
+            <span class="text-blue font-bold" data-val="cost-top">142&euro;</span>
+          </div>
+          <div class="w-full bg-navy-card2 rounded-full h-5"><div class="bar-w h-full bg-gradient-to-r from-cyan to-blue" data-bar="cost-top-bar"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-gray-300">Clientes GGC (media)</span>
+            <span class="text-pink font-bold" data-val="cost-ggc">89&euro;</span>
+          </div>
+          <div class="w-full bg-navy-card2 rounded-full h-5"><div class="bar-w h-full bg-gradient-to-r from-purple to-pink" data-bar="cost-ggc-bar"></div></div>
+        </div>
+      </div>
+
+      <div class="mt-6 p-4 rounded-xl bg-green-500/5 border border-green-500/10">
+        <p class="text-green-400 text-sm font-medium flex items-start gap-2">
+          <span class="mt-0.5">&#9679;</span>
+          <span>Los clientes de GGC pagan de media un <strong>69% menos</strong> por reuni&oacute;n cualificada que la media del sector.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARK 3: CONVERSION RATES -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-2">3. Tasas de <span class="gr">conversi&oacute;n</span> por etapa</h2>
+    <p class="text-gray-500 mb-6">Embudo completo: desde contacto inicial hasta cliente firmado.</p>
+
+    <div class="glass rounded-2xl p-6 md:p-8">
+      <div class="space-y-6" id="funnel">
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="text-gray-300">Contacto &rarr; Respuesta positiva</span>
+            <div class="flex gap-3"><span class="text-gray-500" data-val="f1-avg">4.2%</span><span class="text-pink" data-val="f1-ggc">11.4%</span></div>
+          </div>
+          <div class="flex gap-2">
+            <div class="flex-1 bg-navy-card2 rounded-full h-4"><div class="bar-w h-full bg-gray-600" data-bar="f1-avg-bar"></div></div>
+            <div class="flex-1 bg-navy-card2 rounded-full h-4"><div class="bar-w h-full bg-gradient-to-r from-purple to-pink" data-bar="f1-ggc-bar"></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="text-gray-300">Respuesta &rarr; Reuni&oacute;n agendada</span>
+            <div class="flex gap-3"><span class="text-gray-500" data-val="f2-avg">38%</span><span class="text-pink" data-val="f2-ggc">52%</span></div>
+          </div>
+          <div class="flex gap-2">
+            <div class="flex-1 bg-navy-card2 rounded-full h-4"><div class="bar-w h-full bg-gray-600" data-bar="f2-avg-bar"></div></div>
+            <div class="flex-1 bg-navy-card2 rounded-full h-4"><div class="bar-w h-full bg-gradient-to-r from-purple to-pink" data-bar="f2-ggc-bar"></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="text-gray-300">Reuni&oacute;n &rarr; Propuesta enviada</span>
+            <div class="flex gap-3"><span class="text-gray-500" data-val="f3-avg">32%</span><span class="text-pink" data-val="f3-ggc">44%</span></div>
+          </div>
+          <div class="flex gap-2">
+            <div class="flex-1 bg-navy-card2 rounded-full h-4"><div class="bar-w h-full bg-gray-600" data-bar="f3-avg-bar"></div></div>
+            <div class="flex-1 bg-navy-card2 rounded-full h-4"><div class="bar-w h-full bg-gradient-to-r from-purple to-pink" data-bar="f3-ggc-bar"></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="text-gray-300">Propuesta &rarr; Cliente firmado</span>
+            <div class="flex gap-3"><span class="text-gray-500" data-val="f4-avg">18%</span><span class="text-pink" data-val="f4-ggc">28%</span></div>
+          </div>
+          <div class="flex gap-2">
+            <div class="flex-1 bg-navy-card2 rounded-full h-4"><div class="bar-w h-full bg-gray-600" data-bar="f4-avg-bar"></div></div>
+            <div class="flex-1 bg-navy-card2 rounded-full h-4"><div class="bar-w h-full bg-gradient-to-r from-purple to-pink" data-bar="f4-ggc-bar"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-4 mt-4 text-xs justify-end">
+        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-gray-600 inline-block"></span> Media sector</span>
+        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-gradient-to-r from-purple to-pink inline-block"></span> Clientes GGC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARK 4: TIEMPOS DE CICLO -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-2">4. Tiempos de <span class="gr">ciclo de venta</span></h2>
+    <p class="text-gray-500 mb-6">D&iacute;as desde primer contacto hasta firma del contrato.</p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="glass rounded-2xl p-6 text-center">
+        <p class="text-gray-500 text-xs uppercase tracking-wider mb-2">Media del sector</p>
+        <p class="text-4xl font-bold text-gray-500" data-val="cycle-avg">87</p>
+        <p class="text-gray-700 text-sm">d&iacute;as</p>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center">
+        <p class="text-gray-500 text-xs uppercase tracking-wider mb-2">Top performers</p>
+        <p class="text-4xl font-bold text-blue" data-val="cycle-top">52</p>
+        <p class="text-gray-700 text-sm">d&iacute;as</p>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center pulse-glow">
+        <p class="text-gray-500 text-xs uppercase tracking-wider mb-2">Clientes GGC</p>
+        <p class="text-4xl font-bold gr" data-val="cycle-ggc">38</p>
+        <p class="text-gray-700 text-sm">d&iacute;as</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARK 5-8: COMPARISON TABLE -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-2">5-8. Tabla comparativa <span class="gr">completa</span></h2>
+    <p class="text-gray-500 mb-6">Todas las m&eacute;tricas clave en un vistazo. Los colores indican el nivel de rendimiento.</p>
+
+    <div class="glass rounded-2xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm" id="benchmark-table">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="text-left p-4 text-gray-500 font-medium text-xs uppercase tracking-wider">M&eacute;trica</th>
+              <th class="text-center p-4 text-gray-500 font-medium text-xs uppercase tracking-wider">Media sector</th>
+              <th class="text-center p-4 text-gray-500 font-medium text-xs uppercase tracking-wider">Top 10%</th>
+              <th class="text-center p-4 text-purple font-medium text-xs uppercase tracking-wider">Clientes GGC</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY INSIGHTS -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-6">Conclusiones <span class="gr">clave</span></h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="glass rounded-2xl p-6 border-l-4 border-cyan">
+        <h4 class="text-white font-bold mb-2" style="font-family:'DM Sans',sans-serif">El multicanal gana siempre</h4>
+        <p class="text-gray-400 text-sm">Las empresas que combinan email + LinkedIn + contenido obtienen 3.2x m&aacute;s reuniones que las que usan un solo canal. No es opini&oacute;n: son datos.</p>
+      </div>
+      <div class="glass rounded-2xl p-6 border-l-4 border-blue">
+        <h4 class="text-white font-bold mb-2" style="font-family:'DM Sans',sans-serif">El coste se desploma con infraestructura</h4>
+        <p class="text-gray-400 text-sm">La diferencia entre 285&euro;/reuni&oacute;n y 89&euro;/reuni&oacute;n es tener un sistema vs. tener personas haciendo tareas manuales.</p>
+      </div>
+      <div class="glass rounded-2xl p-6 border-l-4 border-purple">
+        <h4 class="text-white font-bold mb-2" style="font-family:'DM Sans',sans-serif">LinkedIn supera al email en Espa&ntilde;a</h4>
+        <p class="text-gray-400 text-sm">En el mercado B2B espa&ntilde;ol, LinkedIn da tasas de respuesta 1.6x superiores al email fr&iacute;o. Pero email escala mejor.</p>
+      </div>
+      <div class="glass rounded-2xl p-6 border-l-4 border-pink">
+        <h4 class="text-white font-bold mb-2" style="font-family:'DM Sans',sans-serif">El seguimiento es donde se pierde el dinero</h4>
+        <p class="text-gray-400 text-sm">El 62% de las empresas no hacen m&aacute;s de 2 follow-ups. Las que hacen 5+ convierten un 34% m&aacute;s.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-section" class="text-center py-12">
+    <div class="glass rounded-2xl p-10 md:p-14 pulse-glow">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">&iquest;D&oacute;nde est&aacute;s respecto a estos <span class="gr">benchmarks</span>?</h2>
+      <p class="text-gray-400 max-w-xl mx-auto mb-8">
+        Si tus n&uacute;meros est&aacute;n por debajo de la media del sector, hay oportunidad. Si est&aacute;n en la media, hay mucho margen. Hablemos.
+      </p>
+      <a href="../agendar.html" class="btn-g inline-block px-8 py-4 rounded-xl text-lg">
+        Comparar mis m&eacute;tricas con un experto &rarr;
+      </a>
+      <p class="text-gray-700 text-xs mt-4">Sin compromiso &bull; 30 minutos &bull; An&aacute;lisis personalizado</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-700 text-xs">
+    <p>&copy; 2026 Global Growth Consulting. Todos los derechos reservados.</p>
+    <p>Datos de 627+ clientes &bull; Actualizado Q1 2026</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  // ── DATA BY SECTOR ──
+  var data = {
+    all: {
+      email: {avg:3.2, top:8.1, ggc:11.4},
+      linkedin: {avg:5.8, top:14.2, ggc:18.7},
+      call: {avg:1.8, top:4.5, ggc:6.2},
+      multi: {avg:7.4, top:16.8, ggc:22.3},
+      cost: {avg:285, top:142, ggc:89},
+      funnel: {f1:{avg:4.2,ggc:11.4}, f2:{avg:38,ggc:52}, f3:{avg:32,ggc:44}, f4:{avg:18,ggc:28}},
+      cycle: {avg:87, top:52, ggc:38},
+      table: [
+        {metric:'Reuniones cualificadas / mes', avg:'8', top:'24', ggc:'36', tier:'green'},
+        {metric:'Coste por reuni&oacute;n cualificada', avg:'285&euro;', top:'142&euro;', ggc:'89&euro;', tier:'green'},
+        {metric:'Tasa de respuesta (multicanal)', avg:'7.4%', top:'16.8%', ggc:'22.3%', tier:'green'},
+        {metric:'Conversi&oacute;n reuni&oacute;n &rarr; propuesta', avg:'32%', top:'42%', ggc:'44%', tier:'green'},
+        {metric:'Tasa de cierre', avg:'18%', top:'26%', ggc:'28%', tier:'green'},
+        {metric:'Ciclo de venta (d&iacute;as)', avg:'87', top:'52', ggc:'38', tier:'green'},
+        {metric:'Pipeline generado / mes', avg:'96K&euro;', top:'288K&euro;', ggc:'432K&euro;', tier:'green'},
+        {metric:'Ratio CAC / LTV', avg:'1:3', top:'1:7', ggc:'1:11', tier:'green'}
+      ]
+    },
+    tech: {
+      email: {avg:3.8, top:9.2, ggc:12.6},
+      linkedin: {avg:6.4, top:15.1, ggc:20.3},
+      call: {avg:1.5, top:3.8, ggc:5.4},
+      multi: {avg:8.1, top:18.2, ggc:24.1},
+      cost: {avg:310, top:155, ggc:95},
+      funnel: {f1:{avg:4.8,ggc:12.6}, f2:{avg:40,ggc:55}, f3:{avg:35,ggc:47}, f4:{avg:20,ggc:30}},
+      cycle: {avg:78, top:45, ggc:34},
+      table: [
+        {metric:'Reuniones cualificadas / mes', avg:'9', top:'28', ggc:'40', tier:'green'},
+        {metric:'Coste por reuni&oacute;n cualificada', avg:'310&euro;', top:'155&euro;', ggc:'95&euro;', tier:'green'},
+        {metric:'Tasa de respuesta (multicanal)', avg:'8.1%', top:'18.2%', ggc:'24.1%', tier:'green'},
+        {metric:'Conversi&oacute;n reuni&oacute;n &rarr; propuesta', avg:'35%', top:'45%', ggc:'47%', tier:'green'},
+        {metric:'Tasa de cierre', avg:'20%', top:'28%', ggc:'30%', tier:'green'},
+        {metric:'Ciclo de venta (d&iacute;as)', avg:'78', top:'45', ggc:'34', tier:'green'},
+        {metric:'Pipeline generado / mes', avg:'112K&euro;', top:'336K&euro;', ggc:'480K&euro;', tier:'green'},
+        {metric:'Ratio CAC / LTV', avg:'1:4', top:'1:8', ggc:'1:13', tier:'green'}
+      ]
+    },
+    consulting: {
+      email: {avg:2.9, top:7.4, ggc:10.8},
+      linkedin: {avg:5.2, top:13.6, ggc:17.9},
+      call: {avg:2.1, top:5.2, ggc:7.1},
+      multi: {avg:6.8, top:15.4, ggc:21.2},
+      cost: {avg:265, top:130, ggc:82},
+      funnel: {f1:{avg:3.8,ggc:10.8}, f2:{avg:36,ggc:50}, f3:{avg:30,ggc:42}, f4:{avg:17,ggc:26}},
+      cycle: {avg:92, top:58, ggc:42},
+      table: [
+        {metric:'Reuniones cualificadas / mes', avg:'7', top:'22', ggc:'32', tier:'green'},
+        {metric:'Coste por reuni&oacute;n cualificada', avg:'265&euro;', top:'130&euro;', ggc:'82&euro;', tier:'green'},
+        {metric:'Tasa de respuesta (multicanal)', avg:'6.8%', top:'15.4%', ggc:'21.2%', tier:'green'},
+        {metric:'Conversi&oacute;n reuni&oacute;n &rarr; propuesta', avg:'30%', top:'40%', ggc:'42%', tier:'green'},
+        {metric:'Tasa de cierre', avg:'17%', top:'24%', ggc:'26%', tier:'green'},
+        {metric:'Ciclo de venta (d&iacute;as)', avg:'92', top:'58', ggc:'42', tier:'green'},
+        {metric:'Pipeline generado / mes', avg:'84K&euro;', top:'264K&euro;', ggc:'384K&euro;', tier:'green'},
+        {metric:'Ratio CAC / LTV', avg:'1:3', top:'1:6', ggc:'1:10', tier:'green'}
+      ]
+    },
+    legal: {
+      email: {avg:2.4, top:6.2, ggc:9.1},
+      linkedin: {avg:4.6, top:11.8, ggc:15.4},
+      call: {avg:2.4, top:5.8, ggc:7.8},
+      multi: {avg:5.9, top:13.2, ggc:18.6},
+      cost: {avg:340, top:168, ggc:105},
+      funnel: {f1:{avg:3.2,ggc:9.1}, f2:{avg:34,ggc:48}, f3:{avg:28,ggc:38}, f4:{avg:15,ggc:24}},
+      cycle: {avg:105, top:68, ggc:48},
+      table: [
+        {metric:'Reuniones cualificadas / mes', avg:'5', top:'16', ggc:'26', tier:'green'},
+        {metric:'Coste por reuni&oacute;n cualificada', avg:'340&euro;', top:'168&euro;', ggc:'105&euro;', tier:'green'},
+        {metric:'Tasa de respuesta (multicanal)', avg:'5.9%', top:'13.2%', ggc:'18.6%', tier:'green'},
+        {metric:'Conversi&oacute;n reuni&oacute;n &rarr; propuesta', avg:'28%', top:'36%', ggc:'38%', tier:'green'},
+        {metric:'Tasa de cierre', avg:'15%', top:'22%', ggc:'24%', tier:'green'},
+        {metric:'Ciclo de venta (d&iacute;as)', avg:'105', top:'68', ggc:'48', tier:'green'},
+        {metric:'Pipeline generado / mes', avg:'60K&euro;', top:'192K&euro;', ggc:'312K&euro;', tier:'green'},
+        {metric:'Ratio CAC / LTV', avg:'1:2', top:'1:5', ggc:'1:9', tier:'green'}
+      ]
+    },
+    marketing: {
+      email: {avg:3.6, top:8.8, ggc:12.1},
+      linkedin: {avg:6.1, top:14.8, ggc:19.5},
+      call: {avg:1.6, top:4.1, ggc:5.8},
+      multi: {avg:7.8, top:17.5, ggc:23.6},
+      cost: {avg:248, top:125, ggc:78},
+      funnel: {f1:{avg:4.5,ggc:12.1}, f2:{avg:42,ggc:56}, f3:{avg:34,ggc:46}, f4:{avg:19,ggc:29}},
+      cycle: {avg:72, top:42, ggc:32},
+      table: [
+        {metric:'Reuniones cualificadas / mes', avg:'10', top:'30', ggc:'42', tier:'green'},
+        {metric:'Coste por reuni&oacute;n cualificada', avg:'248&euro;', top:'125&euro;', ggc:'78&euro;', tier:'green'},
+        {metric:'Tasa de respuesta (multicanal)', avg:'7.8%', top:'17.5%', ggc:'23.6%', tier:'green'},
+        {metric:'Conversi&oacute;n reuni&oacute;n &rarr; propuesta', avg:'34%', top:'44%', ggc:'46%', tier:'green'},
+        {metric:'Tasa de cierre', avg:'19%', top:'27%', ggc:'29%', tier:'green'},
+        {metric:'Ciclo de venta (d&iacute;as)', avg:'72', top:'42', ggc:'32', tier:'green'},
+        {metric:'Pipeline generado / mes', avg:'120K&euro;', top:'360K&euro;', ggc:'504K&euro;', tier:'green'},
+        {metric:'Ratio CAC / LTV', avg:'1:3', top:'1:7', ggc:'1:12', tier:'green'}
+      ]
+    }
+  };
+
+  var currentSector = 'all';
+
+  function pct(val, max){ return Math.max(4, (val / max) * 100) + '%'; }
+
+  function updateCharts(sector){
+    var d = data[sector];
+    var maxResp = 25; // max for response bars
+
+    // Response rate bars (height)
+    ['email','linkedin','call','multi'].forEach(function(ch){
+      var avgBar = document.querySelector('[data-bar="'+ch+'-avg"]');
+      var topBar = document.querySelector('[data-bar="'+ch+'-top"]');
+      var ggcBar = document.querySelector('[data-bar="'+ch+'-ggc"]');
+      if(avgBar) avgBar.style.height = pct(d[ch].avg, maxResp);
+      if(topBar) topBar.style.height = pct(d[ch].top, maxResp);
+      if(ggcBar) ggcBar.style.height = pct(d[ch].ggc, maxResp);
+      var aL = document.querySelector('[data-val="'+ch+'-avg-label"]');
+      var tL = document.querySelector('[data-val="'+ch+'-top-label"]');
+      var gL = document.querySelector('[data-val="'+ch+'-ggc-label"]');
+      if(aL) aL.textContent = d[ch].avg+'%';
+      if(tL) tL.textContent = d[ch].top+'%';
+      if(gL) gL.textContent = d[ch].ggc+'%';
+    });
+
+    // Cost bars (width)
+    var maxCost = 400;
+    var csBar = document.querySelector('[data-bar="cost-sector-avg"]');
+    var ctBar = document.querySelector('[data-bar="cost-top-bar"]');
+    var cgBar = document.querySelector('[data-bar="cost-ggc-bar"]');
+    if(csBar) csBar.style.width = pct(d.cost.avg, maxCost);
+    if(ctBar) ctBar.style.width = pct(d.cost.top, maxCost);
+    if(cgBar) cgBar.style.width = pct(d.cost.ggc, maxCost);
+    var cvA = document.querySelector('[data-val="cost-avg"]');
+    var cvT = document.querySelector('[data-val="cost-top"]');
+    var cvG = document.querySelector('[data-val="cost-ggc"]');
+    if(cvA) cvA.innerHTML = d.cost.avg+'&euro;';
+    if(cvT) cvT.innerHTML = d.cost.top+'&euro;';
+    if(cvG) cvG.innerHTML = d.cost.ggc+'&euro;';
+
+    // Funnel bars
+    var maxFunnel = 60;
+    ['f1','f2','f3','f4'].forEach(function(f){
+      var aBar = document.querySelector('[data-bar="'+f+'-avg-bar"]');
+      var gBar = document.querySelector('[data-bar="'+f+'-ggc-bar"]');
+      if(aBar) aBar.style.width = pct(d.funnel[f].avg, maxFunnel);
+      if(gBar) gBar.style.width = pct(d.funnel[f].ggc, maxFunnel);
+      var aV = document.querySelector('[data-val="'+f+'-avg"]');
+      var gV = document.querySelector('[data-val="'+f+'-ggc"]');
+      if(aV) aV.textContent = d.funnel[f].avg+'%';
+      if(gV) gV.textContent = d.funnel[f].ggc+'%';
+    });
+
+    // Cycle
+    var cyA = document.querySelector('[data-val="cycle-avg"]');
+    var cyT = document.querySelector('[data-val="cycle-top"]');
+    var cyG = document.querySelector('[data-val="cycle-ggc"]');
+    if(cyA) cyA.textContent = d.cycle.avg;
+    if(cyT) cyT.textContent = d.cycle.top;
+    if(cyG) cyG.textContent = d.cycle.ggc;
+
+    // Table
+    var tbody = document.getElementById('table-body');
+    tbody.innerHTML = '';
+    d.table.forEach(function(row, i){
+      var tr = document.createElement('tr');
+      tr.className = 'border-b border-white/5' + (i % 2 === 0 ? ' bg-navy-card/30' : '');
+      tr.innerHTML = '<td class="p-4 text-gray-300">'+row.metric+'</td>' +
+        '<td class="p-4 text-center text-gray-500">'+row.avg+'</td>' +
+        '<td class="p-4 text-center text-blue">'+row.top+'</td>' +
+        '<td class="p-4 text-center"><span class="inline-block px-2 py-0.5 rounded text-xs font-medium tier-green">'+row.ggc+'</span></td>';
+      tbody.appendChild(tr);
+    });
+  }
+
+  // Sector toggle
+  document.querySelectorAll('.sector-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.sector-btn').forEach(function(b){
+        b.classList.remove('active');
+        b.classList.add('text-gray-500');
+        b.setAttribute('aria-selected','false');
+      });
+      this.classList.add('active');
+      this.classList.remove('text-gray-500');
+      this.setAttribute('aria-selected','true');
+      currentSector = this.getAttribute('data-sector');
+      updateCharts(currentSector);
+    });
+  });
+
+  // Init
+  updateCharts('all');
+
+})();
+</script>
+</body>
+</html>

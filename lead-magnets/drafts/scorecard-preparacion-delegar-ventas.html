@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scorecard: &iquest;Est&aacute;s preparado para delegar ventas? | GGC</title>
+  <meta name="description" content="Eval&uacute;a en 5 minutos si tu empresa tiene la infraestructura necesaria para que el CEO deje de vender. 14 preguntas, diagn&oacute;stico personalizado.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Scorecard: &iquest;Est&aacute;s preparado para delegar ventas? &mdash; GGC">
+  <meta property="og:description" content="14 preguntas para saber si puedes delegar ventas sin perder revenue. Diagn&oacute;stico inmediato.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+    .scale-in{animation:scaleIn .5s ease forwards}
+
+    .option-card{transition:all .2s ease;cursor:pointer;position:relative}
+    .option-card:hover{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.3)}
+    .option-card.selected{background:rgba(139,92,246,0.1);border-color:rgba(139,92,246,0.5)}
+    .option-card .option-radio{width:20px;height:20px;border:2px solid rgba(139,92,246,0.4);border-radius:50%;flex-shrink:0;transition:all .2s ease;position:relative}
+    .option-card.selected .option-radio{border-color:#8B5CF6;background:linear-gradient(135deg,#8B5CF6,#EC4899)}
+    .option-card.selected .option-radio::after{content:'';position:absolute;top:5px;left:5px;width:6px;height:6px;border-radius:50%;background:#fff}
+
+    .progress-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all .3s ease}
+    .progress-dot.active{background:#8B5CF6;box-shadow:0 0 8px rgba(139,92,246,0.4)}
+    .progress-dot.completed{background:linear-gradient(135deg,#3B82F6,#8B5CF6);box-shadow:0 0 6px rgba(139,92,246,0.3)}
+
+    .quiz-section{display:none}
+    .quiz-section.active{display:block}
+
+    .tier-critical{color:#EF4444}
+    .tier-warning{color:#F59E0B}
+    .tier-good{color:#22D3EE}
+    .tier-excellent{color:#10B981}
+
+    .bar-fill{transition:width .6s ease;border-radius:0 6px 6px 0;min-width:4px}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+    @media print{body{background:#fff;color:#000}.glass{background:#f5f5f5;border-color:#ddd}header,.btn-g{display:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-3">
+      <img src="../../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-12">
+
+  <!-- INTRO -->
+  <div id="intro" class="quiz-section active">
+    <div class="text-center mb-10">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Scorecard de delegaci&oacute;n comercial</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+        &iquest;Est&aacute;s preparado para<br class="hidden sm:block"> <span class="gr">delegar ventas?</span>
+      </h1>
+      <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg mb-8">
+        14 preguntas en 4 categor&iacute;as. Descubre si tienes la infraestructura necesaria para que tu empresa venda sin que t&uacute; est&eacute;s en cada llamada.
+      </p>
+    </div>
+
+    <div class="glass rounded-2xl p-8 max-w-xl mx-auto text-center">
+      <div class="grid grid-cols-2 gap-4 mb-6 text-left">
+        <div class="flex items-start gap-2"><span class="text-cyan text-lg">&#9656;</span><span class="text-sm text-gray-300">Proceso documentado</span></div>
+        <div class="flex items-start gap-2"><span class="text-blue text-lg">&#9656;</span><span class="text-sm text-gray-300">Equipo y capacidades</span></div>
+        <div class="flex items-start gap-2"><span class="text-purple text-lg">&#9656;</span><span class="text-sm text-gray-300">Herramientas y datos</span></div>
+        <div class="flex items-start gap-2"><span class="text-pink text-lg">&#9656;</span><span class="text-sm text-gray-300">Mentalidad y control</span></div>
+      </div>
+      <p class="text-xs text-gray-500 mb-6">Tiempo estimado: 4-5 minutos</p>
+      <button onclick="startQuiz()" class="btn-g px-8 py-3 rounded-xl text-sm w-full sm:w-auto">Empezar evaluaci&oacute;n &rarr;</button>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" class="quiz-section">
+    <!-- Progress bar -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-2">
+        <span id="catLabel" class="text-xs font-semibold gr uppercase tracking-widest">Categor&iacute;a</span>
+        <span id="qCounter" class="text-xs text-gray-500">1 / 14</span>
+      </div>
+      <div class="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+        <div id="progressBar" class="h-full rounded-full transition-all duration-500" style="width:0%;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899)"></div>
+      </div>
+      <div class="flex justify-between mt-3">
+        <div id="dots" class="flex gap-1.5"></div>
+      </div>
+    </div>
+
+    <!-- Question card -->
+    <div class="glass rounded-2xl p-8 fade-in" id="questionCard">
+      <h2 id="qText" class="text-lg sm:text-xl font-bold text-white mb-6"></h2>
+      <div id="options" class="space-y-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-6">
+      <button id="btnPrev" onclick="prevQ()" class="text-sm text-gray-400 hover:text-white transition px-4 py-2 rounded-lg border border-white/10 hover:border-white/20" style="display:none">&larr; Anterior</button>
+      <div class="flex-1"></div>
+      <button id="btnNext" onclick="nextQ()" class="btn-g px-6 py-2.5 rounded-xl text-sm" disabled>Siguiente &rarr;</button>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" class="quiz-section">
+    <div class="text-center mb-10 fade-in">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Tu resultado</p>
+      <div class="inline-flex items-center justify-center w-28 h-28 rounded-full border-4 mb-4" id="scoreCircle">
+        <span id="scoreNum" class="text-4xl font-bold" style="font-family:'DM Sans',sans-serif"></span>
+      </div>
+      <p class="text-sm text-gray-400 mb-2">de 28 puntos posibles</p>
+      <h2 id="tierTitle" class="text-2xl sm:text-3xl font-bold mb-2"></h2>
+      <p id="tierDesc" class="text-gray-400 max-w-lg mx-auto"></p>
+    </div>
+
+    <!-- Category breakdown -->
+    <div class="grid sm:grid-cols-2 gap-4 mb-10" id="catBreakdown"></div>
+
+    <!-- Recommendations -->
+    <div class="glass rounded-2xl p-8 mb-10 fade-in" id="recsPanel">
+      <h3 class="text-xl font-bold text-white mb-6">Recomendaciones personalizadas</h3>
+      <div id="recsList" class="space-y-4"></div>
+    </div>
+
+    <!-- Infrastructure message -->
+    <div id="infraMsg" class="glass rounded-2xl p-6 mb-10 border-l-4 border-pink fade-in" style="display:none">
+      <p class="text-sm text-gray-300 mb-3">
+        <strong class="text-white">&#9888; Si tu score es menor de 16:</strong> necesitas instalar infraestructura comercial antes de delegar. Sin proceso, sin herramientas y sin datos, cualquier comercial que contrates fracasar&aacute;. No es un problema de personas &mdash; es un problema de sistema.
+      </p>
+      <p class="text-sm text-gray-400">
+        El 73% de las empresas B2B que contratan comerciales sin infraestructura pierden al comercial en menos de 6 meses. Y el coste no es solo el salario &mdash; es el tiempo perdido, los leads quemados y la frustraci&oacute;n del equipo.
+      </p>
+    </div>
+
+    <!-- Tier explanation -->
+    <div class="grid sm:grid-cols-3 gap-4 mb-10 fade-in">
+      <div class="glass rounded-xl p-5 border-l-4" style="border-left-color:#EF4444">
+        <p class="text-sm font-bold tier-critical mb-1">0 &ndash; 10 puntos</p>
+        <p class="text-xs font-semibold text-white mb-2">No preparado</p>
+        <p class="text-xs text-gray-400">Tu empresa depende completamente de ti. Necesitas construir las bases antes de pensar en delegar. Empieza por documentar y medir.</p>
+      </div>
+      <div class="glass rounded-xl p-5 border-l-4" style="border-left-color:#F59E0B">
+        <p class="text-sm font-bold tier-warning mb-1">11 &ndash; 18 puntos</p>
+        <p class="text-xs font-semibold text-white mb-2">Casi listo</p>
+        <p class="text-xs text-gray-400">Tienes cimientos, pero hay gaps que har&iacute;an fracasar a un comercial nuevo. Cierra los huecos cr&iacute;ticos antes de escalar.</p>
+      </div>
+      <div class="glass rounded-xl p-5 border-l-4" style="border-left-color:#10B981">
+        <p class="text-sm font-bold tier-excellent mb-1">19 &ndash; 28 puntos</p>
+        <p class="text-xs font-semibold text-white mb-2">Listo para delegar</p>
+        <p class="text-xs text-gray-400">Tu infraestructura es s&oacute;lida. Puedes delegar ventas con alta probabilidad de &eacute;xito. El sistema soportar&aacute; a un equipo.</p>
+      </div>
+    </div>
+
+    <!-- Context box -->
+    <div class="glass rounded-2xl p-6 mb-10 fade-in">
+      <h3 class="text-lg font-bold text-white mb-3">&iquest;Por qu&eacute; este scorecard importa?</h3>
+      <p class="text-sm text-gray-400 mb-3">
+        La mayor&iacute;a de CEOs de servicios B2B intentan delegar ventas demasiado pronto. Contratan un comercial, le dan una lista de contactos y esperan milagros. En 3 meses, el comercial no ha cerrado nada y el CEO vuelve a vender.
+      </p>
+      <p class="text-sm text-gray-400 mb-3">
+        El problema nunca fue el comercial. Fue la falta de infraestructura: sin proceso documentado, sin herramientas conectadas, sin datos para medir y sin la mentalidad correcta para soltar el control.
+      </p>
+      <p class="text-sm text-gray-400">
+        Este scorecard mide exactamente eso: <strong class="text-white">tu preparaci&oacute;n real</strong> para delegar ventas con &eacute;xito.
+      </p>
+    </div>
+
+    <!-- What happens next -->
+    <div class="glass rounded-2xl p-8 mb-10 fade-in">
+      <h3 class="text-lg font-bold text-white mb-4">&iquest;Y ahora qu&eacute;?</h3>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="text-center">
+          <div class="w-10 h-10 rounded-full mx-auto mb-3 flex items-center justify-center text-lg font-bold" style="background:rgba(34,211,238,0.15);color:#22D3EE">1</div>
+          <p class="text-sm font-semibold text-white mb-1">Revisa tus gaps</p>
+          <p class="text-xs text-gray-400">Las categor&iacute;as con menor puntuaci&oacute;n son tu prioridad. Empieza por ah&iacute;.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-10 h-10 rounded-full mx-auto mb-3 flex items-center justify-center text-lg font-bold" style="background:rgba(139,92,246,0.15);color:#8B5CF6">2</div>
+          <p class="text-sm font-semibold text-white mb-1">Pon fecha l&iacute;mite</p>
+          <p class="text-xs text-gray-400">Da 4-6 semanas para cerrar los gaps cr&iacute;ticos. Sin deadline, no pasa nada.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-10 h-10 rounded-full mx-auto mb-3 flex items-center justify-center text-lg font-bold" style="background:rgba(236,72,153,0.15);color:#EC4899">3</div>
+          <p class="text-sm font-semibold text-white mb-1">Pide ayuda</p>
+          <p class="text-xs text-gray-400">Si llevas meses atascado, es se&ntilde;al de que necesitas un sistema externo que lo instale por ti.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data point -->
+    <div class="glass rounded-xl p-5 mb-10 text-center fade-in">
+      <p class="text-sm text-gray-400">
+        <strong class="text-white">Dato:</strong> las empresas que instalan infraestructura comercial antes de contratar comerciales tienen un <strong class="text-cyan">3.2x m&aacute;s &eacute;xito</strong> en la delegaci&oacute;n de ventas que las que contratan primero.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center py-8 fade-in">
+      <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">&iquest;Quieres delegar ventas sin perder revenue?</h3>
+      <p class="text-gray-400 mb-6 max-w-lg mx-auto text-sm">Te ayudamos a instalar la infraestructura comercial que necesitas para que tu empresa venda sin ti.</p>
+      <a href="../../agendar.html" class="btn-g inline-block px-8 py-3.5 rounded-xl text-sm">Agendar diagn&oacute;stico gratuito &rarr;</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 mt-12">
+  <div class="max-w-4xl mx-auto px-6 py-6 text-center">
+    <p class="text-xs text-gray-600">&copy; 2026 Global Growth Consulting. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  var CATS = [
+    {name:'Proceso documentado', color:'#22D3EE'},
+    {name:'Equipo y capacidades', color:'#3B82F6'},
+    {name:'Herramientas y datos', color:'#8B5CF6'},
+    {name:'Mentalidad y control', color:'#EC4899'}
+  ];
+
+  var QS = [
+    // Cat 0: Proceso documentado (4)
+    {cat:0, text:'&iquest;Tienes documentado paso a paso c&oacute;mo se cualifica un lead en tu empresa?'},
+    {cat:0, text:'&iquest;Existe un gui&oacute;n o framework de llamada de ventas que cualquier persona pueda seguir?'},
+    {cat:0, text:'&iquest;Tu proceso de seguimiento est&aacute; definido con tiempos, canales y mensajes concretos?'},
+    {cat:0, text:'&iquest;Tienes criterios objetivos y escritos para decidir cu&aacute;ndo un lead pasa de prospecto a oportunidad?'},
+    // Cat 1: Equipo y capacidades (3)
+    {cat:1, text:'&iquest;Hay al menos una persona en tu equipo (que no seas t&uacute;) capaz de cerrar un deal de ticket medio?'},
+    {cat:1, text:'&iquest;Tu equipo recibe formaci&oacute;n o feedback estructurado sobre sus llamadas comerciales?'},
+    {cat:1, text:'&iquest;Tienes definido el perfil ideal del comercial que necesitas, con competencias y m&eacute;tricas?'},
+    // Cat 2: Herramientas y datos (4)
+    {cat:2, text:'&iquest;Us&aacute;is un CRM donde se registran todas las interacciones comerciales?'},
+    {cat:2, text:'&iquest;Puedes saber hoy cu&aacute;ntas reuniones cualificadas se hicieron la semana pasada sin preguntar a nadie?'},
+    {cat:2, text:'&iquest;Ten&eacute;is dashboards o informes autom&aacute;ticos de m&eacute;tricas comerciales (pipeline, tasa de cierre, ciclo)?'},
+    {cat:2, text:'&iquest;Las herramientas de prospecci&oacute;n (email, LinkedIn, llamadas) est&aacute;n integradas en un flujo &uacute;nico?'},
+    // Cat 3: Mentalidad y control (3)
+    {cat:3, text:'&iquest;Ser&iacute;as capaz de irte de vacaciones 3 semanas sin que se pare la generaci&oacute;n de pipeline?'},
+    {cat:3, text:'&iquest;Conf&iacute;as en que un comercial puede representar tu propuesta de valor tan bien como t&uacute;?'},
+    {cat:3, text:'&iquest;Tienes claro qu&eacute; har&iacute;as con tu tiempo si dejaras de vender (estrategia, producto, partnerships)?'}
+  ];
+
+  var OPTIONS = [
+    {label:'S&iacute;, completamente', score:2},
+    {label:'Parcialmente / a veces', score:1},
+    {label:'No / no existe', score:0}
+  ];
+
+  var answers = new Array(QS.length);
+  var currentQ = 0;
+
+  function buildDots(){
+    var c = document.getElementById('dots');
+    c.innerHTML = '';
+    for(var i=0;i<QS.length;i++){
+      var d = document.createElement('div');
+      d.className = 'progress-dot' + (i === currentQ ? ' active' : (answers[i] !== undefined ? ' completed' : ''));
+      c.appendChild(d);
+    }
+  }
+
+  function renderQ(){
+    var q = QS[currentQ];
+    document.getElementById('catLabel').innerHTML = CATS[q.cat].name;
+    document.getElementById('qCounter').textContent = (currentQ+1) + ' / ' + QS.length;
+    document.getElementById('progressBar').style.width = ((currentQ / QS.length) * 100) + '%';
+    document.getElementById('qText').innerHTML = q.text;
+    document.getElementById('btnPrev').style.display = currentQ > 0 ? '' : 'none';
+
+    var isLast = currentQ === QS.length - 1;
+    document.getElementById('btnNext').textContent = isLast ? 'Ver resultados' : 'Siguiente \u2192';
+    document.getElementById('btnNext').disabled = answers[currentQ] === undefined;
+
+    var opts = document.getElementById('options');
+    opts.innerHTML = '';
+    for(var i=0;i<OPTIONS.length;i++){
+      var div = document.createElement('div');
+      div.className = 'option-card glass rounded-xl p-4 flex items-center gap-4' + (answers[currentQ] === i ? ' selected' : '');
+      div.setAttribute('role','radio');
+      div.setAttribute('tabindex','0');
+      div.setAttribute('aria-checked', answers[currentQ] === i ? 'true' : 'false');
+      div.innerHTML = '<div class="option-radio"></div><span class="text-sm text-gray-300">' + OPTIONS[i].label + '</span>';
+      (function(idx){
+        div.onclick = function(){ selectOption(idx); };
+        div.onkeydown = function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();selectOption(idx);} };
+      })(i);
+      opts.appendChild(div);
+    }
+    buildDots();
+  }
+
+  function selectOption(idx){
+    answers[currentQ] = idx;
+    renderQ();
+  }
+
+  window.startQuiz = function(){
+    document.getElementById('intro').classList.remove('active');
+    document.getElementById('quiz').classList.add('active');
+    renderQ();
+  };
+
+  window.nextQ = function(){
+    if(answers[currentQ] === undefined) return;
+    if(currentQ < QS.length - 1){
+      currentQ++;
+      renderQ();
+      document.getElementById('questionCard').classList.remove('fade-in');
+      void document.getElementById('questionCard').offsetWidth;
+      document.getElementById('questionCard').classList.add('fade-in');
+    } else {
+      showResults();
+    }
+  };
+
+  window.prevQ = function(){
+    if(currentQ > 0){
+      currentQ--;
+      renderQ();
+    }
+  };
+
+  function showResults(){
+    document.getElementById('quiz').classList.remove('active');
+    document.getElementById('results').classList.add('active');
+
+    var catScores = CATS.map(function(){ return {score:0, max:0}; });
+    var total = 0;
+    for(var i=0;i<QS.length;i++){
+      var s = OPTIONS[answers[i]].score;
+      total += s;
+      catScores[QS[i].cat].score += s;
+      catScores[QS[i].cat].max += 2;
+    }
+
+    document.getElementById('scoreNum').textContent = total;
+
+    var circle = document.getElementById('scoreCircle');
+    var titleEl = document.getElementById('tierTitle');
+    var descEl = document.getElementById('tierDesc');
+
+    if(total <= 10){
+      circle.style.borderColor = '#EF4444';
+      titleEl.innerHTML = '<span class="tier-critical">No preparado para delegar</span>';
+      descEl.textContent = 'Tu empresa depende completamente de ti para vender. Necesitas construir infraestructura comercial antes de pensar en contratar a alguien.';
+    } else if(total <= 18){
+      circle.style.borderColor = '#F59E0B';
+      titleEl.innerHTML = '<span class="tier-warning">Casi listo</span>';
+      descEl.textContent = 'Tienes algunos cimientos, pero hay gaps cr\u00edticos que har\u00edan fracasar a cualquier comercial nuevo. Cierra esos huecos primero.';
+    } else {
+      circle.style.borderColor = '#10B981';
+      titleEl.innerHTML = '<span class="tier-excellent">Listo para delegar</span>';
+      descEl.textContent = 'Tu infraestructura comercial es s\u00f3lida. Puedes empezar a delegar ventas con alta probabilidad de \u00e9xito.';
+    }
+
+    // Category breakdown
+    var bd = document.getElementById('catBreakdown');
+    bd.innerHTML = '';
+    var RECS = [
+      {low:'Documenta tu proceso de ventas paso a paso. Sin proceso escrito, cada comercial inventar\u00e1 el suyo.', mid:'Refina los detalles: tiempos de seguimiento, criterios de cualificaci\u00f3n, scripts de objecciones.'},
+      {low:'Antes de contratar, define el perfil exacto y crea un programa de onboarding de 30 d\u00edas.', mid:'Implementa sesiones de coaching semanales con grabaciones de llamadas reales.'},
+      {low:'Implementa un CRM y empieza a registrar cada interacci\u00f3n. Sin datos no hay delegaci\u00f3n posible.', mid:'Conecta tus herramientas en un flujo \u00fanico y crea dashboards autom\u00e1ticos.'},
+      {low:'Trabaja tu mentalidad: el objetivo no es que vendan como t\u00fa, sino que vendan con tu sistema.', mid:'Define qu\u00e9 har\u00e1s con el tiempo liberado. Sin plan, volver\u00e1s a vender por inercia.'}
+    ];
+
+    for(var c=0;c<CATS.length;c++){
+      var pct = Math.round((catScores[c].score / catScores[c].max) * 100);
+      var card = document.createElement('div');
+      card.className = 'glass rounded-xl p-5 fade-in';
+      card.innerHTML = '<div class="flex items-center justify-between mb-3">' +
+        '<span class="text-sm font-semibold text-white">' + CATS[c].name + '</span>' +
+        '<span class="text-sm font-bold" style="color:' + CATS[c].color + '">' + catScores[c].score + '/' + catScores[c].max + '</span></div>' +
+        '<div class="w-full h-2 bg-white/5 rounded-full overflow-hidden mb-2"><div class="bar-fill h-full" style="width:' + pct + '%;background:' + CATS[c].color + '"></div></div>' +
+        '<p class="text-xs text-gray-500">' + (pct >= 75 ? 'Buen nivel' : pct >= 40 ? 'Necesita mejoras' : 'Cr\u00edtico') + '</p>';
+      bd.appendChild(card);
+    }
+
+    // Recommendations
+    var rl = document.getElementById('recsList');
+    rl.innerHTML = '';
+    for(var r=0;r<CATS.length;r++){
+      var pctR = (catScores[r].score / catScores[r].max) * 100;
+      if(pctR < 75){
+        var rec = document.createElement('div');
+        rec.className = 'flex items-start gap-3';
+        var txt = pctR < 40 ? RECS[r].low : RECS[r].mid;
+        rec.innerHTML = '<span class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background:' + CATS[r].color + ';color:#0C0A1D">' + (r+1) + '</span>' +
+          '<div><p class="text-sm font-semibold text-white mb-1">' + CATS[r].name + '</p><p class="text-sm text-gray-400">' + txt + '</p></div>';
+        rl.appendChild(rec);
+      }
+    }
+    if(!rl.children.length){
+      rl.innerHTML = '<p class="text-sm text-gray-400">Todas tus categor&iacute;as est&aacute;n en buen nivel. Est&aacute;s listo para escalar.</p>';
+    }
+
+    // Infrastructure warning
+    if(total < 16){
+      document.getElementById('infraMsg').style.display = '';
+    }
+
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+})();
+</script>
+
+</body>
+</html>

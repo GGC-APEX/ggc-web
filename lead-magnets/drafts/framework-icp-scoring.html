@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Framework: ICP Scoring Matrix | GGC</title>
+  <meta name="description" content="Herramienta interactiva para puntuar tu Ideal Customer Profile (ICP). 10 criterios, pesos ajustables y clasificacion automatica A/B/C/D.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="ICP Scoring Matrix — GGC">
+  <meta property="og:description" content="Puntua prospectos con 10 criterios y clasifica automaticamente en tiers A/B/C/D.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:#1A1740;outline:none}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);cursor:pointer;border:2px solid #0C0A1D;box-shadow:0 0 8px rgba(139,92,246,0.4)}
+    input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);cursor:pointer;border:2px solid #0C0A1D}
+
+    .gauge-ring{transition:stroke-dashoffset .5s ease}
+    .tier-badge{font-size:3rem;font-weight:800;font-family:'DM Sans',sans-serif}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.btn-g::after{animation:none}.pulse-glow{animation:none}.gauge-ring{transition:none}}
+    @media print{body{background:#fff;color:#000}.glass{background:#f5f5f5;border-color:#ddd}.gr{-webkit-text-fill-color:#6d28d9;color:#6d28d9}header,footer{display:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-3">
+      <img src="../../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12">
+    <div class="inline-block px-4 py-1.5 rounded-full text-xs font-medium bg-purple/10 text-purple border border-purple/20 mb-6">PILAR 3 &mdash; OUTBOUND</div>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+      <span class="gr">ICP Scoring</span> Matrix
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto">Punt&uacute;a a tus prospectos con 10 criterios ponderados. Obt&eacute;n una clasificaci&oacute;n autom&aacute;tica (A/B/C/D) y deja de perder tiempo con leads que no van a cerrar.</p>
+  </div>
+
+  <!-- PROSPECT NAME -->
+  <div class="glass rounded-2xl p-6 mb-8">
+    <label class="text-xs text-gray-500 uppercase tracking-wider block mb-2">Nombre del prospecto (opcional)</label>
+    <input type="text" id="prospectName" placeholder="Ej: Acme Consulting" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors" oninput="recalc()">
+  </div>
+
+  <!-- CRITERIA -->
+  <div class="space-y-4 mb-10" id="criteriaList"></div>
+
+  <!-- RESULTS -->
+  <div id="results" class="glass rounded-2xl p-8 mb-10 pulse-glow">
+    <h2 class="text-2xl font-bold text-white text-center mb-6" style="font-family:'Playfair Display',serif">Resultado</h2>
+    <div class="grid sm:grid-cols-2 gap-8 items-center">
+      <!-- Gauge -->
+      <div class="flex flex-col items-center">
+        <svg width="200" height="200" viewBox="0 0 200 200" class="mb-4">
+          <circle cx="100" cy="100" r="85" fill="none" stroke="#1A1740" stroke-width="12"/>
+          <circle id="gaugeRing" class="gauge-ring" cx="100" cy="100" r="85" fill="none" stroke="url(#gaugeGrad)" stroke-width="12" stroke-linecap="round" stroke-dasharray="534" stroke-dashoffset="534" transform="rotate(-90 100 100)"/>
+          <defs><linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#22D3EE"/><stop offset="50%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+          <text id="gaugeScore" x="100" y="95" text-anchor="middle" fill="#fff" font-size="36" font-weight="800" font-family="DM Sans,sans-serif">0</text>
+          <text x="100" y="118" text-anchor="middle" fill="#9A9A9A" font-size="12" font-family="DM Sans,sans-serif">de 100</text>
+        </svg>
+        <div id="tierBadge" class="tier-badge text-gray-500">D</div>
+        <div id="tierLabel" class="text-sm text-gray-400 mt-1">Prospecto fr&iacute;o</div>
+      </div>
+      <!-- Breakdown -->
+      <div>
+        <div id="breakdown" class="space-y-2 text-sm"></div>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <button onclick="copyResults()" class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-all">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
+            Copiar resultados</button>
+          <button onclick="resetAll()" class="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs border border-pink/20 text-pink hover:bg-pink/5 transition-all">Resetear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER LEGEND -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+    <div class="glass rounded-xl p-4 text-center border-l-4 border-cyan"><div class="text-lg font-bold text-cyan">Tier A</div><div class="text-xs text-gray-400 mt-1">80-100 pts &mdash; Prioridad m&aacute;xima</div></div>
+    <div class="glass rounded-xl p-4 text-center border-l-4 border-blue"><div class="text-lg font-bold text-blue">Tier B</div><div class="text-xs text-gray-400 mt-1">60-79 pts &mdash; Buen prospecto</div></div>
+    <div class="glass rounded-xl p-4 text-center border-l-4 border-purple"><div class="text-lg font-bold text-purple">Tier C</div><div class="text-xs text-gray-400 mt-1">40-59 pts &mdash; Cualificar m&aacute;s</div></div>
+    <div class="glass rounded-xl p-4 text-center border-l-4 border-pink"><div class="text-lg font-bold text-pink">Tier D</div><div class="text-xs text-gray-400 mt-1">0-39 pts &mdash; No priorizar</div></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-12 grid sm:grid-cols-2 gap-4">
+    <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+      <p class="text-sm text-gray-400 mb-3">&iquest;Quieres que definamos tu ICP y montemos tu scoring?</p>
+      <a href="../../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Agendar sesi&oacute;n estrat&eacute;gica</a>
+      <p class="text-xs text-gray-500 mt-2">30 min. Sin compromiso.</p>
+    </div>
+    <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+      <p class="text-sm text-gray-400 mb-3">M&aacute;s herramientas outbound B2B</p>
+      <a href="../../blog.html" class="inline-block px-6 py-3 rounded-lg text-sm w-full border border-purple/40 text-purple hover:bg-purple/5 transition-colors">Ver el blog</a>
+      <p class="text-xs text-gray-500 mt-2">Frameworks y sistemas</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  var criteria = [
+    {id:'revenue',name:'Facturaci&oacute;n anual',cat:'Firmogr&aacute;fico',desc:'Rango de facturaci&oacute;n que encaja con tu oferta',weight:3,score:3},
+    {id:'size',name:'Tama&ntilde;o de equipo',cat:'Firmogr&aacute;fico',desc:'N&uacute;mero de empleados en el rango ideal',weight:2,score:3},
+    {id:'industry',name:'Sector / industria',cat:'Firmogr&aacute;fico',desc:'Sector donde tienes track record y casos de &eacute;xito',weight:3,score:3},
+    {id:'geo',name:'Ubicaci&oacute;n geogr&aacute;fica',cat:'Firmogr&aacute;fico',desc:'Mercado donde puedes operar y entregar',weight:1,score:3},
+    {id:'stack',name:'Stack tecnol&oacute;gico',cat:'Tecnogr&aacute;fico',desc:'Usan herramientas compatibles con tu soluci&oacute;n',weight:2,score:3},
+    {id:'maturity',name:'Madurez digital',cat:'Tecnogr&aacute;fico',desc:'Nivel de adopci&oacute;n de herramientas y procesos digitales',weight:2,score:3},
+    {id:'pain',name:'Dolor identificado',cat:'Comportamental',desc:'Han expresado o demostrado un problema que resuelves',weight:3,score:3},
+    {id:'timing',name:'Timing / urgencia',cat:'Comportamental',desc:'Hay un evento o presi&oacute;n que genera urgencia ahora',weight:3,score:3},
+    {id:'authority',name:'Acceso a decision maker',cat:'Comportamental',desc:'Puedes llegar al comprador econ&oacute;mico directamente',weight:2,score:3},
+    {id:'budget',name:'Presupuesto disponible',cat:'Comportamental',desc:'Tienen capacidad econ&oacute;mica para invertir en tu soluci&oacute;n',weight:3,score:3}
+  ];
+
+  var catColors = {'Firmogr&aacute;fico':'cyan','Tecnogr&aacute;fico':'blue','Comportamental':'purple'};
+
+  function renderCriteria(){
+    var container = document.getElementById('criteriaList');
+    container.innerHTML = '';
+    var currentCat = '';
+    criteria.forEach(function(c,i){
+      if(c.cat !== currentCat){
+        currentCat = c.cat;
+        var color = catColors[c.cat] || 'gray';
+        container.innerHTML += '<div class="flex items-center gap-3 mt-6 mb-2"><span class="text-xs font-bold px-3 py-1 rounded-full bg-' + color + '/10 text-' + color + ' border border-' + color + '/20">' + c.cat + '</span></div>';
+      }
+      container.innerHTML +=
+        '<div class="glass rounded-xl p-5 fade-in" style="animation-delay:' + (i * 0.03) + 's">' +
+          '<div class="flex flex-wrap items-start justify-between gap-2 mb-3">' +
+            '<div><div class="text-sm font-bold text-white">' + c.name + '</div><div class="text-xs text-gray-500 mt-0.5">' + c.desc + '</div></div>' +
+            '<div class="text-right shrink-0">' +
+              '<div class="text-xs text-gray-500 mb-1">Peso: <select id="w-' + c.id + '" onchange="updateWeight(\'' + c.id + '\',this.value)" class="bg-[#0C0A1D] border border-white/10 rounded px-2 py-0.5 text-white text-xs">' +
+                '<option value="1"' + (c.weight===1?' selected':'') + '>1x</option>' +
+                '<option value="2"' + (c.weight===2?' selected':'') + '>2x</option>' +
+                '<option value="3"' + (c.weight===3?' selected':'') + '>3x</option>' +
+              '</select></div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="flex items-center gap-4">' +
+            '<input type="range" min="1" max="5" value="' + c.score + '" id="s-' + c.id + '" oninput="updateScore(\'' + c.id + '\',this.value)" class="flex-1">' +
+            '<div class="w-16 text-center">' +
+              '<span id="sv-' + c.id + '" class="text-lg font-bold text-white">' + c.score + '</span><span class="text-xs text-gray-500">/5</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="flex justify-between text-[10px] text-gray-600 mt-1 px-1"><span>Bajo</span><span>Alto</span></div>' +
+        '</div>';
+    });
+  }
+
+  window.updateScore = function(id, val){
+    var c = criteria.find(function(x){return x.id === id});
+    if(c) c.score = parseInt(val);
+    document.getElementById('sv-' + id).textContent = val;
+    recalc();
+  };
+
+  window.updateWeight = function(id, val){
+    var c = criteria.find(function(x){return x.id === id});
+    if(c) c.weight = parseInt(val);
+    recalc();
+  };
+
+  window.recalc = function(){
+    var totalWeighted = 0;
+    var maxWeighted = 0;
+    criteria.forEach(function(c){
+      totalWeighted += c.score * c.weight;
+      maxWeighted += 5 * c.weight;
+    });
+    var pct = Math.round((totalWeighted / maxWeighted) * 100);
+
+    // Gauge
+    var circumference = 534;
+    var offset = circumference - (circumference * pct / 100);
+    document.getElementById('gaugeRing').setAttribute('stroke-dashoffset', offset);
+    document.getElementById('gaugeScore').textContent = pct;
+
+    // Tier
+    var tier, label, color;
+    if(pct >= 80){tier='A';label='Prospecto ideal — prioridad m\u00e1xima';color='#22D3EE'}
+    else if(pct >= 60){tier='B';label='Buen prospecto — merece secuencia completa';color='#3B82F6'}
+    else if(pct >= 40){tier='C';label='Necesita m\u00e1s cualificaci\u00f3n';color='#8B5CF6'}
+    else{tier='D';label='No priorizar — bajo encaje';color='#EC4899'}
+
+    document.getElementById('tierBadge').textContent = tier;
+    document.getElementById('tierBadge').style.color = color;
+    document.getElementById('tierLabel').textContent = label;
+
+    // Breakdown
+    var bd = document.getElementById('breakdown');
+    bd.innerHTML = '';
+    criteria.forEach(function(c){
+      var contrib = Math.round((c.score * c.weight / maxWeighted) * 100);
+      var barColor = c.score >= 4 ? 'bg-cyan' : c.score >= 3 ? 'bg-blue' : c.score >= 2 ? 'bg-purple' : 'bg-pink';
+      bd.innerHTML +=
+        '<div class="flex items-center gap-2">' +
+          '<div class="w-24 text-xs text-gray-500 truncate">' + c.name.replace(/&[^;]+;/g, function(m){var d=document.createElement('span');d.innerHTML=m;return d.textContent}) + '</div>' +
+          '<div class="flex-1 h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full rounded-full ' + barColor + '" style="width:' + (c.score * 20) + '%"></div></div>' +
+          '<div class="w-8 text-xs text-gray-400 text-right">' + contrib + '%</div>' +
+        '</div>';
+    });
+  };
+
+  window.copyResults = function(){
+    var name = document.getElementById('prospectName').value || 'Sin nombre';
+    var pct = document.getElementById('gaugeScore').textContent;
+    var tier = document.getElementById('tierBadge').textContent;
+    var lines = ['ICP Scoring — ' + name, 'Puntuacion: ' + pct + '/100', 'Tier: ' + tier, '', 'Desglose:'];
+    criteria.forEach(function(c){
+      lines.push('- ' + c.name.replace(/&[^;]+;/g,'') + ': ' + c.score + '/5 (peso ' + c.weight + 'x)');
+    });
+    lines.push('', 'Generado con globalgrowth.consulting');
+    navigator.clipboard.writeText(lines.join('\n')).then(function(){
+      var btn = event.currentTarget;
+      var orig = btn.innerHTML;
+      btn.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="#22D3EE" viewBox="0 0 24 24"><path stroke-width="2" d="M5 13l4 4L19 7"/></svg> Copiado';
+      setTimeout(function(){btn.innerHTML = orig},1500);
+    });
+  };
+
+  window.resetAll = function(){
+    criteria.forEach(function(c){
+      c.score = 3;
+      c.weight = c.id === 'geo' ? 1 : (c.id === 'size' || c.id === 'stack' || c.id === 'maturity' || c.id === 'authority') ? 2 : 3;
+      document.getElementById('s-' + c.id).value = 3;
+      document.getElementById('sv-' + c.id).textContent = '3';
+      document.getElementById('w-' + c.id).value = c.weight;
+    });
+    document.getElementById('prospectName').value = '';
+    recalc();
+  };
+
+  renderCriteria();
+  recalc();
+
+})();
+</script>
+
+</body>
+</html>
