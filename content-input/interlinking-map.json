@@ -1,0 +1,398 @@
+{
+  "version": "1.0",
+  "generated": "2026-04-06",
+  "clusters": [
+    "Revenue Infrastructure",
+    "Prospección B2B",
+    "IA en Ventas",
+    "Escalado Comercial",
+    "Casos y Métricas"
+  ],
+  "blogs": [
+    {
+      "slug": "2-a-18-reuniones-semana-caso-real",
+      "title": "De 2 a 18 reuniones cualificadas por semana en 90 días: caso real",
+      "cluster": "Casos y Métricas",
+      "keywords": ["caso real", "reuniones cualificadas", "prospección B2B", "resultados 90 días", "outbound"],
+      "linksTo": [
+        "framework-20-reuniones",
+        "ia-reuniones-cualificadas",
+        "benchmarks-prospeccion-b2b-espana-2026"
+      ]
+    },
+    {
+      "slug": "3-razones-no-crecen",
+      "title": "627 clientes después: las 3 razones por las que las empresas B2B no crecen",
+      "cluster": "Casos y Métricas",
+      "keywords": ["crecimiento B2B", "razones fracaso", "627 clientes", "infraestructura comercial", "escala"],
+      "linksTo": [
+        "que-es-revenue-infrastructure",
+        "5-capas-infraestructura-comercial-b2b",
+        "numeros-627-clientes"
+      ]
+    },
+    {
+      "slug": "5-capas-infraestructura-comercial-b2b",
+      "title": "Las 5 capas de una infraestructura comercial B2B que funciona",
+      "cluster": "Revenue Infrastructure",
+      "keywords": ["infraestructura comercial B2B", "5 capas", "sistema de ventas", "APEX OS", "pipeline"],
+      "linksTo": [
+        "que-es-revenue-infrastructure",
+        "infraestructura-vs-herramientas",
+        "escalar-500k-2m-sistemas"
+      ]
+    },
+    {
+      "slug": "7-metricas-exito-comercial-b2b",
+      "title": "Cómo medimos el éxito: las 7 métricas que importan en ventas B2B",
+      "cluster": "Casos y Métricas",
+      "keywords": ["métricas ventas B2B", "KPIs comerciales", "éxito comercial", "medir resultados", "pipeline"],
+      "linksTo": [
+        "vanity-metrics-vs-metricas-reales",
+        "pipeline-fantasma-crm-miente",
+        "benchmarks-prospeccion-b2b-espana-2026"
+      ]
+    },
+    {
+      "slug": "agencias-marketing-no-arreglan-ventas",
+      "title": "Por qué las agencias de marketing no arreglan tu problema de ventas",
+      "cluster": "Revenue Infrastructure",
+      "keywords": ["agencias marketing", "ventas B2B", "infraestructura comercial", "externalizar ventas", "problema real"],
+      "linksTo": [
+        "infraestructura-vs-herramientas",
+        "instalar-vs-externalizar-comercial",
+        "que-es-revenue-infrastructure"
+      ]
+    },
+    {
+      "slug": "automatizar-seguimiento-personalizado",
+      "title": "Automatizar el seguimiento comercial sin que parezca un robot",
+      "cluster": "Prospección B2B",
+      "keywords": ["automatización comercial", "seguimiento personalizado", "secuencias", "outbound", "CRM"],
+      "linksTo": [
+        "multicanal-sin-spam-secuencia",
+        "emails-frios-b2b-respuesta",
+        "clay-ia-enriquecer-listas-b2b"
+      ]
+    },
+    {
+      "slug": "benchmarks-prospeccion-b2b-espana-2026",
+      "title": "Benchmarks de prospección B2B en España 2026: datos reales de 627 empresas",
+      "cluster": "Casos y Métricas",
+      "keywords": ["benchmarks prospección", "datos B2B España", "2026", "627 empresas", "métricas outbound"],
+      "linksTo": [
+        "outbound-2026",
+        "numeros-627-clientes",
+        "7-metricas-exito-comercial-b2b"
+      ]
+    },
+    {
+      "slug": "ceo-que-vende",
+      "title": "El CEO que vende: por qué es un problema, no una virtud",
+      "cluster": "Escalado Comercial",
+      "keywords": ["CEO vendedor", "delegación ventas", "coste oportunidad", "liderazgo", "escalado"],
+      "linksTo": [
+        "coste-oculto-vender-tu-mismo",
+        "costes-indirectos-ceo-pipeline",
+        "delegar-ventas-sin-perder-control"
+      ]
+    },
+    {
+      "slug": "clay-ia-enriquecer-listas-b2b",
+      "title": "Cómo usamos Clay + IA para enriquecer listas B2B",
+      "cluster": "IA en Ventas",
+      "keywords": ["Clay", "IA enriquecimiento", "listas B2B", "prospección automatizada", "datos prospects"],
+      "linksTo": [
+        "ia-investigar-prospects-2-minutos",
+        "segmentacion-b2b-500-mejores-clientes",
+        "automatizar-seguimiento-personalizado"
+      ]
+    },
+    {
+      "slug": "contratar-comerciales-no-escala",
+      "title": "Por qué contratar más comerciales no escala tu empresa",
+      "cluster": "Escalado Comercial",
+      "keywords": ["contratar comerciales", "escalabilidad", "equipo ventas", "sistema comercial", "dependencia personas"],
+      "linksTo": [
+        "proceso-comercial-depende-2-personas",
+        "escalar-500k-2m-sistemas",
+        "instalar-vs-externalizar-comercial"
+      ]
+    },
+    {
+      "slug": "coste-oculto-vender-tu-mismo",
+      "title": "El coste oculto de vender tú mismo: cuánto le cuesta a tu empresa que el CEO sea el comercial",
+      "cluster": "Escalado Comercial",
+      "keywords": ["coste oportunidad CEO", "oportunidad perdida", "tiempo CEO", "pipeline", "delegación"],
+      "linksTo": [
+        "ceo-que-vende",
+        "costes-indirectos-ceo-pipeline",
+        "delegar-ventas-sin-perder-control"
+      ]
+    },
+    {
+      "slug": "costes-indirectos-ceo-pipeline",
+      "title": "Los 3 costes indirectos de que el CEO sea el pipeline (y ninguno aparece en P&L)",
+      "cluster": "Escalado Comercial",
+      "keywords": ["costes indirectos", "CEO pipeline", "P&L", "coste invisible", "dependencia CEO"],
+      "linksTo": [
+        "ceo-que-vende",
+        "coste-oculto-vender-tu-mismo",
+        "facturar-millon-sin-previsibilidad"
+      ]
+    },
+    {
+      "slug": "delegar-ventas-sin-perder-control",
+      "title": "Cómo delegar ventas sin perder el control (guía para CEOs que todavía venden)",
+      "cluster": "Escalado Comercial",
+      "keywords": ["delegar ventas", "control CEO", "proceso comercial", "guía delegación", "equipo ventas"],
+      "linksTo": [
+        "ceo-que-vende",
+        "proceso-comercial-depende-2-personas",
+        "instalar-vs-externalizar-comercial"
+      ]
+    },
+    {
+      "slug": "emails-frios-b2b-respuesta",
+      "title": "Cómo escribir emails fríos que consiguen respuesta en B2B",
+      "cluster": "Prospección B2B",
+      "keywords": ["email frío B2B", "copywriting outbound", "tasa respuesta", "cold email", "prospección"],
+      "linksTo": [
+        "multicanal-sin-spam-secuencia",
+        "outbound-2026",
+        "linkedin-b2b-10000-mensajes"
+      ]
+    },
+    {
+      "slug": "escalar-500k-2m-sistemas",
+      "title": "Escalar de 500K a 2M€: los 3 sistemas que necesitas (y el orden importa)",
+      "cluster": "Escalado Comercial",
+      "keywords": ["escalar empresa", "500K a 2M", "sistemas comerciales", "crecimiento revenue", "infraestructura"],
+      "linksTo": [
+        "5-capas-infraestructura-comercial-b2b",
+        "contratar-comerciales-no-escala",
+        "facturar-millon-sin-previsibilidad"
+      ]
+    },
+    {
+      "slug": "facturar-millon-sin-previsibilidad",
+      "title": "Facturar 1M€ y seguir sin previsibilidad",
+      "cluster": "Escalado Comercial",
+      "keywords": ["facturación 1M", "previsibilidad ingresos", "revenue predecible", "pipeline estable", "B2B"],
+      "linksTo": [
+        "pipeline-fantasma-crm-miente",
+        "escalar-500k-2m-sistemas",
+        "que-es-revenue-infrastructure"
+      ]
+    },
+    {
+      "slug": "framework-20-reuniones",
+      "title": "De 0 a 20 reuniones/semana: el framework que instalamos en cada cliente",
+      "cluster": "Casos y Métricas",
+      "keywords": ["framework reuniones", "20 reuniones semana", "pipeline activo", "prospección sistemática", "outbound"],
+      "linksTo": [
+        "2-a-18-reuniones-semana-caso-real",
+        "ia-reuniones-cualificadas",
+        "multicanal-sin-spam-secuencia"
+      ]
+    },
+    {
+      "slug": "ia-investigar-prospects-2-minutos",
+      "title": "Cómo usar IA para investigar prospects en 2 minutos",
+      "cluster": "IA en Ventas",
+      "keywords": ["IA investigación prospects", "research automatizado", "eficiencia prospección", "inteligencia artificial ventas"],
+      "linksTo": [
+        "clay-ia-enriquecer-listas-b2b",
+        "icp-4-dimensiones",
+        "sdr-futuro-humano-ia"
+      ]
+    },
+    {
+      "slug": "ia-reuniones-cualificadas",
+      "title": "Cómo usamos IA para generar 40 reuniones cualificadas en 30 días",
+      "cluster": "IA en Ventas",
+      "keywords": ["IA reuniones cualificadas", "40 reuniones", "30 días", "automatización outbound", "IA ventas B2B"],
+      "linksTo": [
+        "ia-investigar-prospects-2-minutos",
+        "sdr-futuro-humano-ia",
+        "2-a-18-reuniones-semana-caso-real"
+      ]
+    },
+    {
+      "slug": "icp-4-dimensiones",
+      "title": "ICP en 4 dimensiones: cómo pasar de 'empresas medianas' a 380 cuentas específicas",
+      "cluster": "Prospección B2B",
+      "keywords": ["ICP", "Ideal Customer Profile", "segmentación B2B", "cuentas target", "cualificación"],
+      "linksTo": [
+        "segmentacion-b2b-500-mejores-clientes",
+        "clay-ia-enriquecer-listas-b2b",
+        "outbound-2026"
+      ]
+    },
+    {
+      "slug": "infraestructura-vs-herramientas",
+      "title": "Por qué tu equipo comercial no necesita más herramientas — necesita infraestructura",
+      "cluster": "Revenue Infrastructure",
+      "keywords": ["herramientas ventas", "infraestructura comercial", "CRM", "tecnología ventas", "sistema"],
+      "linksTo": [
+        "5-capas-infraestructura-comercial-b2b",
+        "que-es-revenue-infrastructure",
+        "agencias-marketing-no-arreglan-ventas"
+      ]
+    },
+    {
+      "slug": "instalar-vs-externalizar-comercial",
+      "title": "Instalar vs externalizar: por qué dejamos activos, no informes",
+      "cluster": "Revenue Infrastructure",
+      "keywords": ["instalar sistema", "externalizar ventas", "activos comerciales", "propiedad cliente", "APEX OS"],
+      "linksTo": [
+        "modelo-success-based-resultados",
+        "agencias-marketing-no-arreglan-ventas",
+        "delegar-ventas-sin-perder-control"
+      ]
+    },
+    {
+      "slug": "linkedin-b2b-10000-mensajes",
+      "title": "LinkedIn para B2B: lo que funciona después de 10.000 mensajes",
+      "cluster": "Prospección B2B",
+      "keywords": ["LinkedIn B2B", "outbound LinkedIn", "mensajes prospección", "social selling", "10000 mensajes"],
+      "linksTo": [
+        "emails-frios-b2b-respuesta",
+        "multicanal-sin-spam-secuencia",
+        "outbound-2026"
+      ]
+    },
+    {
+      "slug": "modelo-success-based-resultados",
+      "title": "El modelo success-based: por qué cobramos vinculado a resultados",
+      "cluster": "Revenue Infrastructure",
+      "keywords": ["success-based", "cobro por resultados", "modelo comercial", "alineación incentivos", "GGC"],
+      "linksTo": [
+        "instalar-vs-externalizar-comercial",
+        "que-es-revenue-infrastructure",
+        "numeros-627-clientes"
+      ]
+    },
+    {
+      "slug": "multicanal-sin-spam-secuencia",
+      "title": "Multicanal sin parecer spam: la secuencia que usamos",
+      "cluster": "Prospección B2B",
+      "keywords": ["multicanal", "secuencia outbound", "evitar spam", "prospección B2B", "email LinkedIn"],
+      "linksTo": [
+        "emails-frios-b2b-respuesta",
+        "linkedin-b2b-10000-mensajes",
+        "automatizar-seguimiento-personalizado"
+      ]
+    },
+    {
+      "slug": "numeros-627-clientes",
+      "title": "Los números de 627 clientes B2B: qué funciona, qué no y qué haríamos diferente",
+      "cluster": "Casos y Métricas",
+      "keywords": ["627 clientes", "datos reales B2B", "track record", "qué funciona", "lecciones aprendidas"],
+      "linksTo": [
+        "benchmarks-prospeccion-b2b-espana-2026",
+        "3-razones-no-crecen",
+        "modelo-success-based-resultados"
+      ]
+    },
+    {
+      "slug": "outbound-2026",
+      "title": "Outbound en 2026: lo que funciona cuando todos hacen lo mismo",
+      "cluster": "Prospección B2B",
+      "keywords": ["outbound 2026", "prospección moderna", "diferenciación", "saturación mensajes", "B2B"],
+      "linksTo": [
+        "emails-frios-b2b-respuesta",
+        "multicanal-sin-spam-secuencia",
+        "benchmarks-prospeccion-b2b-espana-2026"
+      ]
+    },
+    {
+      "slug": "pipeline-fantasma-crm-miente",
+      "title": "El pipeline fantasma: por qué tu CRM miente",
+      "cluster": "Casos y Métricas",
+      "keywords": ["pipeline fantasma", "CRM datos falsos", "previsibilidad ventas", "calidad pipeline", "métricas reales"],
+      "linksTo": [
+        "vanity-metrics-vs-metricas-reales",
+        "7-metricas-exito-comercial-b2b",
+        "facturar-millon-sin-previsibilidad"
+      ]
+    },
+    {
+      "slug": "precio-vs-empaquetado",
+      "title": "Tu precio no es el problema — tu empaquetado sí",
+      "cluster": "Revenue Infrastructure",
+      "keywords": ["precio B2B", "empaquetado oferta", "propuesta de valor", "packaging comercial", "posicionamiento"],
+      "linksTo": [
+        "modelo-success-based-resultados",
+        "instalar-vs-externalizar-comercial",
+        "agencias-marketing-no-arreglan-ventas"
+      ]
+    },
+    {
+      "slug": "proceso-comercial-depende-2-personas",
+      "title": "Tu proceso comercial depende de 2 personas y lo sabes",
+      "cluster": "Escalado Comercial",
+      "keywords": ["dependencia personas", "proceso comercial", "riesgo concentración", "escalabilidad", "sistema"],
+      "linksTo": [
+        "contratar-comerciales-no-escala",
+        "escalar-500k-2m-sistemas",
+        "delegar-ventas-sin-perder-control"
+      ]
+    },
+    {
+      "slug": "proyectos-comerciales-fallan-6-meses",
+      "title": "Por qué el 80% de los proyectos comerciales B2B fallan antes de 6 meses",
+      "cluster": "Escalado Comercial",
+      "keywords": ["fracaso proyectos comerciales", "6 meses", "80% fallan", "errores implementación", "B2B"],
+      "linksTo": [
+        "agencias-marketing-no-arreglan-ventas",
+        "instalar-vs-externalizar-comercial",
+        "proceso-comercial-depende-2-personas"
+      ]
+    },
+    {
+      "slug": "que-es-revenue-infrastructure",
+      "title": "Qué es revenue infrastructure y por qué importa en 2026",
+      "cluster": "Revenue Infrastructure",
+      "keywords": ["revenue infrastructure", "infraestructura ingresos", "definición", "2026", "B2B servicios profesionales"],
+      "linksTo": [
+        "5-capas-infraestructura-comercial-b2b",
+        "infraestructura-vs-herramientas",
+        "escalar-500k-2m-sistemas"
+      ]
+    },
+    {
+      "slug": "sdr-futuro-humano-ia",
+      "title": "El SDR del futuro: humano + IA, no humano vs IA",
+      "cluster": "IA en Ventas",
+      "keywords": ["SDR futuro", "IA ventas", "humano más IA", "prospección aumentada", "comercial del futuro"],
+      "linksTo": [
+        "ia-reuniones-cualificadas",
+        "ia-investigar-prospects-2-minutos",
+        "contratar-comerciales-no-escala"
+      ]
+    },
+    {
+      "slug": "segmentacion-b2b-500-mejores-clientes",
+      "title": "Segmentación B2B: cómo encontrar a tus 500 mejores clientes",
+      "cluster": "Prospección B2B",
+      "keywords": ["segmentación B2B", "mejores clientes", "ICP", "lista prospección", "cuentas target"],
+      "linksTo": [
+        "icp-4-dimensiones",
+        "clay-ia-enriquecer-listas-b2b",
+        "benchmarks-prospeccion-b2b-espana-2026"
+      ]
+    },
+    {
+      "slug": "vanity-metrics-vs-metricas-reales",
+      "title": "Vanity metrics vs métricas reales: los equipos que miden resultados generan 4x más pipeline",
+      "cluster": "Casos y Métricas",
+      "keywords": ["vanity metrics", "métricas reales", "4x pipeline", "medir ventas", "KPIs que importan"],
+      "linksTo": [
+        "7-metricas-exito-comercial-b2b",
+        "pipeline-fantasma-crm-miente",
+        "benchmarks-prospeccion-b2b-espana-2026"
+      ]
+    }
+  ]
+}
