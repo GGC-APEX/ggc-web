@@ -14,7 +14,8 @@
   tailwind.config={theme:{extend:{
     colors:{
       navy:{DEFAULT:'#0C0A1D',light:'#12102B',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},
-      brand:{cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'}
+      brand:{cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+      gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#8A8A8A',700:'#6B6B6B'}
     },
     fontFamily:{
       display:['Playfair Display','Georgia','serif'],
@@ -30,7 +31,7 @@
   <style>
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'DM Sans',system-ui,sans-serif;background:#0C0A1D;color:#c4c0d8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body{font-family:'DM Sans',system-ui,sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
   .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .nv{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(12,10,29,.8);border-bottom:1px solid rgba(255,255,255,.04)}
   @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
