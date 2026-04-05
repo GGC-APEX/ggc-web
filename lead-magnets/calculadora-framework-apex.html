@@ -18,7 +18,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
   tailwind.config={theme:{extend:{
-    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#8A8A8A',700:'#6B6B6B'}},
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
     fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
   }}}
   </script>
@@ -57,8 +57,9 @@
     .channel-item.active{background:rgba(139,92,246,0.08);border-color:rgba(139,92,246,0.3)}
 
     /* Big number */
-    .big-num{font-size:3.5rem;font-weight:800;line-height:1;font-family:'DM Sans',sans-serif}
-    @media(min-width:640px){.big-num{font-size:4.5rem}}
+    .big-num{font-size:2rem;font-weight:800;line-height:1;font-family:'DM Sans',sans-serif}
+    @media(min-width:640px){.big-num{font-size:2.5rem}}
+    @media(min-width:1024px){.big-num{font-size:2.25rem}}
 
     /* Bar chart */
     .bar{transition:width .5s ease;min-width:4px;border-radius:0 6px 6px 0}
@@ -226,14 +227,14 @@
         <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-6">Resultados en tiempo real</p>
 
         <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="text-center p-4 rounded-xl bg-white/[0.03] border border-white/5">
+          <div class="text-center p-4 rounded-xl bg-white/[0.03] border border-white/5 min-w-0 overflow-hidden">
             <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Ahora</p>
-            <p id="currentMeetings" class="big-num text-white">0,8</p>
+            <p id="currentMeetings" class="big-num text-white truncate">0,8</p>
             <p class="text-xs text-gray-500 mt-1">reuniones/semana</p>
           </div>
-          <div class="text-center p-4 rounded-xl border" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2)">
+          <div class="text-center p-4 rounded-xl border min-w-0 overflow-hidden" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2)">
             <p class="text-xs gr mb-2 uppercase tracking-wide font-semibold">Optimizado</p>
-            <p id="potentialMeetings" class="big-num gr">4,2</p>
+            <p id="potentialMeetings" class="big-num gr truncate">4,2</p>
             <p class="text-xs text-gray-400 mt-1">reuniones/semana</p>
           </div>
         </div>
@@ -273,9 +274,9 @@
         <!-- Revenue projection -->
         <div class="p-4 rounded-xl border border-white/5" style="background:linear-gradient(135deg,rgba(59,130,246,0.05),rgba(139,92,246,0.05))">
           <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">Proyecci&oacute;n de revenue adicional</p>
-          <div class="flex items-end gap-2 mb-1">
-            <p class="text-2xl font-bold text-white" id="revGap">&euro;0</p>
-            <span class="text-sm text-gray-400 mb-0.5">/ mes</span>
+          <div class="flex items-end gap-2 mb-1 min-w-0">
+            <p class="text-2xl font-bold text-white truncate" id="revGap">&euro;0</p>
+            <span class="text-sm text-gray-400 mb-0.5 shrink-0">/ mes</span>
           </div>
           <p class="text-xs text-gray-500">Revenue potencial que no est&aacute;s capturando (con close rate del 25%)</p>
         </div>
