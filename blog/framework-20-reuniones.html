@@ -643,7 +643,7 @@
       obj.source = 'blog_calculadora_framework_apex';
       obj.page = window.location.pathname;
 
-      fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4', {
+      fetch('/api/lead-magnet', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(obj)
@@ -664,7 +664,7 @@
       e.preventDefault();
       var email = nlForm.querySelector('input[name="email"]').value;
 
-      fetch('https://hook.eu2.make.com/mnpqwbzvhoyq9n2bx2xvj915x1mx3pad', {
+      fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email, source: 'blog_article_newsletter', page: window.location.pathname })
@@ -709,7 +709,7 @@
       e.preventDefault();
       var email = popupForm.querySelector('input[name="email"]').value;
 
-      fetch('https://hook.eu2.make.com/mnpqwbzvhoyq9n2bx2xvj915x1mx3pad', {
+      fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email, source: 'blog_scroll_popup', page: window.location.pathname })

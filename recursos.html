@@ -355,7 +355,7 @@
         var btn=this.querySelector('button[type="submit"]');
         var origText=btn.textContent;
         btn.textContent='Enviando...';btn.disabled=true;
-        fetch('https://hook.eu2.make.com/mnpqwbzvhoyq9n2bx2xvj915x1mx3pad',{
+        fetch('/api/newsletter',{
           method:'POST',headers:{'Content-Type':'application/json'},
           body:JSON.stringify({email:this.email.value,source:'footer-newsletter',page:window.location.pathname})
         }).then(function(){
@@ -374,7 +374,7 @@
     var origText=btn.textContent;
     var type=form.dataset.type;
     btn.textContent='Enviando...';btn.disabled=true;
-    fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4',{
+    fetch('/api/lead-magnet',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({

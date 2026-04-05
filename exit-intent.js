@@ -118,7 +118,7 @@
 
       var webhookUrl = (window.GGC_CONFIG && window.GGC_CONFIG.webhooks && window.GGC_CONFIG.webhooks.leadMagnet)
         ? window.GGC_CONFIG.webhooks.leadMagnet
-        : 'https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4';
+        : '/api/lead-magnet';
 
       fetch(webhookUrl, {
         method: 'POST',

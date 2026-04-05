@@ -590,7 +590,7 @@
     };
 
     // POST to Make webhook — replace URL with actual webhook
-    fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4', {
+    fetch('/api/lead-magnet', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
