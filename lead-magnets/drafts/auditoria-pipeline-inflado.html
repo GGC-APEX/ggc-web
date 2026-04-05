@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditoria: 10 senales de pipeline inflado | GGC</title>
+  <meta name="description" content="Descubre si tu pipeline de ventas B2B esta inflado con este scorecard de 10 preguntas. Diagnostico inmediato con recomendaciones.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Auditoria de Pipeline B2B — 10 Senales de Pipeline Inflado">
+  <meta property="og:description" content="Responde 10 preguntas y descubre si tu pipeline es real o es humo. Diagnostico inmediato.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    .big-num{font-size:3.5rem;font-weight:800;line-height:1;font-family:'DM Sans',sans-serif}
+    @media(min-width:640px){.big-num{font-size:4.5rem}}
+
+    /* Toggle switch */
+    .toggle-track{width:52px;height:28px;border-radius:14px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:all .2s ease;position:relative;flex-shrink:0}
+    .toggle-track.active{background:linear-gradient(135deg,#8B5CF6,#EC4899);border-color:transparent}
+    .toggle-thumb{width:22px;height:22px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:transform .2s ease;box-shadow:0 1px 3px rgba(0,0,0,0.3)}
+    .toggle-track.active .toggle-thumb{transform:translateX(24px)}
+
+    .question-card{transition:all .2s ease}
+    .question-card:hover{border-color:rgba(139,92,246,0.15)}
+    .question-card.answered-yes{border-color:rgba(236,72,153,0.3);background:rgba(236,72,153,0.04)}
+    .question-card.answered-no{border-color:rgba(34,211,238,0.2);background:rgba(34,211,238,0.02)}
+
+    /* Progress bar */
+    .progress-fill{transition:width .3s ease;border-radius:3px}
+
+    /* Score gauge */
+    .score-ring{width:160px;height:160px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center}
+    .score-ring::before{content:'';position:absolute;inset:0;border-radius:50%;border:6px solid rgba(255,255,255,0.05)}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.pulse-glow{animation:none}.btn-g::after{animation:none}.toggle-thumb{transition:none}.progress-fill{transition:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-3">
+      <img src="../../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Auditoria de pipeline</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      10 se&ntilde;ales de que tu pipeline<br class="hidden sm:block"> <span class="gr">est&aacute; inflado</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      El 73% de los pipelines B2B contienen deals que nunca van a cerrar. Responde estas 10 preguntas y descubre si el tuyo es real o es humo.
+    </p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="mb-8">
+    <div class="flex justify-between items-center mb-2">
+      <span class="text-xs text-gray-500">Progreso</span>
+      <span id="progressText" class="text-xs text-gray-500">0 de 10</span>
+    </div>
+    <div class="w-full h-1.5 rounded-full bg-white/5">
+      <div id="progressBar" class="progress-fill h-1.5 bg-gradient-to-r from-cyan via-purple to-pink" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="questionsContainer" class="space-y-4">
+  </div>
+
+  <!-- CALCULATE BUTTON -->
+  <div class="mt-8 text-center">
+    <button id="calcBtn" onclick="showResults()" class="btn-g px-8 py-4 rounded-xl text-base">Ver mi diagnostico de pipeline</button>
+    <p class="text-xs text-gray-500 mt-2">Responde al menos 1 pregunta para ver resultados</p>
+  </div>
+
+  <!-- RESULTS (hidden initially) -->
+  <div id="resultsSection" class="hidden mt-12 fade-in">
+
+    <!-- Score -->
+    <div class="glass rounded-2xl p-8 text-center mb-8 pulse-glow">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-6">Tu resultado</p>
+
+      <div class="flex justify-center mb-6">
+        <div id="scoreRing" class="score-ring">
+          <div class="text-center">
+            <p id="scoreNum" class="big-num">--</p>
+            <p class="text-sm text-gray-400">de 10</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="scoreTitle" class="text-2xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">--</h2>
+      <p id="scoreDesc" class="text-gray-400 text-sm max-w-lg mx-auto">--</p>
+    </div>
+
+    <!-- Detail breakdown -->
+    <div class="glass rounded-2xl p-6 mb-8">
+      <h3 class="text-lg font-bold text-white mb-4" style="font-family:'Playfair Display',serif">Desglose de se&ntilde;ales detectadas</h3>
+      <div id="signalsList" class="space-y-3">
+      </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="glass rounded-2xl p-6 mb-8">
+      <h3 class="text-lg font-bold text-white mb-4" style="font-family:'Playfair Display',serif">Recomendaciones</h3>
+      <div id="recoList" class="space-y-3">
+      </div>
+    </div>
+
+    <!-- LEAD CAPTURE -->
+    <div class="glass rounded-2xl p-8 text-center">
+      <h2 class="text-2xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe tu diagn&oacute;stico completo por email</h2>
+      <p class="text-gray-400 text-sm mb-2">
+        Tu score: <span id="leadScore" class="font-bold text-white">--</span>/10 &mdash; <span id="leadVerdict" class="font-bold">--</span>
+      </p>
+      <p class="text-gray-500 text-xs mb-6">Te enviamos un informe con acciones concretas para cada se&ntilde;al detectada en tu pipeline.</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="source" value="auditoria-pipeline-inflado">
+        <input type="hidden" name="score" id="hiddenScore" value="">
+        <input type="hidden" name="senales_activas" id="hiddenSenales" value="">
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+          <span class="text-xs text-gray-500">Acepto la <a href="../../privacidad.html" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+        </label>
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Recibe tu diagn&oacute;stico de pipeline por email</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los pr&oacute;ximos 2 minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo tu diagn&oacute;stico con acciones concretas.</p>
+    </div>
+
+    <!-- CTAs -->
+    <div class="mt-8 grid sm:grid-cols-2 gap-4">
+      <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-sm text-gray-400 mb-3">&iquest;Quieres limpiar tu pipeline de verdad?</p>
+        <a href="../../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Agendar una sesi&oacute;n estrat&eacute;gica</a>
+        <p class="text-xs text-gray-500 mt-2">30 min. Sin compromiso.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-sm text-gray-400 mb-3">Aprende a construir un pipeline real</p>
+        <a href="../../blog.html" class="inline-block px-6 py-3 rounded-lg text-sm w-full border border-[#8B5CF6]/40 text-[#8B5CF6] hover:bg-[#8B5CF6]/5 transition-colors">Ver el blog</a>
+        <p class="text-xs text-gray-500 mt-2">Frameworks y casos reales</p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  // 10 senales de pipeline inflado
+  var QUESTIONS = [
+    {
+      id: 'q1',
+      text: 'Mas del 30% de tus deals llevan mas de 90 dias en el pipeline',
+      detail: 'Los deals que llevan mas de un trimestre sin avanzar probablemente estan muertos. Un ciclo de venta sano tiene fechas limite claras.',
+      reco: 'Implementa una regla de higiene: cualquier deal sin actividad en 30 dias se marca como "en riesgo". A los 60 dias sin next step, se archiva.'
+    },
+    {
+      id: 'q2',
+      text: 'No puedes predecir el revenue del proximo mes con menos del 20% de error',
+      detail: 'Si tu forecast falla mas de un 20%, tu pipeline no refleja la realidad. Estas tomando decisiones sobre datos ficticios.',
+      reco: 'Crea 3 categorias: "comprometido" (contrato en firma), "probable" (propuesta aceptada verbalmente), "posible" (propuesta enviada). Solo cuenta los "comprometidos" para forecast.'
+    },
+    {
+      id: 'q3',
+      text: 'Cuentas deals que no tienen un next step definido con fecha concreta',
+      detail: 'Un deal sin next step es un deal sin pulso. Si no hay una accion siguiente con fecha, no esta avanzando.',
+      reco: 'Norma no negociable: cada deal necesita un next step con fecha y responsable. Sin next step = fuera del pipeline activo.'
+    },
+    {
+      id: 'q4',
+      text: 'Tu equipo comercial califica leads por "feeling" en lugar de criterios objetivos',
+      detail: 'La cualificacion subjetiva infla el pipeline porque los comerciales son optimistas por naturaleza.',
+      reco: 'Define un framework de cualificacion con 4-5 criterios medibles (presupuesto, autoridad, necesidad, timing). Si no cumple 3 de 5, no entra en pipeline.'
+    },
+    {
+      id: 'q5',
+      text: 'Tienes deals donde no has hablado con el decisor final',
+      detail: 'Hablar con influencers o usuarios esta bien para discovery, pero si el decisor no ha entrado en la conversacion, el deal no es real.',
+      reco: 'Anade "acceso a decisor" como criterio obligatorio para pasar de fase 2 a fase 3 en tu pipeline. Sin decisor, no avanza.'
+    },
+    {
+      id: 'q6',
+      text: 'El valor medio de tus deals en pipeline es significativamente mayor que tus deals cerrados',
+      detail: 'Cuando los deals abiertos valen mas que los que cierras, estas inflando valores para maquillar el forecast. Los deals grandes rara vez cierran al precio inicial.',
+      reco: 'Aplica un factor de descuento: multiplica el valor de cada deal por su probabilidad historica de cierre en esa fase. Pipeline ponderado > pipeline nominal.'
+    },
+    {
+      id: 'q7',
+      text: 'No diferencias entre reuniones de courtesy y oportunidades reales',
+      detail: 'Muchas reuniones son por educacion o curiosidad, no por necesidad real. Contarlas como pipeline es autoengano.',
+      reco: 'Despues de cada primera reunion, clasifica: "oportunidad cualificada" o "contacto en nurturing". Solo las primeras entran en pipeline.'
+    },
+    {
+      id: 'q8',
+      text: 'Tu tasa de conversion de pipeline a cierre es inferior al 15%',
+      detail: 'Si de cada 100 deals en pipeline cierras menos de 15, estas metiendo demasiados deals prematuros o mal cualificados.',
+      reco: 'Sube el listado de entrada a pipeline. Mejor tener 30 deals buenos que 100 mediocres. Tu equipo perdera menos tiempo en deals muertos.'
+    },
+    {
+      id: 'q9',
+      text: 'Anadir "potenciales" al pipeline para que los numeros queden bien en el reporting',
+      detail: 'Si alguien de tu equipo (o tu) mete deals para que el pipeline parezca mas grande, tienes un problema de cultura, no de ventas.',
+      reco: 'Cambia la metrica de exito: en vez de medir volumen de pipeline, mide velocity (cuanto tarda un deal en cerrar) y win rate. Eso premia calidad, no cantidad.'
+    },
+    {
+      id: 'q10',
+      text: 'No tienes un proceso definido para sacar deals muertos del pipeline',
+      detail: 'Sin un proceso de limpieza periodica, los deals zombis se acumulan y distorsionan toda tu vision comercial.',
+      reco: 'Reunion de pipeline semanal de 30 min. Revisa los 10 deals mas antiguos. Si no hay progreso tangible, fuera. Haz limpieza el primer lunes de cada mes.'
+    }
+  ];
+
+  var answers = {};
+
+  // Render questions
+  var container = document.getElementById('questionsContainer');
+  QUESTIONS.forEach(function(q, i){
+    var div = document.createElement('div');
+    div.className = 'glass rounded-xl p-5 question-card';
+    div.id = 'card-' + q.id;
+    div.innerHTML =
+      '<div class="flex items-start gap-4">' +
+        '<div class="flex-1">' +
+          '<div class="flex items-start gap-3">' +
+            '<span class="text-xs font-bold gr mt-0.5 flex-shrink-0">' + (i + 1) + '.</span>' +
+            '<p class="text-sm text-white font-medium leading-relaxed">' + q.text + '</p>' +
+          '</div>' +
+        '</div>' +
+        '<div class="flex items-center gap-3 flex-shrink-0">' +
+          '<span class="text-xs text-gray-500" id="label-' + q.id + '">No</span>' +
+          '<div class="toggle-track" id="toggle-' + q.id + '" onclick="toggleQ(\'' + q.id + '\')" role="switch" aria-checked="false" aria-label="' + q.text + '" tabindex="0">' +
+            '<div class="toggle-thumb"></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    container.appendChild(div);
+
+    // Keyboard support
+    var toggle = div.querySelector('.toggle-track');
+    toggle.addEventListener('keydown', function(e){
+      if(e.key === ' ' || e.key === 'Enter'){
+        e.preventDefault();
+        toggleQ(q.id);
+      }
+    });
+  });
+
+  window.toggleQ = function(id){
+    var toggle = document.getElementById('toggle-' + id);
+    var card = document.getElementById('card-' + id);
+    var label = document.getElementById('label-' + id);
+    var isActive = toggle.classList.contains('active');
+
+    if(isActive){
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-checked', 'false');
+      card.classList.remove('answered-yes');
+      card.classList.add('answered-no');
+      label.textContent = 'No';
+      answers[id] = false;
+    } else {
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-checked', 'true');
+      card.classList.remove('answered-no');
+      card.classList.add('answered-yes');
+      label.textContent = 'Si';
+      answers[id] = true;
+    }
+
+    updateProgress();
+  };
+
+  function updateProgress(){
+    var answered = Object.keys(answers).length;
+    document.getElementById('progressText').textContent = answered + ' de 10';
+    document.getElementById('progressBar').style.width = (answered / 10 * 100) + '%';
+  }
+
+  window.showResults = function(){
+    // Calculate score
+    var score = 0;
+    var activeSignals = [];
+
+    QUESTIONS.forEach(function(q){
+      if(answers[q.id] === true){
+        score++;
+        activeSignals.push(q.id);
+      }
+    });
+
+    // Update hidden fields
+    document.getElementById('hiddenScore').value = score;
+    document.getElementById('hiddenSenales').value = activeSignals.join(',');
+
+    // Show results section
+    var results = document.getElementById('resultsSection');
+    results.classList.remove('hidden');
+
+    // Scroll to results
+    setTimeout(function(){
+      results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+
+    // Score display
+    document.getElementById('scoreNum').textContent = score;
+
+    // Score ring color
+    var ring = document.getElementById('scoreRing');
+    if(score <= 3){
+      ring.style.background = 'radial-gradient(circle, rgba(34,211,238,0.1) 0%, transparent 70%)';
+      ring.querySelector('.big-num').style.color = '#22D3EE';
+    } else if(score <= 6){
+      ring.style.background = 'radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)';
+      ring.querySelector('.big-num').style.color = '#8B5CF6';
+    } else {
+      ring.style.background = 'radial-gradient(circle, rgba(236,72,153,0.15) 0%, transparent 70%)';
+      ring.querySelector('.big-num').style.color = '#EC4899';
+    }
+
+    // Title and description
+    var title = document.getElementById('scoreTitle');
+    var desc = document.getElementById('scoreDesc');
+
+    if(score <= 3){
+      title.textContent = 'Pipeline saludable';
+      title.style.color = '#22D3EE';
+      desc.textContent = 'Tu pipeline tiene buena higiene. Pocas senales de inflacion detectadas. Enfocate en escalar volumen manteniendo esta disciplina. El reto ahora es generar mas oportunidades de calidad, no limpiar las que tienes.';
+      document.getElementById('leadVerdict').textContent = 'Pipeline saludable';
+      document.getElementById('leadVerdict').style.color = '#22D3EE';
+    } else if(score <= 6){
+      title.textContent = 'Pipeline en riesgo';
+      title.style.color = '#8B5CF6';
+      desc.textContent = 'Tu pipeline tiene senales claras de inflacion. Probablemente estas sobreestimando tu forecast y tu equipo pierde tiempo en deals que no van a cerrar. La buena noticia: con ajustes de proceso puedes corregirlo en 30 dias.';
+      document.getElementById('leadVerdict').textContent = 'Pipeline en riesgo';
+      document.getElementById('leadVerdict').style.color = '#8B5CF6';
+    } else {
+      title.textContent = 'Pipeline fantasma';
+      title.style.color = '#EC4899';
+      desc.textContent = 'Tu pipeline necesita una limpieza profunda. La mayoria de lo que cuentas como "oportunidad" probablemente no va a cerrar. Esto afecta a tus decisiones de contratacion, inversion y estrategia. Necesitas actuar ya.';
+      document.getElementById('leadVerdict').textContent = 'Pipeline fantasma';
+      document.getElementById('leadVerdict').style.color = '#EC4899';
+    }
+
+    document.getElementById('leadScore').textContent = score;
+
+    // Signals list
+    var signalsList = document.getElementById('signalsList');
+    signalsList.innerHTML = '';
+    QUESTIONS.forEach(function(q, i){
+      var isActive = answers[q.id] === true;
+      var div = document.createElement('div');
+      div.className = 'flex items-start gap-3 p-3 rounded-lg ' + (isActive ? 'bg-pink/5 border border-pink/10' : 'bg-white/[0.02] border border-white/5');
+      div.innerHTML =
+        '<div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ' + (isActive ? 'bg-pink/20' : 'bg-cyan/10') + '">' +
+          '<span class="text-xs font-bold ' + (isActive ? 'text-pink' : 'text-cyan') + '">' + (isActive ? '!' : '-') + '</span>' +
+        '</div>' +
+        '<div>' +
+          '<p class="text-sm font-medium text-white">' + (i + 1) + '. ' + q.text + '</p>' +
+          '<p class="text-xs text-gray-500 mt-1">' + q.detail + '</p>' +
+        '</div>';
+      signalsList.appendChild(div);
+    });
+
+    // Recommendations (only for active signals)
+    var recoList = document.getElementById('recoList');
+    recoList.innerHTML = '';
+    var recoCount = 0;
+    QUESTIONS.forEach(function(q, i){
+      if(answers[q.id] === true){
+        recoCount++;
+        var div = document.createElement('div');
+        div.className = 'p-4 rounded-lg bg-purple/5 border border-purple/10';
+        div.innerHTML =
+          '<p class="text-sm font-semibold text-white mb-1">Senal ' + (i + 1) + ':</p>' +
+          '<p class="text-sm text-gray-400">' + q.reco + '</p>';
+        recoList.appendChild(div);
+      }
+    });
+
+    if(recoCount === 0){
+      var div = document.createElement('div');
+      div.className = 'p-4 rounded-lg bg-cyan/5 border border-cyan/10';
+      div.innerHTML = '<p class="text-sm text-gray-400">No se han detectado senales activas. Tu pipeline tiene buena salud. Sigue con la disciplina actual y enfocate en escalar.</p>';
+      recoList.appendChild(div);
+    }
+  };
+
+  // Lead form
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      source: 'auditoria-pipeline-inflado',
+      score: form.score.value,
+      senales_activas: form.senales_activas.value,
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de KPIs de Infraestructura Comercial B2B | GGC</title>
+  <meta name="description" content="Introduce tus 8 KPIs clave y genera un dashboard visual con benchmarks, semaforos y gap analysis. Basado en datos de 627+ clientes B2B.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Dashboard KPIs Infraestructura Comercial - GGC">
+  <meta property="og:description" content="Compara tus KPIs comerciales con los benchmarks del sector y descubre tu potencial de mejora.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Number inputs */
+    input[type="number"]{-moz-appearance:textfield}
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+    /* Progress bars */
+    .kpi-bar{height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden;position:relative}
+    .kpi-bar-fill{height:100%;border-radius:4px;transition:width .5s ease}
+    .kpi-bar-bench{position:absolute;top:-3px;height:14px;width:2px;background:#fff;border-radius:1px;transition:left .5s ease}
+
+    /* Semaforo */
+    .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+    .dot-red{background:#EF4444;box-shadow:0 0 8px rgba(239,68,68,0.4)}
+    .dot-yellow{background:#F59E0B;box-shadow:0 0 8px rgba(245,158,11,0.4)}
+    .dot-green{background:#22C55E;box-shadow:0 0 8px rgba(34,197,94,0.4)}
+
+    /* Fade in */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.kpi-bar-fill{transition:none}.pulse-glow{animation:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-3">
+      <img src="../../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Dashboard KPIs</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      Diagnostica tu <span class="gr">infraestructura comercial</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      Introduce tus 8 KPIs clave y genera un dashboard visual con benchmarks del sector, semaforos y gap analysis. Datos de 627+ empresas B2B.
+    </p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="grid lg:grid-cols-5 gap-8">
+
+    <!-- LEFT: Inputs (3 cols) -->
+    <div class="lg:col-span-3 space-y-4" id="inputsPanel">
+
+      <div class="glass rounded-2xl p-6 space-y-5">
+        <h2 class="text-lg font-bold text-white">Tus KPIs actuales</h2>
+
+        <!-- KPI 1 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="kpi1" class="text-sm text-gray-400 block mb-1">Prospectos contactados/semana</label>
+            <input type="number" id="kpi1" min="0" max="5000" value="50" oninput="calc()" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          </div>
+          <div>
+            <label for="kpi2" class="text-sm text-gray-400 block mb-1">Tasa de respuesta %</label>
+            <input type="number" id="kpi2" min="0" max="100" step="0.5" value="5" oninput="calc()" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          </div>
+        </div>
+
+        <!-- KPI 3 & 4 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="kpi3" class="text-sm text-gray-400 block mb-1">Reuniones cualificadas/mes</label>
+            <input type="number" id="kpi3" min="0" max="200" value="4" oninput="calc()" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          </div>
+          <div>
+            <label for="kpi4" class="text-sm text-gray-400 block mb-1">Conversion reunion-propuesta %</label>
+            <input type="number" id="kpi4" min="0" max="100" step="1" value="40" oninput="calc()" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          </div>
+        </div>
+
+        <!-- KPI 5 & 6 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="kpi5" class="text-sm text-gray-400 block mb-1">Tasa de cierre %</label>
+            <input type="number" id="kpi5" min="0" max="100" step="1" value="15" oninput="calc()" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          </div>
+          <div>
+            <label for="kpi6" class="text-sm text-gray-400 block mb-1">Ticket medio (EUR)</label>
+            <input type="number" id="kpi6" min="0" max="500000" step="500" value="8000" oninput="calc()" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          </div>
+        </div>
+
+        <!-- KPI 7 & 8 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="kpi7" class="text-sm text-gray-400 block mb-1">Ciclo de venta promedio (dias)</label>
+            <input type="number" id="kpi7" min="1" max="365" step="1" value="45" oninput="calc()" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          </div>
+          <div>
+            <label for="kpi8" class="text-sm text-gray-400 block mb-1">Revenue mensual actual (EUR)</label>
+            <input type="number" id="kpi8" min="0" max="5000000" step="1000" value="15000" oninput="calc()" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          </div>
+        </div>
+
+        <button onclick="calc()" class="btn-g w-full px-6 py-3 rounded-lg text-sm mt-2">Generar dashboard</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Summary metrics (2 cols) -->
+    <div class="lg:col-span-2 space-y-4">
+
+      <!-- Pipeline Velocity -->
+      <div class="glass rounded-2xl p-6 text-center pulse-glow">
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Pipeline Velocity</p>
+        <p id="pipelineVelocity" class="text-3xl sm:text-4xl font-bold gr" style="font-family:'DM Sans',sans-serif">--</p>
+        <p class="text-xs text-gray-500 mt-1">EUR/dia en pipeline activo</p>
+      </div>
+
+      <!-- Revenue Potencial -->
+      <div class="glass rounded-2xl p-6 text-center">
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Revenue potencial mensual</p>
+        <p id="revenuePotencial" class="text-2xl sm:text-3xl font-bold text-green-400" style="font-family:'DM Sans',sans-serif">--</p>
+        <p class="text-xs text-gray-500 mt-1">Si todos los KPIs estuvieran en verde</p>
+      </div>
+
+      <!-- Revenue Gap -->
+      <div class="glass rounded-2xl p-6 text-center">
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Gap de revenue mensual</p>
+        <p id="revenueGap" class="text-2xl sm:text-3xl font-bold text-pink-400" style="font-family:'DM Sans',sans-serif">--</p>
+        <p class="text-xs text-gray-500 mt-1">Diferencia entre actual y potencial</p>
+      </div>
+
+      <!-- Score global -->
+      <div class="glass rounded-2xl p-6 text-center">
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Score global</p>
+        <p id="globalScore" class="text-2xl sm:text-3xl font-bold text-white" style="font-family:'DM Sans',sans-serif">--<span class="text-lg text-gray-500">/100</span></p>
+        <p id="globalLabel" class="text-xs mt-1">--</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI DETAIL CARDS -->
+  <div class="mt-10">
+    <h2 class="text-xl font-bold text-white mb-6" style="font-family:'Playfair Display',serif">Detalle por KPI</h2>
+    <div class="grid sm:grid-cols-2 gap-4" id="kpiCards"></div>
+  </div>
+
+  <!-- GAP ANALYSIS -->
+  <div class="mt-10 glass rounded-2xl p-6" id="gapSection">
+    <h2 class="text-lg font-bold text-white mb-4" style="font-family:'Playfair Display',serif">Gap Analysis: prioridades de mejora</h2>
+    <div id="gapList" class="space-y-3"></div>
+  </div>
+
+  <!-- LEAD CAPTURE -->
+  <div class="mt-12" id="leadCapture">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Tu plan personalizado</p>
+      <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe tu dashboard con plan de mejora personalizado</h3>
+      <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te enviamos el dashboard completo con las acciones concretas para cerrar el gap de <span id="leadGap" class="font-bold text-pink-400">--</span> mensuales.</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="source" value="dashboard-kpis-infraestructura">
+        <input type="hidden" name="kpi_scores" id="hiddenKpiScores" value="">
+        <input type="hidden" name="revenue_gap" id="hiddenRevenueGap" value="">
+        <input type="hidden" name="pipeline_velocity" id="hiddenPipelineVelocity" value="">
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+          <span class="text-xs text-gray-500">Acepto la <a href="../../privacidad.html" class="underline hover:text-white">politica de privacidad</a>. Recibire comunicaciones que puedo cancelar en cualquier momento.</span>
+        </label>
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Recibe tu dashboard con plan de mejora personalizado</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los proximos 2 minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo tu dashboard con el plan de accion.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  // --- BENCHMARKS (sector B2B servicios profesionales, datos GGC) ---
+  var BENCH = {
+    prospectos: { green: 150, yellow: 80, label: 'Prospectos/semana', unit: '' },
+    respuesta: { green: 12, yellow: 7, label: 'Tasa de respuesta', unit: '%' },
+    reuniones: { green: 20, yellow: 10, label: 'Reuniones/mes', unit: '' },
+    convPropuesta: { green: 65, yellow: 45, label: 'Reunion a propuesta', unit: '%' },
+    cierre: { green: 30, yellow: 20, label: 'Tasa de cierre', unit: '%' },
+    ticket: { green: 15000, yellow: 8000, label: 'Ticket medio', unit: 'EUR' },
+    ciclo: { green: 21, yellow: 35, label: 'Ciclo de venta', unit: 'dias', inverted: true },
+    revenue: { green: 50000, yellow: 25000, label: 'Revenue mensual', unit: 'EUR' }
+  };
+
+  var KPI_KEYS = ['prospectos','respuesta','reuniones','convPropuesta','cierre','ticket','ciclo','revenue'];
+  var KPI_IDS = ['kpi1','kpi2','kpi3','kpi4','kpi5','kpi6','kpi7','kpi8'];
+
+  function fmtEur(n){
+    if(n>=1000000) return n/1000000 < 10 ? (n/1000000).toFixed(1).replace('.',',')+'M EUR' : Math.round(n/1000000)+'M EUR';
+    if(n>=1000) return Math.round(n/1000).toLocaleString('es-ES')+'K EUR';
+    return Math.round(n).toLocaleString('es-ES')+' EUR';
+  }
+
+  function fmtNum(n){
+    return Math.round(n).toLocaleString('es-ES');
+  }
+
+  function getStatus(key, val){
+    var b = BENCH[key];
+    if(b.inverted){
+      if(val <= b.green) return 'green';
+      if(val <= b.yellow) return 'yellow';
+      return 'red';
+    } else {
+      if(val >= b.green) return 'green';
+      if(val >= b.yellow) return 'yellow';
+      return 'red';
+    }
+  }
+
+  function getScore(key, val){
+    var b = BENCH[key];
+    var ratio;
+    if(b.inverted){
+      ratio = val <= b.green ? 1 : (val >= b.green * 3 ? 0 : (b.green * 3 - val) / (b.green * 3 - b.green));
+    } else {
+      ratio = val >= b.green ? 1 : val / b.green;
+    }
+    return Math.max(0, Math.min(100, Math.round(ratio * 100)));
+  }
+
+  function getBarPct(key, val){
+    var b = BENCH[key];
+    if(b.inverted){
+      var maxVal = b.green * 3;
+      return Math.max(5, Math.min(100, (1 - (val - b.green) / (maxVal - b.green)) * 100));
+    }
+    return Math.max(5, Math.min(100, (val / (b.green * 1.3)) * 100));
+  }
+
+  function getBarColor(status){
+    if(status === 'green') return 'background:linear-gradient(90deg,#22C55E,#16A34A)';
+    if(status === 'yellow') return 'background:linear-gradient(90deg,#F59E0B,#D97706)';
+    return 'background:linear-gradient(90deg,#EF4444,#DC2626)';
+  }
+
+  function getBenchPct(key){
+    var b = BENCH[key];
+    if(b.inverted) return Math.max(5, Math.min(95, (1 - 0) * 100 / 1.3));
+    return Math.max(5, Math.min(95, 100 / 1.3));
+  }
+
+  function formatVal(key, val){
+    var b = BENCH[key];
+    if(b.unit === 'EUR') return fmtEur(val);
+    if(b.unit === '%') return val + '%';
+    if(b.unit === 'dias') return val + ' dias';
+    return fmtNum(val);
+  }
+
+  window.calc = function(){
+    var vals = {};
+    for(var i = 0; i < KPI_KEYS.length; i++){
+      vals[KPI_KEYS[i]] = parseFloat(document.getElementById(KPI_IDS[i]).value) || 0;
+    }
+
+    // --- Calculate Pipeline Velocity ---
+    // PV = (reuniones/mes * conv_propuesta% * cierre% * ticket) / ciclo
+    var pv = (vals.reuniones * (vals.convPropuesta/100) * (vals.cierre/100) * vals.ticket) / (vals.ciclo || 1);
+    document.getElementById('pipelineVelocity').textContent = fmtEur(pv);
+
+    // --- Calculate potential revenue (all KPIs at green) ---
+    var pvGreen = (BENCH.reuniones.green * (BENCH.convPropuesta.green/100) * (BENCH.cierre.green/100) * BENCH.ticket.green) / BENCH.ciclo.green;
+    var revPotencial = pvGreen * 30;
+    document.getElementById('revenuePotencial').textContent = fmtEur(revPotencial);
+
+    // --- Revenue gap ---
+    var revGap = revPotencial - vals.revenue;
+    if(revGap < 0) revGap = 0;
+    document.getElementById('revenueGap').textContent = fmtEur(revGap);
+    document.getElementById('leadGap').textContent = fmtEur(revGap);
+
+    // --- Score global ---
+    var scores = {};
+    var totalScore = 0;
+    for(var j = 0; j < KPI_KEYS.length; j++){
+      var k = KPI_KEYS[j];
+      scores[k] = getScore(k, vals[k]);
+      totalScore += scores[k];
+    }
+    var avgScore = Math.round(totalScore / KPI_KEYS.length);
+    document.getElementById('globalScore').innerHTML = avgScore + '<span class="text-lg text-gray-500">/100</span>';
+
+    var scoreLabel = document.getElementById('globalLabel');
+    if(avgScore >= 80){ scoreLabel.textContent = 'Infraestructura solida'; scoreLabel.className = 'text-xs mt-1 text-green-400'; }
+    else if(avgScore >= 50){ scoreLabel.textContent = 'Margen de mejora significativo'; scoreLabel.className = 'text-xs mt-1 text-yellow-400'; }
+    else { scoreLabel.textContent = 'Necesita atencion urgente'; scoreLabel.className = 'text-xs mt-1 text-red-400'; }
+
+    // --- KPI Detail Cards ---
+    var cardsHtml = '';
+    for(var m = 0; m < KPI_KEYS.length; m++){
+      var key = KPI_KEYS[m];
+      var val = vals[key];
+      var status = getStatus(key, val);
+      var b = BENCH[key];
+      var barPct = getBarPct(key, val);
+      var benchPct = getBenchPct(key);
+      var dotClass = 'dot dot-' + status;
+      var barStyle = getBarColor(status);
+
+      cardsHtml += '<div class="glass rounded-xl p-4 fade-in">';
+      cardsHtml += '<div class="flex items-center justify-between mb-2">';
+      cardsHtml += '<div class="flex items-center gap-2"><span class="' + dotClass + '"></span><span class="text-sm font-semibold text-white">' + b.label + '</span></div>';
+      cardsHtml += '<span class="text-sm font-bold text-white">' + formatVal(key, val) + '</span>';
+      cardsHtml += '</div>';
+      cardsHtml += '<div class="kpi-bar"><div class="kpi-bar-fill" style="width:' + barPct + '%;' + barStyle + '"></div>';
+      cardsHtml += '<div class="kpi-bar-bench" style="left:' + benchPct + '%" title="Benchmark: ' + formatVal(key, b.green) + '"></div></div>';
+      cardsHtml += '<div class="flex justify-between mt-1"><span class="text-[10px] text-gray-500">Tu dato</span><span class="text-[10px] text-gray-500">Benchmark: ' + formatVal(key, b.green) + '</span></div>';
+      cardsHtml += '</div>';
+    }
+    document.getElementById('kpiCards').innerHTML = cardsHtml;
+
+    // --- Gap Analysis (sorted by biggest gap) ---
+    var gaps = [];
+    for(var g = 0; g < KPI_KEYS.length; g++){
+      var gk = KPI_KEYS[g];
+      var gv = vals[gk];
+      var gb = BENCH[gk];
+      var gapScore = 100 - scores[gk];
+      if(gapScore > 5){
+        var desc = '';
+        if(gb.inverted){
+          desc = 'Actual: ' + formatVal(gk, gv) + ' / Benchmark: ' + formatVal(gk, gb.green) + '. Reducir en ' + Math.abs(Math.round(gv - gb.green)) + ' ' + gb.unit + '.';
+        } else {
+          desc = 'Actual: ' + formatVal(gk, gv) + ' / Benchmark: ' + formatVal(gk, gb.green) + '. Mejorar un ' + Math.round(((gb.green - gv) / (gv || 1)) * 100) + '%.';
+        }
+        gaps.push({ label: gb.label, gap: gapScore, desc: desc, status: getStatus(gk, gv) });
+      }
+    }
+    gaps.sort(function(a,b){ return b.gap - a.gap; });
+
+    var gapHtml = '';
+    if(gaps.length === 0){
+      gapHtml = '<p class="text-sm text-green-400">Todos tus KPIs estan en nivel excelente.</p>';
+    } else {
+      for(var h = 0; h < gaps.length; h++){
+        var gItem = gaps[h];
+        var priorityLabel = h === 0 ? '<span class="text-[10px] font-bold uppercase tracking-wider text-pink-400 ml-2">Prioridad #1</span>' : '';
+        var dotCls = 'dot dot-' + gItem.status;
+        gapHtml += '<div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/5">';
+        gapHtml += '<span class="' + dotCls + ' mt-1"></span>';
+        gapHtml += '<div><p class="text-sm font-semibold text-white">' + gItem.label + priorityLabel + '</p>';
+        gapHtml += '<p class="text-xs text-gray-400 mt-0.5">' + gItem.desc + '</p></div></div>';
+      }
+    }
+    document.getElementById('gapList').innerHTML = gapHtml;
+
+    // --- Hidden fields ---
+    document.getElementById('hiddenKpiScores').value = JSON.stringify(scores);
+    document.getElementById('hiddenRevenueGap').value = Math.round(revGap);
+    document.getElementById('hiddenPipelineVelocity').value = Math.round(pv);
+  };
+
+  // Initial calc
+  calc();
+
+  // --- LEAD FORM ---
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      source: 'dashboard-kpis-infraestructura',
+      kpi_scores: form.kpi_scores.value,
+      revenue_gap: form.revenue_gap.value,
+      pipeline_velocity: form.pipeline_velocity.value,
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

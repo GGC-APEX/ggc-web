@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist: Necesitas marketing o infraestructura? | GGC</title>
+  <meta name="description" content="Diagnostica en 2 minutos si tu problema es de visibilidad o de sistema. 12 senales que te dicen exactamente donde invertir para crecer.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Necesitas marketing o infraestructura? Checklist diagnostica">
+  <meta property="og:description" content="12 senales que te dicen si tu problema es de visibilidad o de sistema comercial.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    .check-item{transition:all .2s ease;cursor:pointer;user-select:none}
+    .check-item:hover{background:rgba(139,92,246,0.04)}
+    .check-item.checked{border-color:rgba(139,92,246,0.2)!important}
+    .check-item.checked.marketing{background:rgba(59,130,246,0.06)}
+    .check-item.checked.infra{background:rgba(139,92,246,0.06)}
+
+    .custom-check{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid rgba(139,92,246,0.4);border-radius:6px;background:transparent;cursor:pointer;transition:all .2s ease;flex-shrink:0;position:relative}
+    .custom-check:checked{background:linear-gradient(135deg,#8B5CF6,#EC4899);border-color:transparent}
+    .custom-check:checked::after{content:'';position:absolute;top:3px;left:6px;width:6px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+    .custom-check:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px}
+
+    .progress-fill{transition:width .4s ease}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    .results-panel{display:none}
+    .results-panel.visible{display:block}
+
+    .col-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.06)}
+
+    @media print{
+      body{background:#fff;color:#333}
+      .glass{background:#f5f5f5;border:1px solid #ddd;backdrop-filter:none}
+      .no-print{display:none!important}
+      .check-item{border:1px solid #ddd!important}
+    }
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.progress-fill{transition:none}.check-item{transition:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../../index.html" class="flex items-center gap-3">
+      <img src="../../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Checklist diagnostica</span>
+    <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+      Necesitas <span class="gr">marketing</span> o<br><span class="gr">infraestructura</span>?
+    </h1>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-2">
+      La mayoria de empresas B2B invierten en lo que no necesitan. Marca las senales que reconoces y descubre donde esta tu problema real.
+    </p>
+    <p class="text-gray-500 text-sm">2 minutos. 12 senales. 1 diagnostico claro.</p>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="glass rounded-2xl p-6 mb-8 fade-in sticky top-0 z-10 no-print" style="animation-delay:.1s">
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-sm text-gray-400">Senales marcadas</span>
+      <div class="flex items-center gap-4">
+        <span class="text-xs text-[#3B82F6]" id="countMkt">Marketing: 0</span>
+        <span class="text-xs text-[#8B5CF6]" id="countInfra">Infraestructura: 0</span>
+      </div>
+    </div>
+    <div class="w-full h-2 rounded-full bg-white/5 overflow-hidden flex">
+      <div id="barMkt" class="progress-fill h-full bg-gradient-to-r from-[#22D3EE] to-[#3B82F6]" style="width:0%"></div>
+      <div id="barInfra" class="progress-fill h-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899]" style="width:0%"></div>
+    </div>
+    <p id="progressHint" class="text-xs text-gray-500 mt-2"></p>
+  </div>
+
+  <!-- CHECKLIST COLUMNS -->
+  <div class="grid md:grid-cols-2 gap-6 mb-8 fade-in" style="animation-delay:.2s">
+
+    <!-- MARKETING COLUMN -->
+    <div class="glass rounded-2xl p-6">
+      <div class="col-header">
+        <div class="w-10 h-10 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-[#3B82F6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-white">Necesitas marketing</h2>
+          <p class="text-xs text-gray-500">Senales de un problema de visibilidad</p>
+        </div>
+      </div>
+      <div class="space-y-3" id="mktItems">
+        <label class="check-item marketing flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="marketing" data-index="0">
+          <div>
+            <p class="text-sm text-white font-medium">No te conoce nadie en tu mercado</p>
+            <p class="text-xs text-gray-500 mt-1">Cuando contactas prospectos, nunca han oido hablar de ti.</p>
+          </div>
+        </label>
+        <label class="check-item marketing flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="marketing" data-index="1">
+          <div>
+            <p class="text-sm text-white font-medium">No generas contenido</p>
+            <p class="text-xs text-gray-500 mt-1">Llevas meses (o anos) sin publicar nada relevante.</p>
+          </div>
+        </label>
+        <label class="check-item marketing flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="marketing" data-index="2">
+          <div>
+            <p class="text-sm text-white font-medium">Tu web no recibe trafico</p>
+            <p class="text-xs text-gray-500 mt-1">Nadie te encuentra organicamente. Tu web es un folleto estatico.</p>
+          </div>
+        </label>
+        <label class="check-item marketing flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="marketing" data-index="3">
+          <div>
+            <p class="text-sm text-white font-medium">No tienes presencia en LinkedIn</p>
+            <p class="text-xs text-gray-500 mt-1">Tu perfil (y el de tu equipo) estan muertos o desactualizados.</p>
+          </div>
+        </label>
+        <label class="check-item marketing flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="marketing" data-index="4">
+          <div>
+            <p class="text-sm text-white font-medium">Dependes 100% de referidos</p>
+            <p class="text-xs text-gray-500 mt-1">Si se secan los referidos, se seca el pipeline. Cero control.</p>
+          </div>
+        </label>
+        <label class="check-item marketing flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="marketing" data-index="5">
+          <div>
+            <p class="text-sm text-white font-medium">Tu marca no transmite tu valor real</p>
+            <p class="text-xs text-gray-500 mt-1">Sabes que eres bueno pero tu imagen dice lo contrario.</p>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- INFRAESTRUCTURA COLUMN -->
+    <div class="glass rounded-2xl p-6">
+      <div class="col-header">
+        <div class="w-10 h-10 rounded-xl bg-[#8B5CF6]/10 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-[#8B5CF6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-white">Necesitas infraestructura</h2>
+          <p class="text-xs text-gray-500">Senales de un problema de sistema</p>
+        </div>
+      </div>
+      <div class="space-y-3" id="infraItems">
+        <label class="check-item infra flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="infra" data-index="0">
+          <div>
+            <p class="text-sm text-white font-medium">Generas leads pero no cierras</p>
+            <p class="text-xs text-gray-500 mt-1">Llegan oportunidades pero se pierden en el camino.</p>
+          </div>
+        </label>
+        <label class="check-item infra flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="infra" data-index="1">
+          <div>
+            <p class="text-sm text-white font-medium">Tu pipeline es impredecible</p>
+            <p class="text-xs text-gray-500 mt-1">No sabes cuanto vas a facturar el mes que viene. Cada trimestre es una sorpresa.</p>
+          </div>
+        </label>
+        <label class="check-item infra flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="infra" data-index="2">
+          <div>
+            <p class="text-sm text-white font-medium">Cada comercial vende de forma diferente</p>
+            <p class="text-xs text-gray-500 mt-1">No hay proceso. Cada persona improvisa su propio metodo.</p>
+          </div>
+        </label>
+        <label class="check-item infra flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="infra" data-index="3">
+          <div>
+            <p class="text-sm text-white font-medium">No sabes tu coste por reunion</p>
+            <p class="text-xs text-gray-500 mt-1">Inviertes en ventas pero no mides el retorno real de cada accion.</p>
+          </div>
+        </label>
+        <label class="check-item infra flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="infra" data-index="4">
+          <div>
+            <p class="text-sm text-white font-medium">Pierdes deals por falta de follow-up</p>
+            <p class="text-xs text-gray-500 mt-1">Oportunidades que se enfrian porque nadie las persigue a tiempo.</p>
+          </div>
+        </label>
+        <label class="check-item infra flex items-start gap-3 p-4 rounded-xl border border-white/5 cursor-pointer">
+          <input type="checkbox" class="custom-check" data-type="infra" data-index="5">
+          <div>
+            <p class="text-sm text-white font-medium">No puedes escalar sin contratar mas personas</p>
+            <p class="text-xs text-gray-500 mt-1">Mas revenue = mas gente. No hay apalancamiento operativo.</p>
+          </div>
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SHOW RESULTS BUTTON -->
+  <div class="text-center mt-8 no-print fade-in" style="animation-delay:.3s">
+    <button id="showResultsBtn" onclick="showResults()" class="btn-g px-8 py-4 rounded-xl text-sm">
+      Ver mi diagnostico
+    </button>
+    <p class="text-xs text-gray-500 mt-3">Marca las senales que reconoces antes de ver el resultado</p>
+  </div>
+
+  <!-- RESULTS PANEL -->
+  <div id="resultsPanel" class="results-panel mt-12 fade-in">
+    <div class="glass rounded-2xl p-8 text-center mb-6">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Tu diagnostico</p>
+      <div id="resultIcon" class="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center text-3xl"></div>
+      <h2 id="resultTitle" class="text-2xl md:text-3xl font-bold text-white mb-3"></h2>
+      <p id="resultMessage" class="text-gray-400 text-base max-w-xl mx-auto mb-6"></p>
+
+      <!-- Visual breakdown -->
+      <div class="grid grid-cols-2 gap-4 max-w-md mx-auto mb-6">
+        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+          <p class="text-2xl font-bold text-[#3B82F6]" id="resMkt">0</p>
+          <p class="text-xs text-gray-500 mt-1">Senales de marketing</p>
+          <div class="w-full h-1.5 rounded-full bg-white/5 mt-2">
+            <div id="resMktBar" class="h-full rounded-full bg-[#3B82F6]" style="width:0%"></div>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+          <p class="text-2xl font-bold text-[#8B5CF6]" id="resInfra">0</p>
+          <p class="text-xs text-gray-500 mt-1">Senales de infraestructura</p>
+          <div class="w-full h-1.5 rounded-full bg-white/5 mt-2">
+            <div id="resInfraBar" class="h-full rounded-full bg-[#8B5CF6]" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail list -->
+      <div id="resultDetail" class="text-left max-w-lg mx-auto space-y-2"></div>
+    </div>
+
+    <!-- WHAT TO DO NEXT -->
+    <div class="glass rounded-2xl p-8 mb-6">
+      <h3 class="text-xl font-bold text-white mb-4" style="font-family:'Playfair Display',serif">Que hacer con este diagnostico</h3>
+      <div id="nextSteps" class="space-y-3"></div>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE -->
+  <div id="leadCapture" class="mt-12 hidden">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Guarda tu diagnostico</p>
+      <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe tu diagnostico personalizado</h3>
+      <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te enviamos un resumen con tu resultado, las senales que marcaste y un plan de accion concreto.</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="resultado" id="hiddenResultado" value="">
+        <input type="hidden" name="items_marketing" id="hiddenMkt" value="">
+        <input type="hidden" name="items_infra" id="hiddenInfra" value="">
+        <input type="hidden" name="source" value="checklist-marketing-vs-infraestructura">
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+          <span class="text-xs text-gray-500">Acepto la <a href="../../privacidad.html" class="underline hover:text-white">politica de privacidad</a>. Recibire comunicaciones que puedo cancelar en cualquier momento.</span>
+        </label>
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Recibe tu diagnostico personalizado</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los proximos 2 minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo el diagnostico.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  var mktLabels = [
+    'No te conoce nadie en tu mercado',
+    'No generas contenido',
+    'Tu web no recibe trafico',
+    'No tienes presencia en LinkedIn',
+    'Dependes 100% de referidos',
+    'Tu marca no transmite tu valor real'
+  ];
+
+  var infraLabels = [
+    'Generas leads pero no cierras',
+    'Tu pipeline es impredecible',
+    'Cada comercial vende de forma diferente',
+    'No sabes tu coste por reunion',
+    'Pierdes deals por falta de follow-up',
+    'No puedes escalar sin contratar mas personas'
+  ];
+
+  var mktChecks = document.querySelectorAll('[data-type="marketing"]');
+  var infraChecks = document.querySelectorAll('[data-type="infra"]');
+
+  function countChecked(checks){
+    var c = 0;
+    checks.forEach(function(cb){ if(cb.checked) c++; });
+    return c;
+  }
+
+  function updateProgress(){
+    var mkt = countChecked(mktChecks);
+    var infra = countChecked(infraChecks);
+    var total = mkt + infra;
+
+    document.getElementById('countMkt').textContent = 'Marketing: ' + mkt;
+    document.getElementById('countInfra').textContent = 'Infraestructura: ' + infra;
+
+    var barWidth = total > 0 ? 100 : 0;
+    var mktPct = total > 0 ? (mkt / 12) * 100 : 0;
+    var infraPct = total > 0 ? (infra / 12) * 100 : 0;
+
+    document.getElementById('barMkt').style.width = mktPct + '%';
+    document.getElementById('barInfra').style.width = infraPct + '%';
+
+    var hint = document.getElementById('progressHint');
+    if(total === 0) hint.textContent = '';
+    else if(total <= 3) hint.textContent = 'Pocas senales. Sigue revisando.';
+    else if(total <= 8) hint.textContent = 'Vas identificando patrones. Mira el diagnostico.';
+    else hint.textContent = 'Muchas senales. El diagnostico te va a dar claridad.';
+
+    // Toggle checked class
+    document.querySelectorAll('.check-item').forEach(function(item){
+      var cb = item.querySelector('.custom-check');
+      if(cb.checked) item.classList.add('checked');
+      else item.classList.remove('checked');
+    });
+  }
+
+  mktChecks.forEach(function(cb){ cb.addEventListener('change', updateProgress); });
+  infraChecks.forEach(function(cb){ cb.addEventListener('change', updateProgress); });
+
+  // Show results
+  window.showResults = function(){
+    var mkt = countChecked(mktChecks);
+    var infra = countChecked(infraChecks);
+    var panel = document.getElementById('resultsPanel');
+    var capture = document.getElementById('leadCapture');
+
+    // Determine result
+    var resultado, title, message, iconBg, iconSvg;
+
+    if(mkt === 0 && infra === 0){
+      resultado = 'Sin senales marcadas';
+      title = 'No has marcado ninguna senal';
+      message = 'Vuelve arriba y marca las senales que reconoces en tu empresa. El diagnostico necesita al menos una senal para darte un resultado.';
+      iconBg = 'bg-gray-500/10';
+      iconSvg = '<svg class="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+    } else if(mkt > infra){
+      resultado = 'Necesitas marketing';
+      title = 'Tu problema es de visibilidad';
+      message = 'Tus senales apuntan a un deficit de marketing. Tu empresa probablemente hace buen trabajo pero nadie lo sabe. Antes de invertir en procesos de venta, necesitas que el mercado te conozca y te perciba como una opcion relevante.';
+      iconBg = 'bg-[#3B82F6]/10';
+      iconSvg = '<svg class="w-8 h-8 text-[#3B82F6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>';
+    } else if(infra > mkt){
+      resultado = 'Necesitas infraestructura';
+      title = 'Tu problema es de sistema';
+      message = 'Tus senales apuntan a un deficit de infraestructura comercial. Probablemente generas oportunidades pero se pierden por falta de proceso, seguimiento y medicion. Invertir en mas marketing sin arreglar esto es echar agua en un cubo agujereado.';
+      iconBg = 'bg-[#8B5CF6]/10';
+      iconSvg = '<svg class="w-8 h-8 text-[#8B5CF6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>';
+    } else {
+      resultado = 'Necesitas ambos';
+      title = 'Necesitas marketing e infraestructura';
+      message = 'Tienes senales de ambos lados en proporcion similar. Esto es comun en empresas que estan creciendo pero sin una estrategia clara. La buena noticia: cuando instalas ambos a la vez, el efecto es multiplicador, no sumatorio.';
+      iconBg = 'bg-[#EC4899]/10';
+      iconSvg = '<svg class="w-8 h-8 text-[#EC4899]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>';
+    }
+
+    document.getElementById('resultIcon').className = 'w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center ' + iconBg;
+    document.getElementById('resultIcon').innerHTML = iconSvg;
+    document.getElementById('resultTitle').textContent = title;
+    document.getElementById('resultMessage').textContent = message;
+
+    // Bars
+    document.getElementById('resMkt').textContent = mkt + '/6';
+    document.getElementById('resInfra').textContent = infra + '/6';
+    document.getElementById('resMktBar').style.width = Math.round((mkt/6)*100) + '%';
+    document.getElementById('resInfraBar').style.width = Math.round((infra/6)*100) + '%';
+
+    // Detail list
+    var detail = document.getElementById('resultDetail');
+    detail.innerHTML = '';
+
+    var mktMarked = [];
+    var infraMarked = [];
+
+    mktChecks.forEach(function(cb, i){
+      if(cb.checked){
+        mktMarked.push(mktLabels[i]);
+        detail.innerHTML += '<div class="flex items-center gap-2 p-3 rounded-lg bg-[#3B82F6]/5 border border-[#3B82F6]/10"><span class="w-2 h-2 rounded-full bg-[#3B82F6] flex-shrink-0"></span><span class="text-sm text-gray-300">' + mktLabels[i] + '</span><span class="text-xs text-[#3B82F6] ml-auto flex-shrink-0">Marketing</span></div>';
+      }
+    });
+    infraChecks.forEach(function(cb, i){
+      if(cb.checked){
+        infraMarked.push(infraLabels[i]);
+        detail.innerHTML += '<div class="flex items-center gap-2 p-3 rounded-lg bg-[#8B5CF6]/5 border border-[#8B5CF6]/10"><span class="w-2 h-2 rounded-full bg-[#8B5CF6] flex-shrink-0"></span><span class="text-sm text-gray-300">' + infraLabels[i] + '</span><span class="text-xs text-[#8B5CF6] ml-auto flex-shrink-0">Infra</span></div>';
+      }
+    });
+
+    // Next steps
+    var steps = document.getElementById('nextSteps');
+    steps.innerHTML = '';
+
+    if(mkt > infra){
+      steps.innerHTML = '<div class="p-4 rounded-xl bg-white/[0.02] border border-white/5"><p class="text-sm text-white font-medium mb-1">1. Define tu posicionamiento</p><p class="text-xs text-gray-500">Antes de hacer contenido o ads, necesitas saber exactamente que problema resuelves y para quien.</p></div><div class="p-4 rounded-xl bg-white/[0.02] border border-white/5"><p class="text-sm text-white font-medium mb-1">2. Activa tu presencia en LinkedIn</p><p class="text-xs text-gray-500">Es el canal B2B por excelencia. Empieza publicando 3x por semana con opinion propia.</p></div><div class="p-4 rounded-xl bg-white/[0.02] border border-white/5"><p class="text-sm text-white font-medium mb-1">3. Crea un activo de conversion</p><p class="text-xs text-gray-500">Una guia, checklist o herramienta que demuestre tu expertise y capture emails.</p></div>';
+    } else if(infra > mkt){
+      steps.innerHTML = '<div class="p-4 rounded-xl bg-white/[0.02] border border-white/5"><p class="text-sm text-white font-medium mb-1">1. Documenta tu proceso de ventas</p><p class="text-xs text-gray-500">Si no esta escrito, no existe. Define stages, criterios de avance y tiempos maximos.</p></div><div class="p-4 rounded-xl bg-white/[0.02] border border-white/5"><p class="text-sm text-white font-medium mb-1">2. Instala un sistema de follow-up</p><p class="text-xs text-gray-500">Automatiza recordatorios. Ningun lead deberia enfriarse por falta de seguimiento.</p></div><div class="p-4 rounded-xl bg-white/[0.02] border border-white/5"><p class="text-sm text-white font-medium mb-1">3. Mide tu coste por reunion y por cierre</p><p class="text-xs text-gray-500">Sin metricas no puedes optimizar. Empieza midiendo estas dos y el ciclo medio de venta.</p></div>';
+    } else if(mkt > 0){
+      steps.innerHTML = '<div class="p-4 rounded-xl bg-white/[0.02] border border-white/5"><p class="text-sm text-white font-medium mb-1">1. Prioriza infraestructura primero</p><p class="text-xs text-gray-500">Si ambos fallan, arregla el sistema antes de meter mas leads. No tiene sentido generar demanda que vas a desperdiciar.</p></div><div class="p-4 rounded-xl bg-white/[0.02] border border-white/5"><p class="text-sm text-white font-medium mb-1">2. Activa marketing en paralelo</p><p class="text-xs text-gray-500">Mientras instalas proceso, empieza a construir presencia. LinkedIn + contenido educativo.</p></div><div class="p-4 rounded-xl bg-white/[0.02] border border-white/5"><p class="text-sm text-white font-medium mb-1">3. Considera un sistema integral</p><p class="text-xs text-gray-500">Cuando necesitas ambos, instalar las piezas por separado suele generar friccion. Un sistema integrado (como APEX OS) resuelve ambos a la vez.</p></div>';
+    }
+
+    // Hidden fields
+    document.getElementById('hiddenResultado').value = resultado;
+    document.getElementById('hiddenMkt').value = mktMarked.join(', ');
+    document.getElementById('hiddenInfra').value = infraMarked.join(', ');
+
+    // Show panels
+    panel.classList.add('visible');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    setTimeout(function(){
+      capture.classList.remove('hidden');
+    }, 800);
+  };
+
+  // Lead form submission
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      resultado: form.resultado.value,
+      items_marketing: form.items_marketing.value,
+      items_infra: form.items_infra.value,
+      source: 'checklist-marketing-vs-infraestructura',
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/n478gvi552fnqi9hyu357na46xkk6lp4', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'Error al enviar. Intentalo de nuevo.';
+      btn.style.background = 'linear-gradient(135deg, #EF4444, #DC2626)';
+      setTimeout(function(){ btn.textContent = 'Recibe tu diagnostico personalizado'; btn.style.background = ''; }, 3000);
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
