@@ -50,7 +50,40 @@ export default async function handler(req, res) {
       })
     });
 
-    // 3. Notify via Discord
+    // 3. Create/update contact in GHL with tags
+    const GHL_KEY = process.env.GHL_API_KEY;
+    const GHL_LOC = process.env.GHL_LOCATION_ID;
+    const slugTag = source ? source.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').substring(0, 50) : 'recurso';
+    if (GHL_KEY && GHL_LOC) {
+      const searchRes = await fetch(`https://services.leadconnectorhq.com/contacts/search/duplicate?locationId=${GHL_LOC}&email=${encodeURIComponent(email)}`, {
+        headers: { 'Authorization': `Bearer ${GHL_KEY}`, 'Version': '2021-07-28' }
+      });
+      const searchData = await searchRes.json();
+      const existingId = searchData?.contact?.id;
+
+      if (existingId) {
+        await fetch(`https://services.leadconnectorhq.com/contacts/${existingId}`, {
+          method: 'PUT',
+          headers: { 'Authorization': `Bearer ${GHL_KEY}`, 'Content-Type': 'application/json', 'Version': '2021-07-28' },
+          body: JSON.stringify({ tags: ['web-leadmagnet', `lm-${slugTag}`], source: 'GGC Web', companyName: empresa || '' })
+        });
+      } else {
+        await fetch('https://services.leadconnectorhq.com/contacts/', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${GHL_KEY}`, 'Content-Type': 'application/json', 'Version': '2021-07-28' },
+          body: JSON.stringify({
+            locationId: GHL_LOC,
+            email,
+            name: nombre || '',
+            companyName: empresa || '',
+            tags: ['web-leadmagnet', `lm-${slugTag}`],
+            source: 'GGC Web'
+          })
+        });
+      }
+    }
+
+    // 4. Notify via Discord
     if (DISCORD_WEBHOOK) {
       await fetch(DISCORD_WEBHOOK, {
         method: 'POST',

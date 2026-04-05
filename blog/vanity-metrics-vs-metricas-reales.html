@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanity metrics vs métricas reales: los equipos que miden resultados generan 4x más pipeline | GGC</title>
+  <meta name="description" content="Las vanity metrics son la droga dura de los equipos comerciales. Emails enviados, conexiones de LinkedIn, tasa de apertura — ninguna te dice si vas a cerrar el trimestre.">
+  <link rel="canonical" href="https://globalgrowth.consulting/blog/vanity-metrics-vs-metricas-reales">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://globalgrowth.consulting/blog/vanity-metrics-vs-metricas-reales">
+  <meta property="og:title" content="Vanity metrics vs métricas reales: los equipos que miden resultados generan 4x más pipeline">
+  <meta property="og:description" content="Las vanity metrics son la droga dura de los equipos comerciales. Emails enviados, conexiones de LinkedIn, tasa de apertura — ninguna te dice si vas a cerrar el trimestre.">
+  <meta property="og:locale" content="es_ES">
+  <meta property="article:published_time" content="2026-04-26">
+  <meta property="article:author" content="Xavi Fortuna">
+  <meta property="article:section" content="Revenue Infrastructure">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Xavi Fortuna">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Vanity metrics vs métricas reales: los equipos que miden resultados generan 4x más pipeline",
+    "description": "Las vanity metrics son la droga dura de los equipos comerciales. Emails enviados, conexiones de LinkedIn, tasa de apertura — ninguna te dice si vas a cerrar el trimestre.",
+    "datePublished": "2026-04-26",
+    "dateModified": "2026-04-26",
+    "author": {"@type":"Person","name":"Xavi Fortuna","jobTitle":"CEO & Head of Growth","url":"https://linkedin.com/in/xavierfortuna/"},
+    "publisher": {"@type":"Organization","name":"Global Growth Consulting","url":"https://globalgrowth.consulting","logo":{"@type":"ImageObject","url":"https://globalgrowth.consulting/logo.png"}},
+    "mainEntityOfPage": {"@type":"WebPage","@id":"https://globalgrowth.consulting/blog/vanity-metrics-vs-metricas-reales"},
+    "articleSection": "Revenue Infrastructure",
+    "wordCount": 1850,
+    "timeRequired": "PT7M"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#8A8A8A',700:'#6B6B6B'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-outline{border:1px solid rgba(139,92,246,0.4);color:#8B5CF6;transition:all .3s ease}
+    .btn-outline:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.08)}
+    .nav-blur{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(12,10,29,0.7);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;margin-top:2.5rem;margin-bottom:1rem;line-height:1.3}
+    .article-body h3{font-size:1.25rem;font-weight:600;color:#fff;margin-top:2rem;margin-bottom:0.75rem;line-height:1.4}
+    .article-body p{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:1.25rem}
+    .article-body ul,.article-body ol{margin-bottom:1.25rem;padding-left:1.5rem}
+    .article-body li{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:0.5rem}
+    .article-body strong{color:#e0e0e0;font-weight:600}
+    .article-body blockquote{border-left:3px solid transparent;border-image:linear-gradient(180deg,#8B5CF6,#EC4899) 1;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#999}
+    .scroll-popup{transform:translateY(120%);transition:transform .4s ease,opacity .4s ease;opacity:0}
+    .scroll-popup.show{transform:translateY(0);opacity:1}
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.btn-g,.btn-outline{transition:none}.btn-g::after{animation:none}.scroll-popup{transition:none}}
+    section[id]{scroll-margin-top:80px}
+    .metric-tag{display:inline-flex;align-items:center;gap:0.375rem;padding:0.25rem 0.75rem;border-radius:9999px;font-size:0.8125rem;font-weight:600}
+    .tag-bad{background:rgba(248,113,113,0.1);color:#F87171;border:1px solid rgba(248,113,113,0.2)}
+    .tag-good{background:rgba(52,211,153,0.1);color:#34D399;border:1px solid rgba(52,211,153,0.2)}
+    .compare-row{display:flex;gap:1.5rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .compare-row:last-child{border-bottom:none}
+  </style>
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+<div id="progress" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);z-index:100;width:0;transition:width .1s"></div>
+
+<!-- NAV -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="../index.html#sistema" class="text-sm text-gray-400 hover:text-white transition-colors">Sistema</a>
+      <a href="../index.html#resultados" class="text-sm text-gray-400 hover:text-white transition-colors">Resultados</a>
+      <a href="../blog.html" class="text-sm text-white font-medium transition-colors">Blog</a>
+      <a href="../index.html#proceso" class="text-sm text-gray-400 hover:text-white transition-colors">Proceso</a>
+      <a href="../agendar.html" class="btn-g px-5 py-2.5 rounded-lg text-sm">Aplica ahora</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Abrir menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-72 bg-[#151331] z-50 flex flex-col p-8 gap-6 md:hidden">
+    <button id="closeMenu" class="self-end text-white mb-4" aria-label="Cerrar menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html#sistema" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Sistema</a>
+    <a href="../index.html#resultados" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Resultados</a>
+    <a href="../blog.html" class="text-lg text-white font-medium transition-colors mobile-link">Blog</a>
+    <a href="../index.html#proceso" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Proceso</a>
+    <a href="../agendar.html" class="btn-g px-5 py-3 rounded-lg text-center text-sm mt-4 mobile-link">Aplica ahora</a>
+  </div>
+</nav>
+
+<!-- ARTICLE -->
+<main class="pt-28 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <nav class="mb-8 reveal" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="../index.html" class="hover:text-gray-300 transition-colors">Inicio</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><span class="text-[#8B5CF6]">Revenue Infrastructure</span></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li class="text-gray-400 truncate max-w-[200px]">Vanity metrics</li>
+      </ol>
+    </nav>
+
+    <header class="max-w-3xl mx-auto mb-12 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Revenue Infrastructure</span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        Vanity metrics vs métricas reales: los equipos que miden resultados generan 4x más pipeline
+      </h1>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+        <span class="font-medium text-white">Xavi Fortuna</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>26 de abril de 2026</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>7 min lectura</span>
+      </div>
+    </header>
+
+    <div class="flex gap-12 max-w-7xl mx-auto">
+
+      <article class="max-w-3xl w-full article-body">
+
+        <div class="reveal">
+          <p>
+            Las vanity metrics son la droga dura de los equipos comerciales.
+          </p>
+          <p>
+            Dan una sensación de actividad. Se pueden mostrar en un dashboard. Se pueden reportar en la reunión del lunes. "Esta semana mandamos 800 emails, hicimos 120 conexiones de LinkedIn, tuvimos 45% de tasa de apertura." Todos asienten. Nadie pregunta la que importa: ¿cuántas reuniones cualificadas generaste?
+          </p>
+          <p>
+            El problema de las vanity metrics no es que sean inútiles. Es que son cómodas. Y lo cómodo en ventas suele ser lo que menos genera.
+          </p>
+          <p>
+            En los análisis que hacemos antes de instalar APEX OS™ en un cliente nuevo, la primera cosa que miramos es qué mide el equipo. No lo que vende —eso viene después. Lo que mide. Porque lo que mides es lo que optimizas. Y si optimizas métricas que no predicen revenue, tienes un sistema diseñado para parecer activo sin serlo.
+          </p>
+          <p>
+            Los equipos que miden las métricas correctas generan <strong>4 veces más pipeline cualificado</strong> que los que miden actividad. No porque trabajen más. Porque saben dónde mirar.
+          </p>
+
+          <h2>El problema fundamental: actividad ≠ resultado</h2>
+          <p>
+            Un comercial puede mandar 1.000 emails a la semana y no generar ninguna reunión. Otro puede mandar 50 y generar 8. El primero tiene números impresionantes de actividad. El segundo tiene resultados.
+          </p>
+          <p>
+            Las organizaciones que miden actividad —volumen de emails, llamadas realizadas, conexiones aceptadas— crean incentivos perversos sin quererlo. El equipo aprende que la manera de "quedar bien" es tener volumen. Así que optimizan volumen. Y el ratio de conversión cae, porque el tiempo que podría invertirse en personalización e investigación se va en volumen.
+          </p>
+
+          <blockquote>
+            Medir actividad comercial sin medir conversión es como medir el esfuerzo de un navegante por el número de remos que da, no por si llega al destino.
+          </blockquote>
+
+          <h2>Las vanity metrics más comunes (y por qué engañan)</h2>
+        </div>
+
+        <!-- Vanity metrics comparison -->
+        <div class="glass rounded-2xl overflow-hidden my-8 reveal">
+          <div class="p-6 border-b border-white/5">
+            <h3 class="text-white font-bold text-lg" style="font-family:'DM Sans',sans-serif">Vanity metrics vs métricas que importan</h3>
+          </div>
+          <div class="p-6 space-y-0">
+            <div class="compare-row">
+              <div class="flex-1">
+                <span class="metric-tag tag-bad">Vanity</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Emails enviados</p>
+                <p class="text-gray-500 text-xs mt-1">Mide esfuerzo, no efectividad</p>
+              </div>
+              <div class="flex-1">
+                <span class="metric-tag tag-good">Real</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Tasa de respuesta positiva</p>
+                <p class="text-gray-500 text-xs mt-1">Mida si el mensaje resuena</p>
+              </div>
+            </div>
+            <div class="compare-row">
+              <div class="flex-1">
+                <span class="metric-tag tag-bad">Vanity</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Tasa de apertura de email</p>
+                <p class="text-gray-500 text-xs mt-1">Abrieron. No leyeron. No importa.</p>
+              </div>
+              <div class="flex-1">
+                <span class="metric-tag tag-good">Real</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Conversión email → reunión</p>
+                <p class="text-gray-500 text-xs mt-1">Mide si el email genera acción</p>
+              </div>
+            </div>
+            <div class="compare-row">
+              <div class="flex-1">
+                <span class="metric-tag tag-bad">Vanity</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Conexiones de LinkedIn aceptadas</p>
+                <p class="text-gray-500 text-xs mt-1">Nadie compra por aceptar una conexión</p>
+              </div>
+              <div class="flex-1">
+                <span class="metric-tag tag-good">Real</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Conversión LinkedIn → conversación</p>
+                <p class="text-gray-500 text-xs mt-1">Mide si la conexión inicia diálogo</p>
+              </div>
+            </div>
+            <div class="compare-row">
+              <div class="flex-1">
+                <span class="metric-tag tag-bad">Vanity</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Reuniones totales</p>
+                <p class="text-gray-500 text-xs mt-1">Reuniones malas llenan el calendario</p>
+              </div>
+              <div class="flex-1">
+                <span class="metric-tag tag-good">Real</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Reuniones cualificadas</p>
+                <p class="text-gray-500 text-xs mt-1">Solo cuentan las que tienen ICP real</p>
+              </div>
+            </div>
+            <div class="compare-row">
+              <div class="flex-1">
+                <span class="metric-tag tag-bad">Vanity</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Pipeline total (€)</p>
+                <p class="text-gray-500 text-xs mt-1">Sin ponderación, es una ilusión</p>
+              </div>
+              <div class="flex-1">
+                <span class="metric-tag tag-good">Real</span>
+                <p class="text-gray-300 text-sm font-medium mt-2">Pipeline ponderado por probabilidad</p>
+                <p class="text-gray-500 text-xs mt-1">Predice revenue real</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h2>Las 7 métricas que de verdad importan en outbound B2B</h2>
+          <p>
+            Estas son las métricas que medimos en todos nuestros clientes. Si las tienes bajo control, tienes visibilidad real sobre lo que va a pasar el próximo trimestre.
+          </p>
+
+          <h3>1. Tasa de respuesta positiva</h3>
+          <p>
+            No la tasa de respuesta total —que incluye los "no me interesa" y los "dame de baja". La tasa de respuesta positiva: prospects que responden mostrando interés o haciendo preguntas. El umbral mínimo viable en outbound B2B en España es el <strong>3%</strong>. Por debajo de eso, algo falla en el ICP o en el mensaje.
+          </p>
+
+          <h3>2. Coste por reunión cualificada</h3>
+          <p>
+            La métrica que más resistencia genera —porque obliga a calcular el coste real del equipo. Salario proporcional + herramientas + tiempo de investigación, dividido entre reuniones cualificadas generadas. En nuestros clientes: <strong>89€ de media</strong>. La media del mercado en España: 285€.
+          </p>
+          <p>
+            Si no sabes este número, no puedes saber si tu sistema de prospección es rentable.
+          </p>
+
+          <h3>3. Conversión reunión → propuesta</h3>
+          <p>
+            De las reuniones que tienes, ¿qué porcentaje genera una oportunidad real con propuesta enviada? Si estás por debajo del <strong>30%</strong>, el problema está en la cualificación previa a la reunión. Estás llenando el calendario con reuniones que no deberían haberse agendado.
+          </p>
+
+          <h3>4. Velocidad de pipeline</h3>
+          <p>
+            Tiempo medio desde primer contacto hasta decisión (sí o no). No hasta cierre —hasta decisión. Este número te dice si tu proceso de venta tiene fricción artificial. Los ciclos de venta que se estancan en "estamos valorando" suelen estancarse porque alguien no sabe cómo avanzar la conversación.
+          </p>
+
+          <h3>5. Tasa de respuesta por canal y mensaje</h3>
+          <p>
+            No solo cuántos responden, sino qué canal y qué variante de mensaje genera más respuestas. Esto es el input para optimizar la secuencia. Sin este dato, el outbound es ensayo y error permanente.
+          </p>
+
+          <h3>6. Ratio de ICP real vs ICP contactado</h3>
+          <p>
+            De los prospects que contactas, ¿qué porcentaje encaja realmente en tu ICP cuando llegas a hablar con ellos? Si el 40% de las reuniones son con empresas que no eran candidatas reales, el problema está en los criterios de segmentación, no en el cierre.
+          </p>
+
+          <h3>7. Ratio de seguimiento completado</h3>
+          <p>
+            ¿Qué porcentaje de los prospects que entran en secuencia reciben todos los touchpoints previstos? Si el equipo abandona los follow-ups después de 2-3 intentos, el sistema no está funcionando aunque las métricas de volumen parezcan bien. Los datos muestran que el 62% de los equipos no llega al quinto follow-up. Los que sí lo hacen convierten un 34% más.
+          </p>
+
+          <h2>Por qué los equipos no miden lo correcto</h2>
+          <p>
+            No es ignorancia. Hay tres razones reales:
+          </p>
+          <ul>
+            <li><strong>Las métricas reales generan responsabilidad.</strong> Si mides el coste por reunión cualificada y el número sale mal, hay que explicar por qué. Las vanity metrics son cómodas porque permiten siempre encontrar algo positivo que reportar.</li>
+            <li><strong>Requieren más setup.</strong> Calcular el coste por reunión cualificada implica tener el tiempo del equipo bien contabilizado, las herramientas integradas con el CRM, y las reuniones bien calificadas. Es trabajo de sistema que muchas empresas no han hecho.</li>
+            <li><strong>El management tampoco sabe qué pedir.</strong> Si el CEO o el director comercial no pregunta por tasa de respuesta positiva y coste por reunión, el equipo no tiene incentivo para calcularlo.</li>
+          </ul>
+
+          <h2>Cómo hacer el cambio en 4 semanas</h2>
+          <p>
+            El cambio de métricas no requiere un proyecto de 6 meses. Requiere cuatro decisiones:
+          </p>
+          <ol>
+            <li><strong>Semana 1:</strong> define las 7 métricas que vas a medir. No 20. Estas 7. Con la definición exacta de cómo se calculan para que no haya interpretaciones distintas en el equipo.</li>
+            <li><strong>Semana 2:</strong> limpia el pipeline del CRM. Categoriza oportunidades por cualificación real. Elimina las que llevan más de 90 días sin movimiento o que nunca tuvieron ICP real.</li>
+            <li><strong>Semana 3:</strong> implementa el tracking por canal y mensaje en la herramienta de outbound. Si usas Instantly, Lemlist o Apollo, ya tienen esto nativo. Solo hay que configurarlo.</li>
+            <li><strong>Semana 4:</strong> primera reunión de revisión con las nuevas métricas. El objetivo no es que todo esté perfecto. Es que todo el mundo entienda qué está mirando y por qué.</li>
+          </ol>
+          <p>
+            El dashboard con las 7 métricas que usamos con nuestros clientes está disponible abajo, listo para adaptar a tu CRM o a Google Sheets. Y si quieres que lo implementemos juntos con los datos de tu empresa, <a href="../agendar.html" class="text-[#8B5CF6] hover:text-[#a78bfa] transition-colors underline underline-offset-2">reserva 30 minutos aquí</a>.
+          </p>
+        </div>
+
+        <!-- Lead Magnet -->
+        <div id="lead-magnet" class="glass rounded-2xl p-8 my-10 reveal">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-[#8B5CF6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold tracking-widest uppercase text-[#8B5CF6] mb-1">Dashboard gratuito</p>
+              <h3 class="text-white font-bold text-lg" style="font-family:'DM Sans',sans-serif">Las 7 métricas que de verdad importan en outbound B2B</h3>
+              <p class="text-gray-400 text-sm mt-2">Dashboard adaptable a Google Sheets o cualquier CRM. Con las definiciones exactas, los benchmarks del sector y las fórmulas de cálculo. Listo para implementar en una semana.</p>
+            </div>
+          </div>
+          <form id="leadMagnetForm" class="space-y-3">
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input type="email" id="lmEmail" placeholder="tu@empresa.com" required
+                class="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#8B5CF6]/50">
+              <button type="submit" class="btn-g px-6 py-3 rounded-lg text-sm whitespace-nowrap">
+                Descargar dashboard gratis
+              </button>
+            </div>
+            <p class="text-gray-600 text-xs">Sin spam. Solo el dashboard y el blog semanal si quieres seguir.</p>
+          </form>
+          <div id="leadMagnetSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+            Perfecto. Te enviamos el dashboard ahora mismo.
+          </div>
+        </div>
+
+        <!-- Related -->
+        <div class="reveal mt-12 pt-8 border-t border-white/5">
+          <h3 class="text-white font-bold text-lg mb-6" style="font-family:'DM Sans',sans-serif">También te puede interesar</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <a href="7-metricas-exito-comercial-b2b.html" class="glass rounded-xl p-5 hover:border-[#8B5CF6]/30 transition-colors group">
+              <span class="text-xs text-[#8B5CF6] font-semibold uppercase tracking-wider">Métricas</span>
+              <p class="text-white text-sm font-medium mt-2 group-hover:text-[#a78bfa] transition-colors">Las 7 métricas de éxito comercial B2B que el 80% de empresas no mide</p>
+            </a>
+            <a href="benchmarks-prospeccion-b2b-espana-2026.html" class="glass rounded-xl p-5 hover:border-[#8B5CF6]/30 transition-colors group">
+              <span class="text-xs text-[#8B5CF6] font-semibold uppercase tracking-wider">Datos</span>
+              <p class="text-white text-sm font-medium mt-2 group-hover:text-[#a78bfa] transition-colors">Benchmarks de prospección B2B en España 2026: datos reales de 627 empresas</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- CTA final -->
+        <div class="grid md:grid-cols-2 gap-6 mt-12 reveal">
+          <div class="glass rounded-2xl p-6">
+            <p class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-3">Recurso gratuito</p>
+            <p class="text-white font-semibold mb-4">Dashboard con las 7 métricas reales de outbound B2B</p>
+            <button onclick="document.getElementById('leadMagnetForm').scrollIntoView({behavior:'smooth'})" class="btn-outline px-6 py-3 rounded-lg text-sm w-full">Descargar gratis</button>
+          </div>
+          <div class="glass rounded-2xl p-6" style="border-color:rgba(139,92,246,0.2)">
+            <p class="text-xs font-semibold tracking-widest uppercase text-[#8B5CF6] mb-3">Diagnóstico gratuito</p>
+            <p class="text-white font-semibold mb-4">Auditamos tus métricas actuales y te decimos cuáles son vanity.</p>
+            <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full text-center">Agendar auditoría</a>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="hidden lg:block w-80 flex-shrink-0">
+        <div class="sticky top-28 space-y-6">
+          <div class="glass rounded-2xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#8B5CF6] to-[#EC4899] flex items-center justify-center text-white font-bold text-sm">XF</div>
+              <div>
+                <p class="text-white font-semibold text-sm">Xavi Fortuna</p>
+                <p class="text-gray-500 text-xs">CEO, Global Growth Consulting</p>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">La primera pregunta que hago en cualquier auditoría comercial: ¿qué mides? La respuesta me dice en 2 minutos si el sistema funciona o no.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-6">
+            <p class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Las 7 métricas reales</p>
+            <div class="space-y-0">
+              <div class="flex items-start gap-2 py-1.5 border-b border-white/5"><span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">1</span><span class="text-gray-400 text-xs">Tasa de respuesta positiva</span></div>
+              <div class="flex items-start gap-2 py-1.5 border-b border-white/5"><span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">2</span><span class="text-gray-400 text-xs">Coste por reuni&oacute;n cualificada</span></div>
+              <div class="flex items-start gap-2 py-1.5 border-b border-white/5"><span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">3</span><span class="text-gray-400 text-xs">Conversi&oacute;n reuni&oacute;n &rarr; propuesta</span></div>
+              <div class="flex items-start gap-2 py-1.5 border-b border-white/5"><span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">4</span><span class="text-gray-400 text-xs">Velocidad de pipeline</span></div>
+              <div class="flex items-start gap-2 py-1.5 border-b border-white/5"><span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">5</span><span class="text-gray-400 text-xs">Tasa por canal y mensaje</span></div>
+              <div class="flex items-start gap-2 py-1.5 border-b border-white/5"><span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">6</span><span class="text-gray-400 text-xs">Ratio ICP real vs contactado</span></div>
+              <div class="flex items-start gap-2 py-1.5"><span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">7</span><span class="text-gray-400 text-xs">Seguimiento completado</span></div>
+            </div>
+          </div>
+
+          <div class="glass rounded-2xl p-6" style="border-color:rgba(139,92,246,0.2)">
+            <p class="text-white font-semibold text-sm mb-2">¿Qué métricas mide tu equipo?</p>
+            <p class="text-gray-400 text-xs mb-4">En 30 minutos auditamos las tuyas y te decimos cuáles cambiar.</p>
+            <a href="../agendar.html" class="btn-g inline-block px-5 py-2.5 rounded-lg text-sm w-full text-center">Agendar auditoría</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<!-- SCROLL POPUP -->
+<div id="scrollPopup" class="scroll-popup fixed bottom-6 right-6 z-40 max-w-xs w-full">
+  <div class="glass rounded-2xl p-5 shadow-2xl" style="border-color:rgba(139,92,246,0.3)">
+    <button id="closePopup" class="absolute top-3 right-3 text-gray-500 hover:text-white transition-colors" aria-label="Cerrar">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <p class="text-white font-semibold text-sm mb-1">Dashboard de métricas reales</p>
+    <p class="text-gray-400 text-xs mb-3">Las 7 que de verdad importan. Listo para usar en Google Sheets o tu CRM.</p>
+    <button onclick="document.getElementById('lead-magnet').scrollIntoView({behavior:'smooth'});document.getElementById('scrollPopup').classList.remove('show')" class="btn-g px-4 py-2 rounded-lg text-xs w-full">Descargar gratis</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <div class="md:col-span-2">
+        <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto mb-4">
+        <p class="text-gray-500 text-sm leading-relaxed">Instalamos infraestructura comercial B2B permanente.<br>627+ clientes. ~1.5M€ revenue generado.</p>
+      </div>
+      <div>
+        <p class="text-white font-semibold text-sm mb-4">Recursos</p>
+        <ul class="space-y-2">
+          <li><a href="../blog.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Blog</a></li>
+          <li><a href="../agendar.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Agendar</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-semibold text-sm mb-4">Legal</p>
+        <ul class="space-y-2">
+          <li><a href="../aviso-legal.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Aviso legal</a></li>
+          <li><a href="../privacidad.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Privacidad</a></li>
+          <li><a href="../cookies.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-gray-600 text-sm">© 2026 Global Growth Consulting. Todos los derechos reservados.</p>
+      <p class="text-gray-600 text-sm">Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const s=document.documentElement,h=s.scrollHeight-s.clientHeight,p=(s.scrollTop/h)*100;prog.style.width=p+'%';},{passive:true});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const mb=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu'),cm=document.getElementById('closeMenu');
+mb.onclick=()=>mm.classList.add('open');
+cm.onclick=()=>mm.classList.remove('open');
+document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>mm.classList.remove('open')));
+let shown=false;
+window.addEventListener('scroll',()=>{if(!shown&&window.scrollY>600){shown=true;document.getElementById('scrollPopup').classList.add('show')}},{passive:true});
+document.getElementById('closePopup').onclick=()=>document.getElementById('scrollPopup').classList.remove('show');
+document.getElementById('leadMagnetForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const email=document.getElementById('lmEmail').value;
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='Enviando...';btn.disabled=true;
+  try{await fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,magnet:'dashboard-7-metricas-outbound-b2b'})});}catch(err){}
+  document.getElementById('leadMagnetForm').classList.add('hidden');
+  document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+});
+
+</script>
+</body>
+</html>

@@ -1,5 +1,57 @@
 [
   {
+    "slug": "vanity-metrics-vs-metricas-reales",
+    "title": "Vanity metrics vs métricas reales: los equipos que miden resultados generan 4x más pipeline",
+    "excerpt": "Las vanity metrics dan sensación de actividad pero no predicen revenue. Las 7 métricas que de verdad importan en outbound B2B — y cómo implementarlas en 4 semanas.",
+    "pillar": "Revenue Infrastructure",
+    "date": "2026-04-26",
+    "readTime": "7 min",
+    "leadMagnet": {
+      "title": "Dashboard: Las 7 métricas que de verdad importan en outbound B2B",
+      "type": "dashboard"
+    },
+    "ogImage": null
+  },
+  {
+    "slug": "costes-indirectos-ceo-pipeline",
+    "title": "Los 3 costes indirectos de que el CEO sea el pipeline (y ninguno aparece en P&L)",
+    "excerpt": "Cuando el CEO vende, el coste no es solo su tiempo. Hay tres costes que ninguna cuenta de resultados recoge: decisiones pospuestas, producto estancado y equipo sin dirección.",
+    "pillar": "CEO como motor",
+    "date": "2026-04-19",
+    "readTime": "7 min",
+    "leadMagnet": {
+      "title": "Calculadora: coste de oportunidad del CEO como pipeline",
+      "type": "calculator"
+    },
+    "ogImage": null
+  },
+  {
+    "slug": "icp-4-dimensiones",
+    "title": "ICP en 4 dimensiones: cómo pasar de 'empresas medianas' a 380 cuentas con nombre y apellidos",
+    "excerpt": "La mayoría de empresas define su ICP en 2 dimensiones. Con 4 —firmográfico, tecnográfico, comportamental y señales de timing— logramos un 9.2% de tasa de respuesta en el primer mes.",
+    "pillar": "Outbound sin humo",
+    "date": "2026-04-12",
+    "readTime": "7 min",
+    "leadMagnet": {
+      "title": "Plantilla: ICP en 4 dimensiones con sistema de scoring",
+      "type": "template"
+    },
+    "ogImage": null
+  },
+  {
+    "slug": "benchmarks-prospeccion-b2b-espana-2026",
+    "title": "Benchmarks de prospección B2B en España 2026: datos reales de 627 empresas",
+    "excerpt": "Tasas de respuesta, coste por reunión, ciclos de venta y conversiones reales del mercado B2B español. Datos de 627+ clientes — no benchmarks anglosajones de hace dos años.",
+    "pillar": "Revenue Infrastructure",
+    "date": "2026-04-05",
+    "readTime": "7 min",
+    "leadMagnet": {
+      "title": "Informe: Benchmarks de Prospección B2B en España 2026",
+      "type": "report"
+    },
+    "ogImage": null
+  },
+  {
     "slug": "infraestructura-vs-herramientas",
     "title": "Por qué tu equipo comercial no necesita más herramientas — necesita infraestructura",
     "excerpt": "La mayoría de empresas B2B acumulan herramientas como si fueran soluciones. CRM, email tools, LinkedIn automation... El problema no es la herramienta. Es la ausencia de un sistema.",
