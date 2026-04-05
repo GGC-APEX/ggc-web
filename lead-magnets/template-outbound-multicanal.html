@@ -800,6 +800,10 @@ PD: Si es que no soy la persona adecuada con quien hablar, un simple "habla con 
         <label class="text-xs text-gray-500 mb-1 block" for="inputEmpresa">Empresa</label>
         <input id="inputEmpresa" type="text" name="empresa" required placeholder="Nombre de tu empresa" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#8B5CF6]/40 transition-colors">
       </div>
+      <label class="flex items-start gap-2 cursor-pointer">
+        <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+        <span class="text-xs text-gray-500">Acepto la <a href="../privacidad" class="underline hover:text-white">política de privacidad</a>. Recibiré comunicaciones que puedo cancelar en cualquier momento.</span>
+      </label>
       <button type="submit" class="btn-g w-full py-3.5 rounded-xl text-sm">Enviar y recibir el PDF</button>
       <p class="text-xs text-gray-500 text-center">Nada de spam. Solo contenido que te ayuda a vender mas.</p>
     </form>
