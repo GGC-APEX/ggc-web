@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora: ¿Cuántas reuniones puede generar tu infraestructura comercial? | GGC</title>
+  <meta name="description" content="Calcula cuántas reuniones B2B cualificadas podría generar tu empresa con una infraestructura comercial optimizada. Basado en datos de 627+ clientes.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Calculadora de Reuniones B2B — Framework APEX">
+  <meta property="og:description" content="Calcula cuántas reuniones cualificadas puedes generar con tu infraestructura actual vs. optimizada.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:#0C0A1D;color:#e0e0e0;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Slider styling */
+    input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;outline:none;cursor:pointer;background:rgba(255,255,255,0.08)}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);border:2px solid #fff;cursor:pointer;box-shadow:0 0 10px rgba(139,92,246,0.4);transition:box-shadow .2s}
+    input[type="range"]::-webkit-slider-thumb:hover{box-shadow:0 0 20px rgba(139,92,246,0.6)}
+    input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);border:2px solid #fff;cursor:pointer;box-shadow:0 0 10px rgba(139,92,246,0.4)}
+    input[type="range"]::-moz-range-track{height:6px;border-radius:3px;background:rgba(255,255,255,0.08)}
+
+    /* Checkbox custom */
+    .ch-box{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:2px solid rgba(139,92,246,0.4);border-radius:6px;background:transparent;cursor:pointer;transition:all .2s ease;flex-shrink:0;position:relative}
+    .ch-box:checked{background:linear-gradient(135deg,#8B5CF6,#EC4899);border-color:transparent}
+    .ch-box:checked::after{content:'';position:absolute;top:3px;left:6px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+    .ch-box:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px}
+
+    .channel-item{transition:all .2s ease;cursor:pointer}
+    .channel-item:hover{background:rgba(139,92,246,0.06)}
+    .channel-item.active{background:rgba(139,92,246,0.08);border-color:rgba(139,92,246,0.3)}
+
+    /* Big number */
+    .big-num{font-size:3.5rem;font-weight:800;line-height:1;font-family:'DM Sans',sans-serif}
+    @media(min-width:640px){.big-num{font-size:4.5rem}}
+
+    /* Bar chart */
+    .bar{transition:width .5s ease;min-width:4px;border-radius:0 6px 6px 0}
+
+    /* Fade in */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    /* Lever badge */
+    .lever-badge{background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(139,92,246,0.15));border:1px solid rgba(139,92,246,0.3)}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.bar{transition:none}.pulse-glow{animation:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Calculadora APEX OS&trade;</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      &iquest;Cu&aacute;ntas reuniones puede generar<br class="hidden sm:block"> <span class="gr">tu infraestructura comercial?</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      Configura tus par&aacute;metros actuales y descubre cu&aacute;ntas reuniones B2B cualificadas deber&iacute;as estar generando cada semana. Benchmarks basados en 627+ clientes.
+    </p>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div class="grid lg:grid-cols-5 gap-8">
+
+    <!-- LEFT: Inputs (3 cols) -->
+    <div class="lg:col-span-3 space-y-6">
+
+      <!-- 1. Mercado addressable -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">1. Tama&ntilde;o de tu mercado addressable</label>
+          <span id="tamVal" class="text-sm font-bold gr">5.000</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">&iquest;Cu&aacute;ntas empresas encajan con tu cliente ideal (ICP)?</p>
+        <input type="range" id="tam" min="100" max="50000" step="100" value="5000" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-500 mt-1"><span>100</span><span>50.000</span></div>
+      </div>
+
+      <!-- 2. Canales activos -->
+      <div class="glass rounded-2xl p-6">
+        <label class="text-sm font-semibold text-white block mb-1">2. Canales activos de outreach</label>
+        <p class="text-xs text-gray-500 mb-4">&iquest;Qu&eacute; canales est&aacute;s usando activamente?</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="channelsGrid">
+          <label class="channel-item flex items-center gap-3 p-3 rounded-xl border border-white/5 bg-white/[0.02]" data-ch="email">
+            <input type="checkbox" class="ch-box" value="email" checked onchange="toggleChannel(this);calc()">
+            <div>
+              <span class="text-sm text-white font-medium">Email</span>
+              <span class="block text-xs text-gray-500">Cold email, secuencias</span>
+            </div>
+          </label>
+          <label class="channel-item flex items-center gap-3 p-3 rounded-xl border border-white/5 bg-white/[0.02]" data-ch="linkedin">
+            <input type="checkbox" class="ch-box" value="linkedin" checked onchange="toggleChannel(this);calc()">
+            <div>
+              <span class="text-sm text-white font-medium">LinkedIn</span>
+              <span class="block text-xs text-gray-500">Mensajes, conexiones</span>
+            </div>
+          </label>
+          <label class="channel-item flex items-center gap-3 p-3 rounded-xl border border-white/5 bg-white/[0.02]" data-ch="phone">
+            <input type="checkbox" class="ch-box" value="phone" onchange="toggleChannel(this);calc()">
+            <div>
+              <span class="text-sm text-white font-medium">Tel&eacute;fono</span>
+              <span class="block text-xs text-gray-500">Cold calling, follow-ups</span>
+            </div>
+          </label>
+          <label class="channel-item flex items-center gap-3 p-3 rounded-xl border border-white/5 bg-white/[0.02]" data-ch="content">
+            <input type="checkbox" class="ch-box" value="content" onchange="toggleChannel(this);calc()">
+            <div>
+              <span class="text-sm text-white font-medium">Contenido / Inbound</span>
+              <span class="block text-xs text-gray-500">Blog, SEO, webinars</span>
+            </div>
+          </label>
+          <label class="channel-item flex items-center gap-3 p-3 rounded-xl border border-white/5 bg-white/[0.02] sm:col-span-2" data-ch="referrals">
+            <input type="checkbox" class="ch-box" value="referrals" onchange="toggleChannel(this);calc()">
+            <div>
+              <span class="text-sm text-white font-medium">Referidos</span>
+              <span class="block text-xs text-gray-500">Partners, clientes actuales, networking</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- 3. Volumen outreach semanal -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">3. Volumen de outreach semanal</label>
+          <span id="volVal" class="text-sm font-bold gr">100</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">&iquest;Cu&aacute;ntos prospectos tocas por semana (todos los canales)?</p>
+        <input type="range" id="vol" min="10" max="500" step="5" value="100" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-500 mt-1"><span>10</span><span>500</span></div>
+      </div>
+
+      <!-- 4. Tasa de respuesta -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">4. Tasa de respuesta actual</label>
+          <span id="respVal" class="text-sm font-bold gr">3,0%</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">&iquest;Qu&eacute; % de tu outreach obtiene respuesta?</p>
+        <input type="range" id="resp" min="0.5" max="15" step="0.5" value="3" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-500 mt-1"><span>0,5%</span><span>15%</span></div>
+      </div>
+
+      <!-- 5. Conversión respuesta → reunión -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">5. Conversi&oacute;n respuesta &rarr; reuni&oacute;n</label>
+          <span id="convVal" class="text-sm font-bold gr">25%</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">&iquest;Qu&eacute; % de las respuestas se convierten en reuni&oacute;n?</p>
+        <input type="range" id="conv" min="10" max="60" step="1" value="25" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-500 mt-1"><span>10%</span><span>60%</span></div>
+      </div>
+
+      <!-- 6. Equipo comercial -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">6. Equipo comercial</label>
+          <span id="teamVal" class="text-sm font-bold gr">1</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">&iquest;Cu&aacute;ntas personas hacen outreach activo?</p>
+        <input type="range" id="team" min="1" max="10" step="1" value="1" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-500 mt-1"><span>1</span><span>10</span></div>
+      </div>
+
+      <!-- 7. Deal size (for revenue) -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">7. Ticket medio por cliente</label>
+          <span id="dealVal" class="text-sm font-bold gr">&euro;15.000</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">Valor medio de un deal cerrado (para proyecci&oacute;n de revenue)</p>
+        <input type="range" id="deal" min="5000" max="100000" step="1000" value="15000" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-500 mt-1"><span>&euro;5K</span><span>&euro;100K</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results (2 cols) -->
+    <div class="lg:col-span-2 space-y-6">
+
+      <!-- Current vs Potential -->
+      <div class="glass rounded-2xl p-6 pulse-glow sticky top-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-6">Resultados en tiempo real</p>
+
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="text-center p-4 rounded-xl bg-white/[0.03] border border-white/5">
+            <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Ahora</p>
+            <p id="currentMeetings" class="big-num text-white">0,8</p>
+            <p class="text-xs text-gray-500 mt-1">reuniones/semana</p>
+          </div>
+          <div class="text-center p-4 rounded-xl border" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2)">
+            <p class="text-xs gr mb-2 uppercase tracking-wide font-semibold">Optimizado</p>
+            <p id="potentialMeetings" class="big-num gr">4,2</p>
+            <p class="text-xs text-gray-400 mt-1">reuniones/semana</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 mb-6">
+          <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">Multiplicador</p>
+          <p class="text-2xl font-bold text-white"><span id="multiplier">5,3</span>x <span class="text-sm font-normal text-gray-400">m&aacute;s reuniones</span></p>
+        </div>
+
+        <!-- Bar chart comparison -->
+        <div class="space-y-4 mb-6">
+          <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest">Comparativa de m&eacute;tricas</p>
+
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-gray-400">Tasa respuesta</span><span class="text-gray-500"><span id="barRespCur">3%</span> vs <span id="barRespOpt" class="text-cyan-400">8%</span></span></div>
+            <div class="w-full h-3 rounded-full bg-white/5 relative overflow-hidden">
+              <div id="barRespCurW" class="bar absolute top-0 left-0 h-full bg-white/20" style="width:20%"></div>
+              <div id="barRespOptW" class="bar absolute top-0 left-0 h-1.5 mt-[3px] bg-gradient-to-r from-cyan-400 to-blue-500" style="width:53%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-gray-400">Conversi&oacute;n resp. &rarr; reuni&oacute;n</span><span class="text-gray-500"><span id="barConvCur">25%</span> vs <span id="barConvOpt" class="text-purple-400">45%</span></span></div>
+            <div class="w-full h-3 rounded-full bg-white/5 relative overflow-hidden">
+              <div id="barConvCurW" class="bar absolute top-0 left-0 h-full bg-white/20" style="width:42%"></div>
+              <div id="barConvOptW" class="bar absolute top-0 left-0 h-1.5 mt-[3px] bg-gradient-to-r from-purple-400 to-pink-500" style="width:75%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-gray-400">Volumen semanal</span><span class="text-gray-500"><span id="barVolCur">100</span> vs <span id="barVolOpt" class="text-blue-400">250</span></span></div>
+            <div class="w-full h-3 rounded-full bg-white/5 relative overflow-hidden">
+              <div id="barVolCurW" class="bar absolute top-0 left-0 h-full bg-white/20" style="width:20%"></div>
+              <div id="barVolOptW" class="bar absolute top-0 left-0 h-1.5 mt-[3px] bg-gradient-to-r from-blue-400 to-purple-500" style="width:50%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Revenue projection -->
+        <div class="p-4 rounded-xl border border-white/5" style="background:linear-gradient(135deg,rgba(59,130,246,0.05),rgba(139,92,246,0.05))">
+          <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">Proyecci&oacute;n de revenue adicional</p>
+          <div class="flex items-end gap-2 mb-1">
+            <p class="text-2xl font-bold text-white" id="revGap">&euro;0</p>
+            <span class="text-sm text-gray-400 mb-0.5">/ mes</span>
+          </div>
+          <p class="text-xs text-gray-500">Revenue potencial que no est&aacute;s capturando (con close rate del 25%)</p>
+        </div>
+
+        <!-- #1 Lever -->
+        <div class="mt-6 p-4 rounded-xl lever-badge" id="leverBox">
+          <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Tu palanca #1</p>
+          <p class="text-sm text-white font-medium" id="leverText">Aumenta tu tasa de respuesta</p>
+          <p class="text-xs text-gray-400 mt-1" id="leverDesc">Es donde m&aacute;s margen de mejora tienes respecto al benchmark.</p>
+        </div>
+
+        <!-- ROI Box -->
+        <div class="mt-4 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+          <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">ROI de optimizar tu infraestructura</p>
+          <p class="text-sm text-gray-300">Si inviertes en instalar infraestructura profesional, cada <span class="text-white font-semibold">&euro;1 invertido</span> puede generar <span class="gr font-bold" id="roiMultiple">&euro;8-12</span> en pipeline adicional los primeros 90 d&iacute;as.</p>
+        </div>
+      </div>
+
+      <!-- Benchmarks -->
+      <div class="glass rounded-2xl p-6">
+        <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Benchmarks GGC (627+ clientes)</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">Tasa de respuesta por canal</p>
+            <div class="space-y-2">
+              <div class="flex justify-between text-sm"><span class="text-gray-400">Email fr&iacute;o</span><span class="text-white font-semibold">4-8%</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-400">LinkedIn</span><span class="text-white font-semibold">8-15%</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-400">Tel&eacute;fono</span><span class="text-white font-semibold">2-5%</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-400">Multicanal combinado</span><span class="text-cyan-400 font-semibold">12-18%</span></div>
+            </div>
+          </div>
+
+          <div class="border-t border-white/5 pt-4">
+            <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">Conversi&oacute;n respuesta &rarr; reuni&oacute;n</p>
+            <div class="space-y-2">
+              <div class="flex justify-between text-sm"><span class="text-gray-400">Sin sistema</span><span class="text-white font-semibold">15-25%</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-400">Con APEX OS&trade;</span><span class="text-cyan-400 font-semibold">40-55%</span></div>
+            </div>
+          </div>
+
+          <div class="border-t border-white/5 pt-4">
+            <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">Timeline t&iacute;pico de ramp-up</p>
+            <div class="space-y-2">
+              <div class="flex justify-between text-sm"><span class="text-gray-400">Semana 1-2</span><span class="text-gray-300">Setup + primeros env&iacute;os</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-400">Semana 3-4</span><span class="text-gray-300">Primeras respuestas + reuniones</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-400">Semana 5-8</span><span class="text-gray-300">Volumen estable, optimizaci&oacute;n</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-400">Mes 3+</span><span class="text-cyan-400 font-medium">Velocidad crucero: 15-20 reuniones/sem</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE -->
+  <div class="mt-12" id="leadCapture">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Guarda tu an&aacute;lisis</p>
+      <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe un informe personalizado con tu plan de acci&oacute;n</h3>
+      <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te enviamos los n&uacute;meros de tu calculadora + las 3 acciones concretas para pasar de <span id="leadCurrent">0,8</span> a <span id="leadPotential">4,2</span> reuniones/semana.</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="source" value="calculadora-framework-apex">
+        <input type="hidden" name="current_meetings" id="hiddenCurrent" value="">
+        <input type="hidden" name="potential_meetings" id="hiddenPotential" value="">
+        <input type="hidden" name="revenue_gap" id="hiddenRevGap" value="">
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Enviar mi informe personalizado</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los pr&oacute;ximos 2 minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo tu informe con los n&uacute;meros.</p>
+    </div>
+  </div>
+
+  <!-- CTAs -->
+  <div class="mt-12 grid sm:grid-cols-2 gap-4">
+    <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+      <p class="text-sm text-gray-400 mb-3">&iquest;Quieres instalar este sistema en tu empresa?</p>
+      <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Agendar una sesi&oacute;n estrat&eacute;gica</a>
+      <p class="text-xs text-gray-500 mt-2">30 min. Sin compromiso.</p>
+    </div>
+    <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+      <p class="text-sm text-gray-400 mb-3">Lee el framework completo</p>
+      <a href="../blog/framework-20-reuniones.html" class="inline-block px-6 py-3 rounded-lg text-sm w-full border border-[#8B5CF6]/40 text-[#8B5CF6] hover:bg-[#8B5CF6]/5 transition-colors">De 0 a 20 reuniones/semana</a>
+      <p class="text-xs text-gray-500 mt-2">El art&iacute;culo que explica todo el proceso</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  // --- BENCHMARKS (optimized targets based on GGC data) ---
+  const BENCH = {
+    respRate: 8,        // % — multicanal best-in-class avg
+    convRate: 45,       // % — with proper qualification system
+    volMultiplier: 2.5, // volume increase with automation + process
+    channelBonus: {     // extra response rate lift per channel
+      email: 0,
+      linkedin: 1.5,
+      phone: 0.8,
+      content: 1.2,
+      referrals: 2.0
+    },
+    closeRate: 0.25     // meetings to closed deal
+  };
+
+  function fmt(n, decimals){
+    if(decimals === undefined) decimals = 1;
+    return n.toLocaleString('es-ES', {minimumFractionDigits: decimals, maximumFractionDigits: decimals});
+  }
+  function fmtInt(n){
+    return n.toLocaleString('es-ES', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+  }
+  function fmtEur(n){
+    if(n >= 1000000) return '\u20AC' + fmt(n/1000000) + 'M';
+    if(n >= 1000) return '\u20AC' + fmtInt(Math.round(n/1000)) + 'K';
+    return '\u20AC' + fmtInt(n);
+  }
+
+  function getChannels(){
+    var chs = [];
+    document.querySelectorAll('#channelsGrid .ch-box:checked').forEach(function(cb){ chs.push(cb.value); });
+    return chs;
+  }
+
+  window.toggleChannel = function(cb){
+    var item = cb.closest('.channel-item');
+    if(cb.checked) item.classList.add('active');
+    else item.classList.remove('active');
+  };
+
+  // Init active state
+  document.querySelectorAll('#channelsGrid .ch-box:checked').forEach(function(cb){
+    cb.closest('.channel-item').classList.add('active');
+  });
+
+  window.calc = function(){
+    var tam = parseFloat(document.getElementById('tam').value);
+    var vol = parseFloat(document.getElementById('vol').value);
+    var resp = parseFloat(document.getElementById('resp').value);
+    var conv = parseFloat(document.getElementById('conv').value);
+    var team = parseFloat(document.getElementById('team').value);
+    var deal = parseFloat(document.getElementById('deal').value);
+    var channels = getChannels();
+    var numChannels = channels.length;
+
+    // Update value displays
+    document.getElementById('tamVal').textContent = fmtInt(tam);
+    document.getElementById('volVal').textContent = fmtInt(vol);
+    document.getElementById('respVal').textContent = fmt(resp) + '%';
+    document.getElementById('convVal').textContent = fmtInt(conv) + '%';
+    document.getElementById('teamVal').textContent = fmtInt(team);
+    document.getElementById('dealVal').textContent = '\u20AC' + fmtInt(deal);
+
+    // --- CURRENT STATE ---
+    // Weekly meetings = volume * team * response_rate * conversion_rate
+    var weeklyTouches = vol * team;
+    var responses = weeklyTouches * (resp / 100);
+    var currentMeetings = responses * (conv / 100);
+
+    // Cap: can't have more meetings than market allows (rough sanity)
+    var marketCap = tam * 0.02; // max 2% of TAM per week
+    currentMeetings = Math.min(currentMeetings, marketCap);
+
+    // --- OPTIMIZED STATE ---
+    // Calculate optimized response rate based on channels
+    var optResp = BENCH.respRate;
+    var channelBonus = 0;
+    channels.forEach(function(ch){ channelBonus += (BENCH.channelBonus[ch] || 0); });
+
+    // More channels = diminishing but real returns (multicanal lift)
+    var multiChannelLift = numChannels >= 3 ? 1.3 : (numChannels >= 2 ? 1.15 : 1.0);
+    optResp = Math.min((optResp + channelBonus) * multiChannelLift, 18); // cap at 18%
+
+    var optConv = BENCH.convRate;
+    var optVol = Math.min(vol * BENCH.volMultiplier, 500) * team;
+    var optMeetings = optVol * (optResp / 100) * (optConv / 100);
+    optMeetings = Math.min(optMeetings, marketCap * 3);
+
+    // Ensure optimized is always >= current
+    if(optMeetings < currentMeetings) optMeetings = currentMeetings * 1.5;
+
+    // --- REVENUE GAP ---
+    // Extra meetings per week * close rate * deal size * 4 weeks
+    var extraMeetingsMonth = (optMeetings - currentMeetings) * 4.33;
+    var revGap = extraMeetingsMonth * BENCH.closeRate * deal;
+
+    // --- MULTIPLIER ---
+    var multiplier = currentMeetings > 0 ? optMeetings / currentMeetings : 0;
+
+    // --- UPDATE UI ---
+    document.getElementById('currentMeetings').textContent = fmt(currentMeetings);
+    document.getElementById('potentialMeetings').textContent = fmt(optMeetings);
+    document.getElementById('multiplier').textContent = fmt(multiplier);
+    document.getElementById('revGap').textContent = fmtEur(revGap);
+
+    // Lead capture text
+    document.getElementById('leadCurrent').textContent = fmt(currentMeetings);
+    document.getElementById('leadPotential').textContent = fmt(optMeetings);
+
+    // Hidden fields
+    document.getElementById('hiddenCurrent').value = fmt(currentMeetings);
+    document.getElementById('hiddenPotential').value = fmt(optMeetings);
+    document.getElementById('hiddenRevGap').value = fmtEur(revGap);
+
+    // --- BAR CHART ---
+    var maxResp = 18;
+    document.getElementById('barRespCur').textContent = fmt(resp) + '%';
+    document.getElementById('barRespOpt').textContent = fmt(optResp) + '%';
+    document.getElementById('barRespCurW').style.width = (resp / maxResp * 100) + '%';
+    document.getElementById('barRespOptW').style.width = (optResp / maxResp * 100) + '%';
+
+    document.getElementById('barConvCur').textContent = fmtInt(conv) + '%';
+    document.getElementById('barConvOpt').textContent = fmtInt(optConv) + '%';
+    document.getElementById('barConvCurW').style.width = (conv / 60 * 100) + '%';
+    document.getElementById('barConvOptW').style.width = (optConv / 60 * 100) + '%';
+
+    var optVolDisplay = Math.min(vol * BENCH.volMultiplier, 500);
+    document.getElementById('barVolCur').textContent = fmtInt(vol);
+    document.getElementById('barVolOpt').textContent = fmtInt(optVolDisplay);
+    document.getElementById('barVolCurW').style.width = (vol / 500 * 100) + '%';
+    document.getElementById('barVolOptW').style.width = (optVolDisplay / 500 * 100) + '%';
+
+    // --- #1 LEVER ---
+    // Determine biggest gap vs benchmark
+    var levers = [
+      { key: 'resp', gap: (optResp - resp) / optResp, title: 'Aumenta tu tasa de respuesta', desc: 'Tu response rate (' + fmt(resp) + '%) est\u00e1 lejos del benchmark (' + fmt(optResp) + '%). Mejorar el copy, la segmentaci\u00f3n y a\u00f1adir canales es tu mayor palanca.' },
+      { key: 'conv', gap: (optConv - conv) / optConv, title: 'Mejora tu conversi\u00f3n respuesta \u2192 reuni\u00f3n', desc: 'Tu conversi\u00f3n (' + fmtInt(conv) + '%) tiene margen hasta ' + fmtInt(optConv) + '%. Un sistema de cualificaci\u00f3n y seguimiento profesional marca la diferencia.' },
+      { key: 'vol', gap: (BENCH.volMultiplier - 1) / BENCH.volMultiplier, title: 'Escala tu volumen de outreach', desc: 'Con automatizaci\u00f3n y procesos, puedes multiplicar tu volumen x' + fmt(BENCH.volMultiplier) + ' sin a\u00f1adir personas. Herramientas + secuencias > esfuerzo manual.' },
+      { key: 'channels', gap: numChannels < 3 ? 0.7 : 0.1, title: 'A\u00f1ade m\u00e1s canales de outreach', desc: 'Solo usas ' + numChannels + ' canal' + (numChannels === 1 ? '' : 'es') + '. El enfoque multicanal (3+) multiplica tu tasa de respuesta un 30% de media.' }
+    ];
+
+    levers.sort(function(a, b){ return b.gap - a.gap; });
+    document.getElementById('leverText').textContent = levers[0].title;
+    document.getElementById('leverDesc').textContent = levers[0].desc;
+
+    // --- ROI MULTIPLE ---
+    if(revGap > 0){
+      var roiLow = Math.max(5, Math.round(revGap / 5000));
+      var roiHigh = Math.max(8, Math.round(revGap / 2500));
+      if(roiLow > 30) roiLow = 30;
+      if(roiHigh > 50) roiHigh = 50;
+      if(roiLow >= roiHigh) roiHigh = roiLow + 3;
+      document.getElementById('roiMultiple').textContent = '\u20AC' + roiLow + '-' + roiHigh;
+    } else {
+      document.getElementById('roiMultiple').textContent = '\u20AC8-12';
+    }
+  };
+
+  // Initial calc
+  calc();
+
+  // --- LEAD FORM ---
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      source: 'calculadora-framework-apex',
+      current_meetings: form.current_meetings.value,
+      potential_meetings: form.potential_meetings.value,
+      revenue_gap: form.revenue_gap.value,
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/REPLACE_WITH_WEBHOOK_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

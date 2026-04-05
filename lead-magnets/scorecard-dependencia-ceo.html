@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test: ¿Tu empresa depende de ti para vender? | GGC</title>
+  <meta name="description" content="Descubre en 3 minutos si tu empresa puede vender sin ti. 10 preguntas. Diagnóstico personalizado con plan de acción.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Test: ¿Tu empresa depende de ti para vender?">
+  <meta property="og:description" content="Scorecard de dependencia comercial del CEO. 10 preguntas, diagnóstico inmediato.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:#0C0A1D;color:#e0e0e0;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    .btn-outline{border:1px solid rgba(139,92,246,0.4);color:#8B5CF6;background:transparent;transition:all .2s ease}
+    .btn-outline:hover{background:rgba(139,92,246,0.05);border-color:rgba(139,92,246,0.6)}
+
+    /* Animations */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-20px)}}
+    @keyframes slideInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes slideInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}}
+
+    .fade-in{animation:fadeIn .5s ease forwards}
+    .slide-in-right{animation:slideInRight .4s ease forwards}
+    .slide-in-left{animation:slideInLeft .4s ease forwards}
+    .scale-in{animation:scaleIn .5s ease forwards}
+
+    /* Option cards */
+    .option-card{transition:all .2s ease;cursor:pointer;position:relative}
+    .option-card:hover{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.3)}
+    .option-card.selected{background:rgba(139,92,246,0.1);border-color:rgba(139,92,246,0.5)}
+    .option-card.selected::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(59,130,246,0.05),rgba(139,92,246,0.08));pointer-events:none}
+    .option-card .option-radio{width:20px;height:20px;border:2px solid rgba(139,92,246,0.4);border-radius:50%;flex-shrink:0;transition:all .2s ease;position:relative}
+    .option-card.selected .option-radio{border-color:#8B5CF6;background:linear-gradient(135deg,#8B5CF6,#EC4899)}
+    .option-card.selected .option-radio::after{content:'';position:absolute;top:5px;left:5px;width:6px;height:6px;border-radius:50%;background:#fff}
+
+    /* Score tiers */
+    .tier-critical{color:#EF4444}
+    .tier-warning{color:#F59E0B}
+    .tier-good{color:#22D3EE}
+    .tier-excellent{color:#10B981}
+
+    /* Radar chart */
+    .radar-axis{stroke:rgba(255,255,255,0.08);stroke-width:1}
+    .radar-label{fill:#999;font-size:10px;font-family:'DM Sans',sans-serif}
+    .radar-shape{transition:all .6s ease}
+    .radar-dot{transition:all .6s ease}
+
+    /* Progress dots */
+    .progress-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all .3s ease}
+    .progress-dot.active{background:#8B5CF6;box-shadow:0 0 8px rgba(139,92,246,0.4)}
+    .progress-dot.completed{background:linear-gradient(135deg,#3B82F6,#8B5CF6);box-shadow:0 0 6px rgba(139,92,246,0.3)}
+
+    /* Score counter animation */
+    @keyframes countUp{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
+    .score-number{animation:countUp .6s ease forwards}
+
+    /* Hide sections */
+    .quiz-section{display:none}
+    .quiz-section.active{display:block}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Scorecard gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 py-12">
+
+  <!-- INTRO SECTION -->
+  <section id="introSection" class="quiz-section active">
+    <div class="text-center mb-10 fade-in">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Test de autodiagnostico</span>
+      <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+        ¿Tu empresa depende de ti<br><span class="gr">para vender?</span>
+      </h1>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-3">
+        10 preguntas. 3 minutos. Un diagnostico que te dice exactamente cuanto depende tu facturacion de que tu estes en cada operacion.
+      </p>
+      <p class="text-gray-500 text-sm mb-8">Basado en el analisis de +627 empresas B2B de servicios profesionales.</p>
+      <button onclick="startQuiz()" class="btn-g px-10 py-4 rounded-xl text-base">
+        Empezar el test
+      </button>
+      <p class="text-xs text-gray-500 mt-4">Sin registro previo. Resultado inmediato.</p>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-8 fade-in" style="animation-delay:.2s">
+      <div class="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-2xl font-bold text-white mb-1">10</p>
+        <p class="text-xs text-gray-500">Preguntas</p>
+      </div>
+      <div class="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-2xl font-bold text-white mb-1">3 min</p>
+        <p class="text-xs text-gray-500">Duracion</p>
+      </div>
+      <div class="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-2xl font-bold text-white mb-1">30</p>
+        <p class="text-xs text-gray-500">Puntos max</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ SECTION -->
+  <section id="quizSection" class="quiz-section">
+
+    <!-- Progress bar -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-sm text-gray-400">Pregunta <span id="currentQ">1</span> de 10</span>
+        <span id="progressPct" class="text-sm font-semibold text-white">0%</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-white/5 overflow-hidden">
+        <div id="progressBar" class="h-full rounded-full bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] transition-all duration-400 ease-out" style="width:0%"></div>
+      </div>
+      <!-- Progress dots -->
+      <div class="flex items-center justify-between mt-4 px-1">
+        <div class="progress-dot active" data-dot="0"></div>
+        <div class="progress-dot" data-dot="1"></div>
+        <div class="progress-dot" data-dot="2"></div>
+        <div class="progress-dot" data-dot="3"></div>
+        <div class="progress-dot" data-dot="4"></div>
+        <div class="progress-dot" data-dot="5"></div>
+        <div class="progress-dot" data-dot="6"></div>
+        <div class="progress-dot" data-dot="7"></div>
+        <div class="progress-dot" data-dot="8"></div>
+        <div class="progress-dot" data-dot="9"></div>
+      </div>
+    </div>
+
+    <!-- Question container -->
+    <div id="questionContainer" class="glass rounded-2xl p-8 md:p-10">
+      <div id="questionArea">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex items-center justify-between mt-6">
+      <button id="backBtn" onclick="prevQuestion()" class="btn-outline px-6 py-3 rounded-xl text-sm hidden">
+        &#8592; Anterior
+      </button>
+      <div class="flex-1"></div>
+      <button id="nextBtn" onclick="nextQuestion()" class="btn-g px-8 py-3 rounded-xl text-sm" disabled>
+        Siguiente &#8594;
+      </button>
+    </div>
+
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section id="resultsSection" class="quiz-section">
+
+    <!-- Score hero -->
+    <div class="text-center mb-10 scale-in">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Tu resultado</span>
+      <div class="mb-4">
+        <span id="scoreNumber" class="text-7xl md:text-8xl font-bold gr score-number inline-block">0</span>
+        <span class="text-3xl text-gray-500 font-light">/30</span>
+      </div>
+      <p id="scoreTier" class="text-xl font-semibold mb-2"></p>
+      <p id="scoreSubtitle" class="text-gray-400 text-sm max-w-lg mx-auto"></p>
+    </div>
+
+    <!-- Diagnosis card -->
+    <div class="glass rounded-2xl p-8 mb-8 fade-in" style="animation-delay:.1s">
+      <h3 class="text-lg font-bold text-white mb-4" style="font-family:'DM Sans',sans-serif">Diagnostico</h3>
+      <p id="diagnosisText" class="text-gray-300 text-sm leading-relaxed"></p>
+    </div>
+
+    <!-- Radar chart -->
+    <div class="glass rounded-2xl p-8 mb-8 fade-in" style="animation-delay:.2s">
+      <h3 class="text-lg font-bold text-white mb-6" style="font-family:'DM Sans',sans-serif">Tu perfil por areas</h3>
+      <div class="flex justify-center">
+        <svg id="radarChart" viewBox="0 0 400 400" width="360" height="360" style="max-width:100%"></svg>
+      </div>
+    </div>
+
+    <!-- Breakdown by question -->
+    <div class="glass rounded-2xl p-8 mb-8 fade-in" style="animation-delay:.3s">
+      <h3 class="text-lg font-bold text-white mb-6" style="font-family:'DM Sans',sans-serif">Desglose por area</h3>
+      <div id="breakdownList" class="space-y-3">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="glass rounded-2xl p-8 mb-8 fade-in" style="animation-delay:.4s">
+      <h3 class="text-lg font-bold text-white mb-4" style="font-family:'DM Sans',sans-serif">Recomendaciones</h3>
+      <div id="recommendationsList" class="space-y-3">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="grid md:grid-cols-2 gap-4 mb-8 fade-in" style="animation-delay:.5s">
+      <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-sm text-gray-400 mb-3">¿Quieres resolver esto?</p>
+        <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Agendar diagnostico con GGC</a>
+        <p class="text-xs text-gray-500 mt-2">30 min. Sin compromiso.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-sm text-gray-400 mb-3">Lee el articulo completo</p>
+        <a href="../blog/ceo-que-vende.html" class="inline-block px-6 py-3 rounded-lg text-sm w-full border border-[#8B5CF6]/40 text-[#8B5CF6] hover:bg-[#8B5CF6]/5 transition-colors">El CEO que vende: por que es un problema</a>
+        <p class="text-xs text-gray-500 mt-2">7 min lectura</p>
+      </div>
+    </div>
+
+    <!-- LEAD CAPTURE -->
+    <div id="leadCapture" class="mt-10">
+      <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+        <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Guarda tu diagnostico</p>
+        <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe el resultado completo + plan de accion por email</h3>
+        <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te enviamos un resumen personalizado con tu score, las areas criticas y los pasos concretos para desacoplar tus ventas de tu agenda.</p>
+
+        <form id="leadForm" class="max-w-md mx-auto space-y-3">
+          <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          <input type="hidden" name="source" value="scorecard-dependencia-ceo">
+          <input type="hidden" name="score" id="hiddenScore" value="">
+          <input type="hidden" name="tier" id="hiddenTier" value="">
+          <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Enviar diagnostico a mi email</button>
+        </form>
+        <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+          Enviado. Revisa tu bandeja en los proximos 2 minutos.
+        </div>
+        <p class="text-xs text-gray-500 mt-3">Sin spam. Solo el diagnostico.</p>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  // ─── QUESTIONS DATA ───
+  const questions = [
+    {
+      id: 'vacaciones',
+      area: 'Continuidad operativa',
+      question: '¿Que pasa con las ventas cuando te tomas 2 semanas de vacaciones?',
+      options: [
+        { text: 'Se paran por completo. Nadie mueve nada hasta que vuelvo.', score: 0 },
+        { text: 'Bajan mucho. Se hacen algunas gestiones pero no se cierra nada.', score: 1 },
+        { text: 'Se mantienen a medio gas. Alguien sigue pero con menos ritmo.', score: 2 },
+        { text: 'Siguen igual. El equipo opera con autonomia total.', score: 3 }
+      ]
+    },
+    {
+      id: 'primera_llamada',
+      area: 'Proceso de ventas',
+      question: '¿Quien lleva la primera llamada con un prospecto nuevo?',
+      options: [
+        { text: 'Siempre yo. Si no estoy, no hay llamada.', score: 0 },
+        { text: 'Yo en el 80% de los casos. A veces delego las menos importantes.', score: 1 },
+        { text: 'Tengo a alguien que hace las primeras llamadas, pero yo intervengo rapido.', score: 2 },
+        { text: 'Un comercial o SDR cualificado gestiona la primera llamada sin mi.', score: 3 }
+      ]
+    },
+    {
+      id: 'closers',
+      area: 'Capacidad de cierre',
+      question: '¿Cuantas personas en tu empresa pueden cerrar una venta de forma independiente?',
+      options: [
+        { text: 'Solo yo. Nadie mas ha cerrado un deal.', score: 0 },
+        { text: 'Una persona ademas de mi, pero solo en deals pequenos.', score: 1 },
+        { text: '2-3 personas pueden cerrar, aunque yo reviso los deals grandes.', score: 2 },
+        { text: 'Hay un equipo que cierra deals de cualquier tamano sin mi aprobacion.', score: 3 }
+      ]
+    },
+    {
+      id: 'pipeline_origen',
+      area: 'Generacion de demanda',
+      question: '¿De donde viene tu pipeline de ventas?',
+      options: [
+        { text: 'De mi red personal, referidos y eventos donde yo voy.', score: 0 },
+        { text: 'Mayoritariamente de mi red, con algo de inbound ocasional.', score: 1 },
+        { text: 'Mix: parte de mi red, parte de marketing/outbound sistematizado.', score: 2 },
+        { text: 'Sistema predecible: inbound, outbound y partnerships que no dependen de mi.', score: 3 }
+      ]
+    },
+    {
+      id: 'procesos_documentados',
+      area: 'Documentacion comercial',
+      question: '¿Tienes scripts de venta, guiones y procesos documentados?',
+      options: [
+        { text: 'No. Todo esta en mi cabeza. Cada llamada es improvisacion controlada.', score: 0 },
+        { text: 'Tengo algunas notas sueltas pero nada que otra persona pueda seguir.', score: 1 },
+        { text: 'Hay documentos basicos: guion de primera llamada, FAQ, plantillas de email.', score: 2 },
+        { text: 'Playbook completo: scripts, objeciones, criterios de cualificacion, todo documentado.', score: 3 }
+      ]
+    },
+    {
+      id: 'propuestas',
+      area: 'Capacidad operativa',
+      question: '¿Quien crea las propuestas comerciales y presentaciones?',
+      options: [
+        { text: 'Yo escribo cada propuesta desde cero. Nadie mas puede hacerlo.', score: 0 },
+        { text: 'Yo las hago, pero tengo plantillas que a veces adapta alguien de mi equipo.', score: 1 },
+        { text: 'Mi equipo prepara el borrador y yo reviso/ajusto antes de enviar.', score: 2 },
+        { text: 'El equipo crea y envia propuestas con autonomia usando plantillas y criterios claros.', score: 3 }
+      ]
+    },
+    {
+      id: 'revenue_ceo',
+      area: 'Concentracion de revenue',
+      question: '¿Que porcentaje de tu facturacion viene de deals que originaste tu personalmente?',
+      options: [
+        { text: 'Mas del 80%. Practicamente todo pasa por mi.', score: 0 },
+        { text: 'Entre 50% y 80%. La mayoria, pero no todo.', score: 1 },
+        { text: 'Entre 20% y 50%. El equipo genera una parte importante.', score: 2 },
+        { text: 'Menos del 20%. La maquina comercial funciona sin mi como origen.', score: 3 }
+      ]
+    },
+    {
+      id: 'equipo_targets',
+      area: 'Estructura de equipo',
+      question: '¿Tienes un equipo comercial con objetivos individuales?',
+      options: [
+        { text: 'No hay equipo comercial. Soy yo y punto.', score: 0 },
+        { text: 'Hay personas que "ayudan" en ventas pero sin objetivos ni metricas propias.', score: 1 },
+        { text: 'Hay un equipo con algunos KPIs, pero yo sigo siendo el referente principal.', score: 2 },
+        { text: 'Equipo con targets individuales, pipeline propio y reporting semanal.', score: 3 }
+      ]
+    },
+    {
+      id: 'objeciones',
+      area: 'Transferencia de conocimiento',
+      question: '¿Alguien mas en tu empresa maneja objeciones tan bien como tu?',
+      options: [
+        { text: 'No. Solo yo se responder a las objeciones dificiles.', score: 0 },
+        { text: 'Alguno se defiende con objeciones basicas, pero las complejas me las pasan.', score: 1 },
+        { text: 'Hay 1-2 personas que manejan bien el 70% de las objeciones.', score: 2 },
+        { text: 'El equipo tiene un documento de objeciones y saben manejarlas todas.', score: 3 }
+      ]
+    },
+    {
+      id: 'crm',
+      area: 'Infraestructura de datos',
+      question: '¿Tienes un CRM con datos reales o todo esta en tu cabeza?',
+      options: [
+        { text: 'No hay CRM. Mi cabeza es el CRM. Contactos en el movil y notas mentales.', score: 0 },
+        { text: 'Tenemos CRM pero esta medio vacio o desactualizado. Nadie lo usa de verdad.', score: 1 },
+        { text: 'CRM con datos razonables. Yo lo uso, el equipo a medias.', score: 2 },
+        { text: 'CRM actualizado, pipeline visible, datos fiables. Todo el equipo lo usa a diario.', score: 3 }
+      ]
+    }
+  ];
+
+  // ─── STATE ───
+  let currentQuestion = 0;
+  let answers = new Array(10).fill(null); // stores selected option index
+
+  // ─── RADAR AREAS (grouped) ───
+  const radarAreas = [
+    { name: 'Continuidad', questions: [0], maxScore: 3 },
+    { name: 'Proceso', questions: [1, 4], maxScore: 6 },
+    { name: 'Cierre', questions: [2, 8], maxScore: 6 },
+    { name: 'Demanda', questions: [3, 6], maxScore: 6 },
+    { name: 'Equipo', questions: [5, 7, 9], maxScore: 9 }
+  ];
+
+  // ─── START QUIZ ───
+  window.startQuiz = function(){
+    document.getElementById('introSection').classList.remove('active');
+    document.getElementById('quizSection').classList.add('active');
+    renderQuestion('slide-in-right');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // ─── RENDER QUESTION ───
+  function renderQuestion(animClass){
+    const q = questions[currentQuestion];
+    const area = document.getElementById('questionArea');
+
+    area.className = animClass || 'slide-in-right';
+
+    let optionsHTML = '';
+    q.options.forEach(function(opt, i){
+      const selected = answers[currentQuestion] === i ? 'selected' : '';
+      optionsHTML += `
+        <div class="option-card glass rounded-xl p-5 mb-3 ${selected}" onclick="selectOption(${i})" role="button" tabindex="0" aria-label="${opt.text}">
+          <div class="flex items-start gap-4">
+            <div class="option-radio mt-0.5"></div>
+            <p class="text-sm text-gray-200 leading-relaxed">${opt.text}</p>
+          </div>
+        </div>
+      `;
+    });
+
+    area.innerHTML = `
+      <p class="text-xs text-[#8B5CF6] font-semibold uppercase tracking-widest mb-2">${q.area}</p>
+      <h2 class="text-xl md:text-2xl font-bold text-white mb-6" style="font-family:'Playfair Display',serif">${q.question}</h2>
+      <div class="space-y-0">
+        ${optionsHTML}
+      </div>
+    `;
+
+    // Update progress
+    document.getElementById('currentQ').textContent = currentQuestion + 1;
+    const pct = Math.round(((currentQuestion) / 10) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
+
+    // Update dots
+    document.querySelectorAll('.progress-dot').forEach(function(dot, i){
+      dot.classList.remove('active', 'completed');
+      if(i < currentQuestion) dot.classList.add('completed');
+      else if(i === currentQuestion) dot.classList.add('active');
+    });
+
+    // Back button
+    document.getElementById('backBtn').style.display = currentQuestion > 0 ? 'block' : 'none';
+
+    // Next button
+    updateNextButton();
+  }
+
+  function updateNextButton(){
+    const btn = document.getElementById('nextBtn');
+    if(answers[currentQuestion] !== null){
+      btn.disabled = false;
+      btn.textContent = currentQuestion === 9 ? 'Ver resultado' : 'Siguiente →';
+    } else {
+      btn.disabled = true;
+      btn.textContent = currentQuestion === 9 ? 'Ver resultado' : 'Siguiente →';
+    }
+  }
+
+  // ─── SELECT OPTION ───
+  window.selectOption = function(index){
+    answers[currentQuestion] = index;
+
+    // Update UI
+    document.querySelectorAll('.option-card').forEach(function(card, i){
+      card.classList.toggle('selected', i === index);
+    });
+
+    updateNextButton();
+
+    // Auto-advance after short delay
+    if(currentQuestion < 9){
+      setTimeout(function(){ nextQuestion(); }, 350);
+    }
+  };
+
+  // ─── NAVIGATION ───
+  window.nextQuestion = function(){
+    if(answers[currentQuestion] === null) return;
+    if(currentQuestion < 9){
+      currentQuestion++;
+      renderQuestion('slide-in-right');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      showResults();
+    }
+  };
+
+  window.prevQuestion = function(){
+    if(currentQuestion > 0){
+      currentQuestion--;
+      renderQuestion('slide-in-left');
+    }
+  };
+
+  // Keyboard nav for option cards
+  document.addEventListener('keydown', function(e){
+    if(!document.getElementById('quizSection').classList.contains('active')) return;
+    if(e.key === 'Enter' && answers[currentQuestion] !== null){
+      nextQuestion();
+    }
+  });
+
+  // ─── SHOW RESULTS ───
+  function showResults(){
+    // Calculate total score
+    let totalScore = 0;
+    answers.forEach(function(ansIndex, qIndex){
+      if(ansIndex !== null){
+        totalScore += questions[qIndex].options[ansIndex].score;
+      }
+    });
+
+    // Determine tier
+    let tier, tierClass, tierLabel, diagnosis;
+
+    if(totalScore <= 8){
+      tier = 'critical';
+      tierClass = 'tier-critical';
+      tierLabel = 'Alerta roja: Eres el cuello de botella';
+      diagnosis = 'Tu empresa no tiene un sistema comercial. Tiene a ti. Cada deal pasa por tu cabeza, tu red, tu energia. El dia que te pares — por vacaciones, por salud, por burnout — la facturacion se para contigo. No es un problema de talento ni de esfuerzo. Es un problema de arquitectura. Lo que necesitas no es trabajar mas duro sino instalar infraestructura comercial que funcione sin ti en la ecuacion. Esto requiere documentar lo que sabes, transferirlo a un equipo y construir procesos que produzcan resultados predecibles. El primer paso: deja de ser el unico motor de ventas.';
+    } else if(totalScore <= 16){
+      tier = 'warning';
+      tierClass = 'tier-warning';
+      tierLabel = 'Zona de riesgo: Transicion incompleta';
+      diagnosis = 'Has empezado a delegar pero el sistema todavia te necesita en el centro. Probablemente tienes alguna pieza — un CRM a medias, alguien que "ayuda" en ventas, quizas un par de plantillas — pero la realidad es que sin ti la maquina se ralentiza o se detiene. Estas en tierra de nadie: demasiado grande para hacerlo todo tu, demasiado dependiente para soltar el control. La prioridad es cerrar los gaps: documentar procesos, dar autonomia real al equipo y construir un pipeline que no dependa de tu red personal. Cada mes que pospongas esto, el riesgo se acumula.';
+    } else if(totalScore <= 23){
+      tier = 'good';
+      tierClass = 'tier-good';
+      tierLabel = 'En camino: Sistema en construccion';
+      diagnosis = 'Tienes base solida. Hay equipo, hay procesos, hay cierta autonomia. Pero todavia intervienes mas de lo necesario — revisas propuestas, cierras los deals importantes, eres la referencia para objeciones dificiles. La buena noticia: estas cerca. Lo que te separa de una operacion verdaderamente independiente es optimizar las piezas que ya tienes, no construir desde cero. Enfocate en los puntos donde aun eres imprescindible y disena la transferencia. El objetivo es que puedas desaparecer 30 dias y que los numeros no lo noten.';
+    } else {
+      tier = 'excellent';
+      tierClass = 'tier-excellent';
+      tierLabel = 'Infraestructura real: Ventas sin el fundador';
+      diagnosis = 'Esto es lo que la mayoria de CEOs quiere y muy pocos consiguen. Tu equipo vende sin ti. Hay procesos, hay datos, hay autonomia real. Tu rol ha evolucionado de vendedor-jefe a arquitecto del sistema comercial. Ahora el juego es otro: optimizar metricas, escalar lo que funciona, explorar nuevos mercados y asegurarte de que la maquina no se degrade. El riesgo en esta etapa es la complacencia. Los sistemas necesitan mantenimiento, iteracion y adaptacion constante. Sigue invirtiendo en la infraestructura que te trajo hasta aqui.';
+    }
+
+    // Set hidden fields
+    document.getElementById('hiddenScore').value = totalScore + '/30';
+    document.getElementById('hiddenTier').value = tierLabel;
+
+    // Switch to results
+    document.getElementById('quizSection').classList.remove('active');
+    document.getElementById('resultsSection').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Animate score counter
+    const scoreEl = document.getElementById('scoreNumber');
+    let counter = 0;
+    const increment = totalScore / 30;
+    const timer = setInterval(function(){
+      counter += increment;
+      if(counter >= totalScore){
+        counter = totalScore;
+        clearInterval(timer);
+      }
+      scoreEl.textContent = Math.round(counter);
+    }, 40);
+
+    // Tier
+    document.getElementById('scoreTier').textContent = tierLabel;
+    document.getElementById('scoreTier').className = 'text-xl font-semibold mb-2 ' + tierClass;
+    document.getElementById('scoreSubtitle').textContent = totalScore + ' de 30 puntos — ' + (tier === 'critical' ? 'Dependencia maxima' : tier === 'warning' ? 'Dependencia alta' : tier === 'good' ? 'Dependencia moderada' : 'Independencia comercial');
+    document.getElementById('diagnosisText').textContent = diagnosis;
+
+    // Breakdown
+    renderBreakdown(totalScore);
+
+    // Radar chart
+    renderRadarChart();
+
+    // Recommendations
+    renderRecommendations(totalScore);
+  }
+
+  // ─── BREAKDOWN ───
+  function renderBreakdown(){
+    const list = document.getElementById('breakdownList');
+    list.innerHTML = '';
+
+    questions.forEach(function(q, i){
+      const ansIndex = answers[i];
+      const score = ansIndex !== null ? q.options[ansIndex].score : 0;
+      const pct = Math.round((score / 3) * 100);
+
+      let barColor;
+      if(score === 0) barColor = '#EF4444';
+      else if(score === 1) barColor = '#F59E0B';
+      else if(score === 2) barColor = '#22D3EE';
+      else barColor = '#10B981';
+
+      list.innerHTML += `
+        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs text-gray-500">${q.area}</span>
+            <span class="text-sm font-semibold" style="color:${barColor}">${score}/3</span>
+          </div>
+          <p class="text-sm text-gray-300 mb-2">${q.question}</p>
+          <div class="w-full h-1.5 rounded-full bg-white/5">
+            <div class="h-full rounded-full transition-all duration-500" style="width:${pct}%;background:${barColor}"></div>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  // ─── RADAR CHART (SVG) ───
+  function renderRadarChart(){
+    const svg = document.getElementById('radarChart');
+    const cx = 200, cy = 200, maxR = 140;
+    const areas = radarAreas;
+    const n = areas.length;
+
+    let svgContent = '';
+
+    // Grid rings
+    [0.25, 0.5, 0.75, 1].forEach(function(ring){
+      const r = maxR * ring;
+      let points = '';
+      for(let i = 0; i < n; i++){
+        const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+        const x = cx + r * Math.cos(angle);
+        const y = cy + r * Math.sin(angle);
+        points += x + ',' + y + ' ';
+      }
+      svgContent += '<polygon points="' + points.trim() + '" fill="none" class="radar-axis"/>';
+    });
+
+    // Axes
+    for(let i = 0; i < n; i++){
+      const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+      const x = cx + maxR * Math.cos(angle);
+      const y = cy + maxR * Math.sin(angle);
+      svgContent += '<line x1="' + cx + '" y1="' + cy + '" x2="' + x + '" y2="' + y + '" class="radar-axis"/>';
+    }
+
+    // Labels
+    const labelOffset = 22;
+    areas.forEach(function(area, i){
+      const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+      const x = cx + (maxR + labelOffset) * Math.cos(angle);
+      const y = cy + (maxR + labelOffset) * Math.sin(angle);
+      let anchor = 'middle';
+      if(x < cx - 10) anchor = 'end';
+      else if(x > cx + 10) anchor = 'start';
+      svgContent += '<text x="' + x + '" y="' + (y + 4) + '" text-anchor="' + anchor + '" class="radar-label">' + area.name + '</text>';
+    });
+
+    // Data shape
+    let dataPoints = '';
+    let dots = '';
+    areas.forEach(function(area, i){
+      let areaScore = 0;
+      area.questions.forEach(function(qi){
+        const ans = answers[qi];
+        if(ans !== null) areaScore += questions[qi].options[ans].score;
+      });
+      const ratio = areaScore / area.maxScore;
+      const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+      const x = cx + maxR * ratio * Math.cos(angle);
+      const y = cy + maxR * ratio * Math.sin(angle);
+      dataPoints += x + ',' + y + ' ';
+      dots += '<circle cx="' + x + '" cy="' + y + '" r="4" fill="#8B5CF6" class="radar-dot" stroke="#0C0A1D" stroke-width="2"/>';
+    });
+
+    svgContent += '<polygon points="' + dataPoints.trim() + '" fill="rgba(139,92,246,0.15)" stroke="url(#radarGrad)" stroke-width="2" class="radar-shape"/>';
+    svgContent += dots;
+
+    // Gradient def
+    const gradDef = '<defs><linearGradient id="radarGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3B82F6"/><stop offset="50%" style="stop-color:#8B5CF6"/><stop offset="100%" style="stop-color:#EC4899"/></linearGradient></defs>';
+
+    svg.innerHTML = gradDef + svgContent;
+  }
+
+  // ─── RECOMMENDATIONS ───
+  function renderRecommendations(totalScore){
+    const list = document.getElementById('recommendationsList');
+    list.innerHTML = '';
+
+    const recs = [];
+
+    // Generate specific recs based on weak areas
+    questions.forEach(function(q, i){
+      const ansIndex = answers[i];
+      const score = ansIndex !== null ? q.options[ansIndex].score : 0;
+      if(score <= 1){
+        let rec = '';
+        switch(i){
+          case 0: rec = 'Disena un protocolo de continuidad comercial. Define quien hace que cuando tu no estas. Pruebalo antes de necesitarlo.'; break;
+          case 1: rec = 'Entrena a alguien para la primera llamada. Crea un guion, practiquen con role-plays, y deja que maneje las primeras 10 llamadas con tu supervision.'; break;
+          case 2: rec = 'Forma closers. Documenta tu proceso de cierre paso a paso. Acompana a alguien en 5 deals y luego invierte los roles.'; break;
+          case 3: rec = 'Instala un motor de generacion de demanda que no dependa de tu red personal. Outbound sistematizado, contenido que genera inbound, o partnerships.'; break;
+          case 4: rec = 'Documenta tu proceso comercial esta semana. No tiene que ser perfecto. Un playbook basico con scripts, objeciones y pasos del proceso ya cambia el juego.'; break;
+          case 5: rec = 'Crea templates de propuestas con bloques reutilizables. Entrena a alguien para montarlas. Tu rol pasa de redactor a revisor, y luego a nada.'; break;
+          case 6: rec = 'Diversifica el origen de tu revenue. Si mas del 50% viene de deals que originas tu, cada euro de crecimiento requiere mas horas tuyas. Eso no escala.'; break;
+          case 7: rec = 'Contrata o asigna roles comerciales con targets claros. Sin metricas individuales no hay accountability. Sin accountability no hay equipo de ventas.'; break;
+          case 8: rec = 'Crea un documento de objeciones con las 15-20 mas frecuentes y las respuestas que funcionan. Entrena al equipo cada semana hasta que lo dominen.'; break;
+          case 9: rec = 'Implementa un CRM y haz que usarlo sea obligatorio. Si los datos no estan en el sistema, la oportunidad no existe. Empieza simple pero se riguroso.'; break;
+        }
+        recs.push({ area: q.area, rec: rec, score: score });
+      }
+    });
+
+    if(recs.length === 0){
+      list.innerHTML = '<div class="p-4 rounded-lg bg-green-500/5 border border-green-500/10 text-green-400 text-sm">Todas las areas estan en buen nivel. Enfocate en optimizar y escalar lo que funciona.</div>';
+      return;
+    }
+
+    // Sort by worst first
+    recs.sort(function(a, b){ return a.score - b.score; });
+
+    // Show top 5 max
+    recs.slice(0, 5).forEach(function(r, i){
+      const urgency = r.score === 0 ? 'Urgente' : 'Importante';
+      const urgencyColor = r.score === 0 ? '#EF4444' : '#F59E0B';
+      list.innerHTML += `
+        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-semibold px-2 py-0.5 rounded" style="background:${urgencyColor}20;color:${urgencyColor}">${urgency}</span>
+            <span class="text-xs text-gray-500">${r.area}</span>
+          </div>
+          <p class="text-sm text-gray-200 leading-relaxed">${r.rec}</p>
+        </div>
+      `;
+    });
+
+    // General CTA
+    list.innerHTML += `
+      <div class="p-5 rounded-xl border border-[#8B5CF6]/20 bg-[#8B5CF6]/5 mt-2">
+        <p class="text-sm text-gray-200 leading-relaxed">
+          Estas recomendaciones son el punto de partida. En GGC ayudamos a empresas B2B de servicios a instalar la infraestructura comercial completa con <strong class="text-white">APEX OS&#8482;</strong> — el sistema que han usado +627 empresas para dejar de depender del fundador.
+        </p>
+        <a href="../agendar.html" class="inline-block mt-3 text-sm font-semibold text-[#8B5CF6] hover:text-white transition-colors">Agendar diagnostico gratuito &#8594;</a>
+      </div>
+    `;
+  }
+
+  // ─── LEAD FORM ───
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    const data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      score: form.score.value,
+      tier: form.tier.value,
+      source: 'scorecard-dependencia-ceo',
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/REPLACE_WITH_WEBHOOK_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

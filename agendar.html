@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Sesión — Global Growth Consulting</title>
+  <meta name="description" content="Reserva tu sesión de diagnóstico estratégico con Global Growth Consulting. 15 minutos, sin compromiso, por videollamada.">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{
+      navy:{DEFAULT:'#0C0A1D',light:'#12102B',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},
+      brand:{cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'}
+    },
+    fontFamily:{
+      display:['Playfair Display','Georgia','serif'],
+      body:['DM Sans','system-ui','sans-serif']
+    }
+  }}}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,sans-serif;background:#0C0A1D;color:#c4c0d8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .gr-label{background:linear-gradient(90deg,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .nv{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(12,10,29,.8);border-bottom:1px solid rgba(255,255,255,.04)}
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  .btn-g{position:relative;overflow:hidden;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;cursor:pointer;font-weight:700;transition:transform .3s,box-shadow .3s}
+  .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+  .btn-g:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 20px 50px rgba(139,92,246,.3)}
+  .gc{position:relative;background:#151331;border-radius:20px;overflow:hidden;transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s}
+  .gc::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(34,211,238,.2),rgba(59,130,246,.15),rgba(139,92,246,.2),rgba(236,72,153,.15));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;transition:opacity .4s;opacity:.5}
+  .gc:hover::before{opacity:1}
+  .gc:hover{transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.4),0 0 40px rgba(139,92,246,.08)}
+  section,footer,nav{position:relative;z-index:2}
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.2;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
+  @keyframes pd{0%,100%{box-shadow:0 0 0 0 rgba(139,92,246,.5)}50%{box-shadow:0 0 0 6px rgba(139,92,246,0)}}
+  .pd{animation:pd 2s infinite}
+  ::selection{background:rgba(139,92,246,.3);color:#fff}
+  </style>
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav class="nv fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 cursor-pointer">
+      <img src="logo.png" alt="Global Growth Consulting" width="54" height="54">
+    </a>
+    <div class="flex items-center gap-6">
+      <a href="index.html#sistema" class="hidden md:inline text-base text-zinc-400 hover:text-white transition-colors cursor-pointer">Sistema</a>
+      <a href="index.html#resultados" class="hidden md:inline text-base text-zinc-400 hover:text-white transition-colors cursor-pointer">Resultados</a>
+      <a href="index.html#proceso" class="hidden md:inline text-base text-zinc-400 hover:text-white transition-colors cursor-pointer">Proceso</a>
+      <a href="agendar.html" class="btn-g px-6 py-2.5 rounded-lg text-base">Aplicar</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="pt-32 pb-12">
+  <div class="max-w-4xl mx-auto px-5 text-center">
+
+    <!-- Eyebrow -->
+    <div class="flex justify-center mb-8">
+      <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full" style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2)">
+        <div class="w-2 h-2 rounded-full bg-brand-purple pd"></div>
+        <span class="font-body gr-label text-xs font-semibold tracking-[.2em] uppercase">Solo 3 nuevos partners al mes</span>
+      </div>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+      Reserva tu sesión de<br><span class="gr italic">diagnóstico estratégico.</span>
+    </h1>
+
+    <!-- Sub -->
+    <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-4">
+      Invertimos nuestro dinero en hacer crecer tu negocio — por eso necesitamos entender bien tu situación antes de dar el paso.
+    </p>
+
+    <!-- Small text -->
+    <p class="text-sm text-zinc-500 mb-12">
+      Si no encajamos, te lo diremos con total transparencia.
+    </p>
+
+    <!-- 3 Info Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-14">
+      <div class="gc p-6 text-center">
+        <div class="text-3xl mb-3">
+          <svg class="w-8 h-8 mx-auto text-brand-cyan" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+        </div>
+        <h3 class="text-white font-semibold text-lg mb-1">15 minutos</h3>
+        <p class="text-zinc-400 text-sm">Diagnóstico breve pero profundo</p>
+      </div>
+      <div class="gc p-6 text-center">
+        <div class="text-3xl mb-3">
+          <svg class="w-8 h-8 mx-auto text-brand-purple" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+        </div>
+        <h3 class="text-white font-semibold text-lg mb-1">Sin compromiso</h3>
+        <p class="text-zinc-400 text-sm">Si no encajamos, te lo decimos</p>
+      </div>
+      <div class="gc p-6 text-center">
+        <div class="text-3xl mb-3">
+          <svg class="w-8 h-8 mx-auto text-brand-pink" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+        </div>
+        <h3 class="text-white font-semibold text-lg mb-1">Videollamada</h3>
+        <p class="text-zinc-400 text-sm">Desde donde estés</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CAL.COM EMBED ══════ -->
+<section class="pb-12">
+  <div class="max-w-3xl mx-auto px-5">
+    <div class="rounded-2xl overflow-hidden">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/booking/WCrk7yvHxXuMABMjIjDu"
+        title="Booking Calendar"
+        style="width:100%;min-height:1100px;height:1077px;border:none;border-radius:12px;overflow:auto;opacity:1;display:block"
+        scrolling="yes"
+      ></iframe>
+    </div>
+    <p class="text-center text-zinc-500 text-sm mt-6">
+      Al agendar, recibirás un email de confirmación con los detalles de la sesión.
+    </p>
+  </div>
+</section>
+
+<!-- ══════ STATS BAR ══════ -->
+<section class="py-14">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <div class="font-display text-3xl md:text-4xl font-bold text-white">+670</div>
+        <div class="text-zinc-500 text-sm mt-1">Empresas desde 2016</div>
+      </div>
+      <div>
+        <div class="font-display text-3xl md:text-4xl font-bold text-white">3</div>
+        <div class="text-zinc-500 text-sm mt-1">Continentes</div>
+      </div>
+      <div>
+        <div class="font-display text-3xl md:text-4xl font-bold gr">0€</div>
+        <div class="text-zinc-500 text-sm mt-1">Fee inicial</div>
+      </div>
+      <div>
+        <div class="font-display text-3xl md:text-4xl font-bold text-white">100%</div>
+        <div class="text-zinc-500 text-sm mt-1">A éxito</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="border-t border-white/5 py-12">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <img src="logo.png" alt="GGC" width="28" height="28">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-4 font-body text-sm text-zinc-600">
+          <span class="font-semibold text-zinc-400">Global Growth Consulting</span>
+          <span class="hidden sm:inline">&middot;</span>
+          <span>Moll de Lleida B2, Oficina N/O &middot; Tarragona, 43002</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 font-body text-sm text-zinc-600">
+        <a href="privacidad.html" class="hover:text-zinc-300 transition-colors cursor-pointer">Privacidad</a>
+        <a href="aviso-legal.html" class="hover:text-zinc-300 transition-colors cursor-pointer">Aviso Legal</a>
+        <a href="cookies.html" class="hover:text-zinc-300 transition-colors cursor-pointer">Cookies</a>
+      </div>
+    </div>
+    <div class="mt-8 text-center font-body text-xs text-zinc-700">&copy; 2016–2026 Global Growth Consulting by Digital Insta Media. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+</body>
+</html>

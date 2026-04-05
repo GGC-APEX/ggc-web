@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /lead-magnets/
+Disallow: /gracias
+
+Sitemap: https://globalgrowth.consulting/sitemap.xml

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostico: Los 3 cuellos de botella del crecimiento B2B | GGC</title>
+  <meta name="description" content="Descubre cual de los 3 cuellos de botella esta frenando el crecimiento de tu empresa B2B. Diagnostico interactivo en 5 minutos con plan de accion personalizado.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Diagnostico: Los 3 cuellos de botella del crecimiento B2B">
+  <meta property="og:description" content="15 preguntas. 5 minutos. Descubre exactamente que frena tu crecimiento B2B.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:#0C0A1D;color:#e0e0e0;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Scale selector */
+    .scale-btn{width:44px;height:44px;border-radius:10px;border:2px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:#888;font-weight:600;font-size:0.95rem;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center}
+    .scale-btn:hover{border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:#ccc}
+    .scale-btn.active-blue{border-color:#3B82F6;background:rgba(59,130,246,0.15);color:#3B82F6;box-shadow:0 0 12px rgba(59,130,246,0.2)}
+    .scale-btn.active-purple{border-color:#8B5CF6;background:rgba(139,92,246,0.15);color:#8B5CF6;box-shadow:0 0 12px rgba(139,92,246,0.2)}
+    .scale-btn.active-pink{border-color:#EC4899;background:rgba(236,72,153,0.15);color:#EC4899;box-shadow:0 0 12px rgba(236,72,153,0.2)}
+
+    /* Question card */
+    .q-card{transition:all .2s ease}
+    .q-card.answered{border-color:rgba(255,255,255,0.1)}
+
+    /* Progress bar */
+    .progress-fill{transition:width .4s ease}
+
+    /* Gauge bar */
+    .gauge-bar{height:12px;border-radius:6px;background:rgba(255,255,255,0.05);overflow:hidden;position:relative}
+    .gauge-fill{height:100%;border-radius:6px;transition:width .8s ease}
+
+    /* Result badge */
+    .result-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;font-size:0.8rem;font-weight:600}
+
+    /* Fade in */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    /* Pulse */
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+    .pulse{animation:pulse 2s ease-in-out infinite}
+
+    /* Results panel */
+    .results-panel{display:none}
+    .results-panel.visible{display:block}
+
+    /* Category icon */
+    .cat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+
+    /* Print styles */
+    @media print{
+      body{background:#fff;color:#333}
+      .glass{background:#f5f5f5;border:1px solid #ddd;backdrop-filter:none}
+      .no-print{display:none!important}
+    }
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.progress-fill{transition:none}.gauge-fill{transition:none}.q-card{transition:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Diagnostico gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Diagnostico interactivo</span>
+    <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+      Los 3 cuellos de botella del<br><span class="gr">crecimiento B2B</span>
+    </h1>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-2">
+      15 preguntas. 5 minutos. Descubre cual de los 3 problemas esta frenando tu crecimiento &mdash; y que hacer para desbloquearlo.
+    </p>
+    <p class="text-gray-500 text-sm">Basado en el analisis de +627 empresas B2B de servicios profesionales.</p>
+  </div>
+
+  <!-- 3 BOTTLENECKS OVERVIEW -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 fade-in" style="animation-delay:.1s">
+    <div class="glass rounded-xl p-5 text-center">
+      <div class="w-10 h-10 rounded-lg bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center mx-auto mb-3"><span class="text-lg">&#128165;</span></div>
+      <p class="text-sm font-semibold text-white mb-1">Problema de flujo</p>
+      <p class="text-xs text-gray-500">No generas suficientes reuniones cualificadas</p>
+    </div>
+    <div class="glass rounded-xl p-5 text-center">
+      <div class="w-10 h-10 rounded-lg bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center mx-auto mb-3"><span class="text-lg">&#128176;</span></div>
+      <p class="text-sm font-semibold text-white mb-1">Problema de conversion</p>
+      <p class="text-xs text-gray-500">Tienes reuniones pero no cierras suficiente</p>
+    </div>
+    <div class="glass rounded-xl p-5 text-center">
+      <div class="w-10 h-10 rounded-lg bg-[#EC4899]/10 border border-[#EC4899]/20 flex items-center justify-center mx-auto mb-3"><span class="text-lg">&#128640;</span></div>
+      <p class="text-sm font-semibold text-white mb-1">Problema de escalabilidad</p>
+      <p class="text-xs text-gray-500">Cierras pero no puedes escalar</p>
+    </div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="glass rounded-2xl p-6 mb-8 fade-in sticky top-0 z-10 no-print" style="animation-delay:.15s">
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-sm text-gray-400">Progreso</span>
+      <span id="progressText" class="text-sm font-semibold text-white">0 / 15 preguntas</span>
+    </div>
+    <div class="w-full h-2 rounded-full bg-white/5 overflow-hidden">
+      <div id="progressBar" class="progress-fill h-full rounded-full bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]" style="width:0%"></div>
+    </div>
+    <div id="progressHint" class="mt-2 text-xs text-gray-500"></div>
+  </div>
+
+  <!-- SECTION 1: FLUJO -->
+  <section class="mb-10 fade-in" style="animation-delay:.2s">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="cat-icon bg-[#3B82F6]/10 border border-[#3B82F6]/20">
+        <span>&#128165;</span>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif">Flujo de oportunidades</h2>
+        <p class="text-xs text-gray-500">Tu capacidad de generar reuniones cualificadas de forma predecible</p>
+      </div>
+    </div>
+    <div class="space-y-4" id="section-flow">
+
+      <div class="q-card glass rounded-xl p-5" data-q="0" data-cat="flow">
+        <p class="text-white text-sm font-medium mb-1">1. ¿Cuantas reuniones cualificadas generas por semana de media?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Ninguna o casi ninguna &middot; 5 = Mas de 10 por semana, flujo constante</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="blue" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="blue" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="blue" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="blue" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="blue" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Bajo &middot; Alto &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="1" data-cat="flow">
+        <p class="text-white text-sm font-medium mb-1">2. ¿Cuanto dependes de referidos para conseguir negocio nuevo?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = 100% de mis clientes vienen por referidos &middot; 5 = Tengo canales propios, los referidos son un extra</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="blue" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="blue" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="blue" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="blue" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="blue" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Dependiente &middot; Independiente &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="2" data-cat="flow">
+        <p class="text-white text-sm font-medium mb-1">3. ¿Tienes un proceso de outbound activo y sistematico?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = No hacemos outbound &middot; 5 = Proceso diario con secuencias, canales y metricas</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="blue" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="blue" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="blue" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="blue" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="blue" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Nada &middot; Sistema completo &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="3" data-cat="flow">
+        <p class="text-white text-sm font-medium mb-1">4. ¿Como de consistente es tu flujo de leads mes a mes?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Totalmente impredecible, meses buenos y meses muertos &middot; 5 = Flujo estable y predecible</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="blue" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="blue" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="blue" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="blue" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="blue" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Impredecible &middot; Estable &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="4" data-cat="flow">
+        <p class="text-white text-sm font-medium mb-1">5. ¿Puedes predecir el pipeline del proximo mes con mas del 70% de precision?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = No tengo ni idea de lo que entrara &middot; 5 = Prevision fiable con datos reales</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="blue" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="blue" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="blue" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="blue" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="blue" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Sin visibilidad &middot; Prevision clara &#8594;</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: CONVERSION -->
+  <section class="mb-10 fade-in" style="animation-delay:.25s">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="cat-icon bg-[#8B5CF6]/10 border border-[#8B5CF6]/20">
+        <span>&#128176;</span>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif">Conversion de ventas</h2>
+        <p class="text-xs text-gray-500">Tu capacidad de convertir reuniones en clientes de forma sistematica</p>
+      </div>
+    </div>
+    <div class="space-y-4" id="section-conversion">
+
+      <div class="q-card glass rounded-xl p-5" data-q="5" data-cat="conversion">
+        <p class="text-white text-sm font-medium mb-1">6. ¿Cual es tu ratio de propuesta a cierre?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Menos del 10%, enviamos muchas propuestas y cerramos pocas &middot; 5 = Mas del 40%, cerramos casi la mitad</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="purple" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="purple" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="purple" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="purple" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="purple" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Bajo &middot; Alto &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="6" data-cat="conversion">
+        <p class="text-white text-sm font-medium mb-1">7. ¿Cuanto dura tu ciclo de venta medio?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Mas de 6 meses, procesos eternos &middot; 5 = Menos de 30 dias de primera reunion a firma</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="purple" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="purple" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="purple" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="purple" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="purple" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Muy largo &middot; Rapido &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="7" data-cat="conversion">
+        <p class="text-white text-sm font-medium mb-1">8. ¿Pierdes mas deals por "no decision" que por la competencia?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Casi todos se quedan en "ya te digo algo" &middot; 5 = Rara vez perdemos por indecision, siempre hay decision clara</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="purple" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="purple" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="purple" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="purple" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="purple" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Mucha indecision &middot; Decisiones claras &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="8" data-cat="conversion">
+        <p class="text-white text-sm font-medium mb-1">9. ¿Tienes un proceso de venta documentado y estructurado?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Cada comercial hace lo que le parece &middot; 5 = Proceso con fases, criterios de avance y guiones definidos</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="purple" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="purple" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="purple" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="purple" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="purple" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Improvisacion &middot; Sistema &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="9" data-cat="conversion">
+        <p class="text-white text-sm font-medium mb-1">10. ¿Puede alguien que no sea el fundador cerrar un deal?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Solo cierra el fundador/CEO &middot; 5 = Varios miembros del equipo cierran con el mismo ratio</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="purple" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="purple" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="purple" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="purple" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="purple" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Solo fundador &middot; Equipo autonomo &#8594;</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: ESCALABILIDAD -->
+  <section class="mb-10 fade-in" style="animation-delay:.3s">
+    <div class="flex items-center gap-4 mb-6">
+      <div class="cat-icon bg-[#EC4899]/10 border border-[#EC4899]/20">
+        <span>&#128640;</span>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif">Escalabilidad comercial</h2>
+        <p class="text-xs text-gray-500">Tu capacidad de crecer sin depender de personas concretas</p>
+      </div>
+    </div>
+    <div class="space-y-4" id="section-scale">
+
+      <div class="q-card glass rounded-xl p-5" data-q="10" data-cat="scale">
+        <p class="text-white text-sm font-medium mb-1">11. ¿Que pasa con el revenue si se va tu mejor comercial?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Catastrofe, perderias mas del 40% de la facturacion &middot; 5 = Impacto minimo, el sistema sostiene los numeros</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="pink" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="pink" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="pink" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="pink" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="pink" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Catastrofe &middot; Sin impacto &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="11" data-cat="scale">
+        <p class="text-white text-sm font-medium mb-1">12. ¿Cuanto tardas en llevar a un nuevo comercial a pleno rendimiento?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Mas de 6 meses (si es que llega) &middot; 5 = Menos de 60 dias con onboarding estructurado</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="pink" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="pink" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="pink" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="pink" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="pink" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Meses &middot; Semanas &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="12" data-cat="scale">
+        <p class="text-white text-sm font-medium mb-1">13. ¿Tus procesos estan documentados lo suficiente para replicarlos?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Todo esta en la cabeza de la gente &middot; 5 = Playbooks completos que cualquiera puede seguir</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="pink" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="pink" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="pink" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="pink" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="pink" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Nada documentado &middot; Todo documentado &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="13" data-cat="scale">
+        <p class="text-white text-sm font-medium mb-1">14. ¿Tienes KPIs de ventas que revisas semanalmente?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = No medimos nada de forma regular &middot; 5 = Dashboard semanal con metricas accionables</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="pink" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="pink" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="pink" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="pink" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="pink" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Sin metricas &middot; Datos semanales &#8594;</span>
+        </div>
+      </div>
+
+      <div class="q-card glass rounded-xl p-5" data-q="14" data-cat="scale">
+        <p class="text-white text-sm font-medium mb-1">15. ¿Podrias manejar 3x el volumen actual de leads sin romper?</p>
+        <p class="text-xs text-gray-500 mb-4">1 = Nos desbordariamos completamente &middot; 5 = Tenemos capacidad y sistemas para absorberlo</p>
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            <button class="scale-btn" data-val="1" data-color="pink" onclick="selectAnswer(this)">1</button>
+            <button class="scale-btn" data-val="2" data-color="pink" onclick="selectAnswer(this)">2</button>
+            <button class="scale-btn" data-val="3" data-color="pink" onclick="selectAnswer(this)">3</button>
+            <button class="scale-btn" data-val="4" data-color="pink" onclick="selectAnswer(this)">4</button>
+            <button class="scale-btn" data-val="5" data-color="pink" onclick="selectAnswer(this)">5</button>
+          </div>
+          <span class="text-xs text-gray-500 ml-2 hidden sm:inline">&#8592; Colapso &middot; Preparados &#8594;</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA: VER RESULTADOS -->
+  <div class="text-center mb-12 no-print fade-in" style="animation-delay:.35s">
+    <button id="btnResults" class="btn-g px-10 py-4 rounded-xl text-base" disabled onclick="showResults()">
+      Ver mi diagnostico
+    </button>
+    <p id="btnHint" class="text-xs text-gray-500 mt-3">Responde las 15 preguntas para desbloquear tu diagnostico</p>
+  </div>
+
+  <!-- RESULTS PANEL -->
+  <div id="resultsPanel" class="results-panel fade-in">
+
+    <!-- Score overview -->
+    <div class="glass rounded-2xl p-8 mb-6">
+      <div class="text-center mb-8">
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-2">Tu diagnostico</h2>
+        <p class="text-gray-400 text-sm">Puntuacion por area (5 preguntas cada una, maximo 25 puntos)</p>
+      </div>
+
+      <!-- 3 Gauge bars -->
+      <div class="space-y-6 mb-8">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">&#128165;</span>
+              <span class="text-sm font-semibold text-white">Flujo</span>
+            </div>
+            <span id="scoreFlow" class="text-sm font-bold" style="color:#3B82F6">0/25</span>
+          </div>
+          <div class="gauge-bar">
+            <div id="gaugeFlow" class="gauge-fill" style="width:0%;background:linear-gradient(90deg,#3B82F6,#60A5FA)"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">&#128176;</span>
+              <span class="text-sm font-semibold text-white">Conversion</span>
+            </div>
+            <span id="scoreConversion" class="text-sm font-bold" style="color:#8B5CF6">0/25</span>
+          </div>
+          <div class="gauge-bar">
+            <div id="gaugeConversion" class="gauge-fill" style="width:0%;background:linear-gradient(90deg,#8B5CF6,#A78BFA)"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">&#128640;</span>
+              <span class="text-sm font-semibold text-white">Escalabilidad</span>
+            </div>
+            <span id="scoreScale" class="text-sm font-bold" style="color:#EC4899">0/25</span>
+          </div>
+          <div class="gauge-bar">
+            <div id="gaugeScale" class="gauge-fill" style="width:0%;background:linear-gradient(90deg,#EC4899,#F472B6)"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total score -->
+      <div class="text-center p-5 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-gray-400 text-xs uppercase tracking-widest mb-1">Puntuacion total</p>
+        <p id="scoreTotal" class="text-4xl font-bold gr">0/75</p>
+      </div>
+    </div>
+
+    <!-- Primary bottleneck -->
+    <div id="primaryBottleneck" class="glass rounded-2xl p-8 mb-6">
+      <!-- Filled by JS -->
+    </div>
+
+    <!-- Secondary issues -->
+    <div id="secondaryIssues" class="glass rounded-2xl p-8 mb-6">
+      <!-- Filled by JS -->
+    </div>
+
+    <!-- Action plan -->
+    <div id="actionPlan" class="glass rounded-2xl p-8 mb-6">
+      <!-- Filled by JS -->
+    </div>
+
+    <!-- CTA to article -->
+    <div class="glass rounded-2xl p-8 mb-6 text-center no-print">
+      <p class="text-gray-400 text-sm mb-3">Este diagnostico esta basado en el framework del articulo:</p>
+      <a href="../blog/3-razones-no-crecen.html" class="text-white font-semibold hover:underline text-lg">"627 clientes despues: las 3 razones por las que las empresas B2B no crecen" &rarr;</a>
+    </div>
+
+    <!-- Lead capture -->
+    <div id="leadCapture" class="glass rounded-2xl p-8 mb-6 hidden no-print">
+      <div class="text-center mb-6">
+        <h3 class="font-display text-xl font-bold text-white mb-2">Recibe tu diagnostico completo por email</h3>
+        <p class="text-gray-400 text-sm">Con tu plan de accion personalizado y recursos adicionales para desbloquear tu cuello de botella.</p>
+      </div>
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-white/[0.03] border border-white/10 text-white text-sm placeholder:text-gray-500 focus:border-[#8B5CF6]/50 focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="tu@empresa.com" required class="w-full px-4 py-3 rounded-lg bg-white/[0.03] border border-white/10 text-white text-sm placeholder:text-gray-500 focus:border-[#8B5CF6]/50 focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" required class="w-full px-4 py-3 rounded-lg bg-white/[0.03] border border-white/10 text-white text-sm placeholder:text-gray-500 focus:border-[#8B5CF6]/50 focus:outline-none transition-colors">
+        <input type="hidden" name="source" value="diagnostico-cuellos-botella">
+        <input type="hidden" name="primary_bottleneck" id="hiddenBottleneck" value="">
+        <input type="hidden" name="scores" id="hiddenScores" value="">
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Enviar mi diagnostico</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm text-center">
+        Enviado. Revisa tu bandeja en los proximos minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3 text-center">Sin spam. Solo tu diagnostico y el plan de accion.</p>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="glass rounded-2xl p-8 text-center no-print">
+      <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-3">¿Quieres desbloquear tu cuello de botella en 90 dias?</h3>
+      <p class="text-gray-400 text-sm mb-6 max-w-lg mx-auto">En GGC hemos ayudado a +627 empresas B2B a instalar un sistema comercial con APEX OS&#8482;. Agenda una sesion de diagnostico gratuita con nuestro equipo.</p>
+      <a href="../agendar.html" class="btn-g inline-block px-8 py-4 rounded-xl text-sm">Agendar sesion de diagnostico &rarr;</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var TOTAL_Q = 15;
+  var answers = {};
+
+  var bottlenecks = {
+    flow: {
+      name: 'Problema de flujo',
+      icon: '&#128165;',
+      color: '#3B82F6',
+      questions: [0,1,2,3,4],
+      description: 'Tu principal cuello de botella es la generacion de oportunidades. No tienes suficientes reuniones cualificadas entrando en el pipeline. Sin flujo constante, todo lo demas es irrelevante.',
+      actionPlan: [
+        {
+          step: 'Semana 1-2: Define tu ICP con precision quirurgica',
+          detail: 'Documenta las 5 caracteristicas verificables de tu cliente ideal. Sector, tamano, problema especifico, senales de compra y decision maker. Sin ICP claro, haces outreach a ciegas.'
+        },
+        {
+          step: 'Semana 3-4: Activa un canal de outbound sistematico',
+          detail: 'Elige UN canal (LinkedIn, email frio o llamada) y crea una secuencia de 5 toques con propuesta de valor clara. Objetivo: 20 contactos diarios, 2-3 reuniones por semana.'
+        },
+        {
+          step: 'Semana 5-8: Instala un motor de contenido que cualifique',
+          detail: 'Publica 2 piezas semanales que demuestren expertise en el problema de tu ICP. El contenido no es marketing: es un filtro que pre-cualifica y genera inbound complementario.'
+        }
+      ]
+    },
+    conversion: {
+      name: 'Problema de conversion',
+      icon: '&#128176;',
+      color: '#8B5CF6',
+      questions: [5,6,7,8,9],
+      description: 'Tu principal cuello de botella es la conversion. Generas reuniones pero no las conviertes en clientes a un ritmo saludable. El problema no es la cantidad: es la calidad del proceso de venta.',
+      actionPlan: [
+        {
+          step: 'Semana 1-2: Documenta tu proceso de venta en fases',
+          detail: 'Define 4-5 fases con criterios de avance claros. Primera reunion, diagnostico, propuesta, negociacion, cierre. Cada fase necesita un objetivo y un entregable concreto.'
+        },
+        {
+          step: 'Semana 3-4: Crea tu guion de primera reunion y de objeciones',
+          detail: 'Estructura la primera llamada en: contexto (2 min), diagnostico (15 min), propuesta de valor (5 min), siguiente paso (3 min). Documenta las 10 objeciones mas frecuentes con respuestas probadas.'
+        },
+        {
+          step: 'Semana 5-8: Implementa revision de pipeline semanal',
+          detail: 'Cada lunes, revisa cada deal abierto: ¿cual es el siguiente paso? ¿cuando? ¿con quien? Los deals sin fecha de siguiente paso estan muertos. Mata los zombies y enfoca la energia.'
+        }
+      ]
+    },
+    scale: {
+      name: 'Problema de escalabilidad',
+      icon: '&#128640;',
+      color: '#EC4899',
+      questions: [10,11,12,13,14],
+      description: 'Tu principal cuello de botella es la escalabilidad. Sabes cerrar, pero tu capacidad de crecer esta limitada por la dependencia de personas concretas y la falta de sistemas replicables.',
+      actionPlan: [
+        {
+          step: 'Semana 1-2: Documenta el playbook del mejor vendedor',
+          detail: 'Graba las proximas 5 reuniones de tu mejor comercial. Transcribe, identifica patrones y crea un playbook paso a paso. Lo que esta en la cabeza de una persona no escala.'
+        },
+        {
+          step: 'Semana 3-4: Crea un programa de onboarding de 30 dias',
+          detail: 'Dia 1-5: producto y mercado. Dia 6-15: shadowing del mejor comercial. Dia 16-25: primeras reuniones supervisadas. Dia 26-30: vuelo solo con feedback diario. Con estructura, el ramp-up se reduce un 60%.'
+        },
+        {
+          step: 'Semana 5-8: Instala KPIs semanales y dashboard',
+          detail: 'Mide 5 metricas: reuniones realizadas, propuestas enviadas, ratio de cierre, ciclo medio, revenue por comercial. Lo que no se mide no se puede escalar. Revisa los numeros cada lunes.'
+        }
+      ]
+    }
+  };
+
+  // Select answer
+  window.selectAnswer = function(btn){
+    var card = btn.closest('.q-card');
+    var q = parseInt(card.getAttribute('data-q'));
+    var val = parseInt(btn.getAttribute('data-val'));
+    var color = btn.getAttribute('data-color');
+
+    // Clear previous selection in this question
+    card.querySelectorAll('.scale-btn').forEach(function(b){
+      b.classList.remove('active-blue','active-purple','active-pink');
+    });
+
+    // Activate selected
+    btn.classList.add('active-' + color);
+    card.classList.add('answered');
+
+    answers[q] = val;
+    updateProgress();
+  };
+
+  function updateProgress(){
+    var count = Object.keys(answers).length;
+    var pct = (count / TOTAL_Q) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressText').textContent = count + ' / ' + TOTAL_Q + ' preguntas';
+
+    var hint = document.getElementById('progressHint');
+    if(count === 0) hint.textContent = '';
+    else if(count < 5) hint.textContent = 'Buen comienzo. Sigue respondiendo.';
+    else if(count < 10) hint.textContent = 'Vas por la mitad. Ya se empieza a ver el patron.';
+    else if(count < 15) hint.textContent = 'Casi. Unas pocas mas para completar el diagnostico.';
+    else hint.textContent = 'Completo. Puedes ver tu diagnostico.';
+
+    var btn = document.getElementById('btnResults');
+    var btnHint = document.getElementById('btnHint');
+    if(count >= TOTAL_Q){
+      btn.disabled = false;
+      btnHint.textContent = 'Todas las preguntas respondidas. Haz clic para ver tu diagnostico.';
+      btnHint.style.color = '#8B5CF6';
+    } else {
+      btn.disabled = true;
+      btnHint.textContent = 'Responde las 15 preguntas para desbloquear tu diagnostico (' + count + '/15)';
+      btnHint.style.color = '';
+    }
+  }
+
+  function calcScore(questionIds){
+    var total = 0;
+    questionIds.forEach(function(q){
+      total += (answers[q] || 0);
+    });
+    return total;
+  }
+
+  window.showResults = function(){
+    var flowScore = calcScore(bottlenecks.flow.questions);
+    var convScore = calcScore(bottlenecks.conversion.questions);
+    var scaleScore = calcScore(bottlenecks.scale.questions);
+    var totalScore = flowScore + convScore + scaleScore;
+
+    // Update gauges
+    document.getElementById('scoreFlow').textContent = flowScore + '/25';
+    document.getElementById('gaugeFlow').style.width = (flowScore/25*100) + '%';
+
+    document.getElementById('scoreConversion').textContent = convScore + '/25';
+    document.getElementById('gaugeConversion').style.width = (convScore/25*100) + '%';
+
+    document.getElementById('scoreScale').textContent = scaleScore + '/25';
+    document.getElementById('gaugeScale').style.width = (scaleScore/25*100) + '%';
+
+    document.getElementById('scoreTotal').textContent = totalScore + '/75';
+
+    // Determine primary bottleneck (lowest score)
+    var scores = {flow: flowScore, conversion: convScore, scale: scaleScore};
+    var sorted = Object.keys(scores).sort(function(a,b){ return scores[a] - scores[b]; });
+    var primary = sorted[0];
+    var secondary = sorted[1];
+    var bn = bottlenecks[primary];
+    var bnSec = bottlenecks[secondary];
+
+    // Severity label
+    function severity(score){
+      if(score <= 8) return {label:'Critico', cls:'bg-red-500/10 text-red-400 border-red-500/20'};
+      if(score <= 15) return {label:'Mejorable', cls:'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'};
+      if(score <= 20) return {label:'Aceptable', cls:'bg-cyan-500/10 text-cyan-400 border-cyan-500/20'};
+      return {label:'Fuerte', cls:'bg-green-500/10 text-green-400 border-green-500/20'};
+    }
+
+    var flowSev = severity(flowScore);
+    var convSev = severity(convScore);
+    var scaleSev = severity(scaleScore);
+
+    // Primary bottleneck panel
+    var primaryHTML = '<div class="text-center mb-6">';
+    primaryHTML += '<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-semibold mb-4" style="border-color:' + bn.color + '30;color:' + bn.color + ';background:' + bn.color + '10">';
+    primaryHTML += bn.icon + ' Tu cuello de botella principal</div>';
+    primaryHTML += '<h3 class="font-display text-2xl font-bold text-white mb-3">' + bn.name + '</h3>';
+    primaryHTML += '<p class="text-gray-400 text-sm max-w-xl mx-auto">' + bn.description + '</p>';
+    primaryHTML += '</div>';
+
+    // Mini score badges
+    primaryHTML += '<div class="grid grid-cols-3 gap-3 mt-6">';
+    primaryHTML += '<div class="p-3 rounded-lg text-center ' + flowSev.cls + ' border"><p class="text-xs font-semibold">' + flowSev.label + '</p><p class="text-xs opacity-70 mt-1">Flujo: ' + flowScore + '/25</p></div>';
+    primaryHTML += '<div class="p-3 rounded-lg text-center ' + convSev.cls + ' border"><p class="text-xs font-semibold">' + convSev.label + '</p><p class="text-xs opacity-70 mt-1">Conversion: ' + convScore + '/25</p></div>';
+    primaryHTML += '<div class="p-3 rounded-lg text-center ' + scaleSev.cls + ' border"><p class="text-xs font-semibold">' + scaleSev.label + '</p><p class="text-xs opacity-70 mt-1">Escalabilidad: ' + scaleScore + '/25</p></div>';
+    primaryHTML += '</div>';
+
+    document.getElementById('primaryBottleneck').innerHTML = primaryHTML;
+
+    // Secondary issues
+    var secHTML = '<h3 class="font-display text-lg font-bold text-white mb-4">Problemas secundarios detectados</h3>';
+    if(scores[secondary] <= 15){
+      secHTML += '<div class="p-4 rounded-xl border border-white/5 bg-white/[0.02] flex items-start gap-3 mb-3">';
+      secHTML += '<span class="text-lg mt-0.5">' + bnSec.icon + '</span>';
+      secHTML += '<div><p class="text-sm font-semibold text-white">' + bnSec.name + ' <span class="text-xs font-normal text-gray-500">(' + scores[secondary] + '/25)</span></p>';
+      secHTML += '<p class="text-xs text-gray-400 mt-1">Tambien necesita atencion. Una vez resuelvas tu cuello de botella principal, este sera tu siguiente foco.</p></div></div>';
+    }
+    var third = sorted[2];
+    if(scores[third] <= 15){
+      var bnThird = bottlenecks[third];
+      secHTML += '<div class="p-4 rounded-xl border border-white/5 bg-white/[0.02] flex items-start gap-3">';
+      secHTML += '<span class="text-lg mt-0.5">' + bnThird.icon + '</span>';
+      secHTML += '<div><p class="text-sm font-semibold text-white">' + bnThird.name + ' <span class="text-xs font-normal text-gray-500">(' + scores[third] + '/25)</span></p>';
+      secHTML += '<p class="text-xs text-gray-400 mt-1">Area con margen de mejora. Priorizala despues de las dos anteriores.</p></div></div>';
+    }
+    if(scores[secondary] > 15 && scores[third] > 15){
+      secHTML += '<div class="p-4 rounded-xl border border-green-500/10 bg-green-500/5 text-green-400 text-sm">Las otras dos areas estan en buen estado. Concentra toda tu energia en resolver el cuello de botella principal.</div>';
+    }
+    document.getElementById('secondaryIssues').innerHTML = secHTML;
+
+    // Action plan
+    var planHTML = '<div class="flex items-center gap-3 mb-6">';
+    planHTML += '<div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:' + bn.color + '15;border:1px solid ' + bn.color + '30">' + bn.icon + '</div>';
+    planHTML += '<div><h3 class="font-display text-lg font-bold text-white">Tu plan de accion: 8 semanas</h3>';
+    planHTML += '<p class="text-xs text-gray-500">3 pasos concretos para desbloquear tu ' + bn.name.toLowerCase() + '</p></div></div>';
+
+    planHTML += '<div class="space-y-4">';
+    bn.actionPlan.forEach(function(step, i){
+      planHTML += '<div class="p-5 rounded-xl bg-white/[0.02] border border-white/5">';
+      planHTML += '<div class="flex items-start gap-4">';
+      planHTML += '<div class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0" style="background:' + bn.color + '20;color:' + bn.color + '">' + (i+1) + '</div>';
+      planHTML += '<div><p class="text-sm font-semibold text-white mb-1">' + step.step + '</p>';
+      planHTML += '<p class="text-xs text-gray-400 leading-relaxed">' + step.detail + '</p></div>';
+      planHTML += '</div></div>';
+    });
+    planHTML += '</div>';
+
+    document.getElementById('actionPlan').innerHTML = planHTML;
+
+    // Hidden fields
+    document.getElementById('hiddenBottleneck').value = primary;
+    document.getElementById('hiddenScores').value = 'flow=' + flowScore + ',conversion=' + convScore + ',scale=' + scaleScore + ',total=' + totalScore;
+
+    // Show results
+    var panel = document.getElementById('resultsPanel');
+    panel.classList.add('visible');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Show lead capture after delay
+    setTimeout(function(){
+      document.getElementById('leadCapture').classList.remove('hidden');
+    }, 1200);
+  };
+
+  // Lead form submission
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      source: 'diagnostico-cuellos-botella',
+      primary_bottleneck: form.primary_bottleneck.value,
+      scores: form.scores.value,
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/REPLACE_WITH_WEBHOOK_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

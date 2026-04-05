@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist: 12 Componentes de una Infraestructura Comercial B2B | GGC</title>
+  <meta name="description" content="Diagnostica tu infraestructura comercial B2B en 5 minutos. 12 componentes clave que separan a las empresas que venden con sistema de las que improvisan.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Checklist: 12 Componentes de Infraestructura Comercial B2B">
+  <meta property="og:description" content="Diagnostica tu infraestructura comercial en 5 minutos. Descubre que componentes te faltan.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:#0C0A1D;color:#e0e0e0;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Checkbox custom */
+    .check-item{transition:all .2s ease}
+    .check-item:hover{background:rgba(139,92,246,0.04)}
+    .check-item.checked{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2)}
+    .check-item.checked .check-label{color:#e0e0e0}
+    .check-item.checked .check-desc{color:#999}
+
+    .custom-check{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid rgba(139,92,246,0.4);border-radius:6px;background:transparent;cursor:pointer;transition:all .2s ease;flex-shrink:0;position:relative}
+    .custom-check:checked{background:linear-gradient(135deg,#8B5CF6,#EC4899);border-color:transparent}
+    .custom-check:checked::after{content:'';position:absolute;top:3px;left:6px;width:6px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+    .custom-check:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px}
+
+    /* Progress bar */
+    .progress-fill{transition:width .4s ease}
+
+    /* Score tiers */
+    .tier-critical{color:#EF4444}
+    .tier-warning{color:#F59E0B}
+    .tier-good{color:#22D3EE}
+    .tier-excellent{color:#10B981}
+
+    /* Fade in */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    /* Results panel */
+    .results-panel{display:none}
+    .results-panel.visible{display:block}
+
+    /* Category header */
+    .cat-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+
+    /* Print styles */
+    @media print{
+      body{background:#fff;color:#333}
+      .glass{background:#f5f5f5;border:1px solid #ddd;backdrop-filter:none}
+      .no-print{display:none!important}
+      .check-item{border:1px solid #ddd!important}
+    }
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.progress-fill{transition:none}.check-item{transition:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Checklist interactiva</span>
+    <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+      Los 12 componentes de una<br><span class="gr">infraestructura comercial B2B</span>
+    </h1>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-2">
+      Diagnostica tu sistema comercial en 5 minutos. Marca los componentes que ya tienes instalados y descubre exactamente donde se te escapa el revenue.
+    </p>
+    <p class="text-gray-500 text-sm">Basado en el analisis de +627 empresas B2B de servicios profesionales.</p>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="glass rounded-2xl p-6 mb-8 fade-in sticky top-0 z-10 no-print" style="animation-delay:.1s">
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-sm text-gray-400">Progreso</span>
+      <span id="progressText" class="text-sm font-semibold text-white">0 / 12 componentes</span>
+    </div>
+    <div class="w-full h-2 rounded-full bg-white/5 overflow-hidden">
+      <div id="progressBar" class="progress-fill h-full rounded-full bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]" style="width:0%"></div>
+    </div>
+    <div id="progressHint" class="mt-2 text-xs text-gray-500"></div>
+  </div>
+
+  <!-- CHECKLIST CATEGORIES -->
+
+  <!-- CAT 1: EMPAQUETADO DE OFERTA -->
+  <section class="mb-8 fade-in" style="animation-delay:.15s">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="cat-icon bg-[#3B82F6]/10 border border-[#3B82F6]/20">
+        <span>&#127919;</span>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif">Empaquetado de oferta</h2>
+        <p class="text-xs text-gray-500">Lo que vendes y como lo presentas</p>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="0">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="0">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Oferta empaquetada como transformacion</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Tu propuesta no es una lista de servicios. Es una transformacion con resultado medible. El cliente entiende que pasa de A a B con numeros concretos.</p>
+          </div>
+        </label>
+      </div>
+
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="1">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="1">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">ICP definido con criterios verificables</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Tienes un documento con tu perfil de cliente ideal que incluye sector, tamano, problema especifico, y puedes verificar cada criterio antes de prospectar.</p>
+          </div>
+        </label>
+      </div>
+
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="2">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="2">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Pricing basado en valor, no en horas</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Tu modelo de precios esta vinculado al resultado que entregas, no al tiempo que inviertes. El cliente percibe el precio como inversion, no como coste.</p>
+          </div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAT 2: MOTOR DE PROSPECCION -->
+  <section class="mb-8 fade-in" style="animation-delay:.2s">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="cat-icon bg-[#8B5CF6]/10 border border-[#8B5CF6]/20">
+        <span>&#128640;</span>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif">Motor de prospeccion</h2>
+        <p class="text-xs text-gray-500">Como generas reunion con las personas correctas</p>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="3">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="3">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Outreach multicanal activo y medido</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Combinas al menos 2 canales (email, LinkedIn, llamada) con secuencias definidas. Mides tasas de apertura, respuesta y reunion por canal.</p>
+          </div>
+        </label>
+      </div>
+
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="4">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="4">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Base de datos de prospeccion propia</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">No dependes de una herramienta para tus contactos. Tienes una base enriquecida, segmentada y actualizada que es propiedad de tu empresa.</p>
+          </div>
+        </label>
+      </div>
+
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="5">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="5">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Flujo de reunion predecible (+X reuniones/semana)</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Sabes cuantas reuniones cualificadas generas por semana de media. El numero es estable (+-20%) mes a mes. No depende de picos ni de suerte.</p>
+          </div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAT 3: ACTIVOS DE CONVERSION -->
+  <section class="mb-8 fade-in" style="animation-delay:.25s">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="cat-icon bg-[#EC4899]/10 border border-[#EC4899]/20">
+        <span>&#9889;</span>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif">Activos de conversion</h2>
+        <p class="text-xs text-gray-500">Lo que convence al lead antes de la llamada</p>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="6">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="6">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Casos de exito documentados con metricas</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Tienes al menos 3-5 casos de exito escritos con situacion inicial, que hiciste, y resultado numerico. El lead los ve antes de hablar contigo.</p>
+          </div>
+        </label>
+      </div>
+
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="7">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="7">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Contenido que educa y cualifica</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Blog, newsletter o recursos que posicionan tu expertise. El lead que llega a la llamada ya entiende tu enfoque y esta pre-convencido.</p>
+          </div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAT 4: PROCESO DE VENTAS -->
+  <section class="mb-8 fade-in" style="animation-delay:.3s">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="cat-icon bg-[#22D3EE]/10 border border-[#22D3EE]/20">
+        <span>&#128221;</span>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif">Proceso de ventas</h2>
+        <p class="text-xs text-gray-500">Como cierras de forma replicable</p>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="8">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="8">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Guion de primera llamada estandarizado</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Existe un framework claro de apertura, diagnostico y siguiente paso. Cualquier persona del equipo puede ejecutar la primera llamada con el mismo nivel.</p>
+          </div>
+        </label>
+      </div>
+
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="9">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="9">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Documento de objeciones con respuestas validadas</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Las 10-15 objeciones mas frecuentes estan documentadas con respuestas probadas. No se improvisa. Cada objecion tiene un framework de respuesta.</p>
+          </div>
+        </label>
+      </div>
+
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="10">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="10">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Pipeline con criterios claros de avance</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">Cada etapa del pipeline tiene criterios de entrada y salida definidos. No se mueve un deal "por instinto". Se mueve porque cumple condiciones verificables.</p>
+          </div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAT 5: MOTOR DE ESCALADO -->
+  <section class="mb-8 fade-in" style="animation-delay:.35s">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="cat-icon bg-[#D946EF]/10 border border-[#D946EF]/20">
+        <span>&#9881;&#65039;</span>
+      </div>
+      <div>
+        <h2 class="text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif">Motor de escalado</h2>
+        <p class="text-xs text-gray-500">Crecer sin depender del CEO</p>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <div class="check-item glass rounded-xl p-5 cursor-pointer" data-index="11">
+        <label class="flex items-start gap-4 cursor-pointer">
+          <input type="checkbox" class="custom-check mt-0.5" data-check="11">
+          <div>
+            <p class="check-label text-white font-medium text-sm mb-1">Las ventas funcionan sin el fundador presente</p>
+            <p class="check-desc text-gray-500 text-xs leading-relaxed">El test del algodon: si el CEO se va 3 semanas, las ventas se mantienen. El sistema opera autonomamente. Los leads entran, las reuniones se agendan, los cierres ocurren.</p>
+          </div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS PANEL -->
+  <div id="resultsPanel" class="results-panel mt-12">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]"></div>
+
+      <div class="text-center mb-8">
+        <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Tu resultado</p>
+        <div id="scoreNumber" class="text-6xl font-bold text-white mb-2">0/12</div>
+        <p id="scoreTier" class="text-lg font-semibold mb-1"></p>
+        <p id="scoreMessage" class="text-gray-400 text-sm max-w-lg mx-auto"></p>
+      </div>
+
+      <!-- Score breakdown by category -->
+      <div id="scoreBreakdown" class="grid sm:grid-cols-2 gap-4 mb-8">
+      </div>
+
+      <!-- Diagnosis -->
+      <div id="diagnosis" class="mb-8">
+        <h3 class="text-white font-bold text-lg mb-4" style="font-family:'DM Sans',sans-serif">Diagnostico</h3>
+        <div id="diagnosisContent" class="space-y-3"></div>
+      </div>
+
+      <!-- CTA -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+          <p class="text-sm text-gray-400 mb-3">Quieres que analicemos tu caso?</p>
+          <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Agendar discovery call</a>
+          <p class="text-xs text-gray-500 mt-2">30 min. Sin compromiso.</p>
+        </div>
+        <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+          <p class="text-sm text-gray-400 mb-3">Lee el articulo completo</p>
+          <a href="../blog/infraestructura-vs-herramientas.html" class="inline-block px-6 py-3 rounded-lg text-sm w-full border border-[#8B5CF6]/40 text-[#8B5CF6] hover:bg-[#8B5CF6]/5 transition-colors">Leer articulo</a>
+          <p class="text-xs text-gray-500 mt-2">7 min lectura</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHOW RESULTS BUTTON (when all checked or manual) -->
+  <div class="text-center mt-8 no-print">
+    <button id="showResultsBtn" onclick="showResults()" class="btn-g px-8 py-4 rounded-xl text-sm">
+      Ver mi diagnostico
+    </button>
+    <p class="text-xs text-gray-500 mt-3">Marca los componentes que ya tienes antes de ver el resultado</p>
+  </div>
+
+  <!-- LEAD CAPTURE (shown after results) -->
+  <div id="leadCapture" class="mt-12 hidden">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Guarda tu diagnostico</p>
+      <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe el diagnostico completo + plan de accion por email</h3>
+      <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te enviamos un resumen personalizado con los componentes que te faltan y por donde empezar a instalarlos.</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="score" id="hiddenScore" value="">
+        <input type="hidden" name="missing" id="hiddenMissing" value="">
+        <input type="hidden" name="source" value="checklist-infraestructura-comercial">
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Enviar diagnostico a mi email</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los proximos 2 minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo el diagnostico.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const TOTAL = 12;
+
+  const categories = [
+    { name: 'Empaquetado de oferta', items: [0,1,2], color: '#3B82F6' },
+    { name: 'Motor de prospeccion', items: [3,4,5], color: '#8B5CF6' },
+    { name: 'Activos de conversion', items: [6,7], color: '#EC4899' },
+    { name: 'Proceso de ventas', items: [8,9,10], color: '#22D3EE' },
+    { name: 'Motor de escalado', items: [11], color: '#D946EF' }
+  ];
+
+  const itemLabels = [
+    'Oferta como transformacion',
+    'ICP con criterios verificables',
+    'Pricing basado en valor',
+    'Outreach multicanal activo',
+    'Base de datos propia',
+    'Flujo de reunion predecible',
+    'Casos de exito documentados',
+    'Contenido que educa y cualifica',
+    'Guion de primera llamada',
+    'Documento de objeciones',
+    'Pipeline con criterios de avance',
+    'Ventas sin el fundador'
+  ];
+
+  const checkboxes = document.querySelectorAll('.custom-check');
+  const progressBar = document.getElementById('progressBar');
+  const progressText = document.getElementById('progressText');
+  const progressHint = document.getElementById('progressHint');
+
+  function getCheckedCount(){
+    let c = 0;
+    checkboxes.forEach(cb => { if(cb.checked) c++; });
+    return c;
+  }
+
+  function updateProgress(){
+    const count = getCheckedCount();
+    const pct = (count / TOTAL) * 100;
+    progressBar.style.width = pct + '%';
+    progressText.textContent = count + ' / ' + TOTAL + ' componentes';
+
+    if(count === 0) progressHint.textContent = '';
+    else if(count <= 3) progressHint.textContent = 'Hay trabajo por hacer. Sigue marcando.';
+    else if(count <= 7) progressHint.textContent = 'Vas por buen camino. Veamos el diagnostico.';
+    else if(count <= 11) progressHint.textContent = 'Infraestructura solida. Casi completa.';
+    else progressHint.textContent = 'Infraestructura completa. Nivel avanzado.';
+
+    // Toggle checked class on parent
+    checkboxes.forEach(cb => {
+      const item = cb.closest('.check-item');
+      if(cb.checked) item.classList.add('checked');
+      else item.classList.remove('checked');
+    });
+  }
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', updateProgress);
+  });
+
+  // Click anywhere on the check-item to toggle
+  document.querySelectorAll('.check-item').forEach(item => {
+    item.addEventListener('click', function(e){
+      if(e.target.tagName === 'INPUT') return;
+      const cb = item.querySelector('.custom-check');
+      cb.checked = !cb.checked;
+      updateProgress();
+    });
+  });
+
+  // Show results
+  window.showResults = function(){
+    const count = getCheckedCount();
+    const panel = document.getElementById('resultsPanel');
+    const leadCapture = document.getElementById('leadCapture');
+
+    // Score display
+    document.getElementById('scoreNumber').textContent = count + '/12';
+
+    let tier, tierClass, message;
+    if(count <= 3){
+      tier = 'Zona critica';
+      tierClass = 'tier-critical';
+      message = 'Tu empresa esta operando sin infraestructura comercial real. Dependes del talento individual, la improvisacion y probablemente del fundador. Cada venta es una batalla. Es urgente instalar los cimientos.';
+    } else if(count <= 6){
+      tier = 'En construccion';
+      tierClass = 'tier-warning';
+      message = 'Tienes algunas piezas pero no un sistema integrado. Es como tener fontaneria sin electricidad — funciona a medias. Los resultados son inconsistentes porque las piezas no estan conectadas.';
+    } else if(count <= 9){
+      tier = 'Infraestructura solida';
+      tierClass = 'tier-good';
+      message = 'Buen nivel. Tienes base, pero los huecos que quedan son los que te impiden escalar de verdad. Identificar y cerrar esos gaps puede ser la diferencia entre crecer un 20% o un 80%.';
+    } else {
+      tier = 'Infraestructura avanzada';
+      tierClass = 'tier-excellent';
+      message = 'Nivel excepcional. Tu empresa tiene un sistema comercial real. Ahora el juego es optimizar, automatizar y escalar lo que ya funciona.';
+    }
+
+    document.getElementById('scoreTier').textContent = tier;
+    document.getElementById('scoreTier').className = 'text-lg font-semibold mb-1 ' + tierClass;
+    document.getElementById('scoreMessage').textContent = message;
+
+    // Category breakdown
+    const breakdown = document.getElementById('scoreBreakdown');
+    breakdown.innerHTML = '';
+    categories.forEach(cat => {
+      const catCount = cat.items.filter(i => checkboxes[i].checked).length;
+      const catTotal = cat.items.length;
+      const pct = Math.round((catCount/catTotal)*100);
+      breakdown.innerHTML += `
+        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm text-gray-300">${cat.name}</span>
+            <span class="text-sm font-semibold" style="color:${cat.color}">${catCount}/${catTotal}</span>
+          </div>
+          <div class="w-full h-1.5 rounded-full bg-white/5">
+            <div class="h-full rounded-full" style="width:${pct}%;background:${cat.color}"></div>
+          </div>
+        </div>
+      `;
+    });
+
+    // Diagnosis: what's missing
+    const diagContent = document.getElementById('diagnosisContent');
+    diagContent.innerHTML = '';
+    const missing = [];
+    checkboxes.forEach((cb, i) => {
+      if(!cb.checked){
+        missing.push(itemLabels[i]);
+        diagContent.innerHTML += `
+          <div class="flex items-start gap-3 p-3 rounded-lg bg-red-500/5 border border-red-500/10">
+            <span class="text-red-400 mt-0.5">&#10007;</span>
+            <div>
+              <p class="text-sm text-white font-medium">${itemLabels[i]}</p>
+              <p class="text-xs text-gray-500">Componente ausente — te esta costando revenue</p>
+            </div>
+          </div>
+        `;
+      }
+    });
+
+    if(missing.length === 0){
+      diagContent.innerHTML = '<div class="p-4 rounded-lg bg-green-500/5 border border-green-500/10 text-green-400 text-sm">Todos los componentes estan instalados. Tu infraestructura esta completa.</div>';
+    }
+
+    // Set hidden fields for lead form
+    document.getElementById('hiddenScore').value = count + '/12';
+    document.getElementById('hiddenMissing').value = missing.join(', ');
+
+    // Show panels
+    panel.classList.add('visible');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Show lead capture after a beat
+    setTimeout(function(){
+      leadCapture.classList.remove('hidden');
+    }, 800);
+  };
+
+  // Lead form submission
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    const data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      score: form.score.value,
+      missing: form.missing.value,
+      source: 'checklist-infraestructura-comercial',
+      timestamp: new Date().toISOString()
+    };
+
+    // POST to Make webhook — replace URL with actual webhook
+    fetch('https://hook.eu2.make.com/REPLACE_WITH_WEBHOOK_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      // Still show success (webhook might not be set up yet)
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Página no encontrada | Global Growth Consulting</title>
+  <meta name="description" content="La página que buscas no existe. Vuelve al inicio o explora nuestro blog.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- GTM placeholder — will be added later -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'DM Sans',sans-serif;background:#0C0A1D;color:#fff;overflow-x:hidden}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gr-label{background:linear-gradient(90deg,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+    .gc{position:relative;background:#151331;border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s}
+    .gc::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(34,211,238,.2),rgba(59,130,246,.15),rgba(139,92,246,.2),rgba(236,72,153,.15));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.5;transition:opacity .4s}
+    .gc:hover::before{opacity:1}
+    .gc:hover{transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.4),0 0 40px rgba(139,92,246,.08)}
+
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);overflow:hidden;transition:transform .3s,box-shadow .3s}
+    .btn-g:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(139,92,246,.3)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(40px);filter:blur(10px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+    .fade-up{animation:fadeUp .8s ease both}
+
+    /* Grain overlay */
+    body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    /* Focus */
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+
+    @media(prefers-reduced-motion:reduce){
+      .fade-up{animation:none;opacity:1;transform:none;filter:none}
+      .btn-g::after{animation:none}
+    }
+  </style>
+</head>
+<body class="font-body">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl" style="background:rgba(12,10,29,.8);border-bottom:1px solid rgba(255,255,255,.06)">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2" aria-label="Global Growth Consulting inicio">
+        <img src="logo.png" alt="GGC" width="32" height="32" loading="eager">
+        <span class="font-semibold text-sm tracking-wide hidden sm:inline">Global Growth Consulting</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-gray-300">
+        <a href="/" class="hover:text-white transition">Inicio</a>
+        <a href="blog.html" class="hover:text-white transition">Blog</a>
+        <a href="agendar.html" class="hover:text-white transition">Agendar</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="agendar.html" class="btn-g hidden md:inline-flex px-5 py-2.5 rounded-full text-sm font-semibold text-white">Aplicar</a>
+        <button id="menu-btn" class="md:hidden p-2" aria-label="Abrir menu" aria-expanded="false">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-6 pt-2 border-t border-white/5">
+      <a href="/" class="block py-3 text-gray-300 hover:text-white">Inicio</a>
+      <a href="blog.html" class="block py-3 text-gray-300 hover:text-white">Blog</a>
+      <a href="agendar.html" class="block py-3 text-gray-300 hover:text-white">Agendar</a>
+      <a href="agendar.html" class="btn-g mt-4 block text-center px-5 py-3 rounded-full text-sm font-semibold text-white">Aplicar</a>
+    </div>
+  </nav>
+
+  <!-- 404 CONTENT -->
+  <main class="relative z-[2] min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-16">
+    <!-- Decorative gradient orb -->
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-20 blur-[120px] pointer-events-none" style="background:radial-gradient(circle,rgba(139,92,246,.4),rgba(59,130,246,.2),transparent 70%)"></div>
+
+    <div class="fade-up" style="animation-delay:.1s">
+      <p class="text-[8rem] sm:text-[10rem] md:text-[12rem] font-bold leading-none gr select-none" style="font-family:'Playfair Display',serif">404</p>
+    </div>
+
+    <div class="fade-up" style="animation-delay:.25s">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 mt-2">Pagina no encontrada</h1>
+      <p class="text-gray-400 text-lg max-w-md mx-auto mb-10">La pagina que buscas no existe o ha sido movida. Aqui tienes algunas opciones.</p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 fade-up" style="animation-delay:.4s">
+      <a href="/" class="btn-g px-8 py-4 rounded-full text-base font-bold text-white">Ir al inicio</a>
+      <a href="blog.html" class="px-8 py-4 rounded-full text-base font-semibold text-white border border-purple/40 hover:border-purple hover:bg-purple/10 transition">Ver el blog</a>
+      <a href="agendar.html" class="px-8 py-4 rounded-full text-base font-semibold text-white border border-purple/40 hover:border-purple hover:bg-purple/10 transition">Agendar una llamada</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-16 px-6 relative z-[2]">
+    <div class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4"><img src="logo.png" alt="GGC" width="28" height="28"><span class="font-semibold text-sm">Global Growth Consulting</span></div>
+        <p class="text-sm text-gray-500">Infraestructura comercial B2B permanente. 100% a exito.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Navegacion</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="/" class="hover:text-white transition">Inicio</a></li>
+          <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+          <li><a href="agendar.html" class="hover:text-white transition">Agendar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Legal</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="privacidad.html" class="hover:text-white transition">Privacidad</a></li>
+          <li><a href="aviso-legal.html" class="hover:text-white transition">Aviso Legal</a></li>
+          <li><a href="cookies.html" class="hover:text-white transition">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Contacto</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="mailto:soporte@globalgrowth.consulting" class="hover:text-white transition">soporte@globalgrowth.consulting</a></li>
+          <li>Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</li>
+          <li><a href="https://linkedin.com/in/xavierfortuna/" target="_blank" rel="noopener" class="hover:text-white transition">LinkedIn</a></li>
+          <li><a href="https://instagram.com/sir.fortuna/" target="_blank" rel="noopener" class="hover:text-white transition">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto mt-12 pt-8 border-t border-white/5 text-center text-xs text-gray-500">&copy; 2016&ndash;2026 Global Growth Consulting by Digital Insta Media</div>
+  </footer>
+
+  <script>
+  (function(){
+    var mb=document.getElementById('menu-btn'),mm=document.getElementById('mobile-menu');
+    mb.addEventListener('click',function(){var o=mm.classList.toggle('hidden');mb.setAttribute('aria-expanded',!o)});
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.add('hidden');mb.setAttribute('aria-expanded','false')})});
+  })();
+  </script>
+  <script src="cookie-consent.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Google Tag Manager - Replace GTM-XXXXXXX with real container ID -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+  <title>Gracias — Global Growth Consulting</title>
+  <meta name="description" content="Gracias por tu solicitud. Revisa tu email en los próximos minutos.">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'DM Sans',sans-serif;background:#0C0A1D;color:#fff;overflow-x:hidden}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gr-label{background:linear-gradient(90deg,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gc{position:relative;background:#151331;border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s}
+    .gc::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(34,211,238,.2),rgba(59,130,246,.15),rgba(139,92,246,.2),rgba(236,72,153,.15));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.5;transition:opacity .4s}
+    .gc:hover::before{opacity:1}
+    .gc:hover{transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.4),0 0 40px rgba(139,92,246,.08)}
+    @keyframes heroFadeUp{from{opacity:0;transform:translateY(80px);filter:blur(16px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    @keyframes gradLine{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+    @keyframes checkIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+    .anim-line{height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899,#8B5CF6,#3B82F6,#22D3EE);background-size:300% 100%;animation:gradLine 4s ease infinite}
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);overflow:hidden;transition:transform .3s,box-shadow .3s}
+    .btn-g:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(139,92,246,.3)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    [data-r]{opacity:0;transform:translateY(60px);filter:blur(10px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1),filter .8s cubic-bezier(.4,0,.2,1)}
+    [data-r].visible{opacity:1;transform:translateY(0);filter:blur(0)}
+    #progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);z-index:100;width:0;transition:width .1s}
+    #glow{position:fixed;width:450px;height:450px;border-radius:50%;pointer-events:none;z-index:2;background:radial-gradient(circle,rgba(139,92,246,.12) 0%,rgba(59,130,246,.06) 40%,transparent 70%);transform:translate(-50%,-50%);opacity:0;transition:opacity .6s;filter:blur(30px)}
+    body:hover #glow{opacity:1}
+    body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    @media(prefers-reduced-motion:reduce){
+      [data-r]{opacity:1;transform:none;filter:none;transition:none}
+      .btn-g::after{animation:none}
+      #glow{display:none}
+    }
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+  </style>
+</head>
+<body class="font-body">
+  <!-- Google Tag Manager (noscript) -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+  <div id="progress"></div>
+  <div id="glow" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav class="nv fixed top-0 left-0 right-0 z-50 backdrop-blur-xl" style="background:rgba(12,10,29,.8);border-bottom:1px solid rgba(255,255,255,.06)">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 cursor-pointer" aria-label="Global Growth Consulting inicio">
+        <img src="logo.png" alt="GGC" width="32" height="32" loading="eager">
+        <span class="font-semibold text-sm tracking-wide hidden sm:inline">Global Growth Consulting</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-gray-300">
+        <a href="index.html#sistema" class="hover:text-white transition cursor-pointer">Sistema</a>
+        <a href="index.html#resultados" class="hover:text-white transition cursor-pointer">Resultados</a>
+        <a href="blog.html" class="hover:text-white transition cursor-pointer">Blog</a>
+        <a href="index.html#proceso" class="hover:text-white transition cursor-pointer">Proceso</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="agendar.html" class="btn-g hidden md:inline-flex px-5 py-2.5 rounded-full text-sm font-semibold text-white cursor-pointer">Aplicar</a>
+        <button id="menu-btn" class="md:hidden p-2 cursor-pointer" aria-label="Abrir menú" aria-expanded="false">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-6 pt-2 border-t border-white/5">
+      <a href="index.html#sistema" class="block py-3 text-gray-300 hover:text-white cursor-pointer">Sistema</a>
+      <a href="index.html#resultados" class="block py-3 text-gray-300 hover:text-white cursor-pointer">Resultados</a>
+      <a href="blog.html" class="block py-3 text-gray-300 hover:text-white cursor-pointer">Blog</a>
+      <a href="index.html#proceso" class="block py-3 text-gray-300 hover:text-white cursor-pointer">Proceso</a>
+      <a href="agendar.html" class="btn-g mt-4 block text-center px-5 py-3 rounded-full text-sm font-semibold text-white cursor-pointer">Aplicar</a>
+    </div>
+  </nav>
+
+  <main class="relative z-[2]">
+    <!-- HERO / THANK YOU -->
+    <section class="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-16">
+      <div class="anim-line w-full max-w-4xl mb-12 rounded-full"></div>
+
+      <!-- Success checkmark -->
+      <div class="w-20 h-20 rounded-full flex items-center justify-center mb-8" style="background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(34,211,238,.1));animation:checkIn .6s cubic-bezier(.34,1.56,.64,1) both">
+        <svg width="40" height="40" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20l7 7 13-13"/></svg>
+      </div>
+
+      <div style="animation:heroFadeUp .8s ease .15s both">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4" id="ty-title">Perfecto.</h1>
+      </div>
+
+      <div style="animation:heroFadeUp .8s ease .3s both">
+        <p class="text-xl sm:text-2xl text-gray-300 max-w-2xl leading-relaxed mb-2" id="ty-message">Revisa tu email en los próximos 2 minutos.</p>
+      </div>
+
+      <div style="animation:heroFadeUp .8s ease .45s both">
+        <p class="text-gray-500 text-sm mt-4" id="ty-note">Si no lo ves, revisa la carpeta de spam o promociones.</p>
+      </div>
+
+      <div class="w-24 h-0.5 mx-auto my-10 rounded-full" style="background:linear-gradient(90deg,#8B5CF6,#EC4899);animation:heroFadeUp .8s ease .55s both"></div>
+    </section>
+
+    <!-- MIENTRAS TANTO: Blog articles -->
+    <section class="py-16 px-6" data-r>
+      <div class="max-w-5xl mx-auto">
+        <p class="gr-label font-semibold text-sm uppercase tracking-widest mb-4">Mientras tanto</p>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-10">Contenido que merece la pena leer.</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Article 1 -->
+          <a href="blog/infraestructura-vs-herramientas.html" class="gc p-6 block">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style="background:rgba(139,92,246,.15);color:#8B5CF6">Revenue Infrastructure</span>
+            <h3 class="text-lg font-bold mb-3 text-white" style="font-family:'Playfair Display',serif">Por qué tu equipo comercial no necesita más herramientas — necesita infraestructura</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-4">La mayoría de empresas B2B acumulan herramientas como si fueran soluciones. El problema no es la herramienta.</p>
+            <span class="text-xs text-gray-500">7 min de lectura</span>
+          </a>
+          <!-- Article 2 -->
+          <a href="blog/outbound-2026.html" class="gc p-6 block">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style="background:rgba(34,211,238,.15);color:#22D3EE">Outbound</span>
+            <h3 class="text-lg font-bold mb-3 text-white" style="font-family:'Playfair Display',serif">Outbound en 2026: lo que funciona cuando todos hacen lo mismo</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-4">El outbound masivo murió. El personalizado a escala es el único que genera reuniones con decisores.</p>
+            <span class="text-xs text-gray-500">6 min de lectura</span>
+          </a>
+          <!-- Article 3 -->
+          <a href="blog/ceo-que-vende.html" class="gc p-6 block">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style="background:rgba(236,72,153,.15);color:#EC4899">CEO como motor</span>
+            <h3 class="text-lg font-bold mb-3 text-white" style="font-family:'Playfair Display',serif">El CEO que vende: por qué es un problema, no una virtud</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-4">Si eres el mejor vendedor de tu empresa y facturas más de 500K, tienes un problema de escalabilidad.</p>
+            <span class="text-xs text-gray-500">5 min de lectura</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-24 px-6 relative" data-r>
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true"><div class="w-[500px] h-[500px] rounded-full" style="background:radial-gradient(circle,rgba(139,92,246,.12),rgba(59,130,246,.06),transparent 70%);filter:blur(100px)"></div></div>
+      <div class="max-w-3xl mx-auto text-center relative">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">¿Quieres que lo miremos juntos?</h2>
+        <p class="text-gray-400 text-lg mb-10 leading-relaxed">Reserva una sesión estratégica gratuita. Analizamos tu caso, te decimos exactamente qué necesitas y si encajamos.</p>
+        <a href="agendar.html" class="btn-g inline-block px-10 py-5 rounded-full text-lg font-bold text-white cursor-pointer">Reservar sesión</a>
+        <p class="text-sm text-gray-500 mt-6">Sin compromiso &middot; 30 minutos &middot; Sesión 1:1</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-16 px-6 relative z-[2]">
+    <div class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4"><img src="logo.png" alt="GGC" width="28" height="28"><span class="font-semibold text-sm">Global Growth Consulting</span></div>
+        <p class="text-sm text-gray-500">Infraestructura comercial B2B permanente. 100% a éxito.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Navegación</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="index.html#sistema" class="hover:text-white transition cursor-pointer">Sistema</a></li>
+          <li><a href="index.html#resultados" class="hover:text-white transition cursor-pointer">Resultados</a></li>
+          <li><a href="index.html#proceso" class="hover:text-white transition cursor-pointer">Proceso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Recursos</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="blog.html" class="hover:text-white transition cursor-pointer">Blog</a></li>
+          <li><a href="recursos.html" class="hover:text-white transition cursor-pointer">Recursos</a></li>
+          <li><a href="agendar.html" class="hover:text-white transition cursor-pointer">Agendar</a></li>
+          <li><a href="privacidad.html" class="hover:text-white transition cursor-pointer">Privacidad</a></li>
+          <li><a href="aviso-legal.html" class="hover:text-white transition cursor-pointer">Aviso Legal</a></li>
+          <li><a href="cookies.html" class="hover:text-white transition cursor-pointer">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Contacto</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="mailto:soporte@globalgrowth.consulting" class="hover:text-white transition cursor-pointer">soporte@globalgrowth.consulting</a></li>
+          <li>Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</li>
+          <li><a href="https://linkedin.com/in/xavierfortuna/" target="_blank" rel="noopener" class="hover:text-white transition cursor-pointer">LinkedIn</a></li>
+          <li><a href="https://instagram.com/sir.fortuna/" target="_blank" rel="noopener" class="hover:text-white transition cursor-pointer">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto mt-12 pt-4 border-t border-white/5 text-center text-xs text-gray-500">&copy; 2016&ndash;2026 Global Growth Consulting by Digital Insta Media</div>
+  </footer>
+
+  <script>
+  (function(){
+    /* ---- MOBILE MENU ---- */
+    var mb=document.getElementById('menu-btn'),mm=document.getElementById('mobile-menu');
+    mb.addEventListener('click',function(){var o=mm.classList.toggle('hidden');mb.setAttribute('aria-expanded',!o)});
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.add('hidden');mb.setAttribute('aria-expanded','false')})});
+
+    /* ---- SCROLL PROGRESS ---- */
+    var prog=document.getElementById('progress');
+    window.addEventListener('scroll',function(){var s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(s/h*100)+'%'},{passive:true});
+
+    /* ---- CURSOR GLOW (desktop) ---- */
+    if(window.innerWidth>1024){var glow=document.getElementById('glow');document.addEventListener('mousemove',function(e){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'},{passive:true})}
+
+    /* ---- INTERSECTION OBSERVER ---- */
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('[data-r]').forEach(function(el){obs.observe(el)});
+
+    /* ---- URL PARAMETER HANDLING ---- */
+    var params=new URLSearchParams(window.location.search);
+    var type=params.get('type')||'default';
+    var titleEl=document.getElementById('ty-title');
+    var msgEl=document.getElementById('ty-message');
+    var noteEl=document.getElementById('ty-note');
+
+    var messages={
+      newsletter:{
+        title:'Bienvenido.',
+        message:'Cada viernes recibirás un insight sobre infraestructura comercial B2B.',
+        note:'Revisa tu email para confirmar la suscripción. Si no lo ves, mira en spam.'
+      },
+      leadmagnet:{
+        title:'Tu recurso está en camino.',
+        message:'Tu checklist está en camino. Revisa tu email.',
+        note:'Debería llegar en los próximos 2 minutos. Si no aparece, revisa spam o promociones.'
+      },
+      checklist:{
+        title:'Tu diagnóstico está listo.',
+        message:'Tu diagnóstico está listo. Revisa tu email para acceder.',
+        note:'Encontrarás un enlace directo en el email. Revisa spam si no lo ves.'
+      },
+      default:{
+        title:'Perfecto.',
+        message:'Revisa tu email en los próximos 2 minutos.',
+        note:'Si no lo ves, revisa la carpeta de spam o promociones.'
+      }
+    };
+
+    var msg=messages[type]||messages['default'];
+    titleEl.textContent=msg.title;
+    msgEl.textContent=msg.message;
+    noteEl.textContent=msg.note;
+
+    /* ---- GTM CONVERSION EVENT ---- */
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'conversion',type:type});
+  })();
+  </script>
+  <script src="/cookie-consent.js"></script>
+</body>
+</html>

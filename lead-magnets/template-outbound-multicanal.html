@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla: Secuencia de Outbound Multicanal de 21 Dias | GGC</title>
+  <meta name="description" content="Secuencia completa de outbound multicanal de 21 dias con plantillas listas para usar. Email, LinkedIn y telefono. Adaptala a tu negocio B2B hoy.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Plantilla: Secuencia de Outbound Multicanal de 21 Dias">
+  <meta property="og:description" content="21 dias, 3 canales, plantillas copy-paste. La secuencia de outbound que usamos con +627 empresas B2B.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:#0C0A1D;color:#e0e0e0;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Channel colors */
+    .ch-email{border-left:3px solid #3B82F6}
+    .ch-linkedin{border-left:3px solid #8B5CF6}
+    .ch-phone{border-left:3px solid #22D3EE}
+
+    .badge-email{background:#3B82F6/15;color:#3B82F6;background:rgba(59,130,246,0.15)}
+    .badge-linkedin{background:rgba(139,92,246,0.15);color:#8B5CF6}
+    .badge-phone{background:rgba(34,211,238,0.15);color:#22D3EE}
+
+    /* Day card */
+    .day-card{transition:all .2s ease}
+    .day-card:hover{border-color:rgba(255,255,255,0.12)}
+    .day-card.customized{background:rgba(139,92,246,0.04);border-color:rgba(139,92,246,0.15)}
+
+    /* Template content */
+    .template-content{max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .25s ease;opacity:0}
+    .template-content.open{max-height:2000px;opacity:1}
+
+    /* Expand icon */
+    .expand-icon{transition:transform .25s ease}
+    .expand-icon.rotated{transform:rotate(180deg)}
+
+    /* Filter buttons */
+    .filter-btn{transition:all .2s ease;cursor:pointer}
+    .filter-btn.active{background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.4)}
+    .filter-btn:hover{border-color:rgba(255,255,255,0.15)}
+
+    /* Copy feedback */
+    .copy-btn{transition:all .2s ease}
+    .copy-btn:hover{background:rgba(255,255,255,0.08)}
+    .copy-btn.copied{background:rgba(16,185,129,0.15);color:#10B981}
+
+    /* Progress bar */
+    .progress-fill{transition:width .4s ease}
+
+    /* Week dividers */
+    .week-header{position:relative}
+    .week-header::before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)}
+
+    /* Textarea styling */
+    .template-textarea{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);color:#e0e0e0;font-family:'DM Sans',monospace;font-size:0.85rem;line-height:1.6;resize:vertical;transition:border-color .2s ease}
+    .template-textarea:focus{outline:none;border-color:rgba(139,92,246,0.4)}
+    .template-textarea::placeholder{color:rgba(255,255,255,0.2)}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.progress-fill{transition:none}.template-content{transition:none}.day-card{transition:none}}
+
+    @media print{
+      body{background:#fff;color:#333}
+      .glass{background:#f5f5f5;border:1px solid #ddd;backdrop-filter:none}
+      .no-print{display:none!important}
+      .template-content{max-height:none!important;opacity:1!important}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Pack de plantillas</span>
+    <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+      Secuencia de outbound multicanal<br><span class="gr">de 21 dias</span>
+    </h1>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-2">
+      21 dias, 3 canales, 14 touchpoints. Plantillas listas para personalizar y lanzar tu secuencia de outbound hoy. Sin florituras. Sin teoria. Solo lo que funciona.
+    </p>
+    <p class="text-gray-500 text-sm">Basado en las secuencias que usamos en <a href="../blog/outbound-2026.html" class="underline hover:text-gray-300 transition-colors">APEX OS</a> con +627 empresas B2B.</p>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="glass rounded-2xl p-6 mb-8 fade-in" style="animation-delay:.05s">
+    <h3 class="text-white font-semibold text-sm mb-3" style="font-family:'DM Sans',sans-serif">Como usar esta plantilla</h3>
+    <div class="grid sm:grid-cols-3 gap-4 text-sm">
+      <div class="flex gap-3">
+        <span class="text-[#3B82F6] font-bold text-lg leading-none">1</span>
+        <p class="text-gray-400">Sustituye los campos entre <code class="text-white/70 bg-white/5 px-1.5 py-0.5 rounded text-xs">[corchetes]</code> con tus datos reales.</p>
+      </div>
+      <div class="flex gap-3">
+        <span class="text-[#8B5CF6] font-bold text-lg leading-none">2</span>
+        <p class="text-gray-400">Adapta el tono a tu sector. Haz las plantillas tuyas. Cuanto mas especificas, mejor.</p>
+      </div>
+      <div class="flex gap-3">
+        <span class="text-[#EC4899] font-bold text-lg leading-none">3</span>
+        <p class="text-gray-400">Copia cada plantilla con un click y cargala en tu herramienta de outbound.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS + FILTERS (STICKY) -->
+  <div class="glass rounded-2xl p-5 mb-8 fade-in sticky top-0 z-10 no-print" style="animation-delay:.1s">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <!-- Progress -->
+      <div class="flex-1">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm text-gray-400">Personalizados</span>
+          <span id="progressText" class="text-sm font-semibold text-white">0 / 14 plantillas</span>
+        </div>
+        <div class="w-full h-2 rounded-full bg-white/5 overflow-hidden">
+          <div id="progressBar" class="progress-fill h-full rounded-full bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]" style="width:0%"></div>
+        </div>
+      </div>
+      <!-- Filters -->
+      <div class="flex gap-2 flex-wrap">
+        <button class="filter-btn active text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-300" data-filter="all">Todos</button>
+        <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-400" data-filter="email">
+          <span class="inline-block w-2 h-2 rounded-full bg-[#3B82F6] mr-1"></span>Email
+        </button>
+        <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-400" data-filter="linkedin">
+          <span class="inline-block w-2 h-2 rounded-full bg-[#8B5CF6] mr-1"></span>LinkedIn
+        </button>
+        <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-white/10 text-gray-400" data-filter="phone">
+          <span class="inline-block w-2 h-2 rounded-full bg-[#22D3EE] mr-1"></span>Telefono
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- WEEK 1: CONTACTO INICIAL + PRIMEROS FOLLOW-UPS -->
+  <!-- =========================================== -->
+  <div class="week-header flex items-center justify-center mb-6 fade-in" style="animation-delay:.15s">
+    <span class="relative z-10 bg-[#0C0A1D] px-6 py-2 rounded-full border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#3B82F6]">Semana 1 — Contacto inicial</span>
+  </div>
+
+  <!-- DAY 1: Email -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-email fade-in" data-channel="email" data-day="1" style="animation-delay:.18s">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">01</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-email text-xs font-semibold px-2 py-0.5 rounded-full">Email</span>
+            <span class="text-xs text-gray-500">Dia 1</span>
+          </div>
+          <p class="text-white font-medium text-sm">Primer email frio — Abrir la puerta</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Generar curiosidad y conseguir una respuesta. No vender. No explicar. Abrir una conversacion.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Asunto: Pregunta rapida sobre [departamento/area del prospect]</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[180px]" data-template="1" placeholder="Edita la plantilla...">Hola [Nombre],
+
+Vi que en [Empresa del prospect] estais [accion observable: contratando SDRs / expandiendo a nuevo mercado / lanzando nueva linea de servicio].
+
+Trabajo con [tipo de empresa similar] que tenian un problema concreto: [problema especifico que resuelves, ej: "dependian del boca a boca para generar pipeline y cada trimestre era una ruleta"].
+
+Les ayudamos a [resultado concreto con numero, ej: "pasar de 3 a 12 reuniones cualificadas al mes en 90 dias"] sin [objecion comun, ej: "contratar un equipo comercial completo"].
+
+¿Tiene sentido una conversacion de 15 minutos para ver si aplica a vuestro caso?
+
+[Tu nombre]
+[Tu cargo] en [Tu empresa]</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2: LinkedIn -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-linkedin" data-channel="linkedin" data-day="2">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">02</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-linkedin text-xs font-semibold px-2 py-0.5 rounded-full">LinkedIn</span>
+            <span class="text-xs text-gray-500">Dia 2</span>
+          </div>
+          <p class="text-white font-medium text-sm">Solicitud de conexion — Calentar el contacto</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Que acepte la conexion. Nada mas. La nota debe ser corta, personal y sin pitch.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Nota de conexion (max 300 caracteres)</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[100px]" data-template="2" placeholder="Edita la plantilla...">[Nombre], vi tu perfil investigando empresas de [sector del prospect] en [ciudad/region]. Me parecio interesante lo que estais haciendo con [algo especifico de su perfil/empresa]. Conecto por si en algun momento tiene sentido intercambiar ideas. Un saludo.</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3: Email -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-email" data-channel="email" data-day="3">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">03</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-email text-xs font-semibold px-2 py-0.5 rounded-full">Email</span>
+            <span class="text-xs text-gray-500">Dia 3</span>
+          </div>
+          <p class="text-white font-medium text-sm">Follow-up #1 — El dato que duele</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Reenganche con un dato o insight relevante. Demostrar que entiendes su mundo.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Asunto: Re: Pregunta rapida sobre [departamento/area]</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[160px]" data-template="3" placeholder="Edita la plantilla...">[Nombre],
+
+Solo un dato rapido que quizas te interese:
+
+El [dato estadistico relevante, ej: "78% de los equipos comerciales B2B en 2026 no pasan de 2 touchpoints antes de abandonar un prospect"]. La mayoria abandona justo cuando la probabilidad de respuesta se dispara.
+
+Es exactamente el problema que resolvemos con [nombre de tu solucion/proceso].
+
+¿15 minutos esta semana?
+
+[Tu nombre]</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5: Phone -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-phone" data-channel="phone" data-day="5">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">05</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-phone text-xs font-semibold px-2 py-0.5 rounded-full">Telefono</span>
+            <span class="text-xs text-gray-500">Dia 5</span>
+          </div>
+          <p class="text-white font-medium text-sm">Primera llamada — Abrir con contexto</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Conseguir 30 segundos de atencion. No vender por telefono. Solo cualificar y agendar.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Guion de llamada (30 segundos)</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[220px]" data-template="4" placeholder="Edita la plantilla...">[Nombre], te llamo de [Tu empresa]. Te pillo en 30 segundos, ¿puedes?
+
+[Si dice si:]
+Perfecto. Te escribi hace unos dias porque trabajo con [tipo de empresa similar] que estaban [problema que resuelves, ej: "luchando por generar pipeline de forma predecible"].
+
+No se si es vuestro caso, pero queria preguntarte: ¿como estais generando nuevas oportunidades comerciales ahora mismo? ¿Teneis un sistema o depende mas del boca a boca y la red de contactos?
+
+[Escucha activa — deja que hable]
+
+[Si hay encaje:]
+Mira, te propongo algo. Tenemos un proceso de diagnostico de 15 minutos donde te puedo mostrar exactamente que estamos viendo que funciona en [su sector]. Sin compromiso. ¿Te viene bien [dia] a las [hora]?
+
+[Si dice no / no es buen momento:]
+Entendido, ¿cuando te pillo mejor?</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 7: LinkedIn -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-linkedin" data-channel="linkedin" data-day="7">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">07</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-linkedin text-xs font-semibold px-2 py-0.5 rounded-full">LinkedIn</span>
+            <span class="text-xs text-gray-500">Dia 7</span>
+          </div>
+          <p class="text-white font-medium text-sm">DM de valor — Compartir recurso relevante</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Aportar valor real sin pedir nada. Posicionarte como alguien que sabe de lo que habla.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Mensaje directo en LinkedIn</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[130px]" data-template="5" placeholder="Edita la plantilla...">[Nombre], gracias por conectar.
+
+Vi que trabajas en [area relevante]. Acabamos de publicar [tipo de recurso: guia / caso de estudio / analisis] sobre [tema especifico relevante para su rol] que quizas te sea util:
+
+[URL del recurso]
+
+Sin mas intencion que compartirlo. Si te genera alguna pregunta, aqui estoy.</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- WEEK 2: VALOR + SOCIAL PROOF -->
+  <!-- =========================================== -->
+  <div class="week-header flex items-center justify-center mb-6 mt-10">
+    <span class="relative z-10 bg-[#0C0A1D] px-6 py-2 rounded-full border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#8B5CF6]">Semana 2 — Valor + prueba social</span>
+  </div>
+
+  <!-- DAY 8: Email -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-email" data-channel="email" data-day="8">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">08</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-email text-xs font-semibold px-2 py-0.5 rounded-full">Email</span>
+            <span class="text-xs text-gray-500">Dia 8</span>
+          </div>
+          <p class="text-white font-medium text-sm">Caso de estudio — Prueba social directa</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Mostrar que ya resolviste este problema para alguien como el. Resultado concreto, no promesas.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Asunto: Como [empresa similar] paso de [problema] a [resultado]</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[200px]" data-template="6" placeholder="Edita la plantilla...">[Nombre],
+
+Te comparto algo que creo te va a resonar.
+
+[Nombre del cliente o "Una consultora de [sector]"] tenia exactamente el mismo reto que veo en muchas empresas como [Empresa del prospect]:
+
+→ [Problema 1, ej: "Pipeline impredecible que dependia del boca a boca"]
+→ [Problema 2, ej: "El CEO era el unico que cerraba ventas"]
+→ [Problema 3, ej: "Sin proceso para generar reuniones de forma sistematica"]
+
+En [X semanas/meses] instalamos [tu solucion] y los resultados:
+
+→ [Resultado 1 con numero, ej: "De 4 a 18 reuniones cualificadas al mes"]
+→ [Resultado 2 con numero, ej: "Pipeline de 340K€ generado en 90 dias"]
+→ [Resultado 3, ej: "Dos comerciales nuevos vendiendo sin depender del fundador"]
+
+Si esto te suena familiar, creo que merece una conversacion de 15 minutos. ¿Que dia te viene bien?
+
+[Tu nombre]</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 10: LinkedIn -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-linkedin" data-channel="linkedin" data-day="10">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">10</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-linkedin text-xs font-semibold px-2 py-0.5 rounded-full">LinkedIn</span>
+            <span class="text-xs text-gray-500">Dia 10</span>
+          </div>
+          <p class="text-white font-medium text-sm">Interaccion social — Comentar su contenido</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Estar en su radar sin ser invasivo. Interactuar con su contenido de forma genuina. Si no publica, comenta en un post de su sector y etiquetale.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Comentario en su publicacion</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[120px]" data-template="7" placeholder="Edita la plantilla...">[Si publico algo relevante:]
+Muy de acuerdo con [punto concreto que menciona]. En nuestra experiencia con [tipo de empresa], lo que hemos visto es que [anade un insight o dato que complementa su punto]. Buen post, [Nombre].
+
+[Si no publica — enviar DM:]
+[Nombre], vi [noticia sobre su empresa / movimiento en su sector] y me hizo pensar en una conversacion que tuve con [CEO de empresa similar]. Te parece si intercambiamos perspectivas?</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 11: Phone -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-phone" data-channel="phone" data-day="11">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">11</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-phone text-xs font-semibold px-2 py-0.5 rounded-full">Telefono</span>
+            <span class="text-xs text-gray-500">Dia 11</span>
+          </div>
+          <p class="text-white font-medium text-sm">Segunda llamada — Referencia al caso de estudio</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Segundo intento telefonico con mas contexto. Referencia al email del caso de estudio para generar reconocimiento.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Guion de llamada</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[180px]" data-template="8" placeholder="Edita la plantilla...">[Nombre], soy [Tu nombre] de [Tu empresa]. Te envie un email hace unos dias con un caso de [empresa similar en su sector]. ¿Lo llegaste a ver?
+
+[Si lo vio:]
+Genial. ¿Te resulto relevante? Porque lo que hicimos con ellos es exactamente lo que estamos viendo que necesitan empresas como [Empresa del prospect]. ¿Tiene sentido que te cuente en 15 minutos como podria aplicar a vuestro caso?
+
+[Si no lo vio:]
+Sin problema. En resumen: ayudamos a [empresa similar] a [resultado principal en una frase]. Creo que podria ser relevante para vosotros. ¿Tienes 15 minutos el [dia] para que te lo cuente?
+
+[Si no contesta — dejar voicemail:]
+[Nombre], soy [Tu nombre] de [Tu empresa]. Te escribi sobre como ayudamos a [empresa similar] con [resultado]. Te vuelvo a escribir con los detalles. Un saludo.</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 12: Email -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-email" data-channel="email" data-day="12">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">12</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-email text-xs font-semibold px-2 py-0.5 rounded-full">Email</span>
+            <span class="text-xs text-gray-500">Dia 12</span>
+          </div>
+          <p class="text-white font-medium text-sm">Email de insight — El problema que no ven</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Provocar reflexion. Mostrar un angulo del problema que probablemente no ha considerado.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Asunto: La razon por la que [problema comun] no se resuelve contratando mas [solucion obvia]</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[180px]" data-template="9" placeholder="Edita la plantilla...">[Nombre],
+
+Una cosa que veo constantemente en [sector del prospect]:
+
+Cuando [problema, ej: "el pipeline no crece"], la reaccion instintiva es [solucion obvia, ej: "contratar mas comerciales o invertir en mas anuncios"].
+
+Pero el problema real suele ser otro: [insight, ej: "no hay un proceso sistematico de generacion de demanda. Mas gente ejecutando un proceso roto solo escala el problema"].
+
+Es la diferencia entre [metafora breve, ej: "meter mas agua en un cubo con agujeros y arreglar el cubo primero"].
+
+Si esto te suena, me encantaria compartirte como lo estamos resolviendo con empresas de [su sector]. 15 minutos, sin PowerPoint, sin pitch.
+
+¿Te viene bien esta semana?
+
+[Tu nombre]</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 14: LinkedIn -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-linkedin" data-channel="linkedin" data-day="14">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">14</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-linkedin text-xs font-semibold px-2 py-0.5 rounded-full">LinkedIn</span>
+            <span class="text-xs text-gray-500">Dia 14</span>
+          </div>
+          <p class="text-white font-medium text-sm">DM de video/audio — Romper el formato</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Diferenciarte enviando un video o nota de voz personalizada de 30-45 segundos por LinkedIn. La tasa de respuesta de video es 3x superior al texto.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Guion para video/audio de LinkedIn (30-45 seg)</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[160px]" data-template="10" placeholder="Edita la plantilla...">[Grabar video o nota de voz en LinkedIn con este guion:]
+
+Hola [Nombre], soy [Tu nombre]. Te grabo este video rapido porque creo que lo que estamos haciendo con empresas de [su sector] puede ser muy relevante para [Empresa del prospect].
+
+En concreto, acabamos de ayudar a [empresa similar] a [resultado principal]. Y por lo que veo de vuestro caso, creo que hay una oportunidad similar.
+
+No te quiero robar tiempo. Solo queria ponerte cara a la propuesta. Si te interesa, responde aqui o directamente agenda 15 minutos en [URL de tu calendario].
+
+Un saludo.
+
+[Texto acompanando el video:]
+[Nombre], te grabe un video rapido de 30 seg. Creo que te va a interesar.</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- WEEK 3: BREAK-UP + ULTIMO INTENTO -->
+  <!-- =========================================== -->
+  <div class="week-header flex items-center justify-center mb-6 mt-10">
+    <span class="relative z-10 bg-[#0C0A1D] px-6 py-2 rounded-full border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#EC4899]">Semana 3 — Break-up + ultimo intento</span>
+  </div>
+
+  <!-- DAY 15: Email -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-email" data-channel="email" data-day="15">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">15</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-email text-xs font-semibold px-2 py-0.5 rounded-full">Email</span>
+            <span class="text-xs text-gray-500">Dia 15</span>
+          </div>
+          <p class="text-white font-medium text-sm">El "me equivoque de persona" — Redireccion</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Si no ha respondido, probar si estas hablando con la persona correcta. Muchas veces el silencio no es desinteres, sino que no es quien decide.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Asunto: ¿Persona equivocada?</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[130px]" data-template="11" placeholder="Edita la plantilla...">[Nombre],
+
+He intentado contactarte varias veces y entiendo que puede que [tu solucion] no sea tu area.
+
+¿Me puedes apuntar a la persona correcta en [Empresa del prospect] que se encarga de [area relevante, ej: "desarrollo de negocio / generacion de pipeline / estrategia comercial"]?
+
+Te lo agradezco mucho.
+
+[Tu nombre]</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 17: Phone -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-phone" data-channel="phone" data-day="17">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">17</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-phone text-xs font-semibold px-2 py-0.5 rounded-full">Telefono</span>
+            <span class="text-xs text-gray-500">Dia 17</span>
+          </div>
+          <p class="text-white font-medium text-sm">Llamada final — Directo y sin rodeos</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Ultimo intento telefonico. Ser transparente sobre la situacion. La honestidad aqui genera mas respuestas que otra ronda de pitch.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Guion de llamada</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[160px]" data-template="12" placeholder="Edita la plantilla...">[Nombre], soy [Tu nombre] de [Tu empresa]. Se que te he contactado varias veces, asi que voy al grano:
+
+Trabajo con empresas de [su sector] y les ayudo a [resultado principal en una frase]. Te contacte porque creo que puede haber encaje.
+
+Si no es el momento, lo entiendo perfectamente. Pero si [problema que resuelves] es algo que os preocupa, te propongo 15 minutos y si no hay encaje, lo dejamos ahi. Sin presion.
+
+¿Que me dices?
+
+[Si no contesta — voicemail:]
+[Nombre], ultimo intento. Si [problema] es algo que os quita el sueno, dejame 15 minutos. Si no, no te molesto mas. Mi numero: [telefono]. Un saludo.</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 19: LinkedIn -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-linkedin" data-channel="linkedin" data-day="19">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">19</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-linkedin text-xs font-semibold px-2 py-0.5 rounded-full">LinkedIn</span>
+            <span class="text-xs text-gray-500">Dia 19</span>
+          </div>
+          <p class="text-white font-medium text-sm">DM final — Ofrecer algo gratis y concreto</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Ultimo touchpoint en LinkedIn. Ofrecer algo de valor tangible y concreto que no requiera compromiso.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Mensaje directo en LinkedIn</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[130px]" data-template="13" placeholder="Edita la plantilla...">[Nombre], ultimo mensaje por aqui, prometido.
+
+Te dejo [recurso gratuito concreto, ej: "la plantilla exacta de secuencia de outbound que usamos con nuestros clientes" / "un mini-audit de vuestro proceso comercial basado en lo que puedo ver desde fuera"].
+
+[URL del recurso o "Solo tienes que decirme 'me interesa' y te lo envio"]
+
+Si en algun momento [su problema] se convierte en prioridad, sabes donde estoy. Suerte con todo.</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 21: Email -->
+  <div class="day-card glass rounded-2xl mb-4 overflow-hidden ch-email" data-channel="email" data-day="21">
+    <div class="day-header flex items-center justify-between p-5 cursor-pointer" onclick="toggleDay(this)">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white/20 font-display">21</span>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="badge-email text-xs font-semibold px-2 py-0.5 rounded-full">Email</span>
+            <span class="text-xs text-gray-500">Dia 21</span>
+          </div>
+          <p class="text-white font-medium text-sm">Break-up email — Cerrar con clase</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="customized-badge text-xs text-green-400 hidden">Personalizado</span>
+        <svg class="expand-icon w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>
+    <div class="template-content px-5 pb-5">
+      <div class="mb-3">
+        <p class="text-xs text-gray-500 mb-2"><strong class="text-gray-400">Objetivo:</strong> Cerrar la secuencia con dignidad. El break-up email tiene la tasa de respuesta mas alta de toda la secuencia (15-25%). La gente responde cuando siente que pierde la opcion.</p>
+      </div>
+      <div class="relative">
+        <label class="text-xs text-gray-500 mb-1 block">Asunto: Cierro el tema</label>
+        <textarea class="template-textarea w-full rounded-xl p-4 min-h-[180px]" data-template="14" placeholder="Edita la plantilla...">[Nombre],
+
+Te he contactado varias veces y no he tenido respuesta, asi que asumo que:
+
+a) No es el momento
+b) No es prioridad ahora mismo
+c) Ya teneis esto resuelto
+
+Las tres son perfectamente validas.
+
+Cierro el tema por mi parte. Solo te pido una cosa: si en algun momento [problema que resuelves] se convierte en algo urgente, guardame este email. Estamos a una conversacion de distancia.
+
+Te deseo lo mejor con [algo especifico de su empresa].
+
+[Tu nombre]
+[Tu empresa]
+
+PD: Si es que no soy la persona adecuada con quien hablar, un simple "habla con [nombre]" me basta. Te lo agradeceria mucho.</textarea>
+        <button class="copy-btn absolute top-8 right-2 text-xs text-gray-400 px-3 py-1.5 rounded-lg border border-white/10" onclick="copyTemplate(this)">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS SECTION -->
+  <div class="glass rounded-2xl p-6 mt-10 mb-8">
+    <h3 class="text-white font-bold text-lg mb-4 font-display">Reglas de oro de esta secuencia</h3>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="flex gap-3 items-start">
+        <span class="text-[#22D3EE] text-lg leading-none mt-0.5">&#9679;</span>
+        <p class="text-sm text-gray-400"><strong class="text-white">Nunca envies sin personalizar.</strong> Los campos entre [corchetes] existen por algo. Un email generico es un email ignorado.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="text-[#3B82F6] text-lg leading-none mt-0.5">&#9679;</span>
+        <p class="text-sm text-gray-400"><strong class="text-white">El timing importa.</strong> Emails a las 7:30-8:30 AM o 17:00-18:00. Llamadas a las 8:00-9:30 o 16:30-18:00. LinkedIn a las 12:00-14:00.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="text-[#8B5CF6] text-lg leading-none mt-0.5">&#9679;</span>
+        <p class="text-sm text-gray-400"><strong class="text-white">Si responde en cualquier punto, sales de la secuencia.</strong> Pasas a conversacion humana real. Nada de seguir automatizando.</p>
+      </div>
+      <div class="flex gap-3 items-start">
+        <span class="text-[#EC4899] text-lg leading-none mt-0.5">&#9679;</span>
+        <p class="text-sm text-gray-400"><strong class="text-white">El break-up email funciona.</strong> Tiene la tasa de respuesta mas alta de toda la secuencia. No lo elimines por "parecer insistente".</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA SECTION -->
+  <div class="glass rounded-2xl p-8 text-center mb-10">
+    <h3 class="text-white font-bold text-xl mb-2 font-display">¿Quieres que montemos tu secuencia juntos?</h3>
+    <p class="text-gray-400 text-sm mb-6 max-w-xl mx-auto">Las plantillas son el 20%. El otro 80% es saber a quien enviarlas, como segmentar, y que metricas medir. Si quieres un sistema de outbound completo que genere pipeline de forma predecible, hablemos.</p>
+    <a href="../agendar.html" class="btn-g inline-block px-8 py-3.5 rounded-xl text-sm">Agendar llamada de diagnostico</a>
+    <p class="text-xs text-gray-500 mt-3">15 minutos. Sin compromiso. Sin PowerPoint.</p>
+  </div>
+
+  <!-- LEAD CAPTURE FORM -->
+  <div class="glass rounded-2xl p-8 mb-8" id="leadCapture">
+    <div class="text-center mb-6">
+      <h3 class="text-white font-bold text-lg mb-2 font-display">Recibe la version PDF + bonus</h3>
+      <p class="text-gray-400 text-sm max-w-lg mx-auto">Dejanos tu email y te enviamos esta secuencia en PDF descargable + una guia extra con las metricas que deberias medir en cada touchpoint.</p>
+    </div>
+    <form id="leadForm" class="max-w-md mx-auto space-y-4">
+      <input type="hidden" name="source" value="template-outbound-multicanal">
+      <div>
+        <label class="text-xs text-gray-500 mb-1 block" for="inputNombre">Nombre</label>
+        <input id="inputNombre" type="text" name="nombre" required placeholder="Tu nombre" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#8B5CF6]/40 transition-colors">
+      </div>
+      <div>
+        <label class="text-xs text-gray-500 mb-1 block" for="inputEmail">Email</label>
+        <input id="inputEmail" type="email" name="email" required placeholder="tu@empresa.com" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#8B5CF6]/40 transition-colors">
+      </div>
+      <div>
+        <label class="text-xs text-gray-500 mb-1 block" for="inputEmpresa">Empresa</label>
+        <input id="inputEmpresa" type="text" name="empresa" required placeholder="Nombre de tu empresa" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#8B5CF6]/40 transition-colors">
+      </div>
+      <button type="submit" class="btn-g w-full py-3.5 rounded-xl text-sm">Enviar y recibir el PDF</button>
+      <p class="text-xs text-gray-500 text-center">Nada de spam. Solo contenido que te ayuda a vender mas.</p>
+    </form>
+    <div id="leadSuccess" class="hidden text-center py-8">
+      <div class="text-4xl mb-4">&#10003;</div>
+      <h4 class="text-white font-bold text-lg mb-2" style="font-family:'DM Sans',sans-serif">Enviado. Revisa tu email.</h4>
+      <p class="text-gray-400 text-sm mb-4">En unos minutos recibiras la secuencia en PDF + la guia de metricas.</p>
+      <a href="../blog/outbound-2026.html" class="text-[#8B5CF6] text-sm underline hover:text-[#EC4899] transition-colors">Leer el articulo: Outbound en 2026</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 mt-12">
+  <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting. Todos los derechos reservados.</p>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const TOTAL = 14;
+  const textareas = document.querySelectorAll('.template-textarea');
+  const dayCards = document.querySelectorAll('.day-card');
+  const progressBar = document.getElementById('progressBar');
+  const progressText = document.getElementById('progressText');
+  const originalValues = {};
+
+  // Store original values
+  textareas.forEach(function(ta){
+    var id = ta.getAttribute('data-template');
+    originalValues[id] = ta.value.trim();
+  });
+
+  // Toggle day expand/collapse
+  window.toggleDay = function(header){
+    var card = header.closest('.day-card');
+    var content = card.querySelector('.template-content');
+    var icon = card.querySelector('.expand-icon');
+    content.classList.toggle('open');
+    icon.classList.toggle('rotated');
+  };
+
+  // Copy template
+  window.copyTemplate = function(btn){
+    var textarea = btn.closest('.relative').querySelector('.template-textarea');
+    navigator.clipboard.writeText(textarea.value).then(function(){
+      btn.classList.add('copied');
+      btn.textContent = 'Copiado';
+      setTimeout(function(){
+        btn.classList.remove('copied');
+        btn.textContent = 'Copiar';
+      }, 2000);
+    }).catch(function(){
+      // Fallback
+      textarea.select();
+      document.execCommand('copy');
+      btn.classList.add('copied');
+      btn.textContent = 'Copiado';
+      setTimeout(function(){
+        btn.classList.remove('copied');
+        btn.textContent = 'Copiar';
+      }, 2000);
+    });
+  };
+
+  // Track customization progress
+  function checkCustomized(){
+    var count = 0;
+    textareas.forEach(function(ta){
+      var id = ta.getAttribute('data-template');
+      var card = ta.closest('.day-card');
+      var badge = card.querySelector('.customized-badge');
+      if(ta.value.trim() !== originalValues[id]){
+        count++;
+        card.classList.add('customized');
+        badge.classList.remove('hidden');
+      } else {
+        card.classList.remove('customized');
+        badge.classList.add('hidden');
+      }
+    });
+    var pct = (count / TOTAL) * 100;
+    progressBar.style.width = pct + '%';
+    progressText.textContent = count + ' / ' + TOTAL + ' plantillas';
+  }
+
+  textareas.forEach(function(ta){
+    ta.addEventListener('input', checkCustomized);
+  });
+
+  // Channel filter
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      dayCards.forEach(function(card){
+        if(filter === 'all' || card.getAttribute('data-channel') === filter){
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Lead form submission
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      source: 'template-outbound-multicanal',
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/REPLACE_WITH_WEBHOOK_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

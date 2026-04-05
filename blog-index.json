@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "infraestructura-vs-herramientas",
+    "title": "Por qué tu equipo comercial no necesita más herramientas — necesita infraestructura",
+    "excerpt": "La mayoría de empresas B2B acumulan herramientas como si fueran soluciones. CRM, email tools, LinkedIn automation... El problema no es la herramienta. Es la ausencia de un sistema.",
+    "pillar": "Revenue Infrastructure",
+    "date": "2026-04-04",
+    "readTime": "7 min",
+    "leadMagnet": {
+      "title": "Checklist: Los 12 componentes de una infraestructura comercial B2B",
+      "type": "checklist"
+    },
+    "ogImage": null
+  },
+  {
+    "slug": "outbound-2026",
+    "title": "Outbound en 2026: lo que funciona cuando todos hacen lo mismo",
+    "excerpt": "El outbound masivo murió. El personalizado a escala es el único que genera reuniones con decisores que realmente quieren hablar contigo.",
+    "pillar": "Outbound",
+    "date": "2026-03-28",
+    "readTime": "6 min",
+    "leadMagnet": {
+      "title": "Plantilla: Secuencia de outbound multicanal de 21 días",
+      "type": "template"
+    },
+    "ogImage": null
+  },
+  {
+    "slug": "ceo-que-vende",
+    "title": "El CEO que vende: por qué es un problema, no una virtud",
+    "excerpt": "Si eres el mejor vendedor de tu empresa y facturas más de 500K€, tienes un problema de escalabilidad disfrazado de talento comercial.",
+    "pillar": "CEO como motor",
+    "date": "2026-03-21",
+    "readTime": "5 min",
+    "leadMagnet": {
+      "title": "Test: ¿Tu empresa depende de ti para vender?",
+      "type": "quiz"
+    },
+    "ogImage": null
+  },
+  {
+    "slug": "ia-reuniones-cualificadas",
+    "title": "Cómo usamos IA para generar 40 reuniones cualificadas en 30 días",
+    "excerpt": "La IA no reemplaza tu proceso comercial. Lo acelera. Así es como la integramos en APEX OS™ para multiplicar resultados sin perder personalización.",
+    "pillar": "IA",
+    "date": "2026-03-14",
+    "readTime": "8 min",
+    "leadMagnet": {
+      "title": "Guía: 7 prompts de IA para prospección B2B",
+      "type": "guide"
+    },
+    "ogImage": null
+  },
+  {
+    "slug": "3-razones-no-crecen",
+    "title": "627 clientes después: las 3 razones por las que las empresas B2B no crecen",
+    "excerpt": "Después de trabajar con más de 627 empresas, los patrones son claros. No es falta de talento, no es el mercado, no es la competencia.",
+    "pillar": "Desde las trincheras",
+    "date": "2026-03-07",
+    "readTime": "6 min",
+    "leadMagnet": {
+      "title": "Diagnóstico: Los 3 cuellos de botella del crecimiento B2B",
+      "type": "diagnostic"
+    },
+    "ogImage": null
+  },
+  {
+    "slug": "framework-20-reuniones",
+    "title": "De 0 a 20 reuniones/semana: el framework que instalamos en cada cliente",
+    "excerpt": "No hay magia. Hay un sistema con 5 infraestructuras que se instalan en orden específico. Te lo explicamos paso a paso.",
+    "pillar": "Revenue Infrastructure",
+    "date": "2026-02-28",
+    "readTime": "9 min",
+    "leadMagnet": {
+      "title": "Framework: Las 5 infraestructuras de APEX OS™ en detalle",
+      "type": "framework"
+    },
+    "ogImage": null
+  }
+]

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Tag Manager - Replace GTM-XXXXXXX with real container ID -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+  <title>Recursos Gratuitos — Global Growth Consulting</title>
+  <meta name="description" content="Frameworks, checklists y guías para construir tu infraestructura comercial B2B. Descarga recursos gratuitos de Global Growth Consulting.">
+  <link rel="canonical" href="https://globalgrowth.consulting/recursos">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://globalgrowth.consulting/recursos">
+  <meta property="og:title" content="Recursos Gratuitos — Global Growth Consulting">
+  <meta property="og:description" content="Frameworks, checklists y guías para construir tu infraestructura comercial B2B.">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Global Growth Consulting">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Recursos Gratuitos","description":"Frameworks, checklists y guías para construir tu infraestructura comercial B2B.","url":"https://globalgrowth.consulting/recursos","publisher":{"@type":"Organization","name":"Global Growth Consulting","url":"https://globalgrowth.consulting"}}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'DM Sans',sans-serif;background:#0C0A1D;color:#fff;overflow-x:hidden}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gr-label{background:linear-gradient(90deg,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gc{position:relative;background:#151331;border-radius:20px;overflow:hidden;cursor:default;transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s}
+    .gc::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(34,211,238,.2),rgba(59,130,246,.15),rgba(139,92,246,.2),rgba(236,72,153,.15));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.5;transition:opacity .4s}
+    .gc:hover::before{opacity:1}
+    .gc:hover{transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.4),0 0 40px rgba(139,92,246,.08)}
+    @keyframes heroFadeUp{from{opacity:0;transform:translateY(80px);filter:blur(16px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    @keyframes gradLine{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    @keyframes heroGlow{0%,100%{box-shadow:0 0 0 0 rgba(139,92,246,.5),0 0 40px rgba(139,92,246,.15)}50%{box-shadow:0 0 0 14px rgba(139,92,246,0),0 0 60px rgba(139,92,246,.25)}}
+    .anim-line{height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899,#8B5CF6,#3B82F6,#22D3EE);background-size:300% 100%;animation:gradLine 4s ease infinite}
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);overflow:hidden;transition:transform .3s,box-shadow .3s}
+    .btn-g:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(139,92,246,.3)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    [data-r]{opacity:0;transform:translateY(60px);filter:blur(10px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1),filter .8s cubic-bezier(.4,0,.2,1)}
+    [data-r].visible{opacity:1;transform:translateY(0);filter:blur(0)}
+    #progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);z-index:100;width:0;transition:width .1s}
+    #glow{position:fixed;width:450px;height:450px;border-radius:50%;pointer-events:none;z-index:2;background:radial-gradient(circle,rgba(139,92,246,.12) 0%,rgba(59,130,246,.06) 40%,transparent 70%);transform:translate(-50%,-50%);opacity:0;transition:opacity .6s;filter:blur(30px)}
+    body:hover #glow{opacity:1}
+    body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    @media(prefers-reduced-motion:reduce){
+      [data-r]{opacity:1;transform:none;filter:none;transition:none}
+      .btn-g::after{animation:none}
+      #glow{display:none}
+    }
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+  </style>
+</head>
+<body class="font-body">
+  <!-- Google Tag Manager (noscript) -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+  <div id="progress"></div>
+  <div id="glow" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav class="nv fixed top-0 left-0 right-0 z-50 backdrop-blur-xl" style="background:rgba(12,10,29,.8);border-bottom:1px solid rgba(255,255,255,.06)">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 cursor-pointer" aria-label="Global Growth Consulting inicio">
+        <img src="logo.png" alt="GGC" width="32" height="32" loading="eager">
+        <span class="font-semibold text-sm tracking-wide hidden sm:inline">Global Growth Consulting</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-gray-300">
+        <a href="index.html#sistema" class="hover:text-white transition cursor-pointer">Sistema</a>
+        <a href="index.html#resultados" class="hover:text-white transition cursor-pointer">Resultados</a>
+        <a href="blog.html" class="hover:text-white transition cursor-pointer">Blog</a>
+        <a href="recursos.html" class="text-white transition cursor-pointer">Recursos</a>
+        <a href="index.html#proceso" class="hover:text-white transition cursor-pointer">Proceso</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="agendar.html" class="btn-g hidden md:inline-flex px-5 py-2.5 rounded-full text-sm font-semibold text-white cursor-pointer">Aplicar</a>
+        <button id="menu-btn" class="md:hidden p-2 cursor-pointer" aria-label="Abrir menú" aria-expanded="false">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-6 pt-2 border-t border-white/5">
+      <a href="index.html#sistema" class="block py-3 text-gray-300 hover:text-white cursor-pointer">Sistema</a>
+      <a href="index.html#resultados" class="block py-3 text-gray-300 hover:text-white cursor-pointer">Resultados</a>
+      <a href="blog.html" class="block py-3 text-gray-300 hover:text-white cursor-pointer">Blog</a>
+      <a href="recursos.html" class="block py-3 text-white cursor-pointer">Recursos</a>
+      <a href="index.html#proceso" class="block py-3 text-gray-300 hover:text-white cursor-pointer">Proceso</a>
+      <a href="agendar.html" class="btn-g mt-4 block text-center px-5 py-3 rounded-full text-sm font-semibold text-white cursor-pointer">Aplicar</a>
+    </div>
+  </nav>
+
+  <main class="relative z-[2]">
+    <!-- HERO -->
+    <section class="pt-32 pb-16 px-6 text-center">
+      <div class="anim-line w-full max-w-4xl mx-auto mb-12 rounded-full"></div>
+      <div style="animation:heroFadeUp .8s ease .15s both">
+        <p class="gr-label font-semibold text-sm uppercase tracking-widest mb-4">Biblioteca de recursos</p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">Recursos <em class="gr font-display">gratuitos</em></h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">Frameworks, checklists y guías para construir tu infraestructura comercial B2B. Sin fluff. Solo lo que funciona.</p>
+      </div>
+    </section>
+
+    <!-- RESOURCE GRID -->
+    <section class="py-16 sm:py-24 px-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Resource 1: Checklist -->
+        <div class="gc p-8" data-r data-resource="checklist">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-5" style="background:rgba(34,211,238,.15);color:#22D3EE">Checklist</span>
+          <h3 class="text-xl font-bold mb-3 leading-snug">Los 12 componentes de una infraestructura comercial B2B</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">Revisa punto por punto si tu empresa tiene los elementos que necesita para generar demanda sin depender de ti.</p>
+          <div class="resource-form">
+            <form class="space-y-3" data-type="checklist" onsubmit="handleResourceForm(event,this)">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm font-semibold text-white">Descargar checklist</button>
+            </form>
+          </div>
+          <div class="resource-unlocked hidden">
+            <div class="p-4 rounded-lg text-sm text-green-400" style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)">
+              Ya tienes acceso. <a href="blog/infraestructura-vs-herramientas.html" class="underline hover:text-green-300">Ver contenido</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource 2: Template -->
+        <div class="gc p-8" data-r data-resource="template">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-5" style="background:rgba(59,130,246,.15);color:#3B82F6">Plantilla</span>
+          <h3 class="text-xl font-bold mb-3 leading-snug">Secuencia de outbound multicanal de 21 días</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">La secuencia exacta que usamos con nuestros clientes para generar respuestas de decisores B2B en menos de 3 semanas.</p>
+          <div class="resource-form">
+            <form class="space-y-3" data-type="template" onsubmit="handleResourceForm(event,this)">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm font-semibold text-white">Descargar plantilla</button>
+            </form>
+          </div>
+          <div class="resource-unlocked hidden">
+            <div class="p-4 rounded-lg text-sm text-green-400" style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)">
+              Ya tienes acceso. <a href="blog/outbound-2026.html" class="underline hover:text-green-300">Ver contenido</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource 3: Quiz -->
+        <div class="gc p-8" data-r data-resource="quiz">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-5" style="background:rgba(139,92,246,.15);color:#8B5CF6">Test</span>
+          <h3 class="text-xl font-bold mb-3 leading-snug">¿Tu empresa depende de ti para vender?</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">10 preguntas rápidas para saber si tienes un negocio escalable o un autoempleo disfrazado de empresa.</p>
+          <div class="resource-form">
+            <form class="space-y-3" data-type="quiz" onsubmit="handleResourceForm(event,this)">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm font-semibold text-white">Hacer el test</button>
+            </form>
+          </div>
+          <div class="resource-unlocked hidden">
+            <div class="p-4 rounded-lg text-sm text-green-400" style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)">
+              Ya tienes acceso. <a href="blog/ceo-que-vende.html" class="underline hover:text-green-300">Ver contenido</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource 4: Guide -->
+        <div class="gc p-8" data-r data-resource="guide">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-5" style="background:rgba(236,72,153,.15);color:#EC4899">Guía</span>
+          <h3 class="text-xl font-bold mb-3 leading-snug">7 prompts de IA para prospección B2B</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">Los prompts exactos que usamos para investigar empresas, personalizar mensajes y cualificar prospects con IA.</p>
+          <div class="resource-form">
+            <form class="space-y-3" data-type="guide" onsubmit="handleResourceForm(event,this)">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm font-semibold text-white">Descargar guía</button>
+            </form>
+          </div>
+          <div class="resource-unlocked hidden">
+            <div class="p-4 rounded-lg text-sm text-green-400" style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)">
+              Ya tienes acceso. <a href="blog/ia-reuniones-cualificadas.html" class="underline hover:text-green-300">Ver contenido</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource 5: Diagnostic -->
+        <div class="gc p-8" data-r data-resource="diagnostic">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-5" style="background:rgba(217,70,239,.15);color:#D946EF">Diagnóstico</span>
+          <h3 class="text-xl font-bold mb-3 leading-snug">Los 3 cuellos de botella del crecimiento B2B</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">Después de 627 clientes, los patrones son claros. Descubre cuál de los 3 te está frenando a ti.</p>
+          <div class="resource-form">
+            <form class="space-y-3" data-type="diagnostic" onsubmit="handleResourceForm(event,this)">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm font-semibold text-white">Obtener diagnóstico</button>
+            </form>
+          </div>
+          <div class="resource-unlocked hidden">
+            <div class="p-4 rounded-lg text-sm text-green-400" style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)">
+              Ya tienes acceso. <a href="blog/3-razones-no-crecen.html" class="underline hover:text-green-300">Ver contenido</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource 6: Framework -->
+        <div class="gc p-8" data-r data-resource="framework">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-5" style="background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(59,130,246,.2));color:#8B5CF6">Framework</span>
+          <h3 class="text-xl font-bold mb-3 leading-snug">Las 5 infraestructuras de APEX OS&trade; en detalle</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">El framework completo que instalamos en cada cliente. Qué es cada infraestructura, en qué orden se implementan y por qué.</p>
+          <div class="resource-form">
+            <form class="space-y-3" data-type="framework" onsubmit="handleResourceForm(event,this)">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm font-semibold text-white">Descargar framework</button>
+            </form>
+          </div>
+          <div class="resource-unlocked hidden">
+            <div class="p-4 rounded-lg text-sm text-green-400" style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)">
+              Ya tienes acceso. <a href="blog/framework-20-reuniones.html" class="underline hover:text-green-300">Ver contenido</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-24 px-6 relative" data-r>
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true"><div class="w-[500px] h-[500px] rounded-full" style="background:radial-gradient(circle,rgba(139,92,246,.12),rgba(59,130,246,.06),transparent 70%);filter:blur(100px)"></div></div>
+      <div class="max-w-3xl mx-auto text-center relative">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">¿Quieres que lo implementemos por ti?</h2>
+        <p class="text-gray-400 text-lg mb-10 leading-relaxed">Los recursos están bien para entender el qué. Si quieres el cómo, hablemos.</p>
+        <a href="agendar.html" class="btn-g inline-block px-10 py-5 rounded-full text-lg font-bold text-white cursor-pointer" style="animation:heroGlow 3s ease infinite">Aplicar ahora</a>
+        <p class="text-sm text-gray-500 mt-6">Sin compromiso &middot; Proceso de cualificación &middot; 3 partners/mes</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-16 px-6 relative z-[2]">
+    <div class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4"><img src="logo.png" alt="GGC" width="28" height="28"><span class="font-semibold text-sm">Global Growth Consulting</span></div>
+        <p class="text-sm text-gray-500">Infraestructura comercial B2B permanente. 100% a éxito.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Navegación</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="index.html#sistema" class="hover:text-white transition cursor-pointer">Sistema</a></li>
+          <li><a href="index.html#resultados" class="hover:text-white transition cursor-pointer">Resultados</a></li>
+          <li><a href="index.html#proceso" class="hover:text-white transition cursor-pointer">Proceso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Recursos</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="blog.html" class="hover:text-white transition cursor-pointer">Blog</a></li>
+          <li><a href="recursos.html" class="hover:text-white transition cursor-pointer">Recursos</a></li>
+          <li><a href="agendar.html" class="hover:text-white transition cursor-pointer">Agendar</a></li>
+          <li><a href="privacidad.html" class="hover:text-white transition cursor-pointer">Privacidad</a></li>
+          <li><a href="aviso-legal.html" class="hover:text-white transition cursor-pointer">Aviso Legal</a></li>
+          <li><a href="cookies.html" class="hover:text-white transition cursor-pointer">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-sm mb-4">Contacto</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="mailto:soporte@globalgrowth.consulting" class="hover:text-white transition cursor-pointer">soporte@globalgrowth.consulting</a></li>
+          <li>Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</li>
+          <li><a href="https://linkedin.com/in/xavierfortuna/" target="_blank" rel="noopener" class="hover:text-white transition cursor-pointer">LinkedIn</a></li>
+          <li><a href="https://instagram.com/sir.fortuna/" target="_blank" rel="noopener" class="hover:text-white transition cursor-pointer">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto mt-12 pt-8 border-t border-white/5">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div>
+          <p class="font-semibold text-sm text-white">Recibe estrategias B2B que funcionan</p>
+          <p class="text-xs text-gray-500">Sin spam. Solo contenido accionable. Cancela cuando quieras.</p>
+        </div>
+        <form id="footerNewsletter" class="flex gap-2 w-full sm:w-auto">
+          <input type="email" name="email" placeholder="Tu email profesional" required class="flex-1 sm:w-64 px-4 py-2.5 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-purple" style="background:#0C0A1D;border:1px solid rgba(255,255,255,0.1)">
+          <button type="submit" class="btn-g px-5 py-2.5 rounded-lg text-sm font-semibold text-white whitespace-nowrap">Suscribir</button>
+        </form>
+        <div id="footerNewsletterOk" class="hidden text-sm text-green-400">Suscrito correctamente.</div>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto pt-4 border-t border-white/5 text-center text-xs text-gray-500">&copy; 2016&ndash;2026 Global Growth Consulting by Digital Insta Media</div>
+  </footer>
+
+  <script>
+  (function(){
+    /* ---- MOBILE MENU ---- */
+    var mb=document.getElementById('menu-btn'),mm=document.getElementById('mobile-menu');
+    mb.addEventListener('click',function(){var o=mm.classList.toggle('hidden');mb.setAttribute('aria-expanded',!o)});
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.add('hidden');mb.setAttribute('aria-expanded','false')})});
+
+    /* ---- SCROLL PROGRESS ---- */
+    var prog=document.getElementById('progress');
+    window.addEventListener('scroll',function(){var s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(s/h*100)+'%'},{passive:true});
+
+    /* ---- CURSOR GLOW ---- */
+    if(window.innerWidth>1024){var glow=document.getElementById('glow');document.addEventListener('mousemove',function(e){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'},{passive:true})}
+
+    /* ---- INTERSECTION OBSERVER ---- */
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('[data-r]').forEach(function(el){obs.observe(el)});
+
+    /* ---- CHECK LOCALSTORAGE FOR EXISTING LEAD ---- */
+    if(localStorage.getItem('ggc_lead_captured')){
+      document.querySelectorAll('.resource-form').forEach(function(el){el.classList.add('hidden')});
+      document.querySelectorAll('.resource-unlocked').forEach(function(el){el.classList.remove('hidden')});
+    }
+
+    /* ---- FOOTER NEWSLETTER ---- */
+    var footerNL=document.getElementById('footerNewsletter');
+    if(footerNL){
+      footerNL.addEventListener('submit',function(e){
+        e.preventDefault();
+        var btn=this.querySelector('button[type="submit"]');
+        var origText=btn.textContent;
+        btn.textContent='Enviando...';btn.disabled=true;
+        fetch('https://hook.eu2.make.com/PLACEHOLDER_NEWSLETTER',{
+          method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({email:this.email.value,source:'footer-newsletter',page:window.location.pathname})
+        }).then(function(){
+          footerNL.style.display='none';
+          document.getElementById('footerNewsletterOk').classList.remove('hidden');
+          if(window.dataLayer)window.dataLayer.push({event:'form_submit',form_type:'newsletter',source:'footer'});
+        }).catch(function(){btn.textContent=origText;btn.disabled=false});
+      });
+    }
+  })();
+
+  /* ---- RESOURCE FORM HANDLER (global) ---- */
+  function handleResourceForm(e,form){
+    e.preventDefault();
+    var btn=form.querySelector('button[type="submit"]');
+    var origText=btn.textContent;
+    var type=form.dataset.type;
+    btn.textContent='Enviando...';btn.disabled=true;
+    fetch('https://hook.eu2.make.com/PLACEHOLDER_LEADMAGNET',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        nombre:form.nombre.value,
+        email:form.email.value,
+        resource_type:type,
+        source:'recursos-page',
+        page:window.location.pathname
+      })
+    }).then(function(){
+      localStorage.setItem('ggc_lead_captured','1');
+      window.dataLayer=window.dataLayer||[];
+      window.dataLayer.push({event:'form_submit',form_type:'lead_magnet',resource_type:type,source:'recursos'});
+      window.location.href='gracias.html?type=leadmagnet';
+    }).catch(function(){
+      btn.textContent=origText;btn.disabled=false;
+    });
+  }
+  </script>
+  <script src="/cookie-consent.js"></script>
+  <script src="/exit-intent.js"></script>
+</body>
+</html>

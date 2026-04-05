@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia: 7 Prompts de IA para Prospeccion B2B | GGC</title>
+  <meta name="description" content="7 prompts de IA listos para copiar y usar en tu prospeccion B2B. Investigacion de ICP, personalizacion, objeciones, follow-ups y mas. Probados en +627 empresas.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="7 Prompts de IA para Prospeccion B2B">
+  <meta property="og:description" content="Prompts copy-paste que tu equipo comercial puede usar hoy. Resultados reales, no tips genericos.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF'},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:#0C0A1D;color:#e0e0e0;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Prompt cards */
+    .prompt-card{transition:all .3s ease}
+    .prompt-card:hover{border-color:rgba(139,92,246,0.2)}
+    .prompt-card .card-body{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease;opacity:0}
+    .prompt-card.open .card-body{max-height:4000px;opacity:1}
+    .prompt-card .chevron{transition:transform .3s ease}
+    .prompt-card.open .chevron{transform:rotate(180deg)}
+
+    /* Prompt text area */
+    .prompt-block{background:rgba(12,10,29,0.8);border:1px solid rgba(139,92,246,0.15);border-radius:12px;position:relative;font-family:'DM Sans',monospace;font-size:0.82rem;line-height:1.7;color:#c4b5fd;padding:1.25rem;padding-right:3rem;white-space:pre-wrap;word-break:break-word}
+    .prompt-block .placeholder{color:#EC4899;font-weight:600}
+
+    /* Copy button */
+    .copy-btn{position:absolute;top:12px;right:12px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);color:#c4b5fd;border-radius:8px;padding:6px 12px;font-size:0.7rem;font-weight:600;cursor:pointer;transition:all .2s ease;font-family:'DM Sans',sans-serif;z-index:2}
+    .copy-btn:hover{background:rgba(139,92,246,0.3);color:#fff}
+    .copy-btn.copied{background:rgba(16,185,129,0.2);border-color:rgba(16,185,129,0.4);color:#10B981}
+
+    /* Category tags */
+    .tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+    .tag-research{background:rgba(34,211,238,0.1);color:#22D3EE;border:1px solid rgba(34,211,238,0.2)}
+    .tag-outreach{background:rgba(59,130,246,0.1);color:#3B82F6;border:1px solid rgba(59,130,246,0.2)}
+    .tag-followup{background:rgba(217,70,239,0.1);color:#D946EF;border:1px solid rgba(217,70,239,0.2)}
+    .tag-preparation{background:rgba(236,72,153,0.1);color:#EC4899;border:1px solid rgba(236,72,153,0.2)}
+
+    /* Customize toggle */
+    .customize-panel{max-height:0;overflow:hidden;transition:max-height .3s ease,opacity .3s ease;opacity:0}
+    .customize-panel.open{max-height:600px;opacity:1}
+    .customize-input{background:rgba(12,10,29,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 12px;color:#fff;font-size:0.8rem;width:100%;font-family:'DM Sans',sans-serif;transition:border-color .2s ease}
+    .customize-input:focus{outline:none;border-color:#8B5CF6}
+    .customize-input::placeholder{color:#555}
+
+    /* Expected output */
+    .output-block{background:rgba(16,185,129,0.04);border:1px solid rgba(16,185,129,0.12);border-radius:12px;padding:1rem;font-size:0.8rem;line-height:1.6;color:#94a3b8}
+
+    /* Number badge */
+    .num-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0;font-family:'DM Sans',sans-serif}
+
+    /* Fade in */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.prompt-card .card-body{transition:none}.customize-panel{transition:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12 fade-in">
+    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Guia practica</span>
+    <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+      7 prompts de IA para<br><span class="gr">prospeccion B2B</span>
+    </h1>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-2">
+      Prompts listos para copiar y pegar. Cada uno resuelve una tarea concreta de tu proceso comercial. Sin relleno, sin teoria — solo herramientas que funcionan.
+    </p>
+    <p class="text-gray-500 text-sm">Extraidos de los procesos que usamos con +627 clientes en APEX OS&trade;.</p>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="glass rounded-2xl p-6 mb-10 fade-in" style="animation-delay:.1s">
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 rounded-xl bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center flex-shrink-0 text-lg">&#9889;</div>
+      <div>
+        <p class="text-white font-semibold text-sm mb-1" style="font-family:'DM Sans',sans-serif">Como usar esta guia</p>
+        <p class="text-gray-400 text-sm leading-relaxed">Cada prompt tiene placeholders en <span class="text-[#EC4899] font-semibold">[rosa]</span> que debes reemplazar con tus datos. Usa el boton "Personalizar" para rellenar los campos antes de copiar. Funcionan en ChatGPT (GPT-4), Claude, Gemini o cualquier LLM actual.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMPT CARDS -->
+  <div class="space-y-4" id="promptCards">
+
+    <!-- PROMPT 1: ICP Research -->
+    <div class="prompt-card glass rounded-2xl overflow-hidden fade-in" style="animation-delay:.15s" data-prompt="1">
+      <div class="card-header p-6 cursor-pointer flex items-center gap-4" onclick="toggleCard(this)">
+        <div class="num-badge bg-[#22D3EE]/10 border border-[#22D3EE]/20 text-[#22D3EE]">1</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap mb-1">
+            <h3 class="text-white font-bold text-base" style="font-family:'DM Sans',sans-serif">ICP Research Prompt</h3>
+            <span class="tag tag-research">Research</span>
+          </div>
+          <p class="text-gray-500 text-sm">Analiza si una empresa encaja con tu ICP. Output: fit score + razonamiento.</p>
+        </div>
+        <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="card-body px-6 pb-6">
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Donde usarlo</p>
+          <p class="text-sm text-gray-400">ChatGPT (GPT-4), Claude o cualquier LLM con capacidad de analisis largo. Si usas ChatGPT, activa "Browse" para que acceda al sitio web en tiempo real.</p>
+        </div>
+        <div class="mb-4 relative">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">El prompt</p>
+          <div class="prompt-block" id="prompt-1">Actua como un analista de desarrollo de negocio B2B con 10 anos de experiencia cualificando cuentas.
+
+Voy a darte los criterios de mi ICP (Ideal Customer Profile) y la informacion de una empresa objetivo. Tu trabajo es analizar si esta empresa encaja con mi ICP y darme un veredicto accionable.
+
+**MI ICP:**
+- Sector: <span class="placeholder">[tu sector objetivo, ej: "SaaS B2B, servicios profesionales, consultoria"]</span>
+- Tamano de empresa: <span class="placeholder">[rango de empleados, ej: "20-200 empleados"]</span>
+- Facturacion estimada: <span class="placeholder">[rango, ej: "2M-20M EUR anuales"]</span>
+- Geografia: <span class="placeholder">[mercados, ej: "Espana, LATAM hispanohablante"]</span>
+- Senales de compra: <span class="placeholder">[triggers, ej: "estan contratando SDRs, acaban de levantar ronda, cambiaron de CRO"]</span>
+- Criterios de descarte: <span class="placeholder">[deal-breakers, ej: "menos de 10 empleados, sector publico, sin equipo comercial propio"]</span>
+
+**EMPRESA A ANALIZAR:**
+- Nombre: <span class="placeholder">[nombre de la empresa]</span>
+- Web: <span class="placeholder">[URL de su web]</span>
+- LinkedIn: <span class="placeholder">[URL de su pagina de LinkedIn]</span>
+
+**INSTRUCCIONES DE OUTPUT:**
+1. **Fit Score**: Puntuacion del 1-10 con justificacion por cada criterio de mi ICP.
+2. **Senales positivas**: Evidencias concretas de que encajan (citas textuales de su web/LinkedIn).
+3. **Banderas rojas**: Motivos de preocupacion o posible descarte.
+4. **Veredicto**: PERSEGUIR / MONITORIZAR / DESCARTAR con una frase que explique por que.
+5. **Angulo de entrada sugerido**: Si el veredicto es PERSEGUIR, sugiere un angulo especifico para el primer contacto basado en lo que has encontrado.
+
+Se directo. No quiero prosa — quiero datos para tomar una decision en 30 segundos.</div>
+          <button class="copy-btn" onclick="copyPrompt('prompt-1',this)">Copiar</button>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Output esperado</p>
+          <div class="output-block">
+            <strong class="text-white text-xs">Fit Score: 8/10</strong><br>
+            - Sector: SaaS B2B &#10003; (desarrollan software de RRHH para empresas medianas)<br>
+            - Tamano: ~85 empleados &#10003; (dato de LinkedIn, crecimiento del 40% YoY)<br>
+            - Facturacion: ~5M EUR estimados &#10003; (basado en plantilla y sector)<br>
+            - Geografia: Madrid, con expansion a LATAM &#10003;<br>
+            - Senales de compra: Publicaron 3 ofertas de SDR en el ultimo mes &#10003;<br>
+            <strong class="text-white text-xs">Veredicto: PERSEGUIR</strong> — Estan escalando ventas activamente y no tienen infraestructura comercial visible...
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#8B5CF6]/5 border border-[#8B5CF6]/10">
+          <p class="text-xs font-semibold text-[#8B5CF6] mb-1">Pro tip</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Crea un prompt maestro con tu ICP fijo y guardalo como template. Asi solo cambias los datos de la empresa cada vez. En Claude, usa "Projects" para fijar tu ICP como contexto permanente.</p>
+        </div>
+        <!-- Customize toggle -->
+        <div class="mt-4">
+          <button class="text-xs text-[#8B5CF6] font-semibold hover:text-[#a78bfa] transition-colors" onclick="toggleCustomize(this)">&#9881; Personalizar antes de copiar</button>
+          <div class="customize-panel mt-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div><label class="text-xs text-gray-500 block mb-1">Sector objetivo</label><input class="customize-input" data-field="tu sector objetivo" placeholder="ej: SaaS B2B, consultoria IT"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Tamano de empresa</label><input class="customize-input" data-field="rango de empleados" placeholder="ej: 20-200 empleados"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Facturacion estimada</label><input class="customize-input" data-field="rango" placeholder="ej: 2M-20M EUR anuales"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Geografia</label><input class="customize-input" data-field="mercados" placeholder="ej: Espana, LATAM"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Senales de compra</label><input class="customize-input" data-field="triggers" placeholder="ej: contratando SDRs, ronda reciente"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Criterios de descarte</label><input class="customize-input" data-field="deal-breakers" placeholder="ej: menos de 10 empleados"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Empresa a analizar</label><input class="customize-input" data-field="nombre de la empresa" placeholder="ej: Factorial HR"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Web de la empresa</label><input class="customize-input" data-field="URL de su web" placeholder="ej: https://factorial.co"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMPT 2: Personalization at Scale -->
+    <div class="prompt-card glass rounded-2xl overflow-hidden fade-in" style="animation-delay:.2s" data-prompt="2">
+      <div class="card-header p-6 cursor-pointer flex items-center gap-4" onclick="toggleCard(this)">
+        <div class="num-badge bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#3B82F6]">2</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap mb-1">
+            <h3 class="text-white font-bold text-base" style="font-family:'DM Sans',sans-serif">Personalizacion a Escala</h3>
+            <span class="tag tag-outreach">Outreach</span>
+          </div>
+          <p class="text-gray-500 text-sm">Genera primeras lineas personalizadas para cold email basadas en actividad reciente del prospecto.</p>
+        </div>
+        <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="card-body px-6 pb-6">
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Donde usarlo</p>
+          <p class="text-sm text-gray-400">Claude o ChatGPT. Pega directamente los posts/comentarios de LinkedIn del prospecto. Para volumen, puedes integrarlo via API en tu flujo de outreach.</p>
+        </div>
+        <div class="mb-4 relative">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">El prompt</p>
+          <div class="prompt-block" id="prompt-2">Eres un copywriter de ventas B2B especializado en cold email con tasas de respuesta superiores al 15%.
+
+Tu trabajo: generar 5 primeras lineas personalizadas para un cold email. Cada linea debe demostrar que hicimos research real — no vale algo generico que podria enviarse a cualquiera.
+
+**INFORMACION DEL PROSPECTO:**
+- Nombre: <span class="placeholder">[nombre del prospecto]</span>
+- Cargo: <span class="placeholder">[cargo actual]</span>
+- Empresa: <span class="placeholder">[empresa]</span>
+- Actividad reciente en LinkedIn (copia y pega sus ultimos 2-3 posts o comentarios):
+<span class="placeholder">[pega aqui el contenido de sus posts/comentarios recientes]</span>
+
+**MI OFERTA (contexto, no para mencionar directamente):**
+<span class="placeholder">[describe brevemente que vendes y que problema resuelves, ej: "Ayudamos a empresas B2B a construir maquinas de generacion de reuniones cualificadas"]</span>
+
+**REGLAS:**
+1. Maximo 18 palabras por linea. Corta y directa.
+2. Debe referenciar algo ESPECIFICO que el prospecto dijo, publico o compartio.
+3. No menciones mi producto ni hagas pitch. Solo genera curiosidad o conexion.
+4. Tono: profesional pero humano. Como si un colega de sector le escribiera.
+5. Nada de "Vi que publicaste..." ni "Me encanto tu post sobre..." — esos patrones estan quemados.
+
+**FORMATO DE OUTPUT:**
+Para cada linea, dame:
+- La primera linea
+- Por que funciona (1 frase)
+- Subject line sugerido que complementa esa apertura</div>
+          <button class="copy-btn" onclick="copyPrompt('prompt-2',this)">Copiar</button>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Output esperado</p>
+          <div class="output-block">
+            <strong class="text-white text-xs">Linea 1:</strong> "El dato que compartiste sobre rotacion de SDRs en SaaS — lo estamos viendo exactamente igual en 3 de nuestros clientes."<br>
+            <em class="text-xs text-gray-500">Funciona porque: valida su perspectiva y posiciona como alguien con datos similares.</em><br>
+            <em class="text-xs text-gray-500">Subject: "rotacion de SDRs"</em><br><br>
+            <strong class="text-white text-xs">Linea 2:</strong> "Tu punto sobre medir actividad vs. resultados en equipos comerciales merece una conversacion mas larga."<br>
+            <em class="text-xs text-gray-500">Funciona porque: eleva su contenido sin adular, y abre puerta a dialogo...</em>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#8B5CF6]/5 border border-[#8B5CF6]/10">
+          <p class="text-xs font-semibold text-[#8B5CF6] mb-1">Pro tip</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Genera 5 lineas, elige la mejor, y usala como "opener" en tu secuencia. El ratio de respuesta sube un 3x cuando la primera linea demuestra research real vs. un opener generico. Combina esto con el Prompt 5 (Follow-up Sequencer) para la secuencia completa.</p>
+        </div>
+        <div class="mt-4">
+          <button class="text-xs text-[#8B5CF6] font-semibold hover:text-[#a78bfa] transition-colors" onclick="toggleCustomize(this)">&#9881; Personalizar antes de copiar</button>
+          <div class="customize-panel mt-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div><label class="text-xs text-gray-500 block mb-1">Nombre del prospecto</label><input class="customize-input" data-field="nombre del prospecto" placeholder="ej: Maria Garcia"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Cargo</label><input class="customize-input" data-field="cargo actual" placeholder="ej: VP Sales"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Empresa</label><input class="customize-input" data-field="empresa" placeholder="ej: Docplanner"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Tu oferta</label><input class="customize-input" data-field="describe brevemente que vendes" placeholder="ej: infraestructura comercial B2B"></div>
+            </div>
+            <div class="mt-3"><label class="text-xs text-gray-500 block mb-1">Posts/comentarios del prospecto</label><textarea class="customize-input" data-field="pega aqui el contenido" rows="3" placeholder="Pega aqui los posts o comentarios recientes del prospecto..."></textarea></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMPT 3: Objection Handler -->
+    <div class="prompt-card glass rounded-2xl overflow-hidden fade-in" style="animation-delay:.25s" data-prompt="3">
+      <div class="card-header p-6 cursor-pointer flex items-center gap-4" onclick="toggleCard(this)">
+        <div class="num-badge bg-[#EC4899]/10 border border-[#EC4899]/20 text-[#EC4899]">3</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap mb-1">
+            <h3 class="text-white font-bold text-base" style="font-family:'DM Sans',sans-serif">Objection Handler</h3>
+            <span class="tag tag-preparation">Preparacion</span>
+          </div>
+          <p class="text-gray-500 text-sm">Dada una objecion especifica, genera 3 marcos de respuesta (empatizar-reencuadrar-resolver).</p>
+        </div>
+        <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="card-body px-6 pb-6">
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Donde usarlo</p>
+          <p class="text-sm text-gray-400">Cualquier LLM. Ideal para preparar antes de calls o para construir tu documento interno de objeciones. Usalo iterativamente: pega la objecion real que te dijo el prospecto.</p>
+        </div>
+        <div class="mb-4 relative">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">El prompt</p>
+          <div class="prompt-block" id="prompt-3">Eres un coach de ventas B2B que ha entrenado a +200 equipos comerciales. Tu especialidad es manejar objeciones sin ser agresivo ni manipulador — sino reconduciendo la conversacion con inteligencia.
+
+**LA OBJECION QUE ME HAN PUESTO:**
+"<span class="placeholder">[escribe la objecion exacta tal como te la dijo el prospecto, ej: "Ahora mismo no es buen momento, hablamos en septiembre"]</span>"
+
+**CONTEXTO:**
+- Mi producto/servicio: <span class="placeholder">[que vendes]</span>
+- Perfil del prospecto: <span class="placeholder">[cargo, tamano de empresa, sector]</span>
+- Fase de la venta: <span class="placeholder">[primera llamada / follow-up / propuesta enviada / negociacion]</span>
+- Que ha pasado antes en la conversacion: <span class="placeholder">[contexto relevante, ej: "Mostro interes inicial, pidio demo, pero ahora dice que no es momento"]</span>
+
+**GENERA 3 MARCOS DE RESPUESTA usando la estructura Empatizar-Reencuadrar-Resolver:**
+
+Para cada uno:
+1. **Empatizar** (1 frase): Valida su preocupacion genuinamente. Nada condescendiente.
+2. **Reencuadrar** (1-2 frases): Cambia la perspectiva. Introduce un dato, pregunta o angulo que no habian considerado.
+3. **Resolver** (1 frase): Propuesta concreta de siguiente paso con bajo compromiso.
+
+**REGLAS:**
+- Tono conversacional, no de script de telemarketing.
+- Cada marco debe usar un angulo diferente (coste de inaccion, prueba social, micro-compromiso).
+- Incluye la frase EXACTA que dirias en la llamada, entrecomillada.
+- Anade una nota sobre CUANDO usar cada marco (segun la reaccion del prospecto).</div>
+          <button class="copy-btn" onclick="copyPrompt('prompt-3',this)">Copiar</button>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Output esperado</p>
+          <div class="output-block">
+            <strong class="text-white text-xs">Marco 1 — Angulo: Coste de inaccion</strong><br>
+            <em>Empatizar:</em> "Tiene todo el sentido, septiembre suena logico para arrancar."<br>
+            <em>Reencuadrar:</em> "Lo que vemos con empresas en tu situacion es que los 3 meses de espera no son gratis — si pierdes 4 deals/mes por no tener el proceso, son 12 oportunidades. A tu ticket medio, hablamos de ~180K en pipeline que no recuperas."<br>
+            <em>Resolver:</em> "Que te parece si en 20 minutos te muestro exactamente que montariamos y decides con datos si vale la pena esperar o no?"<br>
+            <em class="text-xs text-gray-500">Usar cuando: el prospecto es analitico y responde a numeros...</em>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#8B5CF6]/5 border border-[#8B5CF6]/10">
+          <p class="text-xs font-semibold text-[#8B5CF6] mb-1">Pro tip</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Despues de cada call, pega la objecion real (no la que imaginas) y genera respuestas. En 2 semanas tendras un documento de objeciones basado en conversaciones reales, no en teoria. Ese documento vale mas que cualquier playbook generico.</p>
+        </div>
+        <div class="mt-4">
+          <button class="text-xs text-[#8B5CF6] font-semibold hover:text-[#a78bfa] transition-colors" onclick="toggleCustomize(this)">&#9881; Personalizar antes de copiar</button>
+          <div class="customize-panel mt-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div><label class="text-xs text-gray-500 block mb-1">La objecion exacta</label><input class="customize-input" data-field="escribe la objecion exacta" placeholder="ej: No es buen momento, hablamos en septiembre"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Tu producto/servicio</label><input class="customize-input" data-field="que vendes" placeholder="ej: infraestructura comercial B2B"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Perfil del prospecto</label><input class="customize-input" data-field="cargo, tamano de empresa, sector" placeholder="ej: CEO, 50 empleados, consultoria"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Fase de la venta</label><input class="customize-input" data-field="primera llamada / follow-up / propuesta enviada / negociacion" placeholder="ej: follow-up post-demo"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMPT 4: Meeting Prep Brief -->
+    <div class="prompt-card glass rounded-2xl overflow-hidden fade-in" style="animation-delay:.3s" data-prompt="4">
+      <div class="card-header p-6 cursor-pointer flex items-center gap-4" onclick="toggleCard(this)">
+        <div class="num-badge bg-[#22D3EE]/10 border border-[#22D3EE]/20 text-[#22D3EE]">4</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap mb-1">
+            <h3 class="text-white font-bold text-base" style="font-family:'DM Sans',sans-serif">Meeting Prep Brief</h3>
+            <span class="tag tag-research">Research</span>
+            <span class="tag tag-preparation">Preparacion</span>
+          </div>
+          <p class="text-gray-500 text-sm">Genera un brief de investigacion pre-call: pain points, noticias recientes y talking points.</p>
+        </div>
+        <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="card-body px-6 pb-6">
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Donde usarlo</p>
+          <p class="text-sm text-gray-400">ChatGPT con Browse activado (para buscar noticias en tiempo real) o Claude con contexto largo (pega contenido del sitio web y LinkedIn manualmente). Ejecuta 15 min antes de cada call.</p>
+        </div>
+        <div class="mb-4 relative">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">El prompt</p>
+          <div class="prompt-block" id="prompt-4">Eres mi analista de pre-call. Tu trabajo es prepararme un brief de 2 paginas para que entre a la reunion sabiendo mas sobre la empresa del prospecto que el 95% de vendedores que les contactan.
+
+**REUNION CON:**
+- Persona: <span class="placeholder">[nombre y cargo]</span>
+- Empresa: <span class="placeholder">[nombre de la empresa]</span>
+- Web: <span class="placeholder">[URL]</span>
+- LinkedIn de la persona: <span class="placeholder">[URL del LinkedIn personal]</span>
+- LinkedIn de la empresa: <span class="placeholder">[URL del LinkedIn de empresa]</span>
+
+**LO QUE VENDEMOS:**
+<span class="placeholder">[1-2 frases sobre tu oferta y que problema resuelves]</span>
+
+**GENERA ESTE BRIEF:**
+
+**1. SNAPSHOT DE LA EMPRESA (5 bullets)**
+- Que hacen, a quien, tamano estimado, modelo de negocio, etapa de crecimiento.
+
+**2. CONTEXTO RECIENTE (ultimos 90 dias)**
+- Contrataciones recientes relevantes (busca en LinkedIn)
+- Noticias, comunicados de prensa, apariciones en medios
+- Cambios de liderazgo, rondas de inversion, lanzamientos de producto
+- Actividad en redes del prospecto (temas que le importan)
+
+**3. PAIN POINTS PROBABLES**
+- Basandote en el sector, tamano y etapa: cuales son los 3 dolores comerciales mas probables que tienen?
+- Para cada uno, explica POR QUE probablemente lo tienen (con evidencia).
+
+**4. CONEXIONES Y RAPPORT**
+- Algo en comun que puedo mencionar (universidad, experiencia previa, intereses)
+- Un tema seguro para small talk que les importa
+
+**5. TALKING POINTS RECOMENDADOS**
+- 3 preguntas de descubrimiento especificas para esta empresa (no genericas)
+- 1 dato o insight de su sector que puedo compartir para generar credibilidad
+- El momento exacto en la conversacion para introducir nuestra solucion
+
+**6. RIESGOS Y OBJECIONES ANTICIPADAS**
+- 2 objeciones probables y como manejarlas
+
+Formato: bullets cortos, escaneable. Esto lo leo en 3 minutos antes de entrar a la call.</div>
+          <button class="copy-btn" onclick="copyPrompt('prompt-4',this)">Copiar</button>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Output esperado</p>
+          <div class="output-block">
+            <strong class="text-white text-xs">1. SNAPSHOT</strong><br>
+            - Plataforma SaaS de gestion de RRHH para pymes (20-500 empleados)<br>
+            - Modelo: SaaS con suscripcion mensual, ticket medio ~500 EUR/mes<br>
+            - ~120 empleados, oficinas en Barcelona y Mexico DF<br>
+            - Serie B (levantaron 15M en 2025), fase de expansion agresiva<br><br>
+            <strong class="text-white text-xs">3. PAIN POINTS PROBABLES</strong><br>
+            - Escalar equipo comercial sin perder unit economics (estan contratando 8 AEs)...<br>
+            <em class="text-xs text-gray-500">[continua con secciones 2-6]</em>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#8B5CF6]/5 border border-[#8B5CF6]/10">
+          <p class="text-xs font-semibold text-[#8B5CF6] mb-1">Pro tip</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Si usas esto sistematicamente, en 1 mes tendras un repositorio de briefs por industria que se reutilizan. Los "pain points probables" del sector fintech seran similares entre empresas — asi conviertes research manual en research compuesto.</p>
+        </div>
+        <div class="mt-4">
+          <button class="text-xs text-[#8B5CF6] font-semibold hover:text-[#a78bfa] transition-colors" onclick="toggleCustomize(this)">&#9881; Personalizar antes de copiar</button>
+          <div class="customize-panel mt-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div><label class="text-xs text-gray-500 block mb-1">Nombre y cargo</label><input class="customize-input" data-field="nombre y cargo" placeholder="ej: Carlos Lopez, CEO"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Empresa</label><input class="customize-input" data-field="nombre de la empresa" placeholder="ej: Factorial HR"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Web</label><input class="customize-input" data-field="URL" placeholder="ej: https://factorial.co"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Tu oferta</label><input class="customize-input" data-field="1-2 frases sobre tu oferta" placeholder="ej: Infraestructura comercial B2B"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMPT 5: Follow-up Sequencer -->
+    <div class="prompt-card glass rounded-2xl overflow-hidden fade-in" style="animation-delay:.35s" data-prompt="5">
+      <div class="card-header p-6 cursor-pointer flex items-center gap-4" onclick="toggleCard(this)">
+        <div class="num-badge bg-[#D946EF]/10 border border-[#D946EF]/20 text-[#D946EF]">5</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap mb-1">
+            <h3 class="text-white font-bold text-base" style="font-family:'DM Sans',sans-serif">Follow-up Sequencer</h3>
+            <span class="tag tag-followup">Follow-up</span>
+          </div>
+          <p class="text-gray-500 text-sm">Genera una secuencia de 5 toques post-silencio, cada uno con un angulo y valor diferente.</p>
+        </div>
+        <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="card-body px-6 pb-6">
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Donde usarlo</p>
+          <p class="text-sm text-gray-400">Cualquier LLM. El output lo puedes meter directamente en tu herramienta de secuencias (Lemlist, Instantly, Apollo, o tu CRM). Genera una secuencia diferente para cada vertical o perfil.</p>
+        </div>
+        <div class="mb-4 relative">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">El prompt</p>
+          <div class="prompt-block" id="prompt-5">Eres un estratega de outbound B2B. Disena una secuencia de 5 follow-ups para un prospecto que no ha respondido al primer email.
+
+**CONTEXTO:**
+- Primer email enviado: <span class="placeholder">[resume en 1-2 frases que decias en el primer email]</span>
+- Prospecto: <span class="placeholder">[cargo y tipo de empresa]</span>
+- Lo que vendemos: <span class="placeholder">[tu oferta en 1 frase]</span>
+- Pain point principal del ICP: <span class="placeholder">[el dolor que resuelves]</span>
+- Un caso de exito relevante: <span class="placeholder">[cliente similar, resultado concreto, ej: "Empresa X paso de 5 a 22 reuniones/mes en 60 dias"]</span>
+
+**DISENA 5 EMAILS DE FOLLOW-UP:**
+
+Cada email debe:
+1. Tener un ANGULO DIFERENTE (no repitas el mismo mensaje con distintas palabras)
+2. Aportar VALOR NUEVO en cada toque (dato, recurso, insight, caso, pregunta provocadora)
+3. Ser corto (maximo 80 palabras el body)
+4. Tener un CTA de bajo compromiso
+
+**ESTRUCTURA OBLIGATORIA:**
+
+**Email 2 (Dia +3) — Angulo: Valor gratuito**
+Comparte un dato, articulo o insight relevante para su sector. No pidas nada.
+
+**Email 3 (Dia +7) — Angulo: Prueba social**
+Caso de exito de alguien en su misma situacion. Resultado concreto con numeros.
+
+**Email 4 (Dia +12) — Angulo: Pregunta provocadora**
+Una pregunta que revele un gap en su proceso actual. Que le haga pensar.
+
+**Email 5 (Dia +18) — Angulo: Contenido exclusivo**
+Comparte un recurso premium (guia, benchmark, framework). Posiciona como experto.
+
+**Email 6 (Dia +25) — Angulo: Breakup honesto**
+Ultimo intento. Honesto, breve, con una puerta abierta. Sin culpa.
+
+**PARA CADA EMAIL dame:**
+- Subject line
+- Body completo (listo para enviar)
+- Nota interna: por que este angulo en este momento de la secuencia</div>
+          <button class="copy-btn" onclick="copyPrompt('prompt-5',this)">Copiar</button>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Output esperado</p>
+          <div class="output-block">
+            <strong class="text-white text-xs">Email 2 (Dia +3) — Valor gratuito</strong><br>
+            Subject: "dato sobre conversion en [sector]"<br>
+            Body: "Hola [nombre], un dato que vi esta semana: las empresas B2B que implementan secuencias multicanal convierten un 3.2x mas que las que solo usan email frio (fuente: Gartner 2025). Si tu equipo esta haciendo outbound, esto cambia las prioridades. Sin agenda, solo me parecio relevante para lo que haceis."<br>
+            <em class="text-xs text-gray-500">Nota interna: posiciona como alguien que aporta antes de pedir...</em>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#8B5CF6]/5 border border-[#8B5CF6]/10">
+          <p class="text-xs font-semibold text-[#8B5CF6] mb-1">Pro tip</p>
+          <p class="text-xs text-gray-400 leading-relaxed">No generes 1 secuencia y la uses para todos. Genera una por vertical (ej: SaaS, consultoria, servicios). El angulo de "pregunta provocadora" cambia radicalmente segun el sector. Y el "breakup email" funciona mejor de lo que crees — un 15-20% de respuestas vienen del ultimo email.</p>
+        </div>
+        <div class="mt-4">
+          <button class="text-xs text-[#8B5CF6] font-semibold hover:text-[#a78bfa] transition-colors" onclick="toggleCustomize(this)">&#9881; Personalizar antes de copiar</button>
+          <div class="customize-panel mt-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div><label class="text-xs text-gray-500 block mb-1">Primer email (resumen)</label><input class="customize-input" data-field="resume en 1-2 frases" placeholder="ej: Proponia una call para revisar su proceso de outbound"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Prospecto</label><input class="customize-input" data-field="cargo y tipo de empresa" placeholder="ej: VP Sales en SaaS de 80 empleados"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Tu oferta</label><input class="customize-input" data-field="tu oferta en 1 frase" placeholder="ej: Infraestructura comercial B2B"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Pain point principal</label><input class="customize-input" data-field="el dolor que resuelves" placeholder="ej: Generar reuniones cualificadas de forma predecible"></div>
+              <div class="sm:col-span-2"><label class="text-xs text-gray-500 block mb-1">Caso de exito relevante</label><input class="customize-input" data-field="cliente similar, resultado concreto" placeholder="ej: Empresa X paso de 5 a 22 reuniones/mes en 60 dias"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMPT 6: Case Study Matcher -->
+    <div class="prompt-card glass rounded-2xl overflow-hidden fade-in" style="animation-delay:.4s" data-prompt="6">
+      <div class="card-header p-6 cursor-pointer flex items-center gap-4" onclick="toggleCard(this)">
+        <div class="num-badge bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#3B82F6]">6</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap mb-1">
+            <h3 class="text-white font-bold text-base" style="font-family:'DM Sans',sans-serif">Case Study Matcher</h3>
+            <span class="tag tag-outreach">Outreach</span>
+            <span class="tag tag-preparation">Preparacion</span>
+          </div>
+          <p class="text-gray-500 text-sm">Cruza tu base de casos de exito con el perfil del prospecto para recomendar cual enviar.</p>
+        </div>
+        <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="card-body px-6 pb-6">
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Donde usarlo</p>
+          <p class="text-sm text-gray-400">Claude (ideal por contexto largo) o ChatGPT. Pega tu lista de casos de exito como contexto permanente. En Claude, usa "Projects" para tenerlos siempre disponibles.</p>
+        </div>
+        <div class="mb-4 relative">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">El prompt</p>
+          <div class="prompt-block" id="prompt-6">Eres un sales enablement manager. Tu trabajo es recomendar el caso de exito mas relevante para enviar a un prospecto en funcion de su perfil.
+
+**MI BASE DE CASOS DE EXITO:**
+
+Caso 1: <span class="placeholder">[Nombre empresa] — [Sector] — [Tamano] — [Problema que tenian] — [Solucion implementada] — [Resultado con numeros] — [Tiempo para resultado]</span>
+
+Caso 2: <span class="placeholder">[repite la estructura]</span>
+
+Caso 3: <span class="placeholder">[repite la estructura]</span>
+
+Caso 4: <span class="placeholder">[repite la estructura]</span>
+
+Caso 5: <span class="placeholder">[repite la estructura]</span>
+
+(Anade tantos como tengas)
+
+**EL PROSPECTO:**
+- Empresa: <span class="placeholder">[nombre]</span>
+- Sector: <span class="placeholder">[sector]</span>
+- Tamano: <span class="placeholder">[empleados y/o facturacion]</span>
+- Problema que parece tener: <span class="placeholder">[basado en tu research o conversacion]</span>
+- Fase de venta: <span class="placeholder">[prospecto frio / post-call / negociacion / indeciso]</span>
+
+**OUTPUT REQUERIDO:**
+
+1. **Caso recomendado** (el mejor match) con explicacion de POR QUE encaja:
+   - Similitud de sector/tamano
+   - Similitud de problema
+   - Potencia del resultado
+
+2. **Caso alternativo** (segunda opcion) por si el primero no resuena.
+
+3. **Micro-narrativa** (3 frases, lista para pegar en email): como presentar el caso al prospecto conectandolo con SU situacion especifica. No un resumen generico — una narrativa que diga "esto te pasa a ti y mira lo que lograron".
+
+4. **Momento optimo** para enviar el caso en el ciclo de venta y el formato recomendado (PDF, link, mencion en call, WhatsApp).</div>
+          <button class="copy-btn" onclick="copyPrompt('prompt-6',this)">Copiar</button>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Output esperado</p>
+          <div class="output-block">
+            <strong class="text-white text-xs">Caso recomendado: TechRecrut (Caso 3)</strong><br>
+            Match score: 9/10<br>
+            - Mismo sector (HR Tech), tamano similar (60 vs 80 empleados)<br>
+            - Problema identico: dependian del CEO para cerrar deals<br>
+            - Resultado potente: 3x pipeline en 90 dias<br><br>
+            <strong class="text-white text-xs">Micro-narrativa:</strong><br>
+            "Un cliente nuestro en HR Tech con un equipo de 60 personas tenia el mismo reto — el CEO cerraba el 80% de los deals y no habia sistema. En 90 dias triplicaron su pipeline y el CEO dejo de vender. Si quieres, te paso los detalles."
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#8B5CF6]/5 border border-[#8B5CF6]/10">
+          <p class="text-xs font-semibold text-[#8B5CF6] mb-1">Pro tip</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Estructura tus casos de exito en un documento con campos consistentes (sector, tamano, problema, solucion, resultado, timeline). Cuanto mas estructurada la entrada, mejor el match. Actualiza la base cada vez que cierres un nuevo caso — es un activo compuesto.</p>
+        </div>
+        <div class="mt-4">
+          <button class="text-xs text-[#8B5CF6] font-semibold hover:text-[#a78bfa] transition-colors" onclick="toggleCustomize(this)">&#9881; Personalizar antes de copiar</button>
+          <div class="customize-panel mt-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div><label class="text-xs text-gray-500 block mb-1">Empresa prospecto</label><input class="customize-input" data-field="nombre" placeholder="ej: Personio"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Sector prospecto</label><input class="customize-input" data-field="sector" placeholder="ej: HR Tech / SaaS"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Tamano</label><input class="customize-input" data-field="empleados y/o facturacion" placeholder="ej: 80 empleados, ~8M ARR"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Problema detectado</label><input class="customize-input" data-field="basado en tu research" placeholder="ej: Dependen del CEO para cerrar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMPT 7: LinkedIn Connection Message -->
+    <div class="prompt-card glass rounded-2xl overflow-hidden fade-in" style="animation-delay:.45s" data-prompt="7">
+      <div class="card-header p-6 cursor-pointer flex items-center gap-4" onclick="toggleCard(this)">
+        <div class="num-badge bg-[#EC4899]/10 border border-[#EC4899]/20 text-[#EC4899]">7</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap mb-1">
+            <h3 class="text-white font-bold text-base" style="font-family:'DM Sans',sans-serif">LinkedIn Connection Message</h3>
+            <span class="tag tag-outreach">Outreach</span>
+          </div>
+          <p class="text-gray-500 text-sm">Genera solicitudes de conexion en LinkedIn no-genericas con >40% tasa de aceptacion.</p>
+        </div>
+        <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="card-body px-6 pb-6">
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Donde usarlo</p>
+          <p class="text-sm text-gray-400">Cualquier LLM. Importante: LinkedIn limita las notas de conexion a 300 caracteres. Cada caracter cuenta. Este prompt esta optimizado para ese limite.</p>
+        </div>
+        <div class="mb-4 relative">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">El prompt</p>
+          <div class="prompt-block" id="prompt-7">Eres un experto en social selling B2B en LinkedIn. Genera 5 mensajes de solicitud de conexion que consigan >40% de aceptacion.
+
+**LIMITE CRITICO: 300 caracteres maximo por mensaje** (incluyendo espacios). Si te pasas, no sirve.
+
+**EL PROSPECTO:**
+- Nombre: <span class="placeholder">[nombre]</span>
+- Cargo: <span class="placeholder">[cargo]</span>
+- Empresa: <span class="placeholder">[empresa]</span>
+- Algo relevante de su perfil: <span class="placeholder">[un dato concreto: experiencia previa, post reciente, skill destacado, grupo en comun, universidad]</span>
+
+**MI PERFIL:**
+- Mi cargo: <span class="placeholder">[tu cargo]</span>
+- Mi empresa: <span class="placeholder">[tu empresa]</span>
+- Conexion logica entre nosotros: <span class="placeholder">[por que tendria sentido que nos conectemos, ej: "mismo sector", "compartimos 12 conexiones", "ambos en el grupo X"]</span>
+
+**REGLAS PARA MENSAJES QUE CONSIGUEN >40% ACEPTACION:**
+1. NUNCA empieces con "Hola [nombre], vi que..." — esta quemado.
+2. NUNCA menciones tu producto ni hagas pitch.
+3. Referencia algo ESPECIFICO de su perfil (no su cargo generico).
+4. Da una razon LOGICA para conectar (no "ampliar red").
+5. Maximo 2 frases. Corto = profesional. Largo = vendedor.
+6. Tono: como si ya os conocierais de un evento y le escribieras despues.
+
+**OUTPUT para cada mensaje:**
+- El mensaje completo (con contador de caracteres)
+- Tipo de angulo utilizado (curiosidad, contenido compartido, conexion mutua, reconocimiento, pregunta)
+- En que perfil de prospecto funciona mejor</div>
+          <button class="copy-btn" onclick="copyPrompt('prompt-7',this)">Copiar</button>
+        </div>
+        <div class="mb-4">
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Output esperado</p>
+          <div class="output-block">
+            <strong class="text-white text-xs">Mensaje 1 (247 caracteres) — Angulo: Contenido compartido</strong><br>
+            "Tu post sobre la muerte del cold calling me hizo replantear nuestra estrategia de primer contacto. Estamos viendo datos similares en el sector. Me gustaria seguir tu contenido de cerca."<br>
+            <em class="text-xs text-gray-500">Funciona en: prospectos que publican contenido activamente. Valida sin adular.</em><br><br>
+            <strong class="text-white text-xs">Mensaje 2 (198 caracteres) — Angulo: Conexion mutua</strong><br>
+            "Coincidimos en la red de [nombre comun]. Llevo tiempo siguiendo lo que haceis en [empresa] con el modelo de expansion — me gustaria estar en contacto."<br>
+            <em class="text-xs text-gray-500">Funciona en: prospectos con conexiones en comun. Natural y sin friccion.</em>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-[#8B5CF6]/5 border border-[#8B5CF6]/10">
+          <p class="text-xs font-semibold text-[#8B5CF6] mb-1">Pro tip</p>
+          <p class="text-xs text-gray-400 leading-relaxed">No envies el mensaje de conexion y el pitch en el mismo dia. Conecta primero, interactua con 2-3 de sus posts (comentarios reales, no "gran post!"), y a los 5-7 dias enviales el primer mensaje directo. El ratio de respuesta sube de un 8% a un 25%+.</p>
+        </div>
+        <div class="mt-4">
+          <button class="text-xs text-[#8B5CF6] font-semibold hover:text-[#a78bfa] transition-colors" onclick="toggleCustomize(this)">&#9881; Personalizar antes de copiar</button>
+          <div class="customize-panel mt-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div><label class="text-xs text-gray-500 block mb-1">Nombre del prospecto</label><input class="customize-input" data-field="nombre" placeholder="ej: Laura Martinez"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Cargo</label><input class="customize-input" data-field="cargo" placeholder="ej: Head of Sales"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Empresa</label><input class="customize-input" data-field="empresa" placeholder="ej: Typeform"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Dato relevante del perfil</label><input class="customize-input" data-field="un dato concreto" placeholder="ej: Publico sobre expansion a LATAM"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Tu cargo</label><input class="customize-input" data-field="tu cargo" placeholder="ej: CEO"></div>
+              <div><label class="text-xs text-gray-500 block mb-1">Conexion logica</label><input class="customize-input" data-field="por que tendria sentido" placeholder="ej: mismo sector B2B SaaS"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /promptCards -->
+
+  <!-- CTA SECTION -->
+  <div class="mt-12 fade-in" style="animation-delay:.5s">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="glass rounded-2xl p-8 text-center border border-[#8B5CF6]/10">
+        <p class="text-xs font-semibold gr uppercase tracking-widest mb-3">Siguiente paso</p>
+        <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Quieres que montemos esto por ti?</h3>
+        <p class="text-gray-400 text-sm mb-6">Estos prompts son un 10% de lo que hace APEX OS&trade;. Si quieres la maquina completa instalada en tu empresa, hablemos.</p>
+        <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Agendar discovery call</a>
+        <p class="text-xs text-gray-500 mt-2">30 min. Sin compromiso.</p>
+      </div>
+      <div class="glass rounded-2xl p-8 text-center border border-white/5">
+        <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-3">Articulo completo</p>
+        <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">40 reuniones cualificadas en 30 dias</h3>
+        <p class="text-gray-400 text-sm mb-6">Lee el caso completo: como usamos IA + infraestructura comercial para generar 40 reuniones en un mes.</p>
+        <a href="../blog/ia-reuniones-cualificadas.html" class="inline-block px-6 py-3 rounded-lg text-sm w-full border border-[#8B5CF6]/40 text-[#8B5CF6] hover:bg-[#8B5CF6]/5 transition-colors">Leer articulo</a>
+        <p class="text-xs text-gray-500 mt-2">7 min lectura</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE FORM -->
+  <div class="mt-12 fade-in" style="animation-delay:.55s">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Bonus</p>
+      <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe los 7 prompts + 3 prompts extra por email</h3>
+      <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te enviamos esta guia en formato listo para guardar, mas 3 prompts avanzados que no estan en esta pagina (qualification scoring, deal velocity y competitor analysis).</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="source" value="guia-prompts-ia-prospeccion">
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Enviar guia completa a mi email</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los proximos 2 minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo la guia y los prompts extra.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  // Toggle prompt card open/close
+  window.toggleCard = function(header){
+    var card = header.closest('.prompt-card');
+    card.classList.toggle('open');
+  };
+
+  // Toggle customize panel
+  window.toggleCustomize = function(btn){
+    var panel = btn.nextElementSibling;
+    panel.classList.toggle('open');
+  };
+
+  // Copy prompt text (strips HTML, replaces customized fields)
+  window.copyPrompt = function(promptId, btn){
+    var el = document.getElementById(promptId);
+    // Clone to manipulate
+    var clone = el.cloneNode(true);
+
+    // Check if there are customized values in the card
+    var card = el.closest('.prompt-card');
+    var inputs = card.querySelectorAll('.customize-input');
+    var text = clone.innerHTML;
+
+    // Replace placeholder spans with customized values if filled
+    inputs.forEach(function(input){
+      if(input.value.trim()){
+        var field = input.getAttribute('data-field');
+        // Find the placeholder span containing this field text and replace
+        var regex = new RegExp('<span class="placeholder">\\[' + escapeRegex(field) + '[^\\]]*\\]</span>', 'g');
+        text = text.replace(regex, input.value.trim());
+      }
+    });
+
+    // Strip remaining HTML tags
+    var temp = document.createElement('div');
+    temp.innerHTML = text;
+    var plainText = temp.textContent || temp.innerText;
+    // Clean up extra whitespace
+    plainText = plainText.replace(/\n{3,}/g, '\n\n').trim();
+
+    navigator.clipboard.writeText(plainText).then(function(){
+      btn.textContent = 'Copiado!';
+      btn.classList.add('copied');
+      setTimeout(function(){
+        btn.textContent = 'Copiar';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(function(){
+      // Fallback
+      var textarea = document.createElement('textarea');
+      textarea.value = plainText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      btn.textContent = 'Copiado!';
+      btn.classList.add('copied');
+      setTimeout(function(){
+        btn.textContent = 'Copiar';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  };
+
+  function escapeRegex(str){
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // Lead form submission
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre: form.nombre.value,
+      email: form.email.value,
+      empresa: form.empresa.value,
+      source: 'guia-prompts-ia-prospeccion',
+      timestamp: new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/REPLACE_WITH_WEBHOOK_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+  // Open first card by default
+  var firstCard = document.querySelector('.prompt-card');
+  if(firstCard) firstCard.classList.add('open');
+
+})();
+</script>
+
+</body>
+</html>
