@@ -622,7 +622,7 @@
           '<span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#8B5CF6]/10 text-[#8B5CF6]">' + article.pillar + '</span>' +
           '<span class="text-xs text-gray-500">' + article.readTime + ' lectura</span>' +
         '</div>' +
-        '<h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#8B5CF6] transition-colors">' + article.title + '</h3>' +
+        '<h3 class="text-lg font-bold mb-2"><a href="blog/' + article.slug + '.html" class="text-white hover:text-[#8B5CF6] transition-colors">' + article.title + '</a></h3>' +
         '<p class="text-gray-400 text-sm mb-4 line-clamp-3">' + article.excerpt + '</p>' +
         '<div class="flex items-center justify-between">' +
           '<span class="text-xs text-gray-500">' + formatDate(article.date) + '</span>' +
