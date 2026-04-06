@@ -579,7 +579,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_template_outbound';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/template-outbound-multicanal';
 
       fetch('/api/lead-magnet', {
         method: 'POST',

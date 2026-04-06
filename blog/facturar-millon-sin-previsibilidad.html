@@ -599,7 +599,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_calculadora_previsibilidad';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/calculadora-coste-reunion';
 
       fetch('/api/lead-magnet', {
         method: 'POST',

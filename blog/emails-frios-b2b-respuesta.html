@@ -643,7 +643,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_template_emails_frios';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/swipe-file-emails-frios';
 
       fetch('/api/lead-magnet', {
         method: 'POST',

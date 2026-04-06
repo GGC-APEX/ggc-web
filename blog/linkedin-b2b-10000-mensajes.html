@@ -622,7 +622,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_scorecard_linkedin_b2b';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/plantilla-secuencia-linkedin';
 
       fetch('/api/lead-magnet', {
         method: 'POST',

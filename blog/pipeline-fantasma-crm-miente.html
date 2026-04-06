@@ -604,7 +604,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_scorecard_pipeline';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/auditoria-pipeline-inflado';
 
       fetch('/api/lead-magnet', {
         method: 'POST',

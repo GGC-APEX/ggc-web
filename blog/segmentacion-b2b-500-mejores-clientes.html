@@ -673,7 +673,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_plantilla_icp_scoring';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/framework-icp-scoring';
 
       fetch('/api/lead-magnet', {
         method: 'POST',

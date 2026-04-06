@@ -616,7 +616,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_comparativa_agencia_infra';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/comparativa-agencia-vs-infraestructura';
 
       fetch('/api/lead-magnet', {
         method: 'POST',

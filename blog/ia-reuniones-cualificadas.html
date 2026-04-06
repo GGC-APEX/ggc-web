@@ -599,7 +599,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_guia_prompts_ia';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/guia-prompts-ia-prospeccion';
 
       fetch('/api/lead-magnet', {
         method: 'POST',

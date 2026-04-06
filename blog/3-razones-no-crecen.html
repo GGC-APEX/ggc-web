@@ -540,7 +540,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_diagnostico_cuellos_botella';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/diagnostico-cuellos-botella';
 
       fetch('/api/lead-magnet', {
         method: 'POST',

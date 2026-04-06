@@ -619,7 +619,7 @@
       var obj = {};
       data.forEach(function(v,k){ obj[k] = v; });
       obj.source = 'blog_playbook_proceso';
-      obj.page = window.location.pathname;
+      obj.page = 'lead-magnets/mapa-dependencias-criticas';
 
       fetch('/api/lead-magnet', {
         method: 'POST',
