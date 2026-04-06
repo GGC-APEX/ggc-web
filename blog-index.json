@@ -1,5 +1,31 @@
 [
   {
+    "slug": "listas-zombi-b2b",
+    "title": "Las listas zombi de B2B: por qué el 30% de tus datos están muertos",
+    "excerpt": "El 30% de los datos B2B se degrada cada año. Los 5 tipos de datos muertos, cómo diagnosticar tu base en 30 minutos y las 3 capas para limpiar y activar tu lista.",
+    "pillar": "IA y automatización para B2B",
+    "date": "2026-04-25",
+    "readTime": "7 min",
+    "leadMagnet": {
+      "title": "Checklist: Auditoría de listas B2B — 20 señales de datos muertos",
+      "type": "checklist"
+    },
+    "ogImage": null
+  },
+  {
+    "slug": "modelo-consultoria-b2b-roto",
+    "title": "El modelo de consultoría B2B está roto (y todos sabemos por qué)",
+    "excerpt": "El modelo tradicional transfiere el 100% del riesgo al cliente y ninguno al proveedor. Pagas por outputs, no por resultados. Hay tres problemas estructurales que el sector no quiere nombrar.",
+    "pillar": "Desde las trincheras",
+    "date": "2026-05-03",
+    "readTime": "8 min",
+    "leadMagnet": {
+      "title": "Scorecard: ¿Tu modelo de consultoría tiene fecha de caducidad?",
+      "type": "scorecard"
+    },
+    "ogImage": null
+  },
+  {
     "slug": "vanity-metrics-vs-metricas-reales",
     "title": "Vanity metrics vs métricas reales: los equipos que miden resultados generan 4x más pipeline",
     "excerpt": "Las vanity metrics dan sensación de actividad pero no predicen revenue. Las 7 métricas que de verdad importan en outbound B2B — y cómo implementarlas en 4 semanas.",
@@ -16,7 +42,7 @@
     "slug": "costes-indirectos-ceo-pipeline",
     "title": "Los 3 costes indirectos de que el CEO sea el pipeline (y ninguno aparece en P&L)",
     "excerpt": "Cuando el CEO vende, el coste no es solo su tiempo. Hay tres costes que ninguna cuenta de resultados recoge: decisiones pospuestas, producto estancado y equipo sin dirección.",
-    "pillar": "CEO como motor",
+    "pillar": "El CEO como motor comercial",
     "date": "2026-04-19",
     "readTime": "7 min",
     "leadMagnet": {
@@ -55,7 +81,7 @@
     "slug": "2-a-18-reuniones-semana-caso-real",
     "title": "De 2 a 18 reuniones cualificadas por semana en 90 días: caso real",
     "excerpt": "Una consultora B2B pasó de 2 reuniones esporádicas a 18 semanales cualificadas en 90 días. Sin contratar comerciales. Sin depender de referidos. Así lo hicimos.",
-    "pillar": "Datos y casos reales",
+    "pillar": "Desde las trincheras",
     "date": "2026-04-05",
     "readTime": "9 min",
     "leadMagnet": {
@@ -81,7 +107,7 @@
     "slug": "5-capas-infraestructura-comercial-b2b",
     "title": "Las 5 capas de una infraestructura comercial B2B que funciona",
     "excerpt": "La mayoría de empresas B2B tienen herramientas sueltas. APEX OS instala 5 capas integradas: ICP, contenido, outbound, cualificación y datos. Así funciona.",
-    "pillar": "APEX OS",
+    "pillar": "Revenue Infrastructure",
     "date": "2026-04-03",
     "readTime": "8 min",
     "leadMagnet": {
@@ -94,7 +120,7 @@
     "slug": "7-metricas-exito-comercial-b2b",
     "title": "Cómo medimos el éxito: las 7 métricas que importan en ventas B2B",
     "excerpt": "Olvida las vanity metrics. Estas son las 7 métricas que realmente predicen el crecimiento comercial B2B: desde coste por reunión hasta velocidad de pipeline.",
-    "pillar": "APEX OS",
+    "pillar": "Revenue Infrastructure",
     "date": "2026-03-31",
     "readTime": "8 min",
     "leadMagnet": {
@@ -107,7 +133,7 @@
     "slug": "agencias-marketing-no-arreglan-ventas",
     "title": "Por qué las agencias de marketing no arreglan tu problema de ventas",
     "excerpt": "Contratar una agencia de marketing cuando las ventas no van bien es el error más caro en B2B de servicios. El problema no es la cantidad de leads. Es la infraestructura de revenue.",
-    "pillar": "Dolor B2B",
+    "pillar": "Desde las trincheras",
     "date": "2026-03-29",
     "readTime": "7 min",
     "leadMagnet": {
@@ -120,7 +146,7 @@
     "slug": "outbound-2026",
     "title": "Outbound en 2026: lo que funciona cuando todos hacen lo mismo",
     "excerpt": "El outbound masivo murió. El personalizado a escala es el único que genera reuniones con decisores que realmente quieren hablar contigo.",
-    "pillar": "Outbound",
+    "pillar": "Outbound sin humo",
     "date": "2026-03-28",
     "readTime": "6 min",
     "leadMagnet": {
@@ -133,7 +159,7 @@
     "slug": "automatizar-seguimiento-personalizado",
     "title": "Automatizar el seguimiento comercial sin que parezca un robot",
     "excerpt": "El 80% del negocio está en el follow-up, pero el 90% de los equipos comerciales lo hace fatal. Así automatizamos seguimiento sin perder personalización.",
-    "pillar": "IA en ventas B2B",
+    "pillar": "IA y automatización para B2B",
     "date": "2026-03-26",
     "readTime": "8 min",
     "leadMagnet": {
@@ -159,7 +185,7 @@
     "slug": "ceo-que-vende",
     "title": "El CEO que vende: por qué es un problema, no una virtud",
     "excerpt": "Si eres el mejor vendedor de tu empresa y facturas más de 500K€, tienes un problema de escalabilidad disfrazado de talento comercial.",
-    "pillar": "CEO como motor",
+    "pillar": "El CEO como motor comercial",
     "date": "2026-03-21",
     "readTime": "5 min",
     "leadMagnet": {
@@ -172,7 +198,7 @@
     "slug": "clay-ia-enriquecer-listas-b2b",
     "title": "Cómo usamos Clay + IA para enriquecer listas B2B (y por qué tu Excel de contactos está muerto)",
     "excerpt": "Las listas de contactos estáticas no funcionan. Así usamos Clay + IA para enriquecer datos en tiempo real y generar listas B2B que realmente convierten.",
-    "pillar": "IA en ventas B2B",
+    "pillar": "IA y automatización para B2B",
     "date": "2026-03-20",
     "readTime": "9 min",
     "leadMagnet": {
@@ -185,7 +211,7 @@
     "slug": "contratar-comerciales-no-escala",
     "title": "Por qué contratar más comerciales no escala tu empresa",
     "excerpt": "Contratar más SDRs parece la solución obvia para vender más. Pero a 45K€/año, 4 meses de ramp-up y 18 meses de rotación media, los números no cuadran.",
-    "pillar": "Dolor B2B",
+    "pillar": "Desde las trincheras",
     "date": "2026-03-18",
     "readTime": "7 min",
     "leadMagnet": {
@@ -198,7 +224,7 @@
     "slug": "coste-oculto-vender-tu-mismo",
     "title": "El coste oculto de vender tú mismo: cuánto le cuesta a tu empresa que el CEO sea el comercial",
     "excerpt": "Si el CEO dedica el 40% de su tiempo a vender, la empresa pierde entre 150.000€ y 400.000€ al año en coste de oportunidad. Estos son los números.",
-    "pillar": "CEO como motor",
+    "pillar": "El CEO como motor comercial",
     "date": "2026-03-15",
     "readTime": "7 min",
     "leadMagnet": {
@@ -211,7 +237,7 @@
     "slug": "ia-reuniones-cualificadas",
     "title": "Cómo usamos IA para generar 40 reuniones cualificadas en 30 días",
     "excerpt": "La IA no reemplaza tu proceso comercial. Lo acelera. Así es como la integramos en APEX OS™ para multiplicar resultados sin perder personalización.",
-    "pillar": "IA",
+    "pillar": "IA y automatización para B2B",
     "date": "2026-03-14",
     "readTime": "8 min",
     "leadMagnet": {
@@ -224,7 +250,7 @@
     "slug": "delegar-ventas-sin-perder-control",
     "title": "Cómo delegar ventas sin perder el control (guía para CEOs que todavía venden)",
     "excerpt": "El 85% de los CEOs B2B son su propio mejor comercial. El problema: no puedes escalar si tú eres el cuello de botella. Así se delega sin perder control.",
-    "pillar": "CEO como motor",
+    "pillar": "El CEO como motor comercial",
     "date": "2026-03-13",
     "readTime": "8 min",
     "leadMagnet": {
@@ -237,7 +263,7 @@
     "slug": "emails-frios-b2b-respuesta",
     "title": "Cómo escribir emails fríos que consiguen respuesta en B2B",
     "excerpt": "El 98% de los cold emails B2B acaban en la papelera. Aprende la estructura, los datos y las tácticas que usamos para conseguir un 8-12% de respuesta.",
-    "pillar": "Outbound",
+    "pillar": "Outbound sin humo",
     "date": "2026-03-10",
     "readTime": "7 min",
     "leadMagnet": {
@@ -250,7 +276,7 @@
     "slug": "escalar-500k-2m-sistemas",
     "title": "Escalar de 500K a 2M€: los 3 sistemas que necesitas (y el orden importa)",
     "excerpt": "La mayoría de empresas B2B se atascan entre 500K y 1M. Escalar a 2M requiere 3 sistemas específicos instalados en el orden correcto. Así funciona.",
-    "pillar": "CEO como motor",
+    "pillar": "El CEO como motor comercial",
     "date": "2026-03-08",
     "readTime": "9 min",
     "leadMagnet": {
@@ -276,7 +302,7 @@
     "slug": "facturar-millon-sin-previsibilidad",
     "title": "Facturar 1M€ y seguir sin previsibilidad",
     "excerpt": "Muchas empresas B2B facturan entre 1 y 3 millones de euros pero no pueden predecir su revenue a 90 días. El problema no es facturar poco. Es no tener un motor predecible.",
-    "pillar": "Dolor B2B",
+    "pillar": "Desde las trincheras",
     "date": "2026-03-05",
     "readTime": "7 min",
     "leadMagnet": {
@@ -289,7 +315,7 @@
     "slug": "ia-investigar-prospects-2-minutos",
     "title": "Cómo usar IA para investigar prospects en 2 minutos",
     "excerpt": "La investigación manual de prospects mata la productividad de tu equipo comercial. Así usamos IA para investigar cada prospect en 2 minutos con datos reales.",
-    "pillar": "IA en ventas B2B",
+    "pillar": "IA y automatización para B2B",
     "date": "2026-03-03",
     "readTime": "7 min",
     "leadMagnet": {
@@ -315,7 +341,7 @@
     "slug": "instalar-vs-externalizar-comercial",
     "title": "Instalar vs externalizar: por qué dejamos activos, no informes",
     "excerpt": "Las agencias entregan informes. Nosotros instalamos activos que se quedan en tu propiedad. La diferencia entre alquilar resultados y construir infraestructura comercial permanente.",
-    "pillar": "APEX OS",
+    "pillar": "Revenue Infrastructure",
     "date": "2026-02-27",
     "readTime": "7 min",
     "leadMagnet": {
@@ -328,7 +354,7 @@
     "slug": "linkedin-b2b-10000-mensajes",
     "title": "LinkedIn para B2B: lo que funciona después de 10.000 mensajes",
     "excerpt": "Después de enviar más de 10.000 mensajes en LinkedIn para clientes B2B, estos son los datos reales de qué funciona y qué es ruido.",
-    "pillar": "Outbound",
+    "pillar": "Outbound sin humo",
     "date": "2026-02-25",
     "readTime": "7 min",
     "leadMagnet": {
@@ -341,7 +367,7 @@
     "slug": "modelo-success-based-resultados",
     "title": "El modelo success-based: por qué cobramos vinculado a resultados",
     "excerpt": "¿Por qué vincular el fee a los resultados del cliente? Porque alinea incentivos, elimina el riesgo y obliga a construir sistemas que funcionan. Así funciona nuestro modelo.",
-    "pillar": "APEX OS",
+    "pillar": "Revenue Infrastructure",
     "date": "2026-02-22",
     "readTime": "7 min",
     "leadMagnet": {
@@ -354,7 +380,7 @@
     "slug": "multicanal-sin-spam-secuencia",
     "title": "Multicanal sin parecer spam: la secuencia que usamos",
     "excerpt": "Combinar email, LinkedIn y llamada sin parecer spam. La secuencia multicanal de 21 días que usamos con nuestros clientes B2B para conseguir reuniones.",
-    "pillar": "Outbound",
+    "pillar": "Outbound sin humo",
     "date": "2026-02-20",
     "readTime": "8 min",
     "leadMagnet": {
@@ -367,7 +393,7 @@
     "slug": "numeros-627-clientes",
     "title": "Los números de 627 clientes B2B: qué funciona, qué no y qué haríamos diferente",
     "excerpt": "Después de trabajar con 627 empresas B2B, estos son los patrones que separan a las que escalan de las que se estancan. Datos reales, sin filtro.",
-    "pillar": "Datos y casos reales",
+    "pillar": "Desde las trincheras",
     "date": "2026-02-17",
     "readTime": "10 min",
     "leadMagnet": {
@@ -380,7 +406,7 @@
     "slug": "pipeline-fantasma-crm-miente",
     "title": "El pipeline fantasma: por qué tu CRM miente",
     "excerpt": "El 60-70% de las oportunidades en tu CRM están muertas. Descubre por qué tu pipeline miente, cómo detectar el problema y qué hacer para tener un forecast real.",
-    "pillar": "Dolor B2B",
+    "pillar": "Desde las trincheras",
     "date": "2026-02-15",
     "readTime": "7 min",
     "leadMagnet": {
@@ -393,7 +419,7 @@
     "slug": "proceso-comercial-depende-2-personas",
     "title": "Tu proceso comercial depende de 2 personas y lo sabes",
     "excerpt": "El 78% de las pymes B2B tienen más del 60% del revenue concentrado en 1-2 personas. Si una se va, el revenue cae un 40-60% en meses. Hay una forma de evitarlo.",
-    "pillar": "Dolor B2B",
+    "pillar": "Desde las trincheras",
     "date": "2026-02-12",
     "readTime": "7 min",
     "leadMagnet": {
@@ -406,7 +432,7 @@
     "slug": "proyectos-comerciales-fallan-6-meses",
     "title": "Por qué el 80% de los proyectos comerciales B2B fallan antes de 6 meses (y los 3 errores que los matan)",
     "excerpt": "8 de cada 10 proyectos comerciales B2B mueren en los primeros 6 meses. Después de ver 627 casos, estos son los 3 errores que los matan — y cómo evitarlos.",
-    "pillar": "Datos y casos reales",
+    "pillar": "Desde las trincheras",
     "date": "2026-02-10",
     "readTime": "8 min",
     "leadMagnet": {
@@ -419,7 +445,7 @@
     "slug": "que-es-revenue-infrastructure",
     "title": "Qué es revenue infrastructure y por qué importa en 2026",
     "excerpt": "Revenue infrastructure es el sistema que genera ingresos predecibles sin depender de personas individuales. No es un CRM. No es una agencia. Es la capa que falta en el 90% de empresas B2B.",
-    "pillar": "APEX OS",
+    "pillar": "Revenue Infrastructure",
     "date": "2026-02-07",
     "readTime": "8 min",
     "leadMagnet": {
@@ -432,7 +458,7 @@
     "slug": "sdr-futuro-humano-ia",
     "title": "El SDR del futuro: humano + IA, no humano vs IA",
     "excerpt": "La IA no va a reemplazar a los SDRs. Va a hacer que los buenos sean imparables y los malos, irrelevantes. Así funciona el modelo híbrido que ya estamos usando.",
-    "pillar": "IA en ventas B2B",
+    "pillar": "IA y automatización para B2B",
     "date": "2026-02-05",
     "readTime": "8 min",
     "leadMagnet": {
@@ -445,7 +471,7 @@
     "slug": "segmentacion-b2b-500-mejores-clientes",
     "title": "Segmentación B2B: cómo encontrar a tus 500 mejores clientes",
     "excerpt": "La mayoría de equipos B2B prospectan a miles de empresas sin criterio. Te enseño cómo encontrar las 500 que realmente van a comprarte.",
-    "pillar": "Outbound",
+    "pillar": "Outbound sin humo",
     "date": "2026-02-02",
     "readTime": "8 min",
     "leadMagnet": {
