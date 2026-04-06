@@ -612,10 +612,9 @@
 
   // ── Render article card HTML ──
   function renderCard(article, index) {
-    var num = String(index + 1).padStart(2, '0');
     return '<article class="article-card glass rounded-2xl overflow-hidden group" data-pillar="' + article.pillar + '">' +
       '<div class="h-48 bg-gradient-to-br from-[#8B5CF6]/20 to-[#151331] flex items-center justify-center">' +
-        '<span class="text-[#8B5CF6] text-5xl font-display font-bold opacity-30">' + num + '</span>' +
+        '<span class="text-[#8B5CF6]/20 text-2xl font-display font-bold uppercase tracking-wider">' + article.pillar + '</span>' +
       '</div>' +
       '<div class="p-6">' +
         '<div class="flex items-center gap-3 mb-3">' +
