@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caso real — GGC</title>
+</head>
+<body style="margin:0;padding:0;background:#f5f5f5;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f5;padding:32px 16px;">
+  <tr><td align="center">
+    <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;max-width:560px;">
+      <!-- Header -->
+      <tr><td style="background:#0a0a0a;padding:24px 32px;">
+        <p style="margin:0;color:#ffffff;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;">Global Growth Consulting</p>
+      </td></tr>
+      <!-- Body -->
+      <tr><td style="padding:36px 32px;color:#222;font-size:15px;line-height:1.75;">
+        <p style="margin:0 0 20px;">Hola {{contact.first_name}},</p>
+        <p style="margin:0 0 20px;">Mañana hablamos.</p>
+        <p style="margin:0 0 20px;">Antes de la llamada quiero contarte algo rápido.</p>
+
+        <hr style="border:none;border-top:1px solid #eee;margin:28px 0;">
+
+        <p style="margin:0 0 20px;">Hace unos meses hablé con el dueño de una consultoría de Barcelona.</p>
+        <p style="margin:0 0 20px;">Facturaban €600K. Equipo de 8 personas. Él cerraba el 80% de las ventas.</p>
+        <p style="margin:0 0 20px;">El problema: no podía coger vacaciones. Si se paraba, el pipeline se paraba.</p>
+        <p style="margin:0 0 28px;">Llevaba 3 años "a punto de contratar a alguien de ventas". Pero nadie vendía como él.</p>
+
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0;">
+          <tr><td style="background:#f8f8f8;border-left:3px solid #1a1a1a;padding:20px 24px;border-radius:0 6px 6px 0;">
+            <p style="margin:0 0 12px;font-size:13px;color:#666;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Lo que hicimos</p>
+            <p style="margin:0 0 10px;">Instalamos un sistema de outbound que cualificaba leads antes de que llegaran a hablar con él. Secuencias de email y LinkedIn que educaban al prospect en el problema. Un proceso de cierre que cualquier miembro del equipo podía ejecutar.</p>
+            <p style="margin:0 0 10px;"><strong>Resultado a los 90 días:</strong> pasó de 3 a 14 reuniones semanales. Con un 40% menos de su tiempo encima del pipeline.</p>
+            <p style="margin:0;"><strong>A los 6 meses:</strong> cerró su primer cliente sin haber estado en ninguna llamada previa.</p>
+          </td></tr>
+        </table>
+
+        <p style="margin:0 0 20px;">No te cuento esto para impresionarte.</p>
+        <p style="margin:0 0 20px;">Te lo cuento porque probablemente algo de lo que describes mañana se parezca a esto.</p>
+        <p style="margin:0 0 20px;">Y si se parece, tengo ideas concretas sobre qué haríamos.</p>
+
+        <p style="margin:0 0 12px;">→ <a href="{{appointment.meeting_link}}" style="color:#1a1a1a;font-weight:600;">Enlace reunión — añade a tu calendario</a></p>
+
+        <p style="margin:0 0 32px;">Hasta mañana.</p>
+
+        <p style="margin:0 0 4px;font-weight:600;">Xavi Fortuna</p>
+        <p style="margin:0;color:#666;font-size:13px;">CEO — <a href="https://globalgrowth.consulting" style="color:#666;">Global Growth Consulting</a></p>
+      </td></tr>
+      <!-- Footer -->
+      <tr><td style="padding:20px 32px;background:#fafafa;border-top:1px solid #eee;">
+        <p style="margin:0;font-size:12px;color:#aaa;line-height:1.6;">
+          <a href="{{unsubscribe_link}}" style="color:#aaa;">Darse de baja</a> ·
+          <a href="https://globalgrowth.consulting/privacidad" style="color:#aaa;">Privacidad</a><br>
+          Global Growth Consulting · Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona
+        </p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmación Demo — GGC</title>
+</head>
+<body style="margin:0;padding:0;background:#f5f5f5;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f5;padding:32px 16px;">
+  <tr><td align="center">
+    <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;max-width:560px;">
+      <!-- Header -->
+      <tr><td style="background:#0a0a0a;padding:24px 32px;">
+        <p style="margin:0;color:#ffffff;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;">Global Growth Consulting</p>
+      </td></tr>
+      <!-- Body -->
+      <tr><td style="padding:36px 32px;color:#222;font-size:15px;line-height:1.75;">
+        <p style="margin:0 0 20px;">Hola {{contact.first_name}},</p>
+        <p style="margin:0 0 20px;">Está confirmado.</p>
+
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0;">
+          <tr><td style="background:#f8f8f8;border-left:3px solid #1a1a1a;padding:20px 24px;border-radius:0 6px 6px 0;">
+            <p style="margin:0 0 6px;font-size:13px;color:#666;text-transform:uppercase;letter-spacing:1px;">Tu demo</p>
+            <p style="margin:0 0 8px;font-size:16px;font-weight:700;">{{appointment.start_date_time}}</p>
+            <p style="margin:0;font-size:15px;"><a href="{{appointment.meeting_link}}" style="color:#1a1a1a;font-weight:600;">→ Enlace a la reunión</a></p>
+          </td></tr>
+        </table>
+
+        <p style="margin:0 0 20px;">Añádelo a tu calendario ahora. Así no se pierde.</p>
+
+        <hr style="border:none;border-top:1px solid #eee;margin:28px 0;">
+
+        <p style="margin:0 0 20px;">Lo que vamos a hacer en esa llamada:</p>
+        <p style="margin:0 0 20px;">Primero escucho. Me cuentas en qué punto está tu empresa, cuál es el cuello de botella real en ventas y qué has intentado hasta ahora.</p>
+        <p style="margin:0 0 20px;">Luego, si tiene sentido, te explico exactamente cómo instalaríamos APEX OS en tu caso concreto: qué piezas, en qué orden, qué resultados esperar y en qué plazo.</p>
+        <p style="margin:0 0 28px;">Si no encajamos, te lo digo directamente. No tengo interés en trabajar con empresas a las que no puedo ayudar de verdad.</p>
+
+        <hr style="border:none;border-top:1px solid #eee;margin:28px 0;">
+
+        <p style="margin:0 0 12px;">Para aprovechar los 30 minutos al máximo, piensa en esto antes de la llamada:</p>
+        <ul style="margin:0 0 28px;padding-left:20px;">
+          <li style="margin-bottom:8px;">¿Cuántas reuniones de ventas tienes ahora mismo por semana?</li>
+          <li style="margin-bottom:8px;">¿Quién las genera? ¿Tú, tu equipo, o es irregular?</li>
+          <li style="margin-bottom:8px;">¿Cuál es tu ticket medio?</li>
+        </ul>
+        <p style="margin:0 0 32px;">No hace falta que me lo mandes. Es solo para que llegues con claridad.</p>
+
+        <p style="margin:0 0 4px;font-weight:600;">Xavi Fortuna</p>
+        <p style="margin:0;color:#666;font-size:13px;">CEO — <a href="https://globalgrowth.consulting" style="color:#666;">Global Growth Consulting</a></p>
+      </td></tr>
+      <!-- Footer -->
+      <tr><td style="padding:20px 32px;background:#fafafa;border-top:1px solid #eee;">
+        <p style="margin:0;font-size:12px;color:#aaa;line-height:1.6;">
+          <a href="{{unsubscribe_link}}" style="color:#aaa;">Darse de baja</a> ·
+          <a href="https://globalgrowth.consulting/privacidad" style="color:#aaa;">Privacidad</a><br>
+          Global Growth Consulting · Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona
+        </p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body>
+</html>
