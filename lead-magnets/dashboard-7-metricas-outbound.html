@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard: Las 7 métricas que de verdad importan en outbound B2B | GGC</title>
+  <meta name="description" content="Introduce tus números y descubre en segundos qué métrica te está costando pipeline. Benchmarks reales de 627+ clientes B2B de GGC.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Dashboard: Las 7 métricas que de verdad importan en outbound B2B — GGC">
+  <meta property="og:description" content="Compara tus métricas outbound con los benchmarks de 627+ clientes y descubre cuál reparar primero.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden;cursor:pointer}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    input[type="number"]{-moz-appearance:textfield}
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+    /* Status badge */
+    .status-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:all .3s ease}
+    .status-critico{background:rgba(239,68,68,0.12);color:#EF4444;border:1px solid rgba(239,68,68,0.2)}
+    .status-mejorable{background:rgba(245,158,11,0.12);color:#F59E0B;border:1px solid rgba(245,158,11,0.2)}
+    .status-bien{background:rgba(16,185,129,0.12);color:#10B981;border:1px solid rgba(16,185,129,0.2)}
+    .status-empty{background:rgba(255,255,255,0.04);color:#6b7280;border:1px solid rgba(255,255,255,0.08)}
+
+    /* Dot */
+    .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+    .dot-red{background:#EF4444;box-shadow:0 0 6px rgba(239,68,68,0.5)}
+    .dot-yellow{background:#F59E0B;box-shadow:0 0 6px rgba(245,158,11,0.5)}
+    .dot-green{background:#10B981;box-shadow:0 0 6px rgba(16,185,129,0.5)}
+    .dot-gray{background:#6b7280}
+
+    /* Progress bar */
+    .metric-bar{height:6px;border-radius:3px;background:rgba(255,255,255,0.05);overflow:visible;position:relative;margin-top:8px;margin-bottom:4px}
+    .metric-bar-fill{height:100%;border-radius:3px;transition:width .5s ease}
+    .metric-bar-bench{position:absolute;top:-4px;height:14px;width:2px;border-radius:1px;transition:left .5s ease}
+
+    /* Score ring */
+    .score-ring-wrap{position:relative;display:inline-flex;align-items:center;justify-content:center}
+    .score-ring-svg{transform:rotate(-90deg)}
+    .score-ring-text{position:absolute;text-align:center}
+
+    /* Metric card highlight */
+    .metric-card{transition:border-color .2s ease}
+    .metric-card:focus-within{border-color:rgba(139,92,246,0.3)!important}
+    .metric-card.is-worst{border-color:rgba(239,68,68,0.3)!important;background:rgba(239,68,68,0.03)!important}
+
+    /* Lead capture unlock animation */
+    .form-unlock{animation:slideDown .4s ease forwards}
+    @keyframes slideDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .4s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){
+      .fade-in,.form-unlock{animation:none;opacity:1;transform:none}
+      .metric-bar-fill{transition:none}
+      .pulse-glow{animation:none}
+      .btn-g::after{animation:none}
+    }
+
+    /* Print */
+    @media print{
+      body{background:#fff;color:#000}
+      .glass{background:#f9f9f9;border:1px solid #ddd}
+      .gr{-webkit-text-fill-color:unset;background:none;color:#3B82F6}
+      .btn-g,.no-print{display:none!important}
+      .print-show{display:block!important}
+      header,footer{display:none}
+    }
+  </style>
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita · GGC</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Dashboard outbound B2B</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      Las <span class="gr">7 métricas</span> que de verdad<br class="hidden sm:block"> importan en outbound B2B
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+      Introduce tus números. En segundos sabes en qué zona estás, cómo te comparas con los benchmarks de los 627+ clientes de GGC y cuál reparar primero.
+    </p>
+    <p class="text-xs text-gray-600 mt-3">Basado en datos reales del método APEX OS™ de Xavi Fortuna · GGC</p>
+  </div>
+
+  <!-- OVERALL SCORE BAR (top summary) -->
+  <div class="glass rounded-2xl p-6 mb-8 pulse-glow" id="scoreBar">
+    <div class="flex flex-col sm:flex-row items-center gap-6">
+
+      <!-- Score ring -->
+      <div class="score-ring-wrap flex-shrink-0">
+        <svg class="score-ring-svg" width="100" height="100" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+          <circle id="scoreCircle" cx="50" cy="50" r="42" fill="none" stroke="url(#scoreGrad)" stroke-width="8"
+            stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="263.9" style="transition:stroke-dashoffset .6s ease"/>
+          <defs>
+            <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#22D3EE"/>
+              <stop offset="50%" style="stop-color:#8B5CF6"/>
+              <stop offset="100%" style="stop-color:#EC4899"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="score-ring-text">
+          <p id="scoreNum" class="text-2xl font-bold text-white" style="font-family:'DM Sans',sans-serif">--</p>
+          <p class="text-[10px] text-gray-500">/100</p>
+        </div>
+      </div>
+
+      <!-- Score details -->
+      <div class="flex-1 text-center sm:text-left">
+        <p id="scoreTitle" class="text-lg font-bold text-white mb-1">Introduce tus métricas</p>
+        <p id="scoreSubtitle" class="text-sm text-gray-400 mb-3">Rellena al menos una métrica para ver tu diagnóstico.</p>
+        <div class="flex flex-wrap gap-3 justify-center sm:justify-start" id="statusSummary">
+          <span class="text-xs text-gray-500 flex items-center gap-1.5"><span class="dot dot-gray"></span> Crítico: <b id="countRed" class="text-white">0</b></span>
+          <span class="text-xs text-gray-500 flex items-center gap-1.5"><span class="dot dot-yellow"></span> Mejorable: <b id="countYellow" class="text-white">0</b></span>
+          <span class="text-xs text-gray-500 flex items-center gap-1.5"><span class="dot dot-green"></span> Bien: <b id="countGreen" class="text-white">0</b></span>
+        </div>
+      </div>
+
+      <!-- Biggest lever -->
+      <div class="glass rounded-xl px-5 py-4 text-center min-w-[160px] flex-shrink-0 border border-[#EF4444]/20" id="leverBox" style="display:none!important">
+        <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Tu mayor palanca</p>
+        <p id="leverMetric" class="text-sm font-bold text-white leading-snug"></p>
+        <p id="leverHint" class="text-[11px] text-red-400 mt-1"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 METRIC CARDS -->
+  <div class="space-y-4" id="metricsGrid">
+
+    <!-- METRIC 1: Tasa de respuesta -->
+    <div class="metric-card glass rounded-2xl p-5 sm:p-6" id="card0">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">01</span>
+            <h2 class="text-base font-bold text-white">Tasa de respuesta outbound</h2>
+          </div>
+          <p class="text-xs text-gray-500 mb-3">% de contactos que te responden (cualquier canal).</p>
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <input type="number" id="m0" min="0" max="100" step="0.5" placeholder="ej. 5"
+                class="w-28 px-3 py-2.5 pr-7 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-600 focus:border-[#8B5CF6] focus:outline-none transition-colors"
+                oninput="calc()" aria-label="Tasa de respuesta en %">
+              <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-500 pointer-events-none">%</span>
+            </div>
+            <span id="badge0" class="status-badge status-empty"><span id="dot0" class="dot dot-gray"></span><span id="badgeText0">Sin dato</span></span>
+          </div>
+          <div class="metric-bar mt-3">
+            <div id="bar0" class="metric-bar-fill" style="width:0%"></div>
+            <div id="bench0" class="metric-bar-bench" style="left:0%"></div>
+          </div>
+          <div class="flex justify-between mt-1">
+            <span class="text-[10px] text-gray-600">Crítico &lt;3% · Mejorable 3-8% · Bien &gt;8%</span>
+            <span class="text-[10px] text-gray-600">Benchmark GGC: <b class="text-white">22%</b></span>
+          </div>
+        </div>
+        <div class="sm:w-40 text-right hidden sm:block">
+          <p class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">GGC media</p>
+          <p class="text-2xl font-bold text-white">22<span class="text-sm text-gray-500">%</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- METRIC 2: Ratio reuniones cualificadas -->
+    <div class="metric-card glass rounded-2xl p-5 sm:p-6" id="card1">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">02</span>
+            <h2 class="text-base font-bold text-white">Reuniones cualificadas / oportunidades creadas</h2>
+          </div>
+          <p class="text-xs text-gray-500 mb-3">% de reuniones que acaban convirtiéndose en pipeline real.</p>
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <input type="number" id="m1" min="0" max="100" step="1" placeholder="ej. 40"
+                class="w-28 px-3 py-2.5 pr-7 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-600 focus:border-[#8B5CF6] focus:outline-none transition-colors"
+                oninput="calc()" aria-label="Ratio reuniones cualificadas en %">
+              <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-500 pointer-events-none">%</span>
+            </div>
+            <span id="badge1" class="status-badge status-empty"><span id="dot1" class="dot dot-gray"></span><span id="badgeText1">Sin dato</span></span>
+          </div>
+          <div class="metric-bar mt-3">
+            <div id="bar1" class="metric-bar-fill" style="width:0%"></div>
+            <div id="bench1" class="metric-bar-bench" style="left:0%"></div>
+          </div>
+          <div class="flex justify-between mt-1">
+            <span class="text-[10px] text-gray-600">Crítico &lt;40% · Mejorable 40-60% · Bien &gt;60%</span>
+            <span class="text-[10px] text-gray-600">Benchmark GGC: <b class="text-white">78%</b></span>
+          </div>
+        </div>
+        <div class="sm:w-40 text-right hidden sm:block">
+          <p class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">GGC media</p>
+          <p class="text-2xl font-bold text-white">78<span class="text-sm text-gray-500">%</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- METRIC 3: Coste por reunión cualificada -->
+    <div class="metric-card glass rounded-2xl p-5 sm:p-6" id="card2">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">03</span>
+            <h2 class="text-base font-bold text-white">Coste por reunión cualificada (CPR)</h2>
+          </div>
+          <p class="text-xs text-gray-500 mb-3">Euros invertidos (equipo + herramientas + publicidad) por cada reunión cualificada conseguida.</p>
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <input type="number" id="m2" min="0" max="5000" step="5" placeholder="ej. 280"
+                class="w-28 px-3 py-2.5 pr-7 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-600 focus:border-[#8B5CF6] focus:outline-none transition-colors"
+                oninput="calc()" aria-label="Coste por reunión en euros">
+              <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-500 pointer-events-none">€</span>
+            </div>
+            <span id="badge2" class="status-badge status-empty"><span id="dot2" class="dot dot-gray"></span><span id="badgeText2">Sin dato</span></span>
+          </div>
+          <div class="metric-bar mt-3">
+            <div id="bar2" class="metric-bar-fill" style="width:0%"></div>
+            <div id="bench2" class="metric-bar-bench" style="left:0%"></div>
+          </div>
+          <div class="flex justify-between mt-1">
+            <span class="text-[10px] text-gray-600">Crítico &gt;400€ · Mejorable 200-400€ · Bien &lt;200€</span>
+            <span class="text-[10px] text-gray-600">Benchmark GGC: <b class="text-white">89€</b></span>
+          </div>
+        </div>
+        <div class="sm:w-40 text-right hidden sm:block">
+          <p class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">GGC media</p>
+          <p class="text-2xl font-bold text-white">89<span class="text-sm text-gray-500">€</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- METRIC 4: Ciclo de venta -->
+    <div class="metric-card glass rounded-2xl p-5 sm:p-6" id="card3">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">04</span>
+            <h2 class="text-base font-bold text-white">Ciclo de venta medio</h2>
+          </div>
+          <p class="text-xs text-gray-500 mb-3">Días desde el primer contacto hasta el contrato firmado.</p>
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <input type="number" id="m3" min="1" max="730" step="1" placeholder="ej. 90"
+                class="w-28 px-3 py-2.5 pr-10 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-600 focus:border-[#8B5CF6] focus:outline-none transition-colors"
+                oninput="calc()" aria-label="Ciclo de venta en días">
+              <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-500 pointer-events-none">días</span>
+            </div>
+            <span id="badge3" class="status-badge status-empty"><span id="dot3" class="dot dot-gray"></span><span id="badgeText3">Sin dato</span></span>
+          </div>
+          <div class="metric-bar mt-3">
+            <div id="bar3" class="metric-bar-fill" style="width:0%"></div>
+            <div id="bench3" class="metric-bar-bench" style="left:0%"></div>
+          </div>
+          <div class="flex justify-between mt-1">
+            <span class="text-[10px] text-gray-600">Crítico &gt;120 días · Mejorable 60-120 · Bien &lt;60</span>
+            <span class="text-[10px] text-gray-600">Benchmark GGC: <b class="text-white">38 días</b></span>
+          </div>
+        </div>
+        <div class="sm:w-40 text-right hidden sm:block">
+          <p class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">GGC media</p>
+          <p class="text-2xl font-bold text-white">38<span class="text-sm text-gray-500"> días</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- METRIC 5: Tasa de cierre -->
+    <div class="metric-card glass rounded-2xl p-5 sm:p-6" id="card4">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">05</span>
+            <h2 class="text-base font-bold text-white">Tasa de cierre (propuesta → cliente)</h2>
+          </div>
+          <p class="text-xs text-gray-500 mb-3">% de propuestas enviadas que acaban firmando.</p>
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <input type="number" id="m4" min="0" max="100" step="1" placeholder="ej. 18"
+                class="w-28 px-3 py-2.5 pr-7 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-600 focus:border-[#8B5CF6] focus:outline-none transition-colors"
+                oninput="calc()" aria-label="Tasa de cierre en %">
+              <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-500 pointer-events-none">%</span>
+            </div>
+            <span id="badge4" class="status-badge status-empty"><span id="dot4" class="dot dot-gray"></span><span id="badgeText4">Sin dato</span></span>
+          </div>
+          <div class="metric-bar mt-3">
+            <div id="bar4" class="metric-bar-fill" style="width:0%"></div>
+            <div id="bench4" class="metric-bar-bench" style="left:0%"></div>
+          </div>
+          <div class="flex justify-between mt-1">
+            <span class="text-[10px] text-gray-600">Crítico &lt;15% · Mejorable 15-30% · Bien &gt;30%</span>
+            <span class="text-[10px] text-gray-600">Benchmark GGC: <b class="text-white">30%</b></span>
+          </div>
+        </div>
+        <div class="sm:w-40 text-right hidden sm:block">
+          <p class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">GGC media</p>
+          <p class="text-2xl font-bold text-white">30<span class="text-sm text-gray-500">%</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- METRIC 6: Predictibilidad del pipeline -->
+    <div class="metric-card glass rounded-2xl p-5 sm:p-6" id="card5">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">06</span>
+            <h2 class="text-base font-bold text-white">Predictibilidad del pipeline</h2>
+          </div>
+          <p class="text-xs text-gray-500 mb-3">% de precisión entre tu forecast mensual y el cierre real. Si preveías 100K y cerraste 65K, tu predictibilidad es 65%.</p>
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <input type="number" id="m5" min="0" max="100" step="1" placeholder="ej. 55"
+                class="w-28 px-3 py-2.5 pr-7 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-600 focus:border-[#8B5CF6] focus:outline-none transition-colors"
+                oninput="calc()" aria-label="Predictibilidad del pipeline en %">
+              <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-500 pointer-events-none">%</span>
+            </div>
+            <span id="badge5" class="status-badge status-empty"><span id="dot5" class="dot dot-gray"></span><span id="badgeText5">Sin dato</span></span>
+          </div>
+          <div class="metric-bar mt-3">
+            <div id="bar5" class="metric-bar-fill" style="width:0%"></div>
+            <div id="bench5" class="metric-bar-bench" style="left:0%"></div>
+          </div>
+          <div class="flex justify-between mt-1">
+            <span class="text-[10px] text-gray-600">Crítico &lt;50% · Mejorable 50-75% · Bien &gt;75%</span>
+            <span class="text-[10px] text-gray-600">Benchmark GGC: <b class="text-white">88%</b></span>
+          </div>
+        </div>
+        <div class="sm:w-40 text-right hidden sm:block">
+          <p class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">GGC media</p>
+          <p class="text-2xl font-bold text-white">88<span class="text-sm text-gray-500">%</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- METRIC 7: Revenue por SDR/mes -->
+    <div class="metric-card glass rounded-2xl p-5 sm:p-6" id="card6">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">07</span>
+            <h2 class="text-base font-bold text-white">Revenue por SDR/mes</h2>
+          </div>
+          <p class="text-xs text-gray-500 mb-3">Pipeline generado por cada comercial o SDR al mes. Divide tu pipeline total entre el número de personas en ventas.</p>
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <input type="number" id="m6" min="0" max="2000000" step="1000" placeholder="ej. 25000"
+                class="w-36 px-3 py-2.5 pr-7 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-600 focus:border-[#8B5CF6] focus:outline-none transition-colors"
+                oninput="calc()" aria-label="Revenue por SDR en euros por mes">
+              <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-gray-500 pointer-events-none">€</span>
+            </div>
+            <span id="badge6" class="status-badge status-empty"><span id="dot6" class="dot dot-gray"></span><span id="badgeText6">Sin dato</span></span>
+          </div>
+          <div class="metric-bar mt-3">
+            <div id="bar6" class="metric-bar-fill" style="width:0%"></div>
+            <div id="bench6" class="metric-bar-bench" style="left:0%"></div>
+          </div>
+          <div class="flex justify-between mt-1">
+            <span class="text-[10px] text-gray-600">Crítico &lt;20K€ · Mejorable 20-60K€ · Bien &gt;60K€</span>
+            <span class="text-[10px] text-gray-600">Benchmark GGC: <b class="text-white">150K€</b></span>
+          </div>
+        </div>
+        <div class="sm:w-40 text-right hidden sm:block">
+          <p class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">GGC media</p>
+          <p class="text-2xl font-bold text-white">150K<span class="text-sm text-gray-500">€/mes</span></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /metricsGrid -->
+
+  <!-- COMPARISON TABLE -->
+  <div class="mt-10 glass rounded-2xl p-6" id="compTable" style="display:none">
+    <h2 class="text-lg font-bold text-white mb-5" style="font-family:'Playfair Display',serif">Tus números vs benchmark GGC</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm" style="border-collapse:separate;border-spacing:0 6px">
+        <thead>
+          <tr>
+            <th class="text-left text-[11px] text-gray-500 uppercase tracking-wider pb-2 pl-3">Métrica</th>
+            <th class="text-right text-[11px] text-gray-500 uppercase tracking-wider pb-2 pr-3">Tu dato</th>
+            <th class="text-right text-[11px] text-gray-500 uppercase tracking-wider pb-2 pr-3">Benchmark GGC</th>
+            <th class="text-center text-[11px] text-gray-500 uppercase tracking-wider pb-2 pr-3">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="compTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TU MAYOR PALANCA (detail) -->
+  <div class="mt-6 glass rounded-2xl p-6 border border-[#EF4444]/15" id="palancaDetail" style="display:none">
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(239,68,68,0.12)">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#EF4444" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <div>
+        <p class="text-xs font-bold text-red-400 uppercase tracking-wider mb-1">Tu mayor palanca ahora mismo</p>
+        <p id="palancaName" class="text-base font-bold text-white mb-1"></p>
+        <p id="palancaDesc" class="text-sm text-gray-400"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE -->
+  <div class="mt-10" id="leadSection">
+    <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center" id="leadGateBox">
+
+      <!-- Locked state (fewer than 4 metrics filled) -->
+      <div id="leadLocked">
+        <div class="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center" style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2)">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#8B5CF6" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <p class="text-sm text-gray-400">Rellena al menos <b class="text-white">4 métricas</b> para desbloquear tu diagnóstico completo y plan de mejora.</p>
+        <p class="text-xs text-gray-600 mt-2" id="lockCounter">0 de 4 completadas</p>
+      </div>
+
+      <!-- Unlocked form -->
+      <div id="leadUnlocked" class="form-unlock" style="display:none">
+        <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Diagnóstico personalizado</p>
+        <h3 class="text-xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe tu plan de mejora priorizado</h3>
+        <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">
+          Te enviamos el análisis completo con las acciones concretas para pasar de donde estás a los benchmarks de GGC. Score actual: <span id="leadScore" class="font-bold text-white">--</span>/100.
+        </p>
+
+        <form id="leadForm" class="max-w-md mx-auto space-y-3 text-left">
+          <input type="text" name="nombre" placeholder="Tu nombre" required
+            class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          <input type="email" name="email" placeholder="Tu email profesional" required
+            class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          <input type="text" name="empresa" placeholder="Empresa" required
+            class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+          <input type="hidden" name="source" value="dashboard-7-metricas-outbound">
+          <input type="hidden" name="overall_score" id="hiddenScore" value="">
+          <input type="hidden" name="worst_metric" id="hiddenWorstMetric" value="">
+          <input type="hidden" name="metric_values" id="hiddenMetricValues" value="">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+            <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white transition-colors">política de privacidad</a>. Puedo darme de baja cuando quiera.</span>
+          </label>
+          <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">
+            Recibir mi diagnóstico + plan de mejora
+          </button>
+        </form>
+
+        <div id="leadSuccess" class="hidden mt-4 p-4 rounded-xl text-sm" style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);color:#10B981">
+          Perfecto. Revisa tu bandeja en los próximos minutos — te llega el análisis completo.
+        </div>
+
+        <div class="mt-5 flex flex-wrap justify-center gap-3 no-print">
+          <button onclick="window.print()" class="text-xs text-gray-500 hover:text-gray-300 transition-colors flex items-center gap-1.5">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Imprimir / exportar PDF
+          </button>
+        </div>
+        <p class="text-xs text-gray-600 mt-2">Sin spam. Solo tu plan de acción.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM CTAs -->
+  <div class="mt-10 grid sm:grid-cols-2 gap-4">
+    <div class="glass rounded-2xl p-6 text-center">
+      <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">¿Quieres verlo aplicado?</p>
+      <h3 class="text-base font-bold text-white mb-2">Agenda una sesión con Xavi</h3>
+      <p class="text-xs text-gray-500 mb-4">Analizamos tus 7 métricas en vivo y definimos el plan APEX OS™ para tu equipo.</p>
+      <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm">Agendar sesión gratuita</a>
+    </div>
+    <div class="glass rounded-2xl p-6 text-center">
+      <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Sigue leyendo</p>
+      <h3 class="text-base font-bold text-white mb-2">Vanity metrics vs métricas reales</h3>
+      <p class="text-xs text-gray-500 mb-4">Por qué los equipos que miden lo correcto generan 4x más pipeline. El artículo completo.</p>
+      <a href="../blog/vanity-metrics-vs-metricas-reales.html" class="inline-block px-6 py-3 rounded-lg text-sm font-semibold text-white transition-all hover:opacity-80" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)">Leer el artículo</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  // ─── METRIC DEFINITIONS ────────────────────────────────────────────────────
+  var METRICS = [
+    {
+      key: 'respuesta',
+      label: 'Tasa de respuesta outbound',
+      unit: '%',
+      bench: 22,
+      // thresholds: inverted=false → higher is better
+      inverted: false,
+      critical: 3,   // below → crítico
+      ok: 8          // above → bien
+    },
+    {
+      key: 'reuniones',
+      label: 'Reuniones cualificadas / oportunidades',
+      unit: '%',
+      bench: 78,
+      inverted: false,
+      critical: 40,
+      ok: 60
+    },
+    {
+      key: 'cpr',
+      label: 'Coste por reunión cualificada (CPR)',
+      unit: '€',
+      bench: 89,
+      inverted: true,   // lower is better
+      critical: 400,    // above → crítico
+      ok: 200           // below → bien
+    },
+    {
+      key: 'ciclo',
+      label: 'Ciclo de venta medio',
+      unit: 'días',
+      bench: 38,
+      inverted: true,
+      critical: 120,
+      ok: 60
+    },
+    {
+      key: 'cierre',
+      label: 'Tasa de cierre (propuesta → cliente)',
+      unit: '%',
+      bench: 30,
+      inverted: false,
+      critical: 15,
+      ok: 30
+    },
+    {
+      key: 'prediccion',
+      label: 'Predictibilidad del pipeline',
+      unit: '%',
+      bench: 88,
+      inverted: false,
+      critical: 50,
+      ok: 75
+    },
+    {
+      key: 'revsdr',
+      label: 'Revenue por SDR/mes',
+      unit: '€',
+      bench: 150000,
+      inverted: false,
+      critical: 20000,
+      ok: 60000
+    }
+  ];
+
+  var IDS = ['m0','m1','m2','m3','m4','m5','m6'];
+  var N = METRICS.length;
+
+  // ─── HELPERS ───────────────────────────────────────────────────────────────
+  function getStatus(m, val) {
+    if (m.inverted) {
+      if (val > m.critical) return 'critico';
+      if (val > m.ok)       return 'mejorable';
+      return 'bien';
+    } else {
+      if (val < m.critical) return 'critico';
+      if (val < m.ok)       return 'mejorable';
+      return 'bien';
+    }
+  }
+
+  // Score 0-100 for a single metric
+  function getScore(m, val) {
+    if (m.inverted) {
+      // Best = bench, worst = critical*2
+      var worst = m.critical * 2;
+      var best  = m.bench;
+      if (val <= best)  return 100;
+      if (val >= worst) return 0;
+      return Math.round(((worst - val) / (worst - best)) * 100);
+    } else {
+      // Best = bench (capped at 100), worst = 0
+      var ratio = val / m.bench;
+      return Math.min(100, Math.round(ratio * 100));
+    }
+  }
+
+  // Bar fill % (visual)
+  function getBarFill(m, val) {
+    if (m.inverted) {
+      // val=bench → 100%, val=critical*2 → 5%
+      var worst = m.critical * 2;
+      var best  = m.bench;
+      var pct = ((worst - val) / (worst - best)) * 100;
+      return Math.max(4, Math.min(100, Math.round(pct)));
+    } else {
+      // val=bench*1.3 → 100%
+      return Math.max(4, Math.min(100, Math.round((val / (m.bench * 1.3)) * 100)));
+    }
+  }
+
+  // Bench marker position (as % of bar scale)
+  function getBenchPos(m) {
+    if (m.inverted) {
+      var worst = m.critical * 2;
+      var best  = m.bench;
+      var pct = ((worst - m.bench) / (worst - best)) * 100;
+      return Math.max(5, Math.min(93, Math.round(pct)));
+    } else {
+      return Math.max(5, Math.min(93, Math.round((m.bench / (m.bench * 1.3)) * 100)));
+    }
+  }
+
+  function barColor(status) {
+    if (status === 'bien')      return 'background:linear-gradient(90deg,#10B981,#059669)';
+    if (status === 'mejorable') return 'background:linear-gradient(90deg,#F59E0B,#D97706)';
+    return 'background:linear-gradient(90deg,#EF4444,#DC2626)';
+  }
+
+  function statusLabel(status) {
+    if (status === 'bien')      return 'Bien';
+    if (status === 'mejorable') return 'Mejorable';
+    return 'Zona crítica';
+  }
+
+  function dotClass(status) {
+    if (status === 'bien')      return 'dot dot-green';
+    if (status === 'mejorable') return 'dot dot-yellow';
+    return 'dot dot-red';
+  }
+
+  function badgeClass(status) {
+    if (status === 'bien')      return 'status-badge status-bien';
+    if (status === 'mejorable') return 'status-badge status-mejorable';
+    return 'status-badge status-critico';
+  }
+
+  function formatVal(m, val) {
+    if (m.unit === '%')    return val + '%';
+    if (m.unit === 'días') return val + ' días';
+    if (m.unit === '€') {
+      if (val >= 1000) return (val/1000).toFixed(val % 1000 === 0 ? 0 : 1).replace('.', ',') + 'K€';
+      return val + '€';
+    }
+    return val;
+  }
+
+  function getVal(idx) {
+    var v = parseFloat(document.getElementById(IDS[idx]).value);
+    return isNaN(v) ? null : v;
+  }
+
+  function filledCount() {
+    var c = 0;
+    for (var i = 0; i < N; i++) { if (getVal(i) !== null) c++; }
+    return c;
+  }
+
+  // ─── MAIN CALC ─────────────────────────────────────────────────────────────
+  window.calc = function() {
+    var filled = filledCount();
+    var scores = [];
+    var statuses = [];
+    var countRed = 0, countYellow = 0, countGreen = 0;
+    var worstIdx = -1, worstScore = 999;
+
+    for (var i = 0; i < N; i++) {
+      var val = getVal(i);
+      var m   = METRICS[i];
+
+      // Update badge + bar
+      var badgeEl   = document.getElementById('badge' + i);
+      var dotEl     = document.getElementById('dot' + i);
+      var textEl    = document.getElementById('badgeText' + i);
+      var barEl     = document.getElementById('bar' + i);
+      var benchEl   = document.getElementById('bench' + i);
+      var cardEl    = document.getElementById('card' + i);
+
+      if (val === null) {
+        badgeEl.className = 'status-badge status-empty';
+        dotEl.className = 'dot dot-gray';
+        textEl.textContent = 'Sin dato';
+        barEl.style.width = '0%';
+        benchEl.style.left = getBenchPos(m) + '%';
+        benchEl.style.background = 'rgba(255,255,255,0.15)';
+        cardEl.classList.remove('is-worst');
+        scores.push(null);
+        statuses.push(null);
+        continue;
+      }
+
+      var status = getStatus(m, val);
+      var score  = getScore(m, val);
+      var fill   = getBarFill(m, val);
+      var bpos   = getBenchPos(m);
+
+      scores.push(score);
+      statuses.push(status);
+
+      if (status === 'critico')   countRed++;
+      if (status === 'mejorable') countYellow++;
+      if (status === 'bien')      countGreen++;
+
+      // Track worst for "palanca"
+      if (score < worstScore) { worstScore = score; worstIdx = i; }
+
+      badgeEl.className = badgeClass(status);
+      dotEl.className   = dotClass(status);
+      textEl.textContent = statusLabel(status);
+
+      barEl.style.cssText = 'width:' + fill + '%;' + barColor(status);
+
+      benchEl.style.left = bpos + '%';
+      benchEl.style.background = status === 'bien' ? 'rgba(255,255,255,0.4)' : '#fff';
+
+      cardEl.classList.toggle('is-worst', i === worstIdx && status === 'critico');
+    }
+
+    // Overall score (average of filled)
+    var filledScores = scores.filter(function(s){ return s !== null; });
+    var avgScore = filledScores.length
+      ? Math.round(filledScores.reduce(function(a,b){return a+b;},0) / filledScores.length)
+      : null;
+
+    // Update score ring
+    var scoreNumEl  = document.getElementById('scoreNum');
+    var scoreCircle = document.getElementById('scoreCircle');
+    var scoreTitleEl = document.getElementById('scoreTitle');
+    var scoreSubtitleEl = document.getElementById('scoreSubtitle');
+
+    document.getElementById('countRed').textContent    = countRed;
+    document.getElementById('countYellow').textContent = countYellow;
+    document.getElementById('countGreen').textContent  = countGreen;
+
+    if (avgScore !== null) {
+      scoreNumEl.textContent = avgScore;
+      var circumference = 263.9;
+      var offset = circumference * (1 - avgScore / 100);
+      scoreCircle.style.strokeDashoffset = offset;
+
+      if (avgScore >= 75) {
+        scoreTitleEl.textContent = 'Tu outbound está funcionando';
+        scoreSubtitleEl.textContent = 'Sólido. Algunos KPIs puedes seguir optimizando.';
+        scoreSubtitleEl.style.color = '#10B981';
+      } else if (avgScore >= 45) {
+        scoreTitleEl.textContent = 'Margen de mejora significativo';
+        scoreSubtitleEl.textContent = 'Hay palancas claras que, tocadas, multiplican el pipeline.';
+        scoreSubtitleEl.style.color = '#F59E0B';
+      } else {
+        scoreTitleEl.textContent = 'Tu outbound necesita atención urgente';
+        scoreSubtitleEl.textContent = 'Estás dejando pipeline sobre la mesa cada mes.';
+        scoreSubtitleEl.style.color = '#EF4444';
+      }
+    } else {
+      scoreNumEl.textContent = '--';
+      scoreCircle.style.strokeDashoffset = 263.9;
+      scoreTitleEl.textContent = 'Introduce tus métricas';
+      scoreSubtitleEl.textContent = 'Rellena al menos una métrica para ver tu diagnóstico.';
+      scoreSubtitleEl.style.color = '';
+    }
+
+    // Lever box (in score bar)
+    var leverBox     = document.getElementById('leverBox');
+    var leverMetric  = document.getElementById('leverMetric');
+    var leverHint    = document.getElementById('leverHint');
+    var palancaDetail  = document.getElementById('palancaDetail');
+    var palancaName    = document.getElementById('palancaName');
+    var palancaDesc    = document.getElementById('palancaDesc');
+
+    if (worstIdx >= 0 && filledScores.length > 0) {
+      leverBox.style.display = '';
+      leverMetric.textContent = METRICS[worstIdx].label;
+      var wval = getVal(worstIdx);
+      leverHint.textContent = 'Tu dato: ' + formatVal(METRICS[worstIdx], wval) + ' · Benchmark GGC: ' + formatVal(METRICS[worstIdx], METRICS[worstIdx].bench);
+
+      palancaDetail.style.display = '';
+      palancaName.textContent = METRICS[worstIdx].label;
+      palancaDesc.textContent = buildPalancaDesc(worstIdx, wval);
+    } else {
+      leverBox.style.display = 'none!important';
+      palancaDetail.style.display = 'none';
+    }
+
+    // Comparison table
+    var compTable = document.getElementById('compTable');
+    var tbody = document.getElementById('compTableBody');
+    if (filledScores.length > 0) {
+      compTable.style.display = '';
+      var rows = '';
+      for (var j = 0; j < N; j++) {
+        var vj = getVal(j);
+        if (vj === null) continue;
+        var mj = METRICS[j];
+        var sj = getStatus(mj, vj);
+        var dotC = sj === 'bien' ? '#10B981' : (sj === 'mejorable' ? '#F59E0B' : '#EF4444');
+        rows += '<tr style="background:rgba(255,255,255,0.02);border-radius:8px">';
+        rows += '<td class="py-2.5 pl-3 rounded-l-lg text-sm text-gray-300">' + mj.label + '</td>';
+        rows += '<td class="py-2.5 pr-3 text-right text-sm font-bold text-white">' + formatVal(mj, vj) + '</td>';
+        rows += '<td class="py-2.5 pr-3 text-right text-sm text-gray-400">' + formatVal(mj, mj.bench) + '</td>';
+        rows += '<td class="py-2.5 pr-3 rounded-r-lg text-center"><span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:' + dotC + '">';
+        rows += '<span style="width:6px;height:6px;border-radius:50%;background:' + dotC + ';display:inline-block"></span>';
+        rows += statusLabel(sj) + '</span></td>';
+        rows += '</tr>';
+        rows += '<tr style="height:4px"><td colspan="4"></td></tr>';
+      }
+      tbody.innerHTML = rows;
+    } else {
+      compTable.style.display = 'none';
+    }
+
+    // Lead capture gate
+    var lockCounter  = document.getElementById('lockCounter');
+    var leadLocked   = document.getElementById('leadLocked');
+    var leadUnlocked = document.getElementById('leadUnlocked');
+    lockCounter.textContent = filled + ' de 4 completadas';
+
+    if (filled >= 4) {
+      leadLocked.style.display = 'none';
+      if (leadUnlocked.style.display === 'none') {
+        leadUnlocked.style.display = '';
+        leadUnlocked.classList.add('form-unlock');
+      }
+    } else {
+      leadLocked.style.display = '';
+      leadUnlocked.style.display = 'none';
+    }
+
+    // Hidden fields
+    if (avgScore !== null) {
+      document.getElementById('hiddenScore').value = avgScore;
+      document.getElementById('leadScore').textContent = avgScore;
+    }
+    if (worstIdx >= 0) {
+      document.getElementById('hiddenWorstMetric').value = METRICS[worstIdx].key;
+    }
+    var metricSnapshot = {};
+    for (var k = 0; k < N; k++) {
+      var mv = getVal(k);
+      if (mv !== null) metricSnapshot[METRICS[k].key] = mv;
+    }
+    document.getElementById('hiddenMetricValues').value = JSON.stringify(metricSnapshot);
+  };
+
+  function buildPalancaDesc(idx, val) {
+    var m = METRICS[idx];
+    var gap = m.inverted
+      ? 'Estás en ' + formatVal(m, val) + '. El benchmark de GGC es ' + formatVal(m, m.bench) + '. Reducirlo te libera capacidad y reduce tu CAC.'
+      : 'Estás en ' + formatVal(m, val) + '. El benchmark de GGC es ' + formatVal(m, m.bench) + '. Cerrarlo tiene el mayor impacto en tu pipeline total.';
+    return gap;
+  }
+
+  // ─── LEAD FORM ─────────────────────────────────────────────────────────────
+  document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = {
+      nombre:         form.nombre.value,
+      email:          form.email.value,
+      empresa:        form.empresa.value,
+      source:         'dashboard-7-metricas-outbound',
+      overall_score:  form.overall_score.value,
+      worst_metric:   form.worst_metric.value,
+      metric_values:  form.metric_values.value,
+      timestamp:      new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/REPLACE_WITH_WEBHOOK_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function() {
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function() {
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+  // Init
+  calc();
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla: ICP en 4 dimensiones con sistema de scoring | GGC</title>
+  <meta name="description" content="Constructor interactivo de ICP para empresas B2B. Define tu cliente ideal en 4 dimensiones y genera un modelo de scoring listo para usar en tu outreach.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Plantilla: ICP en 4 dimensiones con sistema de scoring — GGC">
+  <meta property="og:description" content="De 'empresas medianas' a 380 cuentas con nombre y apellidos. Define tu ICP en 4 dimensiones y genera tu scoring en minutos.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden;cursor:pointer}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.45;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Wizard steps */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-20px)}}
+    @keyframes slideRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes slideLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)}}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.12)}50%{box-shadow:0 0 40px rgba(139,92,246,0.28)}}
+
+    .fade-in{animation:fadeIn .45s ease forwards}
+    .slide-right{animation:slideRight .4s ease forwards}
+    .slide-left{animation:slideLeft .4s ease forwards}
+    .scale-in{animation:scaleIn .5s ease forwards}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    /* Option chips */
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.1);font-size:13px;cursor:pointer;transition:all .18s ease;user-select:none;background:rgba(255,255,255,0.03)}
+    .chip:hover{border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.05)}
+    .chip.sel-blue{background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.5);color:#93c5fd}
+    .chip.sel-purple{background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.5);color:#c4b5fd}
+    .chip.sel-pink{background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.5);color:#f9a8d4}
+    .chip.sel-cyan{background:rgba(34,211,238,0.15);border-color:rgba(34,211,238,0.5);color:#67e8f9}
+
+    /* Radio option */
+    .opt-card{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.07);cursor:pointer;transition:all .18s ease;background:rgba(255,255,255,0.02)}
+    .opt-card:hover{border-color:rgba(255,255,255,0.18);background:rgba(255,255,255,0.04)}
+    .opt-card.selected-blue{background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.45)}
+    .opt-card.selected-purple{background:rgba(139,92,246,0.1);border-color:rgba(139,92,246,0.45)}
+    .opt-card.selected-pink{background:rgba(236,72,153,0.1);border-color:rgba(236,72,153,0.45)}
+    .opt-card.selected-cyan{background:rgba(34,211,238,0.1);border-color:rgba(34,211,238,0.45)}
+    .opt-dot{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;transition:all .18s ease;position:relative}
+    .opt-card.selected-blue .opt-dot{border-color:#3B82F6;background:#3B82F6}
+    .opt-card.selected-purple .opt-dot{border-color:#8B5CF6;background:#8B5CF6}
+    .opt-card.selected-pink .opt-dot{border-color:#EC4899;background:#EC4899}
+    .opt-card.selected-cyan .opt-dot{border-color:#22D3EE;background:#22D3EE}
+    .opt-dot::after{content:'';position:absolute;top:4px;left:4px;width:6px;height:6px;border-radius:50%;background:#fff;opacity:0;transition:opacity .18s ease}
+    .opt-card[class*="selected"] .opt-dot::after{opacity:1}
+
+    /* Slider */
+    input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:#1A1740;outline:none}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);cursor:pointer;border:2px solid #0C0A1D;box-shadow:0 0 8px rgba(139,92,246,0.4)}
+    input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#8B5CF6);cursor:pointer;border:2px solid #0C0A1D}
+
+    /* Step indicator */
+    .step-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all .35s ease}
+    .step-dot.active{background:#8B5CF6;box-shadow:0 0 10px rgba(139,92,246,0.5)}
+    .step-dot.done{background:rgba(34,211,238,0.6)}
+
+    /* Output card */
+    .icp-card{background:linear-gradient(135deg,rgba(59,130,246,0.06),rgba(139,92,246,0.08),rgba(236,72,153,0.04));border:1px solid rgba(139,92,246,0.2)}
+    .score-bar{height:8px;border-radius:4px;background:#1A1740;overflow:hidden}
+    .score-fill{height:100%;border-radius:4px;transition:width .6s ease}
+
+    /* Print */
+    @media print{body{background:#fff;color:#000}.glass,.icp-card{background:#f5f5f5;border-color:#ddd}.gr{-webkit-text-fill-color:#6d28d9;color:#6d28d9}header,footer,#wizard-nav,#cta-section{display:none}#output-section{display:block!important}}
+
+    @media(prefers-reduced-motion:reduce){.fade-in,.slide-right,.slide-left,.scale-in{animation:none;opacity:1;transform:none}.btn-g::after{animation:none}.pulse-glow{animation:none}}
+  </style>
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-10 fade-in">
+    <div class="inline-block px-4 py-1.5 rounded-full text-xs font-medium bg-blue/10 text-blue border border-blue/20 mb-5" style="color:#3B82F6;border-color:rgba(59,130,246,0.3);background:rgba(59,130,246,0.1)">ICP &mdash; IDEAL CUSTOMER PROFILE</div>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+      Plantilla: <span class="gr">ICP en 4 dimensiones</span><br>con sistema de scoring
+    </h1>
+    <p class="text-gray-400 max-w-xl mx-auto text-base leading-relaxed">Rellena las 4 dimensiones. En 10 minutos tienes un perfil de cliente ideal con scoring listo para filtrar cuentas y personalizar tu outreach.</p>
+  </div>
+
+  <!-- STEP INDICATORS -->
+  <div id="step-indicators" class="flex items-center justify-center gap-2 mb-10">
+    <div class="step-dot active" id="sd-0"></div>
+    <div class="w-8 h-px bg-white/10"></div>
+    <div class="step-dot" id="sd-1"></div>
+    <div class="w-8 h-px bg-white/10"></div>
+    <div class="step-dot" id="sd-2"></div>
+    <div class="w-8 h-px bg-white/10"></div>
+    <div class="step-dot" id="sd-3"></div>
+    <div class="w-8 h-px bg-white/10"></div>
+    <div class="step-dot" id="sd-4"></div>
+  </div>
+
+  <!-- ===== STEP 0: D1 Firmográfico ===== -->
+  <div id="step-0" class="step-section">
+    <div class="glass rounded-2xl p-7 mb-6 fade-in">
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style="background:rgba(59,130,246,0.2);color:#3B82F6">1</div>
+        <span class="text-xs font-bold uppercase tracking-widest" style="color:#3B82F6">Dimensi&oacute;n 1</span>
+      </div>
+      <h2 class="text-2xl font-bold mb-1">Firmogr&aacute;fico</h2>
+      <p class="text-sm text-gray-500 mb-7">Qui&eacute;nes son. Los datos objetivos que definen el tipo de empresa.</p>
+
+      <!-- Sector -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">Sector / industria <span class="text-gray-500 font-normal">(selecciona todos los que apliquen)</span></label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="4" id="w-sector" oninput="updateWeight('sector',this.value)" class="w-20" style="height:4px">
+            <span id="wv-sector" class="text-xs font-bold w-4 text-center" style="color:#3B82F6">4</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2" id="chips-sector"></div>
+      </div>
+
+      <!-- Tamaño -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">Tama&ntilde;o empresa (empleados)</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="3" id="w-size" oninput="updateWeight('size',this.value)" class="w-20" style="height:4px">
+            <span id="wv-size" class="text-xs font-bold w-4 text-center" style="color:#3B82F6">3</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="opts-size"></div>
+      </div>
+
+      <!-- Facturación -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">Facturaci&oacute;n anual</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="4" id="w-revenue" oninput="updateWeight('revenue',this.value)" class="w-20" style="height:4px">
+            <span id="wv-revenue" class="text-xs font-bold w-4 text-center" style="color:#3B82F6">4</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="opts-revenue"></div>
+      </div>
+
+      <!-- Ubicación -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">Ubicaci&oacute;n</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="2" id="w-geo" oninput="updateWeight('geo',this.value)" class="w-20" style="height:4px">
+            <span id="wv-geo" class="text-xs font-bold w-4 text-center" style="color:#3B82F6">2</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="opts-geo"></div>
+      </div>
+
+      <!-- Antigüedad -->
+      <div class="mb-2">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">A&ntilde;os de antig&uuml;edad</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="2" id="w-age" oninput="updateWeight('age',this.value)" class="w-20" style="height:4px">
+            <span id="wv-age" class="text-xs font-bold w-4 text-center" style="color:#3B82F6">2</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="opts-age"></div>
+      </div>
+    </div>
+    <div class="flex justify-end">
+      <button onclick="goTo(1)" class="btn-g px-8 py-3 rounded-xl text-sm">Siguiente: Tecnogr&aacute;fico &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 1: D2 Tecnográfico ===== -->
+  <div id="step-1" class="step-section hidden">
+    <div class="glass rounded-2xl p-7 mb-6">
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style="background:rgba(139,92,246,0.2);color:#8B5CF6">2</div>
+        <span class="text-xs font-bold uppercase tracking-widest" style="color:#8B5CF6">Dimensi&oacute;n 2</span>
+      </div>
+      <h2 class="text-2xl font-bold mb-1">Tecnogr&aacute;fico</h2>
+      <p class="text-sm text-gray-500 mb-7">Qu&eacute; herramientas usan. Las se&ntilde;ales de sofisticaci&oacute;n y presupuesto tecnol&oacute;gico.</p>
+
+      <!-- CRM -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">&iquest;Usan CRM?</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="3" id="w-crm" oninput="updateWeight('crm',this.value)" class="w-20" style="height:4px">
+            <span id="wv-crm" class="text-xs font-bold w-4 text-center" style="color:#8B5CF6">3</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2 mb-3" id="opts-crm"></div>
+        <div id="crm-detail" class="hidden">
+          <p class="text-xs text-gray-500 mb-2">¿Cuál?</p>
+          <div class="flex flex-wrap gap-2" id="chips-crm-type"></div>
+        </div>
+      </div>
+
+      <!-- Marketing automation -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">&iquest;Tienen herramientas de marketing automation?</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="2" id="w-mktauto" oninput="updateWeight('mktauto',this.value)" class="w-20" style="height:4px">
+            <span id="wv-mktauto" class="text-xs font-bold w-4 text-center" style="color:#8B5CF6">2</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2" id="opts-mktauto"></div>
+      </div>
+
+      <!-- Sales Nav -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">&iquest;Usan LinkedIn Sales Navigator?</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="2" id="w-salesnav" oninput="updateWeight('salesnav',this.value)" class="w-20" style="height:4px">
+            <span id="wv-salesnav" class="text-xs font-bold w-4 text-center" style="color:#8B5CF6">2</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2" id="opts-salesnav"></div>
+      </div>
+
+      <!-- Presupuesto tech -->
+      <div class="mb-2">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">Presupuesto tecnolog&iacute;a estimado</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="3" id="w-techbudget" oninput="updateWeight('techbudget',this.value)" class="w-20" style="height:4px">
+            <span id="wv-techbudget" class="text-xs font-bold w-4 text-center" style="color:#8B5CF6">3</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="opts-techbudget"></div>
+      </div>
+    </div>
+    <div class="flex justify-between">
+      <button onclick="goTo(0)" class="px-6 py-3 rounded-xl text-sm border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-all">&larr; Anterior</button>
+      <button onclick="goTo(2)" class="btn-g px-8 py-3 rounded-xl text-sm">Siguiente: Comportamental &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 2: D3 Comportamental ===== -->
+  <div id="step-2" class="step-section hidden">
+    <div class="glass rounded-2xl p-7 mb-6">
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style="background:rgba(236,72,153,0.2);color:#EC4899">3</div>
+        <span class="text-xs font-bold uppercase tracking-widest" style="color:#EC4899">Dimensi&oacute;n 3</span>
+      </div>
+      <h2 class="text-2xl font-bold mb-1">Comportamental</h2>
+      <p class="text-sm text-gray-500 mb-7">C&oacute;mo act&uacute;an. Se&ntilde;ales de comportamiento que indican disposici&oacute;n a comprar.</p>
+
+      <!-- Equipo comercial -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">&iquest;Tienen equipo comercial dedicado?</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="3" id="w-salesteam" oninput="updateWeight('salesteam',this.value)" class="w-20" style="height:4px">
+            <span id="wv-salesteam" class="text-xs font-bold w-4 text-center" style="color:#EC4899">3</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="opts-salesteam"></div>
+      </div>
+
+      <!-- Contratan externos -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">&iquest;Contratan servicios externos habitualmente?</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="4" id="w-outsource" oninput="updateWeight('outsource',this.value)" class="w-20" style="height:4px">
+            <span id="wv-outsource" class="text-xs font-bold w-4 text-center" style="color:#EC4899">4</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2" id="opts-outsource"></div>
+      </div>
+
+      <!-- CEO LinkedIn -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">&iquest;El CEO/fundador est&aacute; activo en LinkedIn?</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="2" id="w-ceolinkedin" oninput="updateWeight('ceolinkedin',this.value)" class="w-20" style="height:4px">
+            <span id="wv-ceolinkedin" class="text-xs font-bold w-4 text-center" style="color:#EC4899">2</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2" id="opts-ceolinkedin"></div>
+      </div>
+
+      <!-- Velocidad decisión -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">Velocidad de decisi&oacute;n t&iacute;pica</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="3" id="w-decspeed" oninput="updateWeight('decspeed',this.value)" class="w-20" style="height:4px">
+            <span id="wv-decspeed" class="text-xs font-bold w-4 text-center" style="color:#EC4899">3</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="opts-decspeed"></div>
+      </div>
+
+      <!-- Servicios similares -->
+      <div class="mb-2">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">&iquest;Han contratado servicios similares antes?</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso:</span>
+            <input type="range" min="1" max="5" value="3" id="w-prevbuy" oninput="updateWeight('prevbuy',this.value)" class="w-20" style="height:4px">
+            <span id="wv-prevbuy" class="text-xs font-bold w-4 text-center" style="color:#EC4899">3</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="opts-prevbuy"></div>
+      </div>
+    </div>
+    <div class="flex justify-between">
+      <button onclick="goTo(1)" class="px-6 py-3 rounded-xl text-sm border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-all">&larr; Anterior</button>
+      <button onclick="goTo(3)" class="btn-g px-8 py-3 rounded-xl text-sm">Siguiente: Se&ntilde;ales de timing &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 3: D4 Señales de timing ===== -->
+  <div id="step-3" class="step-section hidden">
+    <div class="glass rounded-2xl p-7 mb-6">
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style="background:rgba(34,211,238,0.2);color:#22D3EE">4</div>
+        <span class="text-xs font-bold uppercase tracking-widest" style="color:#22D3EE">Dimensi&oacute;n 4</span>
+      </div>
+      <h2 class="text-2xl font-bold mb-1">Se&ntilde;ales de timing</h2>
+      <p class="text-sm text-gray-500 mb-3">Por qu&eacute; ahora. Los triggers que indican que una cuenta est&aacute; lista para comprar.</p>
+      <p class="text-xs text-gray-500 mb-7 p-3 rounded-lg" style="background:rgba(34,211,238,0.05);border:1px solid rgba(34,211,238,0.12)">Selecciona los triggers que te parecen m&aacute;s relevantes para tu oferta. Cuantos m&aacute;s tenga una cuenta, mayor su puntuaci&oacute;n en esta dimensi&oacute;n.</p>
+
+      <!-- Triggers multi-select -->
+      <div class="mb-7">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-bold text-white">Triggers de compra relevantes</label>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Peso total dimensi&oacute;n:</span>
+            <input type="range" min="1" max="5" value="5" id="w-timing" oninput="updateWeight('timing',this.value)" class="w-20" style="height:4px">
+            <span id="wv-timing" class="text-xs font-bold w-4 text-center" style="color:#22D3EE">5</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2" id="chips-timing"></div>
+      </div>
+
+      <!-- Cuántos triggers mínimo -->
+      <div class="p-4 rounded-xl mb-2" style="background:rgba(34,211,238,0.05);border:1px solid rgba(34,211,238,0.1)">
+        <label class="text-sm font-bold text-white block mb-3">Triggers m&iacute;nimos para considerar una cuenta activa</label>
+        <div class="flex items-center gap-4">
+          <input type="range" min="1" max="4" value="2" id="min-triggers" oninput="document.getElementById('mtv').textContent=this.value" class="flex-1">
+          <div class="text-center w-16">
+            <span id="mtv" class="text-2xl font-bold" style="color:#22D3EE">2</span>
+            <div class="text-xs text-gray-500">triggers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-between">
+      <button onclick="goTo(2)" class="px-6 py-3 rounded-xl text-sm border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-all">&larr; Anterior</button>
+      <button onclick="goTo(4)" class="btn-g px-8 py-3 rounded-xl text-sm">Ver mi ICP &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 4: Lead capture + Output ===== -->
+  <div id="step-4" class="step-section hidden">
+
+    <!-- Lead form first (gate) -->
+    <div id="lead-form-section" class="glass rounded-2xl p-7 mb-6 scale-in pulse-glow">
+      <div class="text-center mb-6">
+        <div class="text-4xl mb-3">&#127775;</div>
+        <h2 class="text-2xl font-bold mb-2">Tu ICP est&aacute; listo</h2>
+        <p class="text-sm text-gray-400">Introduce tus datos para ver el perfil completo, la tabla de scoring y las instrucciones de uso.</p>
+      </div>
+      <form id="lead-form" onsubmit="submitLead(event)" class="space-y-4">
+        <div>
+          <label class="text-xs text-gray-500 uppercase tracking-wider block mb-1.5">Tu nombre</label>
+          <input type="text" id="f-nombre" required placeholder="Xavi Fortuna" class="w-full px-4 py-3 rounded-xl border border-white/10 text-white text-sm placeholder-gray-600 focus:border-purple focus:outline-none transition-colors" style="background:#0C0A1D;border-color:rgba(255,255,255,0.08)">
+        </div>
+        <div>
+          <label class="text-xs text-gray-500 uppercase tracking-wider block mb-1.5">Tu email</label>
+          <input type="email" id="f-email" required placeholder="xavi@empresa.com" class="w-full px-4 py-3 rounded-xl border border-white/10 text-white text-sm placeholder-gray-600 focus:border-purple focus:outline-none transition-colors" style="background:#0C0A1D;border-color:rgba(255,255,255,0.08)">
+        </div>
+        <div>
+          <label class="text-xs text-gray-500 uppercase tracking-wider block mb-1.5">Tu empresa</label>
+          <input type="text" id="f-empresa" required placeholder="Acme S.L." class="w-full px-4 py-3 rounded-xl border border-white/10 text-white text-sm placeholder-gray-600 focus:border-purple focus:outline-none transition-colors" style="background:#0C0A1D;border-color:rgba(255,255,255,0.08)">
+        </div>
+        <input type="hidden" id="f-source" value="plantilla-icp-4-dimensiones">
+        <input type="hidden" id="f-sector" value="">
+        <input type="hidden" id="f-size" value="">
+        <input type="hidden" id="f-score" value="">
+        <button type="submit" id="submit-btn" class="btn-g w-full py-3.5 rounded-xl text-sm mt-2">Ver mi ICP completo</button>
+        <p class="text-center text-xs text-gray-600">Sin spam. Solo tu ICP.</p>
+      </form>
+    </div>
+
+    <!-- OUTPUT (hidden until form submitted) -->
+    <div id="output-section" class="hidden">
+
+      <!-- Score summary -->
+      <div class="icp-card rounded-2xl p-7 mb-6 scale-in">
+        <div class="flex flex-col sm:flex-row items-center gap-6 mb-6">
+          <div class="relative">
+            <svg width="140" height="140" viewBox="0 0 140 140">
+              <circle cx="70" cy="70" r="58" fill="none" stroke="#1A1740" stroke-width="10"/>
+              <circle id="score-ring" cx="70" cy="70" r="58" fill="none" stroke="url(#sg)" stroke-width="10" stroke-linecap="round" stroke-dasharray="364" stroke-dashoffset="364" transform="rotate(-90 70 70)" style="transition:stroke-dashoffset .8s ease"/>
+              <defs><linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#22D3EE"/><stop offset="50%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+              <text id="score-num" x="70" y="65" text-anchor="middle" fill="#fff" font-size="30" font-weight="800" font-family="DM Sans,sans-serif">0</text>
+              <text x="70" y="83" text-anchor="middle" fill="#666" font-size="11" font-family="DM Sans,sans-serif">/ 100</text>
+            </svg>
+          </div>
+          <div class="flex-1 text-center sm:text-left">
+            <div id="icp-tier-badge" class="text-4xl font-black mb-1" style="font-family:'DM Sans',sans-serif">&#8212;</div>
+            <div id="icp-tier-label" class="text-sm text-gray-400 mb-3">Calculando...</div>
+            <div id="icp-headline" class="text-base font-bold text-white">Tu ICP definido</div>
+          </div>
+        </div>
+
+        <!-- Dimension scores -->
+        <div class="space-y-3" id="dim-scores"></div>
+      </div>
+
+      <!-- ICP Profile Card -->
+      <div id="icp-profile-card" class="glass rounded-2xl p-7 mb-6">
+        <div class="flex items-center justify-between mb-5">
+          <h3 class="text-lg font-bold">Perfil ICP &mdash; Resumen ejecutivo</h3>
+          <button onclick="printICP()" class="text-xs text-gray-500 hover:text-gray-300 transition-colors flex items-center gap-1.5 border border-white/10 rounded-lg px-3 py-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17H7a2 2 0 01-2-2V7a2 2 0 012-2h3m4 0h3a2 2 0 012 2v8a2 2 0 01-2 2zM9 3v4m6-4v4"/></svg>
+            Imprimir</button>
+        </div>
+        <div id="profile-content" class="space-y-4 text-sm"></div>
+      </div>
+
+      <!-- Scoring table -->
+      <div class="glass rounded-2xl p-7 mb-6">
+        <div class="flex items-center justify-between mb-5">
+          <h3 class="text-lg font-bold">Tabla de scoring</h3>
+          <button onclick="copyScoring()" id="copy-scoring-btn" class="text-xs text-gray-500 hover:text-gray-300 transition-colors flex items-center gap-1.5 border border-white/10 rounded-lg px-3 py-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
+            Copiar</button>
+        </div>
+        <div id="scoring-table" class="space-y-2 text-sm"></div>
+        <div class="mt-4 p-3 rounded-lg text-xs text-gray-400" style="background:rgba(139,92,246,0.07);border:1px solid rgba(139,92,246,0.15)">
+          <span id="example-score-text"></span>
+        </div>
+      </div>
+
+      <!-- Tips de uso -->
+      <div class="glass rounded-2xl p-7 mb-6">
+        <h3 class="text-lg font-bold mb-5">C&oacute;mo usar este scoring en tu outreach</h3>
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background:rgba(59,130,246,0.2);color:#3B82F6">1</div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">Construye tu lista de cuentas objetivo con filtros</div>
+              <p class="text-xs text-gray-500">Exporta los criterios firmogr&aacute;ficos a LinkedIn Sales Navigator o Apollo. Filtra por sector, tama&ntilde;o y ubicaci&oacute;n exactamente como los has definido. No &ldquo;empresas medianas&rdquo; &mdash; 200-500 empleados en Espa&ntilde;a, sector tecnol&oacute;gico, fundadas hace m&aacute;s de 3 a&ntilde;os.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background:rgba(139,92,246,0.2);color:#8B5CF6">2</div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">Prioriza con el scoring antes de entrar en una cuenta</div>
+              <p class="text-xs text-gray-500">Antes de escribir el primer email, puntúa la cuenta según esta tabla. Si no llega a 60/100, pasa a la siguiente. El tiempo que ahorras en cuentas mal cualificadas lo inviertes en personalizar los mensajes a las cuentas A.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0" style="background:rgba(236,72,153,0.2);color:#EC4899">3</div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">Usa los triggers de timing como gancho de personalizaci&oacute;n</div>
+              <p class="text-xs text-gray-500">Cuando detectes un trigger (nueva contrataci&oacute;n comercial, ronda de inversi&oacute;n, nuevo CEO), men&shy;ci&oacute;nalo en la primera l&iacute;nea. &ldquo;Vi que acabas de incorporar a tres comerciales&rdquo; abre m&aacute;s puertas que cualquier propuesta de valor gen&eacute;rica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA section -->
+      <div id="cta-section" class="grid sm:grid-cols-2 gap-4 mb-8">
+        <div class="text-center p-6 rounded-2xl" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05)">
+          <p class="text-sm text-gray-400 mb-1">Tienes el ICP. Ahora necesitas la infraestructura.</p>
+          <p class="text-xs text-gray-600 mb-4">Haz que tu APEX OS&trade; arranque en 90 d&iacute;as.</p>
+          <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-xl text-sm w-full text-center">Agendar sesi&oacute;n estrat&eacute;gica</a>
+          <p class="text-xs text-gray-600 mt-2">30 min. Sin compromiso.</p>
+        </div>
+        <div class="text-center p-6 rounded-2xl" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05)">
+          <p class="text-sm text-gray-400 mb-1">Lee el art&iacute;culo completo sobre ICP en 4 dimensiones</p>
+          <p class="text-xs text-gray-600 mb-4">C&oacute;mo pasar de &ldquo;empresas medianas&rdquo; a 380 cuentas con nombre</p>
+          <a href="../blog/icp-4-dimensiones.html" class="inline-block px-6 py-3 rounded-xl text-sm w-full text-center border transition-colors" style="border-color:rgba(139,92,246,0.35);color:#8B5CF6">Leer el art&iacute;culo</a>
+          <p class="text-xs text-gray-600 mt-2">Frameworks y sistemas</p>
+        </div>
+      </div>
+
+      <!-- Reset -->
+      <div class="text-center">
+        <button onclick="resetAll()" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Empezar de nuevo</button>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+// ─── STATE ────────────────────────────────────────────────────────────────
+var state = {
+  // D1
+  sectors: [],
+  size: null,
+  revenue: null,
+  geo: null,
+  age: null,
+  // D2
+  crm: null,
+  crmType: [],
+  mktauto: null,
+  salesnav: null,
+  techbudget: null,
+  // D3
+  salesteam: null,
+  outsource: null,
+  ceolinkedin: null,
+  decspeed: null,
+  prevbuy: null,
+  // D4
+  timingTriggers: [],
+  minTriggers: 2,
+  // weights
+  weights: {
+    sector:4, size:3, revenue:4, geo:2, age:2,
+    crm:3, mktauto:2, salesnav:2, techbudget:3,
+    salesteam:3, outsource:4, ceolinkedin:2, decspeed:3, prevbuy:3,
+    timing:5
+  }
+};
+
+var currentStep = 0;
+
+// ─── DATA ─────────────────────────────────────────────────────────────────
+var SECTORS = ['Consultor\u00eda','Agencia','Legal','Tech','Marketing','Financiero','RR.HH.','Otro'];
+
+var SIZE_OPTS = [
+  {val:'10-50',   label:'10 – 50',   pts:2},
+  {val:'51-200',  label:'51 – 200',  pts:4},
+  {val:'201-500', label:'201 – 500', pts:5},
+  {val:'500+',    label:'500+',      pts:3}
+];
+var REVENUE_OPTS = [
+  {val:'<500K',      label:'&lt;500K',         pts:2},
+  {val:'500K-2M',    label:'500K – 2M',        pts:3},
+  {val:'2M-10M',     label:'2M – 10M',         pts:5},
+  {val:'10M+',       label:'10M+',             pts:4}
+];
+var GEO_OPTS = [
+  {val:'Espana', label:'Espa\u00f1a', pts:5},
+  {val:'LATAM',  label:'LATAM',      pts:4},
+  {val:'Europa', label:'Europa',     pts:3},
+  {val:'Global', label:'Global',     pts:2}
+];
+var AGE_OPTS = [
+  {val:'<2',   label:'&lt;2 a\u00f1os', pts:2},
+  {val:'2-5',  label:'2 – 5 a\u00f1os', pts:3},
+  {val:'5-10', label:'5 – 10 a\u00f1os',pts:5},
+  {val:'10+',  label:'10+ a\u00f1os',   pts:4}
+];
+var CRM_OPTS = [
+  {val:'Si',   label:'S\u00ed',  pts:5},
+  {val:'No',   label:'No',      pts:1},
+  {val:'NoSe', label:'No s\u00e9',pts:2}
+];
+var CRM_TYPE = ['HubSpot','Salesforce','Pipedrive','Propio','Otro'];
+var MKTAUTO_OPTS = [
+  {val:'Si', label:'S\u00ed', pts:5},
+  {val:'No', label:'No',     pts:1}
+];
+var SALESNAV_OPTS = [
+  {val:'Si', label:'S\u00ed', pts:5},
+  {val:'No', label:'No',     pts:1}
+];
+var TECHBUDGET_OPTS = [
+  {val:'<1K',   label:'&lt;1K/mes',  pts:1},
+  {val:'1-5K',  label:'1 – 5K/mes', pts:3},
+  {val:'5-20K', label:'5 – 20K/mes',pts:5},
+  {val:'20K+',  label:'20K+/mes',   pts:5}
+];
+var SALESTEAM_OPTS = [
+  {val:'No',    label:'Sin equipo',   pts:1},
+  {val:'1',     label:'1 persona',    pts:3},
+  {val:'2-5',   label:'2 – 5',       pts:5},
+  {val:'5+',    label:'5+',          pts:4}
+];
+var OUTSOURCE_OPTS = [
+  {val:'Raro',      label:'Raro',      pts:1},
+  {val:'AVeces',    label:'A veces',   pts:3},
+  {val:'Frecuente', label:'Frecuente', pts:5}
+];
+var CEOLINKEDIN_OPTS = [
+  {val:'No',         label:'No',         pts:1},
+  {val:'Poco',       label:'Poco',       pts:3},
+  {val:'MuyActivo',  label:'Muy activo', pts:5}
+];
+var DECSPEED_OPTS = [
+  {val:'<1sem',    label:'&lt;1 semana',  pts:5},
+  {val:'1-4sem',   label:'1 – 4 semanas', pts:4},
+  {val:'1-3mes',   label:'1 – 3 meses',  pts:3},
+  {val:'3mes+',    label:'3+ meses',      pts:1}
+];
+var PREVBUY_OPTS = [
+  {val:'No',            label:'No',                     pts:2},
+  {val:'SiHaceTiempo',  label:'S\u00ed, hace tiempo',   pts:3},
+  {val:'SiReciente',    label:'S\u00ed, recientemente', pts:5}
+];
+var TIMING_TRIGGERS = [
+  {val:'crecimiento',    label:'Crecimiento reciente (ronda/expansi\u00f3n)',     pts:5},
+  {val:'nuevo-ceo',      label:'Nuevo CEO / Director Comercial',                  pts:5},
+  {val:'contrat-comerc', label:'Contrataci\u00f3n de equipo comercial',           pts:4},
+  {val:'nuevo-producto', label:'Lanzamiento nuevo producto / servicio',           pts:4},
+  {val:'perdida-cliente',label:'P\u00e9rdida de cliente grande',                  pts:4},
+  {val:'estancamiento',  label:'Estancamiento en ventas',                         pts:3},
+  {val:'evento-sector',  label:'Evento de sector pr\u00f3ximo',                   pts:2},
+  {val:'fin-contrato',   label:'Fin de contrato con competidor',                  pts:5}
+];
+
+// ─── RENDER HELPERS ───────────────────────────────────────────────────────
+function renderChips(containerId, items, stateKey, color, multi){
+  var c = document.getElementById(containerId);
+  if(!c) return;
+  c.innerHTML = '';
+  items.forEach(function(item){
+    var val = typeof item === 'string' ? item : item.val;
+    var label = typeof item === 'string' ? item : item.label;
+    var sel = multi ? state[stateKey].indexOf(val) > -1 : state[stateKey] === val;
+    var chip = document.createElement('span');
+    chip.className = 'chip' + (sel ? ' sel-'+color : '');
+    chip.innerHTML = label;
+    chip.addEventListener('click', function(){
+      if(multi){
+        var idx = state[stateKey].indexOf(val);
+        if(idx > -1) state[stateKey].splice(idx,1);
+        else state[stateKey].push(val);
+      } else {
+        state[stateKey] = val;
+      }
+      renderChips(containerId, items, stateKey, color, multi);
+    });
+    c.appendChild(chip);
+  });
+}
+
+function renderOpts(containerId, items, stateKey, color){
+  var c = document.getElementById(containerId);
+  if(!c) return;
+  c.innerHTML = '';
+  items.forEach(function(item){
+    var sel = state[stateKey] === item.val;
+    var div = document.createElement('div');
+    div.className = 'opt-card' + (sel ? ' selected-'+color : '');
+    div.innerHTML = '<div class="opt-dot"></div><span class="text-sm">' + item.label + '</span>';
+    div.addEventListener('click', function(){
+      state[stateKey] = item.val;
+      renderOpts(containerId, items, stateKey, color);
+      // CRM detail toggle
+      if(stateKey === 'crm'){
+        var det = document.getElementById('crm-detail');
+        if(det) det.className = state.crm === 'Si' ? '' : 'hidden';
+      }
+    });
+    c.appendChild(div);
+  });
+}
+
+function updateWeight(key, val){
+  state.weights[key] = parseInt(val);
+  var el = document.getElementById('wv-'+key);
+  if(el) el.textContent = val;
+}
+window.updateWeight = updateWeight;
+
+// ─── NAVIGATION ───────────────────────────────────────────────────────────
+function goTo(step){
+  // hide current
+  var current = document.getElementById('step-'+currentStep);
+  if(current) current.classList.add('hidden');
+  // mark done
+  var sd = document.getElementById('sd-'+currentStep);
+  if(sd){ sd.classList.remove('active'); sd.classList.add('done'); }
+  currentStep = step;
+  var next = document.getElementById('step-'+step);
+  if(next){
+    next.classList.remove('hidden');
+    next.className = next.className.replace(' hidden','') + ' slide-right';
+    setTimeout(function(){ next.className = next.className.replace(' slide-right',''); },450);
+  }
+  var sdNew = document.getElementById('sd-'+step);
+  if(sdNew){ sdNew.classList.remove('done'); sdNew.classList.add('active'); }
+  window.scrollTo({top:0, behavior:'smooth'});
+  // If reaching output step, pre-fill hidden fields
+  if(step === 4){
+    document.getElementById('f-sector').value = state.sectors.join(',');
+    document.getElementById('f-size').value = state.size || '';
+    document.getElementById('f-score').value = computeTotalScore();
+  }
+}
+window.goTo = goTo;
+
+// ─── SCORING ──────────────────────────────────────────────────────────────
+function scoreSingle(stateKey, opts){
+  var val = state[stateKey];
+  if(!val) return 0;
+  var found = opts.find(function(o){ return o.val === val; });
+  return found ? found.pts : 0;
+}
+
+function scoreMulti(stateKey, items){
+  var sel = state[stateKey];
+  if(!sel || sel.length === 0) return 0;
+  var total = sel.reduce(function(acc, v){
+    var f = items.find(function(i){ return (typeof i === 'string' ? i : i.val) === v; });
+    var pts = f && f.pts ? f.pts : 3;
+    return acc + pts;
+  }, 0);
+  var max = items.length > 0 ? Math.max.apply(null, items.map(function(i){ return i.pts || 3; })) * Math.min(sel.length, items.length) : 1;
+  return Math.min(5, Math.round((total / (items.length * 5)) * 5 * 2));
+}
+
+function computeDimScore(keys){
+  var totalWeighted = 0, maxWeighted = 0;
+  keys.forEach(function(k){
+    var w = state.weights[k.key] || 1;
+    totalWeighted += (k.pts || 0) * w;
+    maxWeighted += 5 * w;
+  });
+  if(maxWeighted === 0) return 0;
+  return Math.round((totalWeighted / maxWeighted) * 100);
+}
+
+function computeTimingScore(){
+  var sel = state.timingTriggers;
+  if(sel.length === 0) return 0;
+  var total = sel.reduce(function(acc, v){
+    var f = TIMING_TRIGGERS.find(function(t){ return t.val === v; });
+    return acc + (f ? f.pts : 3);
+  }, 0);
+  var maxPossible = TIMING_TRIGGERS.reduce(function(acc, t){ return acc + t.pts; }, 0);
+  return Math.round((total / maxPossible) * 100);
+}
+
+function computeTotalScore(){
+  var d1keys = [
+    {key:'sector',  pts: state.sectors.length > 0 ? 5 : 0},
+    {key:'size',    pts: scoreSingle('size', SIZE_OPTS)},
+    {key:'revenue', pts: scoreSingle('revenue', REVENUE_OPTS)},
+    {key:'geo',     pts: scoreSingle('geo', GEO_OPTS)},
+    {key:'age',     pts: scoreSingle('age', AGE_OPTS)}
+  ];
+  var d2keys = [
+    {key:'crm',        pts: scoreSingle('crm', CRM_OPTS)},
+    {key:'mktauto',    pts: scoreSingle('mktauto', MKTAUTO_OPTS)},
+    {key:'salesnav',   pts: scoreSingle('salesnav', SALESNAV_OPTS)},
+    {key:'techbudget', pts: scoreSingle('techbudget', TECHBUDGET_OPTS)}
+  ];
+  var d3keys = [
+    {key:'salesteam',   pts: scoreSingle('salesteam', SALESTEAM_OPTS)},
+    {key:'outsource',   pts: scoreSingle('outsource', OUTSOURCE_OPTS)},
+    {key:'ceolinkedin', pts: scoreSingle('ceolinkedin', CEOLINKEDIN_OPTS)},
+    {key:'decspeed',    pts: scoreSingle('decspeed', DECSPEED_OPTS)},
+    {key:'prevbuy',     pts: scoreSingle('prevbuy', PREVBUY_OPTS)}
+  ];
+
+  var d1 = computeDimScore(d1keys);
+  var d2 = computeDimScore(d2keys);
+  var d3 = computeDimScore(d3keys);
+  var d4 = computeTimingScore();
+
+  // Weighted average of dimensions
+  var total = Math.round((d1 * 0.25) + (d2 * 0.20) + (d3 * 0.30) + (d4 * 0.25));
+  return {total: total, d1: d1, d2: d2, d3: d3, d4: d4};
+}
+
+// ─── LEAD FORM ────────────────────────────────────────────────────────────
+window.submitLead = function(e){
+  e.preventDefault();
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px"><svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.3)" stroke-width="4"/><path fill="rgba(255,255,255,0.8)" d="M4 12a8 8 0 018-8v8H4z"/></svg>Generando tu ICP...</span>';
+
+  var scores = computeTotalScore();
+  document.getElementById('f-score').value = scores.total;
+
+  var payload = {
+    source: 'plantilla-icp-4-dimensiones',
+    nombre: document.getElementById('f-nombre').value,
+    email: document.getElementById('f-email').value,
+    empresa: document.getElementById('f-empresa').value,
+    icp_sector: state.sectors.join(','),
+    icp_size: state.size || '',
+    icp_score: scores.total,
+    icp_state: JSON.stringify({
+      sectors: state.sectors,
+      size: state.size,
+      revenue: state.revenue,
+      geo: state.geo,
+      crm: state.crm,
+      timing: state.timingTriggers
+    })
+  };
+
+  fetch('https://hook.eu2.make.com/REPLACE_WITH_WEBHOOK_ID', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(payload)
+  }).catch(function(){});
+
+  setTimeout(function(){
+    document.getElementById('lead-form-section').classList.add('hidden');
+    renderOutput(scores);
+    document.getElementById('output-section').classList.remove('hidden');
+    document.getElementById('output-section').classList.add('fade-in');
+  }, 900);
+};
+
+// ─── OUTPUT RENDERING ─────────────────────────────────────────────────────
+function renderOutput(scores){
+  // Score ring
+  var circumference = 364;
+  var offset = circumference - (circumference * scores.total / 100);
+  setTimeout(function(){
+    document.getElementById('score-ring').setAttribute('stroke-dashoffset', offset);
+    document.getElementById('score-num').textContent = scores.total;
+  }, 100);
+
+  // Tier
+  var tier, label, color, headline;
+  if(scores.total >= 80){
+    tier='A'; label='ICP ideal \u2014 prioridad m\u00e1xima'; color='#22D3EE';
+    headline='Este perfil de empresa tiene todo lo que necesitas para cerrar r\u00e1pido.';
+  } else if(scores.total >= 60){
+    tier='B'; label='Buen fit \u2014 merece secuencia completa'; color='#3B82F6';
+    headline='S\u00f3lido. Personaliza el outreach y cualifica en la primera llamada.';
+  } else if(scores.total >= 40){
+    tier='C'; label='Fit parcial \u2014 cualifica m\u00e1s antes de invertir'; color='#8B5CF6';
+    headline='Puede funcionar, pero aseg\u00farate de confirmar los criterios cr\u00edticos.';
+  } else {
+    tier='D'; label='Bajo encaje \u2014 no priorizar'; color='#EC4899';
+    headline='Invierte tu tiempo en cuentas mejor calificadas. Este perfil probablemente no va a cerrar.';
+  }
+  document.getElementById('icp-tier-badge').textContent = tier;
+  document.getElementById('icp-tier-badge').style.color = color;
+  document.getElementById('icp-tier-label').textContent = label;
+  document.getElementById('icp-tier-label').style.color = color;
+  document.getElementById('icp-headline').textContent = headline;
+
+  // Dimension bars
+  var dims = [
+    {name:'D1 Firmogr\u00e1fico',    score:scores.d1, color:'#3B82F6'},
+    {name:'D2 Tecnogr\u00e1fico',    score:scores.d2, color:'#8B5CF6'},
+    {name:'D3 Comportamental',        score:scores.d3, color:'#EC4899'},
+    {name:'D4 Timing',                score:scores.d4, color:'#22D3EE'}
+  ];
+  var dimEl = document.getElementById('dim-scores');
+  dimEl.innerHTML = '';
+  dims.forEach(function(d){
+    dimEl.innerHTML +=
+      '<div class="flex items-center gap-3">' +
+        '<div class="w-32 text-xs text-gray-500 shrink-0">' + d.name + '</div>' +
+        '<div class="flex-1 score-bar"><div class="score-fill" style="width:'+d.score+'%;background:'+d.color+'"></div></div>' +
+        '<div class="text-xs font-bold w-8 text-right" style="color:'+d.color+'">' + d.score + '</div>' +
+      '</div>';
+  });
+
+  // Profile card
+  renderProfile();
+
+  // Scoring table
+  renderScoringTable(scores);
+
+  // Example score
+  var ex = document.getElementById('example-score-text');
+  ex.innerHTML = 'Ejemplo: una empresa con tu perfil ICP ideal obtendr\u00eda aproximadamente <strong style="color:#8B5CF6">' + scores.total + '/100 puntos</strong>. Cuentas por encima de 60 merecen secuencia completa; por encima de 80 son contacto inmediato.';
+}
+
+function getLabel(opts, val){
+  if(!val) return '\u2014';
+  var found = opts.find(function(o){ return o.val === val; });
+  if(!found) return val;
+  var tmp = document.createElement('span');
+  tmp.innerHTML = found.label;
+  return tmp.textContent;
+}
+
+function renderProfile(){
+  var el = document.getElementById('profile-content');
+  el.innerHTML = '';
+
+  var rows = [
+    {dim:'D1 Firmogr\u00e1fico', color:'#3B82F6', items:[
+      {label:'Sectores', value: state.sectors.length > 0 ? state.sectors.join(', ') : '\u2014'},
+      {label:'Tama\u00f1o', value: getLabel(SIZE_OPTS, state.size)},
+      {label:'Facturaci\u00f3n', value: getLabel(REVENUE_OPTS, state.revenue)},
+      {label:'Ubicaci\u00f3n', value: getLabel(GEO_OPTS, state.geo)},
+      {label:'Antig\u00fcedad', value: getLabel(AGE_OPTS, state.age)}
+    ]},
+    {dim:'D2 Tecnogr\u00e1fico', color:'#8B5CF6', items:[
+      {label:'CRM', value: getLabel(CRM_OPTS, state.crm) + (state.crm === 'Si' && state.crmType.length > 0 ? ' (' + state.crmType.join('/') + ')' : '')},
+      {label:'Mkt automation', value: getLabel(MKTAUTO_OPTS, state.mktauto)},
+      {label:'Sales Navigator', value: getLabel(SALESNAV_OPTS, state.salesnav)},
+      {label:'Presupuesto tech', value: getLabel(TECHBUDGET_OPTS, state.techbudget)}
+    ]},
+    {dim:'D3 Comportamental', color:'#EC4899', items:[
+      {label:'Equipo comercial', value: getLabel(SALESTEAM_OPTS, state.salesteam)},
+      {label:'Contratan ext.', value: getLabel(OUTSOURCE_OPTS, state.outsource)},
+      {label:'CEO en LinkedIn', value: getLabel(CEOLINKEDIN_OPTS, state.ceolinkedin)},
+      {label:'Velocidad decisi\u00f3n', value: getLabel(DECSPEED_OPTS, state.decspeed)},
+      {label:'Compras previas', value: getLabel(PREVBUY_OPTS, state.prevbuy)}
+    ]},
+    {dim:'D4 Se\u00f1ales de timing', color:'#22D3EE', items:[
+      {label:'Triggers activos', value: state.timingTriggers.length > 0 ? state.timingTriggers.map(function(v){var f=TIMING_TRIGGERS.find(function(t){return t.val===v;});return f?f.label:v;}).join(', ') : '\u2014'},
+      {label:'M\u00edn. triggers requeridos', value: String(document.getElementById('min-triggers').value)}
+    ]}
+  ];
+
+  rows.forEach(function(r){
+    var block = document.createElement('div');
+    block.className = 'p-4 rounded-xl';
+    block.style.cssText = 'background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05)';
+    var header = '<div class="text-xs font-bold mb-3 uppercase tracking-wider" style="color:'+r.color+'">'+r.dim+'</div>';
+    var body = r.items.map(function(item){
+      return '<div class="flex justify-between gap-2 text-xs py-1 border-b border-white/5 last:border-0">' +
+        '<span class="text-gray-500">' + item.label + '</span>' +
+        '<span class="text-white font-medium text-right max-w-[60%]">' + item.value + '</span>' +
+        '</div>';
+    }).join('');
+    block.innerHTML = header + body;
+    el.appendChild(block);
+  });
+}
+
+function renderScoringTable(scores){
+  var el = document.getElementById('scoring-table');
+  el.innerHTML = '';
+
+  var allCriteria = [
+    {dim:'D1', name:'Sector / industria', color:'#3B82F6', maxPts:5, weight:state.weights.sector,
+     yourVal: state.sectors.length > 0 ? state.sectors.join(', ') : '\u2014',
+     pts: state.sectors.length > 0 ? 5 : 0},
+    {dim:'D1', name:'Tama\u00f1o empresa', color:'#3B82F6', maxPts:5, weight:state.weights.size,
+     yourVal: getLabel(SIZE_OPTS, state.size), pts: scoreSingle('size', SIZE_OPTS)},
+    {dim:'D1', name:'Facturaci\u00f3n anual', color:'#3B82F6', maxPts:5, weight:state.weights.revenue,
+     yourVal: getLabel(REVENUE_OPTS, state.revenue), pts: scoreSingle('revenue', REVENUE_OPTS)},
+    {dim:'D1', name:'Ubicaci\u00f3n', color:'#3B82F6', maxPts:5, weight:state.weights.geo,
+     yourVal: getLabel(GEO_OPTS, state.geo), pts: scoreSingle('geo', GEO_OPTS)},
+    {dim:'D1', name:'Antig\u00fcedad', color:'#3B82F6', maxPts:5, weight:state.weights.age,
+     yourVal: getLabel(AGE_OPTS, state.age), pts: scoreSingle('age', AGE_OPTS)},
+    {dim:'D2', name:'CRM', color:'#8B5CF6', maxPts:5, weight:state.weights.crm,
+     yourVal: getLabel(CRM_OPTS, state.crm), pts: scoreSingle('crm', CRM_OPTS)},
+    {dim:'D2', name:'Mkt automation', color:'#8B5CF6', maxPts:5, weight:state.weights.mktauto,
+     yourVal: getLabel(MKTAUTO_OPTS, state.mktauto), pts: scoreSingle('mktauto', MKTAUTO_OPTS)},
+    {dim:'D2', name:'Sales Navigator', color:'#8B5CF6', maxPts:5, weight:state.weights.salesnav,
+     yourVal: getLabel(SALESNAV_OPTS, state.salesnav), pts: scoreSingle('salesnav', SALESNAV_OPTS)},
+    {dim:'D2', name:'Presupuesto tech', color:'#8B5CF6', maxPts:5, weight:state.weights.techbudget,
+     yourVal: getLabel(TECHBUDGET_OPTS, state.techbudget), pts: scoreSingle('techbudget', TECHBUDGET_OPTS)},
+    {dim:'D3', name:'Equipo comercial', color:'#EC4899', maxPts:5, weight:state.weights.salesteam,
+     yourVal: getLabel(SALESTEAM_OPTS, state.salesteam), pts: scoreSingle('salesteam', SALESTEAM_OPTS)},
+    {dim:'D3', name:'Contrat. externos', color:'#EC4899', maxPts:5, weight:state.weights.outsource,
+     yourVal: getLabel(OUTSOURCE_OPTS, state.outsource), pts: scoreSingle('outsource', OUTSOURCE_OPTS)},
+    {dim:'D3', name:'CEO en LinkedIn', color:'#EC4899', maxPts:5, weight:state.weights.ceolinkedin,
+     yourVal: getLabel(CEOLINKEDIN_OPTS, state.ceolinkedin), pts: scoreSingle('ceolinkedin', CEOLINKEDIN_OPTS)},
+    {dim:'D3', name:'Velocidad decisi\u00f3n', color:'#EC4899', maxPts:5, weight:state.weights.decspeed,
+     yourVal: getLabel(DECSPEED_OPTS, state.decspeed), pts: scoreSingle('decspeed', DECSPEED_OPTS)},
+    {dim:'D3', name:'Compras previas', color:'#EC4899', maxPts:5, weight:state.weights.prevbuy,
+     yourVal: getLabel(PREVBUY_OPTS, state.prevbuy), pts: scoreSingle('prevbuy', PREVBUY_OPTS)},
+    {dim:'D4', name:'Triggers de timing', color:'#22D3EE', maxPts:5, weight:state.weights.timing,
+     yourVal: state.timingTriggers.length + ' detectado(s)', pts: Math.round(computeTimingScore() / 20)}
+  ];
+
+  // Header
+  el.innerHTML = '<div class="grid grid-cols-12 gap-2 text-xs text-gray-600 uppercase tracking-wider pb-2 border-b border-white/5 mb-1">' +
+    '<div class="col-span-1">Dim</div>' +
+    '<div class="col-span-4">Criterio</div>' +
+    '<div class="col-span-3">Tu ICP ideal</div>' +
+    '<div class="col-span-2 text-center">Peso</div>' +
+    '<div class="col-span-2 text-center">Pts (m\u00e1x 5)</div>' +
+    '</div>';
+
+  allCriteria.forEach(function(c){
+    var row = document.createElement('div');
+    row.className = 'grid grid-cols-12 gap-2 text-xs py-2 border-b border-white/[0.04] items-center';
+    var barW = Math.round((c.pts / 5) * 100);
+    row.innerHTML =
+      '<div class="col-span-1 font-bold" style="color:'+c.color+'">'+c.dim+'</div>' +
+      '<div class="col-span-4 text-gray-300">'+c.name+'</div>' +
+      '<div class="col-span-3 text-gray-400 truncate">'+c.yourVal+'</div>' +
+      '<div class="col-span-2 text-center text-gray-500">'+c.weight+'x</div>' +
+      '<div class="col-span-2">' +
+        '<div class="flex items-center gap-1 justify-end">' +
+          '<div class="w-8 h-1.5 rounded-full overflow-hidden" style="background:#1A1740"><div style="width:'+barW+'%;height:100%;background:'+c.color+';border-radius:4px"></div></div>' +
+          '<span class="font-bold" style="color:'+c.color+'">'+c.pts+'</span>' +
+        '</div>' +
+      '</div>';
+    el.appendChild(row);
+  });
+}
+
+// ─── COPY SCORING ─────────────────────────────────────────────────────────
+window.copyScoring = function(){
+  var scores = computeTotalScore();
+  var lines = ['TABLA DE SCORING ICP — 4 DIMENSIONES', '='.repeat(45), ''];
+  lines.push('PUNTUACI\u00d3N TOTAL: ' + scores.total + '/100');
+  lines.push('D1 Firmogr\u00e1fico: ' + scores.d1 + '/100');
+  lines.push('D2 Tecnogr\u00e1fico: ' + scores.d2 + '/100');
+  lines.push('D3 Comportamental: ' + scores.d3 + '/100');
+  lines.push('D4 Timing: ' + scores.d4 + '/100');
+  lines.push('');
+  lines.push('CRITERIOS:');
+  lines.push('Sectores objetivo: ' + (state.sectors.join(', ') || '\u2014'));
+  lines.push('Tama\u00f1o empresa: ' + getLabel(SIZE_OPTS, state.size));
+  lines.push('Facturaci\u00f3n: ' + getLabel(REVENUE_OPTS, state.revenue));
+  lines.push('Ubicaci\u00f3n: ' + getLabel(GEO_OPTS, state.geo));
+  lines.push('Antig\u00fcedad: ' + getLabel(AGE_OPTS, state.age));
+  lines.push('CRM: ' + getLabel(CRM_OPTS, state.crm));
+  lines.push('Marketing automation: ' + getLabel(MKTAUTO_OPTS, state.mktauto));
+  lines.push('Sales Navigator: ' + getLabel(SALESNAV_OPTS, state.salesnav));
+  lines.push('Presupuesto tech: ' + getLabel(TECHBUDGET_OPTS, state.techbudget));
+  lines.push('Equipo comercial: ' + getLabel(SALESTEAM_OPTS, state.salesteam));
+  lines.push('Contratan externos: ' + getLabel(OUTSOURCE_OPTS, state.outsource));
+  lines.push('CEO LinkedIn: ' + getLabel(CEOLINKEDIN_OPTS, state.ceolinkedin));
+  lines.push('Velocidad decisi\u00f3n: ' + getLabel(DECSPEED_OPTS, state.decspeed));
+  lines.push('Compras previas: ' + getLabel(PREVBUY_OPTS, state.prevbuy));
+  lines.push('Triggers de timing: ' + (state.timingTriggers.length > 0 ? state.timingTriggers.map(function(v){ var f=TIMING_TRIGGERS.find(function(t){return t.val===v;}); return f?f.label:v; }).join(', ') : '\u2014'));
+  lines.push('');
+  lines.push('CLASIFICACI\u00d3N:');
+  lines.push('A (80-100): Prioridad m\u00e1xima — contacto inmediato');
+  lines.push('B (60-79): Buen fit — secuencia completa');
+  lines.push('C (40-59): Cualificar m\u00e1s antes de invertir');
+  lines.push('D (<40): No priorizar');
+  lines.push('');
+  lines.push('Generado con globalgrowth.consulting/lead-magnets/plantilla-icp-4-dimensiones.html');
+
+  navigator.clipboard.writeText(lines.join('\n')).then(function(){
+    var btn = document.getElementById('copy-scoring-btn');
+    var orig = btn.innerHTML;
+    btn.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="#22D3EE" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Copiado';
+    setTimeout(function(){ btn.innerHTML = orig; }, 1800);
+  }).catch(function(){});
+};
+
+window.printICP = function(){
+  window.print();
+};
+
+window.resetAll = function(){
+  state.sectors = [];
+  state.size = null; state.revenue = null; state.geo = null; state.age = null;
+  state.crm = null; state.crmType = []; state.mktauto = null; state.salesnav = null; state.techbudget = null;
+  state.salesteam = null; state.outsource = null; state.ceolinkedin = null; state.decspeed = null; state.prevbuy = null;
+  state.timingTriggers = [];
+  goTo(0);
+  init();
+  document.getElementById('output-section').classList.add('hidden');
+  document.getElementById('lead-form-section').classList.remove('hidden');
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = false;
+  btn.innerHTML = 'Ver mi ICP completo';
+  ['f-nombre','f-email','f-empresa'].forEach(function(id){ document.getElementById(id).value=''; });
+};
+window.resetAll = window.resetAll;
+
+// ─── INIT ─────────────────────────────────────────────────────────────────
+function init(){
+  renderChips('chips-sector', SECTORS, 'sectors', 'blue', true);
+  renderOpts('opts-size', SIZE_OPTS, 'size', 'blue');
+  renderOpts('opts-revenue', REVENUE_OPTS, 'revenue', 'blue');
+  renderOpts('opts-geo', GEO_OPTS, 'geo', 'blue');
+  renderOpts('opts-age', AGE_OPTS, 'age', 'blue');
+
+  renderOpts('opts-crm', CRM_OPTS, 'crm', 'purple');
+  renderChips('chips-crm-type', CRM_TYPE, 'crmType', 'purple', true);
+  renderOpts('opts-mktauto', MKTAUTO_OPTS, 'mktauto', 'purple');
+  renderOpts('opts-salesnav', SALESNAV_OPTS, 'salesnav', 'purple');
+  renderOpts('opts-techbudget', TECHBUDGET_OPTS, 'techbudget', 'purple');
+
+  renderOpts('opts-salesteam', SALESTEAM_OPTS, 'salesteam', 'pink');
+  renderOpts('opts-outsource', OUTSOURCE_OPTS, 'outsource', 'pink');
+  renderOpts('opts-ceolinkedin', CEOLINKEDIN_OPTS, 'ceolinkedin', 'pink');
+  renderOpts('opts-decspeed', DECSPEED_OPTS, 'decspeed', 'pink');
+  renderOpts('opts-prevbuy', PREVBUY_OPTS, 'prevbuy', 'pink');
+
+  renderChips('chips-timing', TIMING_TRIGGERS, 'timingTriggers', 'cyan', true);
+}
+
+init();
+
+})();
+</script>
+
+</body>
+</html>

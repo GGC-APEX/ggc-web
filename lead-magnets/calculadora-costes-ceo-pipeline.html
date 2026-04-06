@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora: ¿Cuánto le cuesta a tu empresa que seas tú el pipeline? | GGC</title>
+  <meta name="description" content="Calcula los 3 costes ocultos de que el CEO sea el pipeline principal de tu empresa. Ninguno aparece en el P&amp;L, pero todos destruyen valor.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Calculadora: ¿Cuánto le cuesta a tu empresa que seas tú el pipeline? — GGC">
+  <meta property="og:description" content="Cuantifica los 3 costes indirectos que no ves en el P&L cuando el CEO es el único que genera ventas.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    input[type="number"]{-moz-appearance:textfield}
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+    input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(255,255,255,0.08);outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#EC4899);cursor:pointer;box-shadow:0 0 10px rgba(139,92,246,0.4)}
+    input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#EC4899);cursor:pointer;border:none;box-shadow:0 0 10px rgba(139,92,246,0.4)}
+
+    .input-field{width:100%;padding:0.75rem 1rem;border-radius:0.5rem;background:#0C0A1D;border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:0.875rem;font-family:'DM Sans',sans-serif;transition:border-color .2s}
+    .input-field::placeholder{color:#6B7280}
+    .input-field:focus{border-color:#8B5CF6;outline:none}
+
+    .big-num{font-size:2.5rem;font-weight:800;line-height:1;font-family:'DM Sans',sans-serif}
+    @media(min-width:640px){.big-num{font-size:3rem}}
+
+    .cost-num{font-size:1.75rem;font-weight:800;line-height:1;font-family:'DM Sans',sans-serif}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    @keyframes countUp{from{opacity:0.4}to{opacity:1}}
+    .count-flash{animation:countUp 0.35s ease}
+
+    /* Pie chart */
+    .pie-ring{transition:stroke-dasharray 0.6s ease}
+
+    /* Cost cards */
+    .cost-card-1{background:rgba(236,72,153,0.07);border:1px solid rgba(236,72,153,0.2)}
+    .cost-card-2{background:rgba(234,179,8,0.07);border:1px solid rgba(234,179,8,0.2)}
+    .cost-card-3{background:rgba(139,92,246,0.07);border:1px solid rgba(139,92,246,0.2)}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1;transform:none}.pie-ring{transition:none}.pulse-glow{animation:none}.btn-g::after{animation:none}}
+    @media print{body{background:#fff;color:#000}.glass{background:#f5f5f5;border-color:#ddd}header,.btn-g{display:none}}
+  </style>
+  <!-- Vercel Analytics -->
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Recurso gratuito</span>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-12">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Calculadora para CEOs · Los costes que no ves</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      ¿Cuánto le cuesta a tu empresa<br class="hidden sm:block"> <span class="gr">que seas tú el pipeline?</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      Hay tres costes que ningún P&amp;L registra. Todos erosionan el valor real de tu empresa cada semana que sigues siendo el único que genera ventas. Ponles número.
+    </p>
+  </div>
+
+  <!-- CALCULATOR GRID -->
+  <div class="grid lg:grid-cols-5 gap-8">
+
+    <!-- LEFT: Inputs (3 cols) -->
+    <div class="lg:col-span-3 space-y-5">
+
+      <!-- Section label -->
+      <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest px-1">Tus datos</p>
+
+      <!-- 1. Sueldo de mercado CEO -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">1. Tu sueldo de mercado</label>
+          <span id="sueldoVal" class="text-sm font-bold text-cyan tabular-nums">120.000 €/año</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-3">Lo que cobraría un CEO de tu nivel en el mercado. No lo que cobras tú.</p>
+        <input type="range" id="sueldo" min="60000" max="300000" step="5000" value="120000" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-600 mt-1"><span>60K</span><span>300K</span></div>
+      </div>
+
+      <!-- 2. Horas vendiendo -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">2. Horas/semana en ventas</label>
+          <span id="horasVal" class="text-sm font-bold text-cyan tabular-nums">15 h/sem</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-3">Prospectar, llamar, hacer demos, preparar propuestas, negociar, hacer seguimiento.</p>
+        <input type="range" id="horas" min="0" max="40" step="1" value="15" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-600 mt-1"><span>0h</span><span>40h</span></div>
+      </div>
+
+      <!-- 3. Decisiones pospuestas -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">3. Decisiones estratégicas pospuestas/mes</label>
+          <span id="decisionesVal" class="text-sm font-bold text-yellow-400 tabular-nums">5 dec/mes</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-3">Contrataciones, productos, partnerships, procesos — lo que postpones porque estás vendiendo.</p>
+        <input type="range" id="decisiones" min="0" max="20" step="1" value="5" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-600 mt-1"><span>0</span><span>20</span></div>
+      </div>
+
+      <!-- 4. Coste por decisión pospuesta -->
+      <div class="glass rounded-2xl p-6">
+        <label class="text-sm font-semibold text-white block mb-1">4. Coste estimado por decisión pospuesta</label>
+        <p class="text-xs text-gray-500 mb-3">¿Cuánto vale de media cada decisión que no tomas a tiempo? Piénsalo en revenue, eficiencia o riesgo.</p>
+        <div class="flex items-center gap-4">
+          <input type="range" id="costeDecision" min="1000" max="50000" step="500" value="8000" oninput="syncCosteDecisionNum(); calc()">
+          <div class="relative w-36 shrink-0">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm pointer-events-none">€</span>
+            <input type="number" id="costeDecisionNum" class="input-field pl-7 pr-2" value="8000" min="1000" max="50000" step="500" oninput="syncCosteDecisionSlider(); calc()">
+          </div>
+        </div>
+        <div class="flex justify-between text-xs text-gray-600 mt-1"><span>1K</span><span>50K</span></div>
+      </div>
+
+      <!-- 5. Tamaño equipo -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">5. Personas en tu equipo</label>
+          <span id="equipoVal" class="text-sm font-bold text-purple tabular-nums">8 personas</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-3">Total de empleados que dependen de ti (sin contarte a ti).</p>
+        <input type="range" id="equipo" min="1" max="50" step="1" value="8" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-600 mt-1"><span>1</span><span>50</span></div>
+      </div>
+
+      <!-- 6. % tiempo equipo gestionando agenda comercial -->
+      <div class="glass rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-1">
+          <label class="text-sm font-semibold text-white">6. % tiempo del equipo apoyando tus ventas</label>
+          <span id="pctEquipoVal" class="text-sm font-bold text-purple tabular-nums">15%</span>
+        </div>
+        <p class="text-xs text-gray-500 mb-3">Coordinar tu agenda, preparar materiales, hacer seguimientos que delegas, resolver urgencias comerciales.</p>
+        <input type="range" id="pctEquipo" min="0" max="30" step="1" value="15" oninput="calc()">
+        <div class="flex justify-between text-xs text-gray-600 mt-1"><span>0%</span><span>30%</span></div>
+      </div>
+
+      <!-- 7. Salario medio equipo -->
+      <div class="glass rounded-2xl p-6">
+        <label class="text-sm font-semibold text-white block mb-1">7. Salario medio de tu equipo (€/año)</label>
+        <p class="text-xs text-gray-500 mb-3">Coste empresa medio por persona. Incluye SS y beneficios si quieres ser preciso.</p>
+        <div class="flex items-center gap-4">
+          <input type="range" id="salarioEquipo" min="20000" max="80000" step="1000" value="35000" oninput="syncSalarioNum(); calc()">
+          <div class="relative w-36 shrink-0">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm pointer-events-none">€</span>
+            <input type="number" id="salarioEquipoNum" class="input-field pl-7 pr-2" value="35000" min="20000" max="80000" step="1000" oninput="syncSalarioSlider(); calc()">
+          </div>
+        </div>
+        <div class="flex justify-between text-xs text-gray-600 mt-1"><span>20K</span><span>80K</span></div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Results (2 cols) -->
+    <div class="lg:col-span-2 space-y-5">
+
+      <!-- TOTAL BIG NUMBER -->
+      <div class="glass rounded-2xl p-6 pulse-glow sticky top-6">
+        <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Coste anual total oculto</p>
+
+        <div class="text-center mb-2">
+          <p id="totalCoste" class="big-num gr">--</p>
+          <p class="text-sm text-gray-400 mt-2">euros/año que no aparecen en tu P&amp;L</p>
+        </div>
+
+        <div id="equivaleWrap" class="mt-4 p-3 rounded-xl text-center" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06)">
+          <p class="text-xs text-gray-500 mb-1">Equivale a...</p>
+          <p id="equivale" class="text-sm font-bold text-white">--</p>
+        </div>
+
+        <!-- Mini pie chart SVG -->
+        <div class="mt-5 flex items-center justify-center gap-6">
+          <svg id="pieChart" viewBox="0 0 100 100" class="w-24 h-24 shrink-0" aria-label="Distribución de costes">
+            <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="16"/>
+            <circle id="pieC1" cx="50" cy="50" r="38" fill="none" stroke="#EC4899" stroke-width="16" stroke-dasharray="0 239" stroke-dashoffset="-0" transform="rotate(-90 50 50)" class="pie-ring"/>
+            <circle id="pieC2" cx="50" cy="50" r="38" fill="none" stroke="#EAB308" stroke-width="16" stroke-dasharray="0 239" stroke-dashoffset="-0" transform="rotate(-90 50 50)" class="pie-ring"/>
+            <circle id="pieC3" cx="50" cy="50" r="38" fill="none" stroke="#8B5CF6" stroke-width="16" stroke-dasharray="0 239" stroke-dashoffset="-0" transform="rotate(-90 50 50)" class="pie-ring"/>
+          </svg>
+          <div class="space-y-1.5 text-xs">
+            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#EC4899"></span><span class="text-gray-400">Tu tiempo</span></div>
+            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#EAB308"></span><span class="text-gray-400">Decisiones</span></div>
+            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#8B5CF6"></span><span class="text-gray-400">Equipo</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breakeven comercial -->
+      <div class="glass rounded-2xl p-5">
+        <p class="text-xs font-semibold text-white uppercase tracking-widest mb-3">Análisis break-even</p>
+        <p class="text-xs text-gray-500 mb-3">Si contrataras un Director Comercial senior (mercado: ~70K€/año):</p>
+        <div class="space-y-2">
+          <div class="flex justify-between text-xs">
+            <span class="text-gray-400">Tu coste oculto actual</span>
+            <span id="breakevenTuCoste" class="font-bold text-pink">--</span>
+          </div>
+          <div class="flex justify-between text-xs">
+            <span class="text-gray-400">Director Comercial senior</span>
+            <span class="font-bold text-cyan">~70.000 €/año</span>
+          </div>
+          <div class="border-t border-white/5 pt-2 flex justify-between text-xs">
+            <span class="text-gray-400 font-semibold">Diferencia</span>
+            <span id="breakevenDif" class="font-bold">--</span>
+          </div>
+        </div>
+        <p id="breakevenMsg" class="text-xs text-gray-500 mt-3 leading-relaxed">--</p>
+      </div>
+
+      <!-- APEX OS -->
+      <div class="rounded-2xl p-5" style="background:rgba(139,92,246,0.07);border:1px solid rgba(139,92,246,0.2)">
+        <p class="text-xs font-semibold text-purple uppercase tracking-widest mb-2">El sistema que lo resuelve</p>
+        <p class="text-sm font-bold text-white mb-2">APEX OS&trade;</p>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          Instalamos la infraestructura comercial que genera pipeline sin ti. No subcontratas ventas — instalas un sistema que queda en propiedad de tu empresa y funciona mientras tú haces lo que solo tú puedes hacer.
+        </p>
+        <p class="text-xs text-gray-500 mt-2">627+ empresas instaladas. Pipeline propio en 6-8 semanas.</p>
+      </div>
+
+      <!-- CTA -->
+      <a href="../agendar.html" class="btn-g block w-full px-6 py-3.5 rounded-xl text-sm text-center cursor-pointer">
+        Quiero dejar de ser el pipeline &rarr;
+      </a>
+
+    </div>
+  </div>
+
+  <!-- THE 3 COSTS BREAKDOWN -->
+  <div class="mt-12">
+    <h2 class="text-xl sm:text-2xl font-bold text-white text-center mb-2" style="font-family:'Playfair Display',serif">Los 3 costes desglosados</h2>
+    <p class="text-center text-gray-500 text-sm mb-8">Con tus números actuales, así se distribuye el coste oculto</p>
+
+    <div class="grid sm:grid-cols-3 gap-5">
+
+      <!-- Coste 1: Tiempo CEO -->
+      <div class="cost-card-1 rounded-2xl p-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0" style="background:rgba(236,72,153,0.2);color:#EC4899">1</span>
+          <p class="text-xs font-semibold text-pink uppercase tracking-widest">Coste de tu tiempo</p>
+        </div>
+        <p id="coste1" class="cost-num text-pink mb-2">--</p>
+        <p class="text-xs text-gray-400 leading-relaxed mb-3">
+          Lo que vale cada hora tuya multiplicado por las horas que llevas a ventas. Es dinero que tu empresa debería estar usando en escalar, no en prospectar.
+        </p>
+        <div class="text-xs text-gray-500 space-y-1">
+          <div class="flex justify-between"><span>Horas/año en ventas</span><span id="horasAnio" class="font-bold text-white">--</span></div>
+          <div class="flex justify-between"><span>Valor hora CEO</span><span id="valorHora" class="font-bold text-white">--</span></div>
+          <div class="flex justify-between"><span>+ Coste oportunidad (1.4x)</span><span class="font-bold text-pink">incluido</span></div>
+        </div>
+      </div>
+
+      <!-- Coste 2: Decisiones pospuestas -->
+      <div class="cost-card-2 rounded-2xl p-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0" style="background:rgba(234,179,8,0.2);color:#EAB308">2</span>
+          <p class="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Decisiones pospuestas</p>
+        </div>
+        <p id="coste2" class="cost-num text-yellow-400 mb-2">--</p>
+        <p class="text-xs text-gray-400 leading-relaxed mb-3">
+          Cada decisión estratégica que postpones tiene un coste compuesto. Una contratación tarde, un proceso sin mejorar, un producto lanzado 3 meses después. Se acumula más rápido de lo que parece.
+        </p>
+        <div class="text-xs text-gray-500 space-y-1">
+          <div class="flex justify-between"><span>Decisiones/mes</span><span id="decMes" class="font-bold text-white">--</span></div>
+          <div class="flex justify-between"><span>Coste/decisión</span><span id="costeDecDisplay" class="font-bold text-white">--</span></div>
+          <div class="flex justify-between"><span>Semanas/año (x48)</span><span class="font-bold text-white">48 sem</span></div>
+        </div>
+      </div>
+
+      <!-- Coste 3: Equipo -->
+      <div class="cost-card-3 rounded-2xl p-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0" style="background:rgba(139,92,246,0.2);color:#8B5CF6">3</span>
+          <p class="text-xs font-semibold text-purple uppercase tracking-widest">Coste del equipo</p>
+        </div>
+        <p id="coste3" class="cost-num text-purple mb-2">--</p>
+        <p class="text-xs text-gray-400 leading-relaxed mb-3">
+          Mientras tú vendes, parte de tu equipo te está apoyando — coordinando citas, preparando materiales, resolviendo bloqueos comerciales. Es tiempo pagado para tareas que no escalan.
+        </p>
+        <div class="text-xs text-gray-500 space-y-1">
+          <div class="flex justify-between"><span>Personas</span><span id="equipoDisplay" class="font-bold text-white">--</span></div>
+          <div class="flex justify-between"><span>% en apoyo comercial</span><span id="pctDisplay" class="font-bold text-white">--</span></div>
+          <div class="flex justify-between"><span>Salario medio</span><span id="salarioDisplay" class="font-bold text-white">--</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INSIGHT BLOCK -->
+  <div class="glass rounded-2xl p-8 mt-10 border-l-4 border-cyan fade-in">
+    <p class="text-sm text-gray-300 mb-3">
+      <strong class="text-white">La trampa del CEO que vende bien:</strong> cuanto mejor vendes, más difícil es delegarlo. Pero precisamente porque vendes bien, el coste de oportunidad de tu tiempo es más alto que el de cualquier otra persona de tu equipo. El problema no es que no sepas vender. Es que tú no deberías ser el que lo hace.
+    </p>
+    <p class="text-sm text-gray-400">
+      Con <strong class="text-white">APEX OS&trade;</strong>, los CEOs que implementan el sistema liberan una media de 15-20 horas semanales y tienen pipeline propio generándose solo en 6-8 semanas. Tu tiempo vale demasiado para pasarlo prospectando.
+    </p>
+  </div>
+
+  <!-- CONTEXT STATS -->
+  <div class="grid sm:grid-cols-3 gap-4 mt-8">
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-cyan mb-1" style="font-family:'DM Sans',sans-serif">627+</p>
+      <p class="text-xs text-gray-400">Empresas con APEX OS instalado</p>
+    </div>
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-purple mb-1" style="font-family:'DM Sans',sans-serif">15-20h</p>
+      <p class="text-xs text-gray-400">Horas/semana liberadas de media</p>
+    </div>
+    <div class="glass rounded-xl p-5 text-center">
+      <p class="text-2xl font-bold text-pink mb-1" style="font-family:'DM Sans',sans-serif">6-8 sem</p>
+      <p class="text-xs text-gray-400">Hasta pipeline autónomo activo</p>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="glass rounded-2xl p-8 mt-8">
+    <h3 class="text-lg font-bold text-white mb-4">Lo que cambia cuando dejas de ser el pipeline</h3>
+    <div class="space-y-4">
+      <div class="border-l-2 border-cyan/30 pl-4">
+        <p class="text-sm text-gray-300 italic mb-1">&ldquo;Pensé que si yo no vendía, las ventas se caían. Lo que en realidad pasaba es que yo era el cuello de botella. Con el sistema, cerramos el mismo volumen sin que yo toque una sola llamada de prospección.&rdquo;</p>
+        <p class="text-xs text-gray-500">&mdash; CEO de empresa de servicios B2B, 1.4M€ facturación</p>
+      </div>
+      <div class="border-l-2 border-purple/30 pl-4">
+        <p class="text-sm text-gray-300 italic mb-1">&ldquo;Llevaba 4 años diciendo que necesitaba escalar. Las 18 horas que liberé las metí en abrir dos verticales nuevos. En 6 meses, eso fue más revenue que todo lo que yo vendía antes.&rdquo;</p>
+        <p class="text-xs text-gray-500">&mdash; CEO de consultoría tech, 900K€ facturación</p>
+      </div>
+      <div class="border-l-2 border-pink/30 pl-4">
+        <p class="text-sm text-gray-300 italic mb-1">&ldquo;El número que me dio esta calculadora me pareció exagerado. Hice las cuentas en papel. Era correcto. De hecho, era conservador.&rdquo;</p>
+        <p class="text-xs text-gray-500">&mdash; CEO de agencia de marketing, 2.1M€ facturación</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="glass rounded-2xl p-6 mt-8">
+    <h3 class="text-lg font-bold text-white mb-3">Cómo se calculan estos números</h3>
+    <div class="space-y-3 text-sm text-gray-400">
+      <p><strong class="text-white">Coste de tu tiempo:</strong> (sueldo de mercado ÷ 2.080 horas) × horas anuales en ventas × 1.4 (multiplicador de coste de oportunidad). El 1.4x refleja que cada hora tuya en ventas bloquea 0.4h adicionales en decisiones de mayor palanca.</p>
+      <p><strong class="text-white">Coste de decisiones pospuestas:</strong> decisiones/mes × coste por decisión × 12 meses. Conservador: solo cuenta el coste directo, no el compuesto ni el impacto en valoración de empresa.</p>
+      <p><strong class="text-white">Coste del equipo:</strong> número de personas × salario medio × porcentaje de tiempo dedicado a apoyar tu agenda comercial. Solo tiempo directo, no cuenta el coste de coordinación ni el impacto en su productividad propia.</p>
+      <p><strong class="text-pink font-semibold">Aviso:</strong> esta calculadora es deliberadamente conservadora. El coste real es mayor porque no incluye el impacto en la valoración de la empresa (las empresas CEO-dependientes se valúan hasta un 40% menos), el desgaste, ni el coste de las decisiones estratégicas que nunca se toman.</p>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE -->
+  <div class="glass rounded-2xl p-8 mt-10 text-center">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-3">Guarda tu cálculo</p>
+    <h3 class="text-xl sm:text-2xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe el análisis completo con recomendaciones</h3>
+    <p class="text-gray-400 text-sm mb-6 max-w-md mx-auto">Te mandamos el desglose con tus números + el plan de acción concreto para empezar a delegar las ventas esta semana.</p>
+
+    <form id="leadForm" class="max-w-md mx-auto space-y-3 text-left">
+      <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+      <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+      <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+      <input type="hidden" name="source" value="calculadora-costes-ceo-pipeline">
+      <input type="hidden" name="total_cost" id="hiddenTotalCost" value="">
+      <input type="hidden" name="cost_breakdown" id="hiddenCostBreakdown" value="">
+      <label class="flex items-start gap-2 cursor-pointer">
+        <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+        <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white">política de privacidad</a>. Recibiré comunicaciones que puedo cancelar en cualquier momento.</span>
+      </label>
+      <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-lg text-sm">Guardar mi cálculo y recibir el plan de acción &rarr;</button>
+    </form>
+    <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm text-center">
+      Enviado. Revisa tu bandeja en los próximos 2 minutos. Si no llega, mira spam.
+    </div>
+    <p class="text-xs text-gray-500 mt-3">Sin spam. Solo tu análisis con los números y el plan concreto.</p>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="text-center py-12">
+    <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">¿Listo para dejar de ser el cuello de botella?</h3>
+    <p class="text-gray-400 mb-6 max-w-lg mx-auto text-sm">Agenda un diagnóstico gratuito. En 45 minutos te mostramos el sistema exacto para que tu empresa genere pipeline sin ti.</p>
+    <a href="../agendar.html" class="btn-g inline-block px-8 py-3.5 rounded-xl text-sm">Agendar diagnóstico gratuito &rarr;</a>
+    <p class="text-xs text-gray-600 mt-3">
+      <a href="../blog/costes-indirectos-ceo-pipeline.html" class="hover:text-gray-400 transition underline">Leer el artículo completo: Los 3 costes indirectos de que el CEO sea el pipeline</a>
+    </p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-4">
+  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex gap-5 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-white transition">Blog</a>
+      <a href="../privacidad.html" class="hover:text-white transition">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-white transition">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  var SEMANAS_ANO = 48;
+  var HORAS_ANO_CEO = 2080; // 40h × 52 semanas (base sueldo mercado)
+  var OPP_MULTIPLIER = 1.4;
+  var COSTE_DIR_COMERCIAL = 70000;
+
+  /* ---- formatting helpers ---- */
+  function fmt(n){
+    if(Math.abs(n) >= 1000000) return (n/1000000).toFixed(1).replace('.',',') + 'M\u20AC';
+    if(Math.abs(n) >= 1000) return Math.round(n/1000).toLocaleString('es-ES') + 'K\u20AC';
+    return Math.round(n).toLocaleString('es-ES') + '\u20AC';
+  }
+
+  function fmtFull(n){
+    return Math.round(n).toLocaleString('es-ES') + '\u00A0\u20AC';
+  }
+
+  function fmtInt(n){
+    return Math.round(n).toLocaleString('es-ES');
+  }
+
+  /* ---- slider <-> number sync ---- */
+  window.syncCosteDecisionNum = function(){
+    var v = document.getElementById('costeDecision').value;
+    document.getElementById('costeDecisionNum').value = v;
+  };
+  window.syncCosteDecisionSlider = function(){
+    var v = parseInt(document.getElementById('costeDecisionNum').value) || 8000;
+    v = Math.max(1000, Math.min(50000, v));
+    document.getElementById('costeDecision').value = v;
+  };
+  window.syncSalarioNum = function(){
+    var v = document.getElementById('salarioEquipo').value;
+    document.getElementById('salarioEquipoNum').value = v;
+  };
+  window.syncSalarioSlider = function(){
+    var v = parseInt(document.getElementById('salarioEquipoNum').value) || 35000;
+    v = Math.max(20000, Math.min(80000, v));
+    document.getElementById('salarioEquipo').value = v;
+  };
+
+  /* ---- animated counter ---- */
+  function flashEl(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.classList.remove('count-flash');
+    void el.offsetWidth;
+    el.classList.add('count-flash');
+  }
+
+  /* ---- pie chart update ---- */
+  function updatePie(c1, c2, c3){
+    var total = c1 + c2 + c3;
+    if(total <= 0){ return; }
+    var CIRC = 2 * Math.PI * 38; // ≈ 238.76
+
+    var p1 = (c1 / total) * CIRC;
+    var p2 = (c2 / total) * CIRC;
+    var p3 = (c3 / total) * CIRC;
+
+    // offset: each segment starts after the previous
+    var off1 = 0;
+    var off2 = -(p1);
+    var off3 = -(p1 + p2);
+
+    var pie1 = document.getElementById('pieC1');
+    var pie2 = document.getElementById('pieC2');
+    var pie3 = document.getElementById('pieC3');
+
+    pie1.setAttribute('stroke-dasharray', p1.toFixed(2) + ' ' + (CIRC - p1).toFixed(2));
+    pie1.setAttribute('stroke-dashoffset', off1.toFixed(2));
+
+    pie2.setAttribute('stroke-dasharray', p2.toFixed(2) + ' ' + (CIRC - p2).toFixed(2));
+    pie2.setAttribute('stroke-dashoffset', off2.toFixed(2));
+
+    pie3.setAttribute('stroke-dasharray', p3.toFixed(2) + ' ' + (CIRC - p3).toFixed(2));
+    pie3.setAttribute('stroke-dashoffset', off3.toFixed(2));
+  }
+
+  /* ---- equivale a ---- */
+  function getEquivale(total){
+    var sdrs = (total / 45000).toFixed(1).replace('.',',');
+    var sdrsN = parseFloat((total / 45000).toFixed(1));
+
+    if(sdrsN >= 1){
+      return sdrsN.toFixed(1).replace('.',',') + ' SDRs de alto rendimiento/a\u00f1o';
+    }
+    var months = Math.round(total / (total / 12));
+    // fallback: express as months of a junior hire
+    var juniorMes = 3000;
+    var mesesJunior = Math.round(total / juniorMes);
+    return mesesJunior + ' meses del salario de un comercial junior';
+  }
+
+  function getEquivaleMsg(total){
+    var sdrsN = total / 45000;
+    if(sdrsN >= 2){
+      return Math.floor(sdrsN).toFixed(0) + ' SDRs de alto rendimiento trabajando para ti';
+    } else if(sdrsN >= 1){
+      return '1 Director Comercial + margen para herramientas';
+    } else if(total >= 30000){
+      return Math.round(total / 3000) + ' meses del salario de un comercial';
+    } else {
+      return 'una inversi\u00f3n en infraestructura comercial que pagar\u00eda APEX OS\u2122';
+    }
+  }
+
+  /* ---- main calc ---- */
+  window.calc = function(){
+    var sueldo      = parseInt(document.getElementById('sueldo').value) || 120000;
+    var horas       = parseInt(document.getElementById('horas').value) || 15;
+    var decisiones  = parseInt(document.getElementById('decisiones').value) || 5;
+    var costeDec    = parseInt(document.getElementById('costeDecision').value) || 8000;
+    var equipo      = parseInt(document.getElementById('equipo').value) || 8;
+    var pctEquipo   = parseInt(document.getElementById('pctEquipo').value) || 15;
+    var salarioEq   = parseInt(document.getElementById('salarioEquipo').value) || 35000;
+
+    /* slider labels */
+    document.getElementById('sueldoVal').textContent = fmtInt(sueldo) + '\u00A0\u20AC/a\u00f1o';
+    document.getElementById('horasVal').textContent = horas + '\u00A0h/sem';
+    document.getElementById('decisionesVal').textContent = decisiones + '\u00A0dec/mes';
+    document.getElementById('equipoVal').textContent = equipo + (equipo === 1 ? ' persona' : ' personas');
+    document.getElementById('pctEquipoVal').textContent = pctEquipo + '%';
+
+    /* --- COSTE 1: tiempo CEO --- */
+    var valorHoraRaw = sueldo / HORAS_ANO_CEO;
+    var horasAnuales = horas * SEMANAS_ANO;
+    var coste1 = horasAnuales * valorHoraRaw * OPP_MULTIPLIER;
+
+    /* --- COSTE 2: decisiones pospuestas --- */
+    // decisiones/mes × coste/decision × 12 meses
+    var coste2 = decisiones * costeDec * 12;
+
+    /* --- COSTE 3: equipo --- */
+    // equipo × salario medio × pct / 100
+    var coste3 = equipo * salarioEq * (pctEquipo / 100);
+
+    var total = coste1 + coste2 + coste3;
+
+    /* ---- update DOM ---- */
+
+    // Total
+    document.getElementById('totalCoste').textContent = fmtFull(total);
+    flashEl('totalCoste');
+
+    // Equivale
+    document.getElementById('equivale').textContent = getEquivaleMsg(total);
+
+    // Cost 1
+    document.getElementById('coste1').textContent = fmtFull(coste1);
+    document.getElementById('horasAnio').textContent = fmtInt(horasAnuales) + ' h';
+    document.getElementById('valorHora').textContent = Math.round(valorHoraRaw) + ' \u20AC/h';
+
+    // Cost 2
+    document.getElementById('coste2').textContent = fmtFull(coste2);
+    document.getElementById('decMes').textContent = decisiones;
+    document.getElementById('costeDecDisplay').textContent = fmt(costeDec);
+
+    // Cost 3
+    document.getElementById('coste3').textContent = fmtFull(coste3);
+    document.getElementById('equipoDisplay').textContent = equipo;
+    document.getElementById('pctDisplay').textContent = pctEquipo + '%';
+    document.getElementById('salarioDisplay').textContent = fmt(salarioEq);
+
+    // Breakeven
+    var dif = total - COSTE_DIR_COMERCIAL;
+    document.getElementById('breakevenTuCoste').textContent = fmtFull(total);
+    var difEl = document.getElementById('breakevenDif');
+    if(dif > 0){
+      difEl.textContent = '+' + fmtFull(dif) + ' m\u00e1s caro';
+      difEl.className = 'font-bold text-pink';
+      document.getElementById('breakevenMsg').textContent =
+        'Tu coste oculto supera en ' + fmt(dif) + ' al sueldo de un Director Comercial senior. \u00c9l solo costar\u00eda ' + fmt(COSTE_DIR_COMERCIAL) + '/a\u00f1o y liberar\u00eda todo tu tiempo.';
+    } else {
+      difEl.textContent = fmt(Math.abs(dif)) + ' m\u00e1s barato (por ahora)';
+      difEl.className = 'font-bold text-cyan';
+      document.getElementById('breakevenMsg').textContent =
+        'Con estos par\u00e1metros tu coste oculto es inferior al sueldo de mercado de un Director Comercial. Ajusta las horas o el n\u00famero de decisiones para ver tu escenario real.';
+    }
+
+    // Pie chart
+    updatePie(coste1, coste2, coste3);
+
+    // Hidden fields for lead form
+    document.getElementById('hiddenTotalCost').value = Math.round(total);
+    document.getElementById('hiddenCostBreakdown').value = JSON.stringify({
+      coste_tiempo: Math.round(coste1),
+      coste_decisiones: Math.round(coste2),
+      coste_equipo: Math.round(coste3),
+      horas_semana: horas,
+      sueldo_mercado: sueldo,
+      decisiones_mes: decisiones,
+      coste_decision: costeDec,
+      equipo: equipo,
+      pct_equipo: pctEquipo,
+      salario_equipo: salarioEq
+    });
+  };
+
+  /* ---- lead form ---- */
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando\u2026';
+
+    var data = {
+      nombre:         form.nombre.value,
+      email:          form.email.value,
+      empresa:        form.empresa.value,
+      source:         'calculadora-costes-ceo-pipeline',
+      total_cost:     form.total_cost.value,
+      cost_breakdown: form.cost_breakdown.value,
+      timestamp:      new Date().toISOString()
+    };
+
+    fetch('https://hook.eu2.make.com/REPLACE_WITH_WEBHOOK_ID', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    })
+    .then(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    })
+    .catch(function(){
+      form.classList.add('hidden');
+      document.getElementById('leadSuccess').classList.remove('hidden');
+    });
+  });
+
+  /* ---- init ---- */
+  calc();
+
+})();
+</script>
+
+</body>
+</html>
