@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Las listas zombi de B2B: por qué el 30% de tus datos están muertos | GGC</title>
+  <meta name="description" content="El 30% de los datos B2B se degrada cada año. Aprende a diagnosticar cuántos de tus contactos son zombis, los 5 tipos de datos muertos y cómo limpiar tu base en 30 minutos.">
+  <link rel="canonical" href="https://globalgrowth.consulting/blog/listas-zombi-b2b">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://globalgrowth.consulting/blog/listas-zombi-b2b">
+  <meta property="og:title" content="Las listas zombi de B2B: por qué el 30% de tus datos están muertos">
+  <meta property="og:description" content="El 30% de los datos B2B se degrada cada año. Aprende a diagnosticar cuántos de tus contactos son zombis, los 5 tipos de datos muertos y cómo limpiar tu base en 30 minutos.">
+  <meta property="og:locale" content="es_ES">
+  <meta property="article:published_time" content="2026-04-25">
+  <meta property="article:author" content="Xavi Fortuna">
+  <meta property="article:section" content="IA y automatización para B2B">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Xavi Fortuna">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Las listas zombi de B2B: por qué el 30% de tus datos están muertos",
+    "description": "El 30% de los datos B2B se degrada cada año. Aprende a diagnosticar cuántos de tus contactos son zombis, los 5 tipos de datos muertos y cómo limpiar tu base en 30 minutos.",
+    "datePublished": "2026-04-25",
+    "dateModified": "2026-04-25",
+    "author": {"@type":"Person","name":"Xavi Fortuna","jobTitle":"CEO & Head of Growth","url":"https://linkedin.com/in/xavierfortuna/"},
+    "publisher": {"@type":"Organization","name":"Global Growth Consulting","url":"https://globalgrowth.consulting","logo":{"@type":"ImageObject","url":"https://globalgrowth.consulting/logo.png"}},
+    "mainEntityOfPage": {"@type":"WebPage","@id":"https://globalgrowth.consulting/blog/listas-zombi-b2b"},
+    "articleSection": "IA y automatización para B2B",
+    "wordCount": 1750,
+    "timeRequired": "PT7M"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#8A8A8A',700:'#6B6B6B'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-outline{border:1px solid rgba(139,92,246,0.4);color:#8B5CF6;transition:all .3s ease}
+    .btn-outline:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.08)}
+    .nav-blur{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(12,10,29,0.7);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;margin-top:2.5rem;margin-bottom:1rem;line-height:1.3}
+    .article-body h3{font-size:1.25rem;font-weight:600;color:#fff;margin-top:2rem;margin-bottom:0.75rem;line-height:1.4}
+    .article-body p{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:1.25rem}
+    .article-body ul,.article-body ol{margin-bottom:1.25rem;padding-left:1.5rem}
+    .article-body li{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:0.5rem}
+    .article-body strong{color:#e0e0e0;font-weight:600}
+    .article-body blockquote{border-left:3px solid transparent;border-image:linear-gradient(180deg,#8B5CF6,#EC4899) 1;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#999}
+    .scroll-popup{transform:translateY(120%);transition:transform .4s ease,opacity .4s ease;opacity:0}
+    .scroll-popup.show{transform:translateY(0);opacity:1}
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.btn-g,.btn-outline{transition:none}.btn-g::after{animation:none}.scroll-popup{transition:none}}
+    section[id]{scroll-margin-top:80px}
+    .zombi-card{border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px 24px;background:rgba(21,19,49,0.4)}
+    .zombi-num{font-size:2rem;font-weight:700;line-height:1;margin-bottom:6px}
+    .checklist-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .checklist-item:last-child{border-bottom:none}
+    .check-icon{width:20px;height:20px;border-radius:50%;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+  </style>
+</head>
+<body>
+<div id="progress" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);z-index:100;width:0;transition:width .1s"></div>
+
+<!-- NAV -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="../index.html#sistema" class="text-sm text-gray-400 hover:text-white transition-colors">Sistema</a>
+      <a href="../index.html#resultados" class="text-sm text-gray-400 hover:text-white transition-colors">Resultados</a>
+      <a href="../blog.html" class="text-sm text-white font-medium transition-colors">Blog</a>
+      <a href="../index.html#proceso" class="text-sm text-gray-400 hover:text-white transition-colors">Proceso</a>
+      <a href="../agendar.html" class="btn-g px-5 py-2.5 rounded-lg text-sm">Aplica ahora</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Abrir menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-72 bg-[#151331] z-50 flex flex-col p-8 gap-6 md:hidden">
+    <button id="closeMenu" class="self-end text-white mb-4" aria-label="Cerrar menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html#sistema" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Sistema</a>
+    <a href="../index.html#resultados" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Resultados</a>
+    <a href="../blog.html" class="text-lg text-white font-medium transition-colors mobile-link">Blog</a>
+    <a href="../index.html#proceso" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Proceso</a>
+    <a href="../agendar.html" class="btn-g px-5 py-3 rounded-lg text-center text-sm mt-4 mobile-link">Aplica ahora</a>
+  </div>
+</nav>
+
+<!-- ARTICLE -->
+<main class="pt-28 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 reveal" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="../index.html" class="hover:text-gray-300 transition-colors">Inicio</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><span class="text-[#8B5CF6]">IA y automatizaci&oacute;n para B2B</span></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li class="text-gray-400 truncate max-w-[200px]">Este art&iacute;culo</li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="max-w-3xl mx-auto mb-12 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">IA y automatizaci&oacute;n para B2B</span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        Las listas zombi de B2B: por qu&eacute; el 30% de tus datos est&aacute;n muertos
+      </h1>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+        <span class="font-medium text-white">Xavi Fortuna</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>25 de abril de 2026</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>7 min lectura</span>
+      </div>
+    </header>
+
+    <!-- Article Body -->
+    <article class="max-w-3xl mx-auto article-body">
+
+      <!-- Opening hook -->
+      <div class="reveal">
+        <p>
+          Tienes una lista de 2.000 contactos en tu CRM. La construiste hace un a&ntilde;o. Mandas una secuencia de emails. El resultado: 3% de apertura, 0.8% de respuesta, cuatro bounces en el primer env&iacute;o.
+        </p>
+        <p>
+          Conclusi&oacute;n habitual: &laquo;el outbound no funciona&raquo;, &laquo;el copy no es bueno&raquo;, &laquo;nuestro sector no responde a emails&raquo;.
+        </p>
+        <p>
+          Conclusi&oacute;n real: tu lista lleva meses muerta y no lo sab&iacute;as.
+        </p>
+        <p>
+          El 30% de los datos B2B se degrada cada a&ntilde;o. No porque alguien los borre. Sino porque las personas cambian de empresa, las empresas cambian de direcci&oacute;n, los cargos desaparecen, los dominios se migran. Una lista de 12 meses tiene, estad&iacute;sticamente, casi 600 contactos que ya no son v&aacute;lidos por alguna raz&oacute;n. Y sigues pagando por ellos: en cr&eacute;ditos de herramienta, en reputaci&oacute;n de dominio, en tiempo de tu SDR.
+        </p>
+        <p>
+          Esto es lo que llamo una lista zombi. Y la mayor&iacute;a de equipos comerciales las tienen sin saberlo.
+        </p>
+      </div>
+
+      <!-- Los 5 tipos -->
+      <div class="reveal">
+        <h2>Los 5 tipos de dato zombi en B2B</h2>
+        <p>
+          No todos los datos muertos se parecen. Hay cinco formas concretas en que un contacto deja de ser &uacute;til:
+        </p>
+
+        <div class="space-y-4 my-8">
+          <div class="zombi-card">
+            <div class="zombi-num gr">01</div>
+            <h3 style="margin-top:0.5rem;font-size:1.1rem;color:#fff">Email que ya no existe</h3>
+            <p style="margin-bottom:0;font-size:0.95rem">Hard bounce. El dominio sigue funcionando pero el buzón fue eliminado. Ocurre cuando alguien deja la empresa. Los ESP lo detectan en el env&iacute;o, pero el da&ntilde;o a tu reputaci&oacute;n de dominio ya est&aacute; hecho si tienes muchos.</p>
+          </div>
+          <div class="zombi-card">
+            <div class="zombi-num gr">02</div>
+            <h3 style="margin-top:0.5rem;font-size:1.1rem;color:#fff">Contacto que cambi&oacute; de empresa</h3>
+            <p style="margin-bottom:0;font-size:0.95rem">El email no bota &mdash;el dominio sigue activo&mdash; pero la persona ya no est&aacute; ahí. Soft bounce en el mejor caso. En el peor, el email llega a un buzón que nadie revisa o que gestiona el departamento de IT. Es el zombi m&aacute;s peligroso porque pasa desapercibido.</p>
+          </div>
+          <div class="zombi-card">
+            <div class="zombi-num gr">03</div>
+            <h3 style="margin-top:0.5rem;font-size:1.1rem;color:#fff">Cargo que ya no existe o cambi&oacute; de denominaci&oacute;n</h3>
+            <p style="margin-bottom:0;font-size:0.95rem">La persona sigue en la empresa pero en otro rol. El director comercial ahora es COO. El responsable de marketing ahora lleva operaciones. Tu mensaje de &laquo;s&eacute; que como Director de Ventas te interesa&raquo; llega al destinatario equivocado en el contexto equivocado.</p>
+          </div>
+          <div class="zombi-card">
+            <div class="zombi-num gr">04</div>
+            <h3 style="margin-top:0.5rem;font-size:1.1rem;color:#fff">Empresa que pivot&oacute;, fue adquirida o cerr&oacute;</h3>
+            <p style="margin-bottom:0;font-size:0.95rem">La empresa ya no es quien era cuando la metiste en tu lista. O ha sido comprada por otra que no es tu ICP. O ha cerrado. O ha cambiado de modelo de negocio. El dato exist&iacute;a, pero el prospect ya no es relevante.</p>
+          </div>
+          <div class="zombi-card">
+            <div class="zombi-num gr">05</div>
+            <h3 style="margin-top:0.5rem;font-size:1.1rem;color:#fff">Datos sin contexto de timing</h3>
+            <p style="margin-bottom:0;font-size:0.95rem">T&eacute;cnicamente v&aacute;lidos pero comercialmente muertos. El contacto existe, el cargo existe, la empresa existe. Pero no tienen ning&uacute;n evento reciente que haga que el contacto tenga sentido ahora. Es un contacto sin se&ntilde;al. Contactarle es disparar a ciegas.</p>
+          </div>
+        </div>
+
+        <p>
+          Los primeros dos tipos te dan bounces. Los otros tres te dan silencio. Y el silencio es m&aacute;s caro que el bounce, porque no te avisa de que algo va mal.
+        </p>
+      </div>
+
+      <!-- C&oacute;mo medir -->
+      <div class="reveal">
+        <h2>C&oacute;mo diagnosticar tu lista en 30 minutos</h2>
+        <p>
+          No necesitas herramientas sofisticadas para hacer un primer diagn&oacute;stico. Necesitas hacerte cinco preguntas sobre tu base de datos actual:
+        </p>
+        <ol>
+          <li><strong>&iquest;Cu&aacute;ntos meses llevan estos contactos en tu lista?</strong> Si llevan m&aacute;s de 6 meses sin ser actualizados, asume que el 15% son ya inv&aacute;lidos. Si llevan m&aacute;s de 12, el porcentaje sube al 30%.</li>
+          <li><strong>&iquest;Cu&aacute;l es tu bounce rate hist&oacute;rico?</strong> Bounce rate por encima del 3-4% es una se&ntilde;al cl&aacute;ra de listas deterioradas. Debería estar por debajo del 2% en una lista sana.</li>
+          <li><strong>&iquest;Has enviado a esta lista en los &uacute;ltimos 3 meses?</strong> Si no, necesitas validar los emails antes de volver a enviar. Un dominio castigado tarda meses en recuperarse.</li>
+          <li><strong>&iquest;Tienes registro de la fuente y fecha de cada contacto?</strong> Si no sabes de d&oacute;nde viene un contacto ni cu&aacute;ndo lo a&ntilde;adiste, no puedes evaluar su calidad.</li>
+          <li><strong>&iquest;Has comprobado en los &uacute;ltimos 60 d&iacute;as si los decisores clave siguen en el mismo cargo?</strong> Una revisi&oacute;n manual en LinkedIn de tu top 50 cuentas tarda menos de una hora.</li>
+        </ol>
+
+        <div class="glass rounded-xl p-6 my-8">
+          <div class="flex items-baseline gap-3">
+            <span class="text-2xl font-bold gr">5-8%</span>
+            <span class="text-gray-400 text-sm">es el bounce rate promedio que vemos en listas de m&aacute;s de 12 meses sin limpiar. El l&iacute;mite recomendado para no quemar el dominio: por debajo del 2%.</span>
+          </div>
+        </div>
+
+        <p>
+          Si cualquiera de estas preguntas te genera incertidumbre, tu lista tiene un problema de datos. El diagn&oacute;stico concreto viene despu&eacute;s.
+        </p>
+      </div>
+
+      <!-- Los 3 s&iacute;ntomas -->
+      <div class="reveal">
+        <h2>Tres s&iacute;ntomas que confirman que tienes un problema de datos</h2>
+        <p>
+          No hace falta esperar al diagn&oacute;stico. Si ves alguno de estos tres patrones, el problema ya est&aacute; activo:
+        </p>
+        <h3>1. Tu tasa de respuesta es inferior al 2% con emails &laquo;bien escritos&raquo;</h3>
+        <p>
+          Cambias el asunto, cambias el copy, pruebas nuevos &aacute;ngulos. Los resultados no mejoran. La explicaci&oacute;n habitual es que el copy no es bueno. La explicaci&oacute;n real, en la mayor&iacute;a de casos que vemos, es que los emails llegan a buzones que nadie lee, a personas que ya no toman decisiones o a empresas que ya no son tu ICP. El mejor copy del mundo no resucita un contacto muerto.
+        </p>
+        <h3>2. Abres LinkedIn y encuentras a tus contactos en otra empresa</h3>
+        <p>
+          Revisa al azar 10 contactos de tu lista en LinkedIn. Si 3 o m&aacute;s han cambiado de empresa en el &uacute;ltimo a&ntilde;o, tienes una lista con un 30%+ de rotaci&oacute;n. No es una muestra representativa cient&iacute;fica, pero es suficiente para tomar una decisi&oacute;n: hay que limpiar antes de escalar.
+        </p>
+        <h3>3. Tu bounce rate sube con cada campa&ntilde;a</h3>
+        <p>
+          Si el bounce rate de tus env&iacute;os est&aacute; por encima del 4% y sube progresivamente, tu lista se est&aacute; pudriendo en tiempo real. Cada campa&ntilde;a que mandas sin limpiar es una cucharada de veneno para tu reputaci&oacute;n de dominio. Y recuperar un dominio castigado es un proceso que dura entre 4 y 8 semanas.
+        </p>
+      </div>
+
+      <!-- Las 3 capas de soluci&oacute;n -->
+      <div class="reveal">
+        <h2>Las tres capas para limpiar y activar tu base de datos</h2>
+        <p>
+          No todo el mundo necesita la soluci&oacute;n m&aacute;s sofisticada. La capa que apliques depende del tama&ntilde;o de tu lista, la frecuencia de uso y los recursos disponibles.
+        </p>
+        <h3>Capa 1: Verificaci&oacute;n de emails (r&aacute;pida, sin herramientas caras)</h3>
+        <p>
+          Herramientas como NeverBounce, ZeroBounce o Hunter permiten validar en masa si un email es v&aacute;lido, si el buzón existe y si el dominio est&aacute; activo. Cuesta entre 0.001 y 0.003 euros por verificaci&oacute;n. Una lista de 2.000 contactos te cuesta menos de 5 euros en validaci&oacute;n. No hacerlo y quemar el dominio te cuesta semanas de recuperaci&oacute;n.
+        </p>
+        <p>
+          Resultado esperado: identifica el 40-50% de los datos muertos (los que te dar&iacute;an hard bounce). Es el m&iacute;nimo que deber&iacute;as hacer antes de cualquier env&iacute;o.
+        </p>
+        <h3>Capa 2: Verificaci&oacute;n de cargos en LinkedIn</h3>
+        <p>
+          Para tus top 200-300 cuentas prioritarias, merece la pena revisar manualmente (o con Sales Navigator) si la persona sigue en el cargo. No necesitas revisarlo todo. Solo tus cuentas A y B: las que representan el mayor potencial de revenue.
+        </p>
+        <p>
+          Esto resuelve el problema del tipo 2 y 3 de zombis: el contacto que se fue y el cargo que cambi&oacute;. Dedica una tarde al trimestre. No es glamuroso. Pero es lo que evita que tu SDR pase semanas trabajando cuentas donde nadie puede comprar.
+        </p>
+        <h3>Capa 3: Enriquecimiento din&aacute;mico con Clay + IA</h3>
+        <p>
+          Esta es la capa que transforma una lista de datos est&aacute;ticos en inteligencia comercial activa. En lugar de verificar que los datos no est&aacute;n muertos, los enriqueces con informaci&oacute;n nueva: tech stack actual, se&ntilde;ales de hiring, noticias recientes, cambios de liderazgo. No solo s&iacute; el contacto existe &mdash;sino si es el momento de contactarle ahora.
+        </p>
+        <p>
+          Cubrimos el proceso completo en el art&iacute;culo <a href="clay-ia-enriquecer-listas-b2b.html" class="text-[#8B5CF6] hover:text-[#EC4899] transition-colors font-medium underline underline-offset-4">C&oacute;mo usamos Clay + IA para enriquecer listas B2B</a>. Si ya tienes la capa 1 y 2 implementadas, ese es el siguiente nivel.
+        </p>
+
+        <div class="space-y-3 my-8">
+          <div class="glass rounded-xl p-5">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-400 font-medium">Capa 1: Verificaci&oacute;n de emails</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">R&aacute;pido · &lt;5€/lista</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-2 mb-0">Elimina el 40-50% de datos muertos. Obligatorio antes de cualquier env&iacute;o.</p>
+          </div>
+          <div class="glass rounded-xl p-5">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-400 font-medium">Capa 2: Verificaci&oacute;n de cargos</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Manual · 3-4h/trimestre</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-2 mb-0">Evita trabajar cuentas donde el decisor ya no est&aacute;. Top 200-300 cuentas prioritarias.</p>
+          </div>
+          <div class="glass rounded-xl p-5">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-400 font-medium">Capa 3: Enriquecimiento con Clay + IA</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Sistem&aacute;tico · Alto ROI</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-2 mb-0">Convierte datos est&aacute;ticos en inteligencia de timing. 4x m&aacute;s tasa de respuesta.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Por qu&eacute; acumulas datos malos -->
+      <div class="reveal">
+        <h2>Por qu&eacute; la mayor&iacute;a acumula datos malos sin saberlo</h2>
+        <p>
+          No es un problema de negligencia. Es un problema estructural que viene de tres sitios:
+        </p>
+        <ul>
+          <li><strong>Presión de volumen:</strong> la métrica que se optimiza es cuántos contactos hay en el CRM, no la calidad de esos contactos. Más filas da sensación de progreso. Pero 5.000 contactos malos son peores que 500 buenos.</li>
+          <li><strong>Listas compradas:</strong> las bases de datos compradas tienen tasa de degradación alta porque no se actualizan en tiempo real. Lo que compraste hace seis meses ya no refleja la realidad del mercado.</li>
+          <li><strong>Sin proceso de limpieza peri&oacute;dica:</strong> la limpieza de datos no tiene un dueño claro en la mayor&iacute;a de equipos comerciales. No es tarea del SDR (que solo quiere enviar). No es tarea del RevOps (que suele estar desbordado). Al final, nadie lo hace.</li>
+        </ul>
+
+        <blockquote>
+          Los datos malos no desaparecen solos. Se acumulan, engordan la lista y reducen la eficacia de todo lo que construyes encima.
+        </blockquote>
+
+        <p>
+          El resultado lo vemos con frecuencia: un equipo con una lista de 3.000 contactos que genera menos reuniones que otro con 400. La diferencia no es el copy. No es el canal. Es la calidad del dato.
+        </p>
+      </div>
+
+      <!-- Antes de escalar -->
+      <div class="reveal">
+        <h2>Antes de escalar el outbound, audita tu base</h2>
+        <p>
+          Este es el consejo que nadie quiere oir porque implica ralentizar antes de acelerar: antes de contratar un SDR, antes de pagar por una herramienta de automatizaci&oacute;n, antes de lanzar la pr&oacute;xima campa&ntilde;a, audita tu base de datos.
+        </p>
+        <p>
+          No tiene sentido construir una m&aacute;quina de outbound encima de datos muertos. Es como poner un motor de alto rendimiento en un coche con ruedas pinchadas. El motor funciona. Pero no llegas a ningún sitio.
+        </p>
+        <p>
+          La auditor&iacute;a completa tarda entre 2 y 4 horas si tu lista tiene menos de 2.000 contactos. Descarga el checklist al final de este art&iacute;culo: 20 puntos concretos para evaluar la salud de tu base de datos y saber qu&eacute; necesitas hacer primero.
+        </p>
+        <p>
+          Si quieres que lo hagamos contigo, en el contexto de montar una infraestructura comercial completa, <a href="../agendar.html" class="text-[#8B5CF6] hover:text-[#EC4899] transition-colors font-medium underline underline-offset-4">reserva 30 minutos aqu&iacute;</a>. Empezamos siempre por la auditor&iacute;a de datos antes de tocar nada m&aacute;s.
+        </p>
+      </div>
+
+      <!-- LEAD MAGNET INLINE -->
+      <div id="lead-magnet" class="my-12 glass rounded-2xl p-8 border border-[#8B5CF6]/20 relative overflow-hidden reveal">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]"></div>
+        <div class="md:flex items-start gap-8">
+          <div class="flex-1">
+            <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Recurso gratuito</p>
+            <h3 class="text-xl font-bold text-white mb-2" style="margin-top:0">Checklist: Auditor&iacute;a de listas B2B — 20 se&ntilde;ales de datos muertos</h3>
+            <p class="text-gray-400 text-sm mb-4">20 puntos de diagn&oacute;stico para evaluar la salud de tu base de datos en 30 minutos. Incluye benchmark de bounce rates, criterios de limpieza por capa y plan de acci&oacute;n seg&uacute;n el nivel de deterioro.</p>
+            <form id="leadMagnetForm" class="space-y-3">
+              <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <input type="text" name="empresa" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+              <label class="flex items-start gap-2 cursor-pointer">
+                <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+                <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white">pol&iacute;tica de privacidad</a>. Recibir&eacute; comunicaciones que puedo cancelar en cualquier momento.</span>
+              </label>
+              <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm">Descargar checklist gratuito</button>
+            </form>
+            <div id="leadMagnetSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+              Te lo enviamos al email en 2 minutos.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- CTA FINAL DOBLE -->
+    <div class="max-w-3xl mx-auto mt-16 grid md:grid-cols-2 gap-6 reveal">
+      <div class="glass rounded-2xl p-8 border border-white/5 text-center">
+        <div class="text-3xl mb-4">&#9989;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Descarga el checklist</h3>
+        <p class="text-gray-400 text-sm mb-6">20 puntos para diagnosticar la salud de tu lista en 30 minutos. Con benchmark de referencia.</p>
+        <button onclick="document.getElementById('lm-popup').style.display='flex'" class="btn-outline px-6 py-3 rounded-lg text-sm w-full">Descargar gratis</button>
+      </div>
+      <div class="glass rounded-2xl p-8 border border-[#8B5CF6]/20 text-center">
+        <div class="text-3xl mb-4">&#128197;</div>
+        <h3 class="text-lg font-bold text-white mb-2">Auditor&iacute;a con nosotros</h3>
+        <p class="text-gray-400 text-sm mb-6">Revisamos tu base de datos en 30 minutos y te decimos qu&eacute; capas aplicar para tu caso concreto.</p>
+        <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Reservar mi plaza</a>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <div class="max-w-3xl mx-auto px-6 mb-16 mt-12">
+      <div class="glass p-6 sm:p-8 rounded-2xl flex items-start gap-5">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0 text-lg font-bold" style="background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(236,72,153,.2));color:#8B5CF6">XF</div>
+        <div>
+          <p class="font-bold text-white text-lg">Xavi Fortuna</p>
+          <p class="text-sm text-gray-400 mb-2">CEO &amp; Head of Growth &middot; Global Growth Consulting</p>
+          <p class="text-sm text-gray-400 leading-relaxed">10 a&ntilde;os construyendo infraestructura comercial para empresas B2B. +627 clientes en 3 continentes. Si tu empresa depende de ti para vender, probablemente podamos ayudarte.</p>
+          <a href="https://linkedin.com/in/xavierfortuna/" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm mt-2 hover:underline" style="color:#8B5CF6">LinkedIn <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="max-w-3xl mx-auto mt-16 text-center reveal">
+      <div class="glass rounded-2xl p-8 border border-white/5">
+        <h3 class="text-xl font-bold text-white mb-2">&iquest;Te ha parecido &uacute;til? Recibe 1 insight semanal.</h3>
+        <p class="text-gray-400 text-sm mb-6">Estrategia comercial B2B sin relleno. Un email a la semana. Te das de baja cuando quieras.</p>
+        <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input type="email" name="email" placeholder="tu@empresa.com" required class="flex-1 px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+            <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white">pol&iacute;tica de privacidad</a>.</span>
+          </label>
+          <button type="submit" class="btn-g px-6 py-3 rounded-lg text-sm whitespace-nowrap">Suscribirme</button>
+        </form>
+        <div id="newsletterSuccess" class="hidden mt-4 text-green-400 text-sm">Apuntado. Bienvenido.</div>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="max-w-5xl mx-auto mt-20 reveal">
+      <h2 class="font-display text-2xl font-bold text-white mb-8">Tambi&eacute;n te puede interesar</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="clay-ia-enriquecer-listas-b2b.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">IA en ventas B2B</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">Clay + IA para enriquecer listas B2B</h3>
+          <p class="text-gray-500 text-sm">El workflow completo para pasar de datos est&aacute;ticos a inteligencia comercial con Clay.</p>
+        </a>
+        <a href="icp-4-dimensiones.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Outbound sin humo</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">ICP en 4 dimensiones</h3>
+          <p class="text-gray-500 text-sm">C&oacute;mo pasar de &laquo;empresas medianas&raquo; a 380 cuentas con nombre y razones concretas.</p>
+        </a>
+        <a href="outbound-2026.html" class="group block glass rounded-xl p-6 border border-white/5 hover:border-[#8B5CF6]/20 transition-all">
+          <span class="text-xs font-semibold text-[#8B5CF6] uppercase tracking-widest">Outbound sin humo</span>
+          <h3 class="text-white font-bold mt-3 mb-2 group-hover:text-[#8B5CF6] transition-colors">Outbound en 2026</h3>
+          <p class="text-gray-500 text-sm">Lo que funciona cuando todos hacen lo mismo. El outbound que genera reuniones hoy.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- LM POPUP -->
+<div id="lm-popup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;align-items:center;justify-content:center;padding:1rem">
+  <div class="glass rounded-2xl p-8 max-w-md w-full border border-[#8B5CF6]/20 relative">
+    <button onclick="document.getElementById('lm-popup').style.display='none'" class="absolute top-4 right-4 text-gray-500 hover:text-white" aria-label="Cerrar">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-2">Recurso gratuito</p>
+    <h3 class="text-xl font-bold text-white mb-2">Checklist: Auditor&iacute;a de listas B2B</h3>
+    <p class="text-gray-400 text-sm mb-4">20 puntos para diagnosticar tu base de datos en 30 minutos.</p>
+    <form id="popupLmForm" class="space-y-3">
+      <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+      <input type="email" name="email" placeholder="Tu email" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+      <label class="flex items-start gap-2 cursor-pointer">
+        <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+        <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white">pol&iacute;tica de privacidad</a>.</span>
+      </label>
+      <button type="submit" class="btn-g w-full px-6 py-3 rounded-lg text-sm">Descargar gratis</button>
+    </form>
+    <div id="popupLmSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">Te lo enviamos al email en 2 minutos.</div>
+  </div>
+</div>
+
+<!-- NEWSLETTER SCROLL POPUP -->
+<div id="scrollPopup" class="scroll-popup fixed bottom-6 right-6 z-40 w-80 glass rounded-2xl p-6 border border-[#8B5CF6]/20 shadow-2xl">
+  <button id="closePopup" class="absolute top-3 right-3 text-gray-500 hover:text-white transition-colors" aria-label="Cerrar">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+  </button>
+  <p class="text-white font-bold text-sm mb-1">1 insight semanal. Sin spam.</p>
+  <p class="text-gray-400 text-xs mb-4">Estrategia comercial B2B directa al grano. Cada semana.</p>
+  <form id="popupForm" class="space-y-2">
+    <input type="email" name="email" placeholder="tu@empresa.com" required class="w-full px-3 py-2.5 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none">
+    <label class="flex items-start gap-2 cursor-pointer">
+      <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+      <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white">pol&iacute;tica de privacidad</a>.</span>
+    </label>
+    <button type="submit" class="btn-g w-full px-4 py-2.5 rounded-lg text-xs">Suscribirme</button>
+  </form>
+  <div id="popupSuccess" class="hidden mt-3 text-green-400 text-xs">Apuntado. Bienvenido.</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div>
+        <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto mb-4">
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Infraestructura comercial B2B permanente. No somos agencia. Instalamos sistemas que se quedan en tu propiedad.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Navegaci&oacute;n</h4>
+        <ul class="space-y-3">
+          <li><a href="../index.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Inicio</a></li>
+          <li><a href="../index.html#sistema" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Sistema</a></li>
+          <li><a href="../index.html#resultados" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Resultados</a></li>
+          <li><a href="../index.html#proceso" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Proceso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Recursos</h4>
+        <ul class="space-y-3">
+          <li><a href="../blog.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Blog</a></li>
+          <li><a href="../agendar.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Agendar</a></li>
+          <li><a href="../privacidad.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Privacidad</a></li>
+          <li><a href="../aviso-legal.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Aviso Legal</a></li>
+          <li><a href="../cookies.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-4">Contacto</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="mailto:soporte@globalgrowth.consulting" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              soporte@globalgrowth.consulting
+            </a>
+          </li>
+          <li class="text-gray-500 text-xs leading-relaxed">Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</li>
+          <li>
+            <a href="https://linkedin.com/in/xavierfortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/sir.fortuna/" target="_blank" rel="noopener" class="text-gray-500 text-sm hover:text-gray-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 text-center">
+      <p class="text-gray-500 text-xs">&copy; 2016&ndash;2026 Global Growth Consulting by Digital Insta Media. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+(function(){
+  'use strict';
+
+  // Mobile menu
+  var menuBtn = document.getElementById('menuBtn');
+  var closeBtn = document.getElementById('closeMenu');
+  var mobileMenu = document.getElementById('mobileMenu');
+  if(menuBtn && mobileMenu){
+    menuBtn.addEventListener('click', function(){ mobileMenu.classList.add('open'); });
+    closeBtn.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+    mobileMenu.querySelectorAll('.mobile-link').forEach(function(l){ l.addEventListener('click', function(){ mobileMenu.classList.remove('open'); }); });
+  }
+
+  // Reading progress
+  var progress = document.getElementById('progress');
+  function updateProgress(){
+    var s = document.documentElement.scrollTop;
+    var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if(progress) progress.style.width = (h > 0 ? (s/h)*100 : 0) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, {passive:true});
+
+  // Reveal on scroll
+  var reveals = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:0.1});
+  reveals.forEach(function(r){ io.observe(r); });
+
+  // Scroll popup (newsletter)
+  var popup = document.getElementById('scrollPopup');
+  var closePopupBtn = document.getElementById('closePopup');
+  var popupShown = false;
+  var popupDismissed = false;
+  function checkPopup(){
+    if(popupDismissed || popupShown) return;
+    var pct = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100;
+    if(pct > 60){
+      if(popup) popup.classList.add('show');
+      popupShown = true;
+    }
+  }
+  window.addEventListener('scroll', checkPopup, {passive:true});
+  if(closePopupBtn) closePopupBtn.addEventListener('click', function(){
+    if(popup) popup.classList.remove('show');
+    popupDismissed = true;
+  });
+
+  // Form handler factory
+  function handleForm(formId, successId, payload){
+    var form = document.getElementById(formId);
+    var success = document.getElementById(successId);
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      var obj = {};
+      data.forEach(function(v,k){ obj[k] = v; });
+      Object.assign(obj, payload);
+      fetch('/api/lead-magnet', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(obj)
+      }).then(function(){
+        if(form) form.style.display = 'none';
+        if(success) success.classList.remove('hidden');
+        setTimeout(function(){ window.location.href = '../lead-magnets/listas-zombi-lm.html'; }, 1500);
+      }).catch(function(){
+        if(success){ success.textContent = 'Error al enviar. Inténtalo de nuevo.'; success.classList.remove('hidden'); success.style.color = '#EF4444'; }
+      });
+    });
+  }
+
+  handleForm('leadMagnetForm','leadMagnetSuccess',{
+    page: 'lead-magnets/listas-zombi-lm',
+    source: 'Checklist Auditoría Listas B2B'
+  });
+  handleForm('popupLmForm','popupLmSuccess',{
+    page: 'lead-magnets/listas-zombi-lm',
+    source: 'Checklist Auditoría Listas B2B (popup)'
+  });
+
+  // Newsletter forms
+  function handleNewsletter(formId, successId){
+    var form = document.getElementById(formId);
+    var succ = document.getElementById(successId);
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      var obj = {};
+      data.forEach(function(v,k){ obj[k] = v; });
+      fetch('/api/newsletter', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(obj)
+      }).then(function(){
+        if(form) form.style.display = 'none';
+        if(succ) succ.classList.remove('hidden');
+      }).catch(function(){});
+    });
+  }
+
+  handleNewsletter('newsletterForm','newsletterSuccess');
+  handleNewsletter('popupForm','popupSuccess');
+
+})();
+</script>
+</body>
+</html>

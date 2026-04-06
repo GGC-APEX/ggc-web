@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist: Auditoría de listas B2B — 20 señales de datos muertos | GGC</title>
+  <meta name="description" content="20 puntos de diagnóstico para evaluar la salud de tu base de datos B2B en 30 minutos. Con benchmark de bounce rates y plan de acción por nivel de deterioro.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Checklist: Auditoría de listas B2B — GGC">
+  <meta property="og:description" content="20 puntos para diagnosticar la salud de tu base de datos en 30 minutos.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden;cursor:pointer}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+
+    /* Checklist items */
+    .check-item{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);cursor:pointer;transition:all .2s ease;user-select:none}
+    .check-item:hover{background:rgba(139,92,246,0.04);border-color:rgba(139,92,246,0.15)}
+    .check-item.checked{background:rgba(139,92,246,0.08);border-color:rgba(139,92,246,0.25)}
+    .check-box{width:22px;height:22px;border-radius:6px;border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;transition:all .2s ease}
+    .check-item.checked .check-box{background:linear-gradient(135deg,#8B5CF6,#EC4899);border-color:transparent}
+    .check-item.checked .check-box svg{display:block}
+    .check-box svg{display:none;width:13px;height:13px;stroke:white;stroke-width:3}
+    .check-text{font-size:0.9rem;color:#b0b0b0;line-height:1.6;flex:1;transition:color .2s}
+    .check-item.checked .check-text{color:#e0e0e0}
+    .check-tag{font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:3px}
+    .tag-critico{background:rgba(239,68,68,0.12);color:#EF4444;border:1px solid rgba(239,68,68,0.2)}
+    .tag-importante{background:rgba(245,158,11,0.12);color:#F59E0B;border:1px solid rgba(245,158,11,0.2)}
+    .tag-revision{background:rgba(34,211,238,0.1);color:#22D3EE;border:1px solid rgba(34,211,238,0.2)}
+
+    /* Progress */
+    .progress-bar{height:6px;border-radius:3px;background:rgba(255,255,255,0.06);overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:3px;transition:width .4s cubic-bezier(.4,0,.2,1)}
+
+    /* Section header */
+    .section-header{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6b6b6b;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
+
+    /* Result */
+    .result-card{border-radius:16px;padding:32px;text-align:center;border:1px solid transparent}
+    .result-verde{background:rgba(16,185,129,0.07);border-color:rgba(16,185,129,0.2)}
+    .result-amarillo{background:rgba(245,158,11,0.07);border-color:rgba(245,158,11,0.2)}
+    .result-rojo{background:rgba(239,68,68,0.07);border-color:rgba(239,68,68,0.2)}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .4s ease forwards}
+
+    @media(prefers-reduced-motion:reduce){.btn-g{transition:none}.btn-g::after{animation:none}.progress-fill{transition:none}.fade-in{animation:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="max-w-2xl mx-auto px-6 pt-12 pb-6 text-center">
+  <a href="../index.html" class="inline-block mb-8">
+    <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto mx-auto">
+  </a>
+  <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-4">Checklist gratuito</span>
+  <h1 class="font-display text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
+    Auditor&iacute;a de listas B2B
+  </h1>
+  <p class="text-gray-400 text-base mb-2">20 puntos · 30 minutos · Plan de acci&oacute;n incluido</p>
+  <p class="text-gray-500 text-sm">Marca los puntos que aplican a tu situaci&oacute;n. Al final ver&aacute;s el nivel de deterioro de tu base y qu&eacute; hacer primero.</p>
+</div>
+
+<!-- PROGRESS -->
+<div class="max-w-2xl mx-auto px-6 mb-8">
+  <div class="glass rounded-2xl p-5">
+    <div class="flex justify-between items-center mb-3">
+      <span class="text-sm text-gray-400">Progreso</span>
+      <span id="progressText" class="text-sm font-bold text-white">0 / 20</span>
+    </div>
+    <div class="progress-bar">
+      <div id="progressFill" class="progress-fill" style="width:0%"></div>
+    </div>
+    <div class="flex justify-between mt-2">
+      <span class="text-xs text-gray-600">Empieza aqu&iacute;</span>
+      <span class="text-xs text-gray-600">Ver diagn&oacute;stico</span>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<div class="max-w-2xl mx-auto px-6 pb-12">
+
+  <!-- BLOQUE 1: Estado del dominio y emails -->
+  <div class="mb-8">
+    <p class="section-header">Bloque 1 — Estado del dominio y emails (6 puntos)</p>
+    <div class="space-y-3" id="block1">
+
+      <div class="check-item" data-points="3" data-block="1" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Tu bounce rate en los &uacute;ltimos 3 env&iacute;os supera el 4%</div>
+          <div class="text-xs text-gray-600 mt-1">Benchmark sano: por debajo del 2%. Por encima del 5% entras en zona de penalizaci&oacute;n de dominio.</div>
+        </div>
+        <span class="check-tag tag-critico">Cr&iacute;tico</span>
+      </div>
+
+      <div class="check-item" data-points="3" data-block="1" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Nunca has validado tus listas con una herramienta de verificaci&oacute;n de emails (NeverBounce, ZeroBounce, Hunter)</div>
+          <div class="text-xs text-gray-600 mt-1">Obligatorio antes de cualquier campa&ntilde;a sobre listas de m&aacute;s de 3 meses.</div>
+        </div>
+        <span class="check-tag tag-critico">Cr&iacute;tico</span>
+      </div>
+
+      <div class="check-item" data-points="2" data-block="1" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Tu lista tiene m&aacute;s de 6 meses sin actualizarse</div>
+          <div class="text-xs text-gray-600 mt-1">El 15-20% de los datos B2B se degradan en 6 meses. El 30% en 12 meses.</div>
+        </div>
+        <span class="check-tag tag-importante">Importante</span>
+      </div>
+
+      <div class="check-item" data-points="2" data-block="1" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Tienes en tu lista emails de dominios gen&eacute;ricos (gmail, hotmail, outlook) mezclados con emails corporativos</div>
+          <div class="text-xs text-gray-600 mt-1">En B2B, los emails gen&eacute;ricos son siempre secundarios y rara vez del decisor real.</div>
+        </div>
+        <span class="check-tag tag-importante">Importante</span>
+      </div>
+
+      <div class="check-item" data-points="1" data-block="1" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">No tienes configurado DMARC, DKIM y SPF en el dominio de env&iacute;o</div>
+          <div class="text-xs text-gray-600 mt-1">Sin estos registros DNS, tus emails tienen m&aacute;s probabilidad de caer en spam.</div>
+        </div>
+        <span class="check-tag tag-revision">Revisi&oacute;n</span>
+      </div>
+
+      <div class="check-item" data-points="1" data-block="1" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">No tienes separados los dominios de env&iacute;o (outbound) del dominio principal de empresa</div>
+          <div class="text-xs text-gray-600 mt-1">Un dominio quemado por outbound afecta a todas las comunicaciones de empresa si es el mismo.</div>
+        </div>
+        <span class="check-tag tag-revision">Revisi&oacute;n</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BLOQUE 2: Calidad de los contactos -->
+  <div class="mb-8">
+    <p class="section-header">Bloque 2 — Calidad de los contactos (6 puntos)</p>
+    <div class="space-y-3" id="block2">
+
+      <div class="check-item" data-points="3" data-block="2" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">No sabes si las personas de tu lista siguen en el mismo cargo que cuando las a&ntilde;adiste</div>
+          <div class="text-xs text-gray-600 mt-1">La rotaci&oacute;n media en roles comerciales y de direcci&oacute;n en Espa&ntilde;a es del 20-25% anual.</div>
+        </div>
+        <span class="check-tag tag-critico">Cr&iacute;tico</span>
+      </div>
+
+      <div class="check-item" data-points="2" data-block="2" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Al revisar 10 contactos aleatorios en LinkedIn, 3 o m&aacute;s han cambiado de empresa en el &uacute;ltimo a&ntilde;o</div>
+          <div class="text-xs text-gray-600 mt-1">Muestra representativa: si el 30% de tu muestra ha rotado, el problema es sistem&aacute;tico.</div>
+        </div>
+        <span class="check-tag tag-importante">Importante</span>
+      </div>
+
+      <div class="check-item" data-points="2" data-block="2" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Tienes contactos en tu lista sin cargo o con cargos gen&eacute;ricos (gerente, responsable, director) sin verificar el &aacute;rea de responsabilidad</div>
+          <div class="text-xs text-gray-600 mt-1">Un cargo sin contexto no te dice si esa persona toma la decisi&oacute;n que t&uacute; necesitas.</div>
+        </div>
+        <span class="check-tag tag-importante">Importante</span>
+      </div>
+
+      <div class="check-item" data-points="2" data-block="2" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Parte de tu lista proviene de bases de datos compradas o scrapeadas sin validaci&oacute;n</div>
+          <div class="text-xs text-gray-600 mt-1">Las listas compradas tienen tasas de degradaci&oacute;n del 40-50% desde el momento de la compra.</div>
+        </div>
+        <span class="check-tag tag-importante">Importante</span>
+      </div>
+
+      <div class="check-item" data-points="1" data-block="2" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">No tienes registrado de d&oacute;nde viene cada contacto ni cu&aacute;ndo fue a&ntilde;adido</div>
+          <div class="text-xs text-gray-600 mt-1">Sin fuente y fecha no puedes evaluar la calidad ni priorizar la limpieza.</div>
+        </div>
+        <span class="check-tag tag-revision">Revisi&oacute;n</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BLOQUE 3: Estado de las empresas -->
+  <div class="mb-8">
+    <p class="section-header">Bloque 3 — Estado de las empresas objetivo (4 puntos)</p>
+    <div class="space-y-3" id="block3">
+
+      <div class="check-item" data-points="2" data-block="3" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">No sabes si algunas empresas de tu lista han sido adquiridas, han pivotado de modelo o han cerrado</div>
+          <div class="text-xs text-gray-600 mt-1">En el segmento pyme B2B (10-200 empleados), la tasa de cambio estructural es del 10-15% anual.</div>
+        </div>
+        <span class="check-tag tag-importante">Importante</span>
+      </div>
+
+      <div class="check-item" data-points="2" data-block="3" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">No tienes datos actualizados sobre el tama&ntilde;o, la facturaci&oacute;n o el equipo de las empresas de tu lista</div>
+          <div class="text-xs text-gray-600 mt-1">Una empresa que ha crecido de 15 a 80 personas puede haber dejado de ser tu ICP &mdash;o puede haberse convertido en una oportunidad mayor.</div>
+        </div>
+        <span class="check-tag tag-importante">Importante</span>
+      </div>
+
+      <div class="check-item" data-points="1" data-block="3" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">No has revisado si las empresas de tu lista han publicado noticias relevantes en los &uacute;ltimos 90 d&iacute;as</div>
+          <div class="text-xs text-gray-600 mt-1">Noticias recientes son se&ntilde;ales de timing: rondas, expansiones, contrataciones, cambios directivos.</div>
+        </div>
+        <span class="check-tag tag-revision">Revisi&oacute;n</span>
+      </div>
+
+      <div class="check-item" data-points="1" data-block="3" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">No tienes tracking de qu&eacute; empresas de tu lista est&aacute;n contratando perfiles comerciales o de revenue</div>
+          <div class="text-xs text-gray-600 mt-1">Una empresa que contrata SDRs est&aacute; invirtiendo en crecimiento comercial: es una se&ntilde;al de timing directa.</div>
+        </div>
+        <span class="check-tag tag-revision">Revisi&oacute;n</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BLOQUE 4: Rendimiento del outbound -->
+  <div class="mb-8">
+    <p class="section-header">Bloque 4 — Rendimiento del outbound (4 puntos)</p>
+    <div class="space-y-3" id="block4">
+
+      <div class="check-item" data-points="3" data-block="4" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Tu tasa de respuesta es inferior al 2% con emails que consideras bien escritos</div>
+          <div class="text-xs text-gray-600 mt-1">Con listas limpias y mensajes correctos, el m&iacute;nimo en B2B deber&iacute;a ser 3-5%. Por debajo del 2% el problema suele ser de datos.</div>
+        </div>
+        <span class="check-tag tag-critico">Cr&iacute;tico</span>
+      </div>
+
+      <div class="check-item" data-points="2" data-block="4" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Has cambiado el copy m&uacute;ltiples veces sin mejora significativa en resultados</div>
+          <div class="text-xs text-gray-600 mt-1">Si cambias el copy y los resultados no se mueven, el problema no est&aacute; en el copy.</div>
+        </div>
+        <span class="check-tag tag-importante">Importante</span>
+      </div>
+
+      <div class="check-item" data-points="2" data-block="4" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">Tu tasa de apertura es alta (&gt;40%) pero la de respuesta es muy baja (&lt;1.5%)</div>
+          <div class="text-xs text-gray-600 mt-1">Apertura alta + respuesta baja indica que el email llega al buzón correcto pero la persona ya no es el decisor adecuado.</div>
+        </div>
+        <span class="check-tag tag-importante">Importante</span>
+      </div>
+
+      <div class="check-item" data-points="1" data-block="4" onclick="toggle(this)">
+        <div class="check-box"><svg viewBox="0 0 14 14" fill="none"><polyline points="2,7 5.5,10.5 12,3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex-1">
+          <div class="check-text">No tienes proceso de feedback loop: las respuestas (positivas o negativas) no actualizan el estado del contacto en tu CRM</div>
+          <div class="text-xs text-gray-600 mt-1">Sin feedback loop, los mismos contactos muertos entran en cada nueva campa&ntilde;a.</div>
+        </div>
+        <span class="check-tag tag-revision">Revisi&oacute;n</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESULTADO -->
+  <div id="resultSection" class="hidden fade-in mt-10">
+    <div id="resultCard" class="result-card mb-6">
+      <div id="resultIcon" class="text-5xl mb-4"></div>
+      <div id="resultScore" class="text-3xl font-bold gr mb-2"></div>
+      <div id="resultTitle" class="text-xl font-bold text-white mb-3"></div>
+      <div id="resultDesc" class="text-gray-400 text-sm leading-relaxed mb-0"></div>
+    </div>
+
+    <!-- Plan de acci&oacute;n seg&uacute;n nivel -->
+    <div id="actionPlan" class="glass rounded-2xl p-6 mb-8">
+      <h3 class="text-white font-bold text-lg mb-4" style="font-family:'DM Sans',sans-serif">Tu plan de acci&oacute;n</h3>
+      <div id="actionItems" class="space-y-3"></div>
+    </div>
+
+    <!-- Benchmarks de referencia -->
+    <div class="glass rounded-2xl p-6 mb-8">
+      <h3 class="text-white font-bold text-base mb-4" style="font-family:'DM Sans',sans-serif">Benchmarks de referencia</h3>
+      <div class="space-y-3">
+        <div class="flex justify-between items-center py-2 border-b border-white/5">
+          <span class="text-gray-400 text-sm">Bounce rate sano</span>
+          <span class="text-white font-semibold text-sm">&lt; 2%</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-white/5">
+          <span class="text-gray-400 text-sm">Tasa de respuesta m&iacute;nima (lista limpia)</span>
+          <span class="text-white font-semibold text-sm">3-5%</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-white/5">
+          <span class="text-gray-400 text-sm">Tasa de respuesta con lista enriquecida (Clay + IA)</span>
+          <span class="text-white font-semibold text-sm">8-15%</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-white/5">
+          <span class="text-gray-400 text-sm">Degradaci&oacute;n de datos B2B al a&ntilde;o</span>
+          <span class="text-white font-semibold text-sm">~30%</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-white/5">
+          <span class="text-gray-400 text-sm">Rotaci&oacute;n anual en roles directivos (Espa&ntilde;a)</span>
+          <span class="text-white font-semibold text-sm">20-25%</span>
+        </div>
+        <div class="flex justify-between items-center py-2">
+          <span class="text-gray-400 text-sm">Coste verificaci&oacute;n de email (NeverBounce)</span>
+          <span class="text-white font-semibold text-sm">&lt; 0.003€/contacto</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="grid md:grid-cols-2 gap-4 mt-6">
+      <a href="../blog/listas-zombi-b2b.html" class="glass rounded-xl p-5 border border-white/5 hover:border-[#8B5CF6]/20 transition-all group text-center block">
+        <div class="text-2xl mb-2">&#128196;</div>
+        <p class="text-white font-semibold text-sm group-hover:text-[#8B5CF6] transition-colors">Leer el art&iacute;culo completo</p>
+        <p class="text-gray-500 text-xs mt-1">Las 3 capas de soluci&oacute;n y c&oacute;mo aplicarlas</p>
+      </a>
+      <a href="../agendar.html" class="btn-g rounded-xl p-5 text-center block">
+        <div class="text-2xl mb-2">&#128197;</div>
+        <p class="text-white font-semibold text-sm">Auditor&iacute;a con nosotros</p>
+        <p class="text-xs mt-1" style="color:rgba(255,255,255,0.7)">30 minutos. Sin compromiso.</p>
+      </a>
+    </div>
+
+    <p class="text-center text-gray-600 text-xs mt-6">
+      Recurso de <a href="../index.html" class="hover:text-gray-400 transition-colors">Global Growth Consulting</a> &mdash; globalgrowth.consulting
+    </p>
+  </div>
+
+  <!-- CTA de progreso (visible antes de completar) -->
+  <div id="progressCta" class="mt-10 text-center">
+    <p class="text-gray-500 text-sm">Marca los puntos que aplican a tu situaci&oacute;n para ver tu diagn&oacute;stico</p>
+    <div class="mt-4 text-gray-600 text-xs">
+      <span id="checkedCount">0</span> de 20 puntos revisados
+    </div>
+  </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+(function(){
+  'use strict';
+
+  var totalChecked = 0;
+  var totalPoints = 0;
+  var maxPoints = 0;
+
+  // Calculate max points
+  document.querySelectorAll('.check-item').forEach(function(item){
+    maxPoints += parseInt(item.dataset.points || 1);
+  });
+
+  function toggle(el){
+    el.classList.toggle('checked');
+    updateScore();
+  }
+  window.toggle = toggle;
+
+  function updateScore(){
+    totalChecked = 0;
+    totalPoints = 0;
+    document.querySelectorAll('.check-item').forEach(function(item){
+      if(item.classList.contains('checked')){
+        totalChecked++;
+        totalPoints += parseInt(item.dataset.points || 1);
+      }
+    });
+
+    var pct = totalChecked / 20 * 100;
+    var progressFill = document.getElementById('progressFill');
+    var progressText = document.getElementById('progressText');
+    var checkedCount = document.getElementById('checkedCount');
+    if(progressFill) progressFill.style.width = pct + '%';
+    if(progressText) progressText.textContent = totalChecked + ' / 20';
+    if(checkedCount) checkedCount.textContent = totalChecked;
+
+    if(totalChecked >= 5){
+      showResult();
+    }
+  }
+
+  function showResult(){
+    var resultSection = document.getElementById('resultSection');
+    var progressCta = document.getElementById('progressCta');
+    if(!resultSection) return;
+
+    resultSection.classList.remove('hidden');
+    if(progressCta) progressCta.style.display = 'none';
+
+    var pctDamage = totalPoints / maxPoints;
+    var icon, title, desc, cardClass, actionItems;
+
+    if(pctDamage >= 0.55){
+      icon = '🚨';
+      title = 'Nivel cr&iacute;tico — tu lista necesita limpieza urgente';
+      desc = 'Tienes m&uacute;ltiples indicadores de deterioro grave. Enviar campa&ntilde;as sobre esta lista puede da&ntilde;ar la reputaci&oacute;n de tu dominio y quemar oportunidades reales. Para antes de la siguiente campa&ntilde;a.';
+      cardClass = 'result-rojo';
+      actionItems = [
+        {icon:'1',text:'<strong>Esta semana:</strong> Pausa cualquier campa&ntilde;a activa. No env&iacute;es m&aacute;s hasta limpiar.',color:'#EF4444'},
+        {icon:'2',text:'<strong>Esta semana:</strong> Verifica todos los emails con NeverBounce o ZeroBounce. Elimina los invalidos.',color:'#EF4444'},
+        {icon:'3',text:'<strong>Pr&oacute;ximos 15 d&iacute;as:</strong> Revisa en LinkedIn los 100 contactos de mayor potencial. Actualiza cargos.',color:'#F59E0B'},
+        {icon:'4',text:'<strong>Pr&oacute;ximos 30 d&iacute;as:</strong> Considera implementar Clay para enriquecer y activar con se&ntilde;ales de timing.',color:'#8B5CF6'},
+        {icon:'5',text:'<strong>Proceso continuo:</strong> Establece un ciclo de limpieza trimestral como parte del proceso comercial.',color:'#22D3EE'}
+      ];
+    } else if(pctDamage >= 0.30){
+      icon = '⚠️';
+      title = 'Nivel medio — hay problemas que corregir antes de escalar';
+      desc = 'Tu lista tiene deterioro significativo pero no est&aacute; en situaci&oacute;n cr&iacute;tica. Puedes seguir enviando con precauci&oacute;n, pero los resultados mejorar&aacute;n notablemente despu&eacute;s de limpiar.';
+      cardClass = 'result-amarillo';
+      actionItems = [
+        {icon:'1',text:'<strong>Esta semana:</strong> Verifica los emails de tu top 500 cuentas prioritarias antes del pr&oacute;ximo env&iacute;o.',color:'#F59E0B'},
+        {icon:'2',text:'<strong>Pr&oacute;ximos 15 d&iacute;as:</strong> Revisa en LinkedIn los cargos de tus 50 mejores cuentas. Actualiza.',color:'#F59E0B'},
+        {icon:'3',text:'<strong>Pr&oacute;ximos 30 d&iacute;as:</strong> Implementa proceso de limpieza trimestral. Asigna responsable.',color:'#8B5CF6'},
+        {icon:'4',text:'<strong>A medio plazo:</strong> Explora Clay para enriquecer con se&ntilde;ales de timing tu top 200-300 cuentas.',color:'#22D3EE'}
+      ];
+    } else {
+      icon = '✅';
+      title = 'Nivel bajo — buena base, oportunidad de mejorar la precisi&oacute;n';
+      desc = 'Tu lista est&aacute; en buenas condiciones comparado con la media del sector. Los puntos marcados son &aacute;reas de mejora, no problemas urgentes. El siguiente nivel es a&ntilde;adir se&ntilde;ales de timing.';
+      cardClass = 'result-verde';
+      actionItems = [
+        {icon:'1',text:'<strong>Proceso continuo:</strong> Mantén el ciclo de verificaci&oacute;n de emails cada 3-4 meses.',color:'#10B981'},
+        {icon:'2',text:'<strong>Pr&oacute;ximo paso:</strong> A&ntilde;ade enriquecimiento con Clay para incorporar se&ntilde;ales de timing a tus top cuentas.',color:'#22D3EE'},
+        {icon:'3',text:'<strong>Optimizaci&oacute;n:</strong> Implementa feedback loop: que cada respuesta (o no-respuesta) actualice el estado en CRM.',color:'#8B5CF6'}
+      ];
+    }
+
+    var resultCard = document.getElementById('resultCard');
+    var resultIcon = document.getElementById('resultIcon');
+    var resultScore = document.getElementById('resultScore');
+    var resultTitle = document.getElementById('resultTitle');
+    var resultDesc = document.getElementById('resultDesc');
+    var actionContainer = document.getElementById('actionItems');
+
+    if(resultCard){ resultCard.className = 'result-card mb-6 ' + cardClass; }
+    if(resultIcon) resultIcon.textContent = icon;
+    if(resultScore) resultScore.textContent = totalChecked + ' señales detectadas';
+    if(resultTitle) resultTitle.innerHTML = title;
+    if(resultDesc) resultDesc.innerHTML = desc;
+
+    if(actionContainer){
+      actionContainer.innerHTML = '';
+      actionItems.forEach(function(item){
+        var div = document.createElement('div');
+        div.className = 'flex items-start gap-3 p-3 rounded-lg';
+        div.style.background = 'rgba(255,255,255,0.02)';
+        div.innerHTML = '<span style="width:24px;height:24px;border-radius:50%;background:' + item.color + '20;border:1px solid ' + item.color + '40;color:' + item.color + ';font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">' + item.icon + '</span><p style="font-size:0.875rem;color:#b0b0b0;margin:0;line-height:1.6">' + item.text + '</p>';
+        actionContainer.appendChild(div);
+      });
+    }
+
+    resultSection.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+})();
+</script>
+</body>
+</html>

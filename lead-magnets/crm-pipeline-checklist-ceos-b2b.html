@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM &amp; Pipeline Checklist para CEOs B2B — 27 puntos | GGC</title>
+  <meta name="description" content="Audita tu CRM y pipeline en menos de 15 minutos. 27 puntos accionables para detectar fugas de revenue y oportunidades ocultas en tu infraestructura comercial B2B.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="CRM &amp; Pipeline Checklist para CEOs B2B — 27 puntos">
+  <meta property="og:description" content="Detecta fugas de revenue en tu CRM y pipeline en menos de 15 minutos. 27 puntos de auditoría accionables.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden;cursor:pointer}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    /* Checkbox custom */
+    .item-row{transition:all .2s ease;cursor:pointer}
+    .item-row:hover{border-color:rgba(139,92,246,0.2)!important}
+    .item-row.checked{border-color:rgba(34,211,238,0.3)!important;background:rgba(34,211,238,0.04)!important}
+
+    .check-box{width:22px;height:22px;border-radius:6px;border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s ease;background:rgba(255,255,255,0.03)}
+    .item-row.checked .check-box{background:linear-gradient(135deg,#22D3EE,#3B82F6);border-color:transparent}
+
+    /* Progress */
+    .progress-fill{transition:width .4s ease;border-radius:3px}
+
+    /* Score counter */
+    .big-score{font-size:4rem;font-weight:800;line-height:1;font-family:'DM Sans',sans-serif}
+    @media(min-width:640px){.big-score{font-size:5rem}}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1}.pulse-glow{animation:none}.btn-g::after{animation:none}.progress-fill{transition:none}}
+  </style>
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-10">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Checklist de auditoría</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      CRM &amp; Pipeline Checklist<br class="hidden sm:block"> <span class="gr">para CEOs B2B</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      27 puntos para auditar tu CRM y pipeline en menos de 15 minutos. Marca lo que ya tienes. Descubre exactamente dónde se escapa el revenue.
+    </p>
+    <div class="flex items-center justify-center gap-6 mt-6 text-sm text-gray-500">
+      <span>⏱ ~15 minutos</span>
+      <span>·</span>
+      <span>27 puntos de control</span>
+      <span>·</span>
+      <span>4 bloques</span>
+    </div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="mb-8">
+    <div class="flex justify-between items-center mb-2">
+      <span class="text-xs text-gray-500">Progreso</span>
+      <span id="progressText" class="text-xs font-semibold text-white">0 / 27</span>
+    </div>
+    <div class="w-full h-2 rounded-full bg-white/5">
+      <div id="progressBar" class="progress-fill h-2 bg-gradient-to-r from-cyan via-purple to-pink" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div id="checklistContainer" class="space-y-8">
+  </div>
+
+  <!-- CTA RESULTS (shown when ≥15 items checked) -->
+  <div id="ctaResults" class="hidden mt-10 fade-in">
+    <div class="glass rounded-2xl p-8 text-center pulse-glow">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Auditoría completada</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">
+        Tienes <span id="scoreDisplay" class="gr">--</span> / 27 puntos
+      </h2>
+      <p id="scoreMsg" class="text-gray-400 text-sm mb-6 max-w-lg mx-auto">--</p>
+
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <p class="text-xs text-gray-500 mb-4">Recibe tu diagnóstico personalizado por email con los pasos exactos para los puntos que te faltan.</p>
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="source" value="CRM & Pipeline Checklist para CEOs B2B">
+        <input type="hidden" name="page" value="lead-magnets/crm-pipeline-checklist-ceos-b2b">
+        <input type="hidden" id="hiddenScore" name="score" value="">
+        <input type="hidden" id="hiddenItems" name="items_checked" value="">
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+          <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white transition-colors">política de privacidad</a>. Recibiré comunicaciones que puedo cancelar en cualquier momento.</span>
+        </label>
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-xl text-sm">Recibe tu diagnóstico por email</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los próximos minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Solo tu diagnóstico.</p>
+    </div>
+  </div>
+
+  <!-- SAVE PARTIAL CTA (shown when 5-14 checked) -->
+  <div id="ctaPartial" class="hidden mt-8 fade-in">
+    <div class="glass rounded-xl p-6 text-center border border-purple/10">
+      <p class="text-sm text-gray-400 mb-1">Llevas <span id="partialCount" class="font-bold text-white">--</span> de 27.</p>
+      <p class="text-sm text-gray-500">Completa la auditoría para ver tu diagnóstico.</p>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTAs (always visible) -->
+  <div class="mt-12 grid sm:grid-cols-2 gap-4">
+    <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+      <p class="text-sm text-gray-400 mb-3">¿Quieres construir la infraestructura que te falta?</p>
+      <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Agendar sesión estratégica</a>
+      <p class="text-xs text-gray-500 mt-2">30 min. Sin compromiso.</p>
+    </div>
+    <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+      <p class="text-sm text-gray-400 mb-3">Aprende a construir un pipeline real</p>
+      <a href="../blog.html" class="inline-block px-6 py-3 rounded-lg text-sm w-full border border-[#8B5CF6]/40 text-[#8B5CF6] hover:bg-[#8B5CF6]/5 transition-colors">Ver el blog</a>
+      <p class="text-xs text-gray-500 mt-2">Frameworks y casos reales</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+var SECTIONS = [
+  {
+    id: 'A',
+    title: 'Calidad del pipeline',
+    subtitle: '¿Tus oportunidades son reales o son humo?',
+    color: 'cyan',
+    items: [
+      { id: 'A1', text: 'Todos los deals tienen un next step definido con fecha concreta', detail: 'Sin fecha = sin pulso. Un deal sin next step no está en tu pipeline, está en tu wishlist.' },
+      { id: 'A2', text: 'Ningún deal lleva más de 60 días sin actividad registrada', detail: 'Deals estancados inflan el pipeline y distorsionan el forecast.' },
+      { id: 'A3', text: 'Has hablado con el decisor final en cada deal activo', detail: 'Contactar solo al influencer es el error más costoso en B2B.' },
+      { id: 'A4', text: 'Cada deal tiene un presupuesto confirmado (no estimado)', detail: 'Sin presupuesto real, no hay oportunidad real.' },
+      { id: 'A5', text: 'Tu pipeline tiene 3 categorías: comprometido / probable / posible', detail: 'La diferencia entre estas tres categorías puede cambiar tu forecast un 40%.' },
+      { id: 'A6', text: 'Las fechas de cierre previstas son realistas (no "fin de trimestre" por defecto)', detail: 'Las fechas artificiales dan falsa sensación de control.' },
+      { id: 'A7', text: 'Tienes al menos 3x el objetivo mensual en pipeline "comprometido + probable"', detail: 'Con una tasa de cierre del 30%, necesitas 3x para cubrir tu objetivo.' }
+    ]
+  },
+  {
+    id: 'B',
+    title: 'Higiene del CRM',
+    subtitle: '¿Tu CRM refleja la realidad o la decora?',
+    color: 'purple',
+    items: [
+      { id: 'B1', text: 'Tienes un proceso de limpieza mensual de deals inactivos', detail: 'Sin limpieza periódica, el CRM se convierte en un cementerio de oportunidades.' },
+      { id: 'B2', text: 'Cada contacto tiene su cargo, empresa y LinkedIn actualizados', detail: 'Datos desactualizados hacen inútil cualquier automatización.' },
+      { id: 'B3', text: 'Las stages del pipeline tienen criterios de entrada/salida definidos', detail: 'Si no hay criterios, cada comercial interpreta las stages a su manera.' },
+      { id: 'B4', text: 'Registras todas las interacciones (llamadas, emails, reuniones) en el CRM', detail: 'Lo que no está registrado no existe para el análisis.' },
+      { id: 'B5', text: 'Tienes un campo "motivo de pérdida" obligatorio en cada deal cerrado-perdido', detail: 'Sin este campo, repites los mismos errores indefinidamente.' },
+      { id: 'B6', text: 'No hay duplicados de contactos ni de empresas en tu base de datos', detail: 'Los duplicados generan confusión y comunicaciones dobles.' },
+      { id: 'B7', text: 'Tu CRM tiene integración activa con tu email (logs automáticos)', detail: 'Registrar emails manualmente es una promesa que nadie cumple.' }
+    ]
+  },
+  {
+    id: 'C',
+    title: 'Previsibilidad y reporting',
+    subtitle: '¿Puedes predecir tu revenue del próximo mes?',
+    color: 'blue',
+    items: [
+      { id: 'C1', text: 'Tu forecast mensual tiene menos del 20% de error de media', detail: 'Un forecast con más del 20% de error significa que no controlas el proceso.' },
+      { id: 'C2', text: 'Tienes un dashboard actualizado con las métricas comerciales clave', detail: 'Sin dashboard, gestionas de memoria. Y la memoria miente.' },
+      { id: 'C3', text: 'Conoces tu ciclo de venta medio por tipo de cliente', detail: 'Sin este dato, no puedes planificar ni forecast a 90 días.' },
+      { id: 'C4', text: 'Trackeas la tasa de conversión en cada stage del pipeline', detail: 'Si no sabes dónde se cae el deal, no puedes mejorar el proceso.' },
+      { id: 'C5', text: 'Tienes una reunión semanal de revisión del pipeline (máx. 30 min)', detail: 'Sin revisión semanal, el pipeline se desactualiza en días.' },
+      { id: 'C6', text: 'Puedes ver en tiempo real cuánto revenue viene de cada canal de captación', detail: 'Sin este dato, no sabes dónde invertir más.' }
+    ]
+  },
+  {
+    id: 'D',
+    title: 'Cualificación de leads',
+    subtitle: '¿Entras deals que tienen sentido o te cuela cualquier cosa?',
+    color: 'pink',
+    items: [
+      { id: 'D1', text: 'Tienes un ICP (Ideal Customer Profile) documentado con criterios medibles', detail: 'Sin ICP documentado, cualificación es una opinión, no un proceso.' },
+      { id: 'D2', text: 'Hay criterios objetivos para que un lead entre al pipeline (no solo "feeling")', detail: 'Los comerciales son optimistas por naturaleza. Los criterios no lo son.' },
+      { id: 'D3', text: 'Cualificas leads con un framework (BANT, MEDDIC o equivalente)', detail: 'Presupuesto, autoridad, necesidad y timing. Cuatro preguntas que ahorran meses.' },
+      { id: 'D4', text: 'Tienes un proceso de descualificación rápida (≤2 preguntas)', detail: 'Saber decir "no" rápido es tan valioso como cerrar.' },
+      { id: 'D5', text: 'Tracks el ratio de leads cualificados vs. leads totales', detail: 'Si no mides esto, no sabes si tu captación es eficiente.' },
+      { id: 'D6', text: 'Los leads de referido y los de outbound siguen el mismo proceso de cualificación', detail: 'Los referidos también necesitan cumplir el ICP. El origen no garantiza el fit.' },
+      { id: 'D7', text: 'Tienes tiempos máximos de respuesta a leads entrantes (SLA interno)', detail: 'Cada hora sin respuesta es un 10% menos de probabilidad de cierre.' }
+    ]
+  }
+];
+
+var checked = {};
+var totalItems = 27;
+
+function render(){
+  var container = document.getElementById('checklistContainer');
+  container.innerHTML = '';
+
+  SECTIONS.forEach(function(section){
+    var colorMap = {cyan:'text-cyan border-cyan/30 bg-cyan/5', purple:'text-purple border-purple/30 bg-purple/5', blue:'text-blue border-blue/30 bg-blue/5', pink:'text-pink border-pink/30 bg-pink/5'};
+    var sectionChecked = section.items.filter(function(i){return checked[i.id];}).length;
+
+    var sDiv = document.createElement('div');
+    sDiv.className = 'space-y-3';
+
+    // Section header
+    var header = document.createElement('div');
+    header.className = 'flex items-center justify-between mb-4';
+    header.innerHTML =
+      '<div>' +
+        '<h2 class="text-lg font-bold text-white" style="font-family:\'Playfair Display\',serif">' + section.title + '</h2>' +
+        '<p class="text-xs text-gray-500 mt-0.5">' + section.subtitle + '</p>' +
+      '</div>' +
+      '<span class="text-xs font-bold px-3 py-1 rounded-full ' + colorMap[section.color] + ' border">' + sectionChecked + '/' + section.items.length + '</span>';
+    sDiv.appendChild(header);
+
+    // Items
+    section.items.forEach(function(item){
+      var isChecked = !!checked[item.id];
+      var row = document.createElement('div');
+      row.className = 'item-row flex items-start gap-3 p-4 rounded-xl border border-white/5 bg-white/[0.02]' + (isChecked ? ' checked' : '');
+      row.setAttribute('role', 'checkbox');
+      row.setAttribute('aria-checked', isChecked ? 'true' : 'false');
+      row.setAttribute('tabindex', '0');
+      row.setAttribute('data-id', item.id);
+
+      row.innerHTML =
+        '<div class="check-box mt-0.5">' +
+          (isChecked ? '<svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-white" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>' : '') +
+        '</div>' +
+        '<div class="flex-1">' +
+          '<p class="text-sm font-medium text-white leading-snug">' + item.text + '</p>' +
+          '<p class="text-xs text-gray-500 mt-1 leading-relaxed">' + item.detail + '</p>' +
+        '</div>';
+
+      row.addEventListener('click', function(){ toggle(item.id); });
+      row.addEventListener('keydown', function(e){ if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle(item.id);} });
+      sDiv.appendChild(row);
+    });
+
+    container.appendChild(sDiv);
+  });
+
+  updateProgress();
+}
+
+function toggle(id){
+  checked[id] = !checked[id];
+  render();
+}
+
+function updateProgress(){
+  var count = Object.values(checked).filter(Boolean).length;
+  var pct = Math.round((count/totalItems)*100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = count + ' / ' + totalItems;
+
+  // Show CTAs
+  var ctaResults = document.getElementById('ctaResults');
+  var ctaPartial = document.getElementById('ctaPartial');
+
+  if(count >= 15){
+    ctaResults.classList.remove('hidden');
+    ctaPartial.classList.add('hidden');
+    updateScoreDisplay(count);
+  } else if(count >= 5){
+    ctaResults.classList.add('hidden');
+    ctaPartial.classList.remove('hidden');
+    document.getElementById('partialCount').textContent = count;
+  } else {
+    ctaResults.classList.add('hidden');
+    ctaPartial.classList.add('hidden');
+  }
+}
+
+function updateScoreDisplay(count){
+  document.getElementById('scoreDisplay').textContent = count;
+  document.getElementById('hiddenScore').value = count;
+  document.getElementById('hiddenItems').value = Object.keys(checked).filter(function(k){return checked[k];}).join(',');
+
+  var msg;
+  if(count >= 24) msg = 'Infraestructura comercial sólida. Pocos CEOs llegan aquí. El siguiente paso es escalar lo que ya funciona.';
+  else if(count >= 18) msg = 'Base sana con huecos concretos. Tienes una buena base — los gaps que ves son exactamente donde instalar el sistema.';
+  else if(count >= 12) msg = 'Pipeline con riesgo real. Hay fugas de revenue que se pueden tapar con procesos concretos en 30-60 días.';
+  else msg = 'Pipeline frágil. Casi todo lo que genera tu pipeline hoy depende de esfuerzo manual o suerte. Hay que construir infraestructura.';
+
+  document.getElementById('scoreMsg').textContent = msg;
+}
+
+// Lead form
+document.getElementById('leadForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  var data = {
+    nombre: form.nombre.value,
+    email: form.email.value,
+    empresa: form.empresa.value,
+    source: 'CRM & Pipeline Checklist para CEOs B2B',
+    page: 'lead-magnets/crm-pipeline-checklist-ceos-b2b',
+    score: form.score.value,
+    items_checked: form.items_checked.value,
+    timestamp: new Date().toISOString()
+  };
+
+  fetch('/api/lead-magnet', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  })
+  .then(function(){
+    form.classList.add('hidden');
+    document.getElementById('leadSuccess').classList.remove('hidden');
+  })
+  .catch(function(){
+    form.classList.add('hidden');
+    document.getElementById('leadSuccess').classList.remove('hidden');
+  });
+});
+
+render();
+
+})();
+</script>
+</body>
+</html>

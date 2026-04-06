@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scorecard: ¿Tu modelo de consultoría tiene fecha de caducidad? | GGC</title>
+  <meta name="description" content="12 preguntas. 4 dimensiones. Scoring automático. Descubre en qué áreas tu modelo de consultoría B2B tiene exposición y qué cambiar primero.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Scorecard: ¿Tu modelo de consultoría tiene fecha de caducidad? — GGC">
+  <meta property="og:description" content="12 preguntas. 4 dimensiones. Scoring automático con benchmarks del sector.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden;cursor:pointer}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    /* Question styles */
+    .question-block{transition:border-color .2s ease}
+    .question-block.answered{border-color:rgba(139,92,246,0.2)}
+    .option-btn{width:100%;text-align:left;padding:12px 16px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);color:#9ca3af;font-size:0.875rem;cursor:pointer;transition:all .2s ease}
+    .option-btn:hover{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2);color:#fff}
+    .option-btn.selected{background:rgba(139,92,246,0.12);border-color:rgba(139,92,246,0.4);color:#fff}
+
+    /* Dimension bar */
+    .dim-bar{height:8px;border-radius:4px;background:rgba(255,255,255,0.05);overflow:hidden;margin-top:8px}
+    .dim-bar-fill{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+
+    /* Score circle */
+    .score-circle{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;border:3px solid transparent;position:relative}
+
+    /* Status */
+    .status-alto{color:#EF4444}
+    .status-medio{color:#F59E0B}
+    .status-bajo{color:#10B981}
+    .badge-alto{background:rgba(239,68,68,.12);color:#EF4444;border:1px solid rgba(239,68,68,.2)}
+    .badge-medio{background:rgba(245,158,11,.12);color:#F59E0B;border:1px solid rgba(245,158,11,.2)}
+    .badge-bajo{background:rgba(16,185,129,.12);color:#10B981;border:1px solid rgba(16,185,129,.2)}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .4s ease forwards}
+
+    @media(prefers-reduced-motion:reduce){.btn-g{transition:none}.btn-g::after{animation:none}.dim-bar-fill{transition:none}.fade-in{animation:none}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="max-w-2xl mx-auto px-6 pt-12 pb-6 text-center">
+  <a href="../index.html" class="inline-block mb-8">
+    <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto mx-auto">
+  </a>
+  <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-4">Scorecard gratuito</span>
+  <h1 class="font-display text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
+    ¿Tu modelo de consultoría tiene fecha de caducidad?
+  </h1>
+  <p class="text-gray-400 text-base mb-2">12 preguntas · 4 dimensiones · Scoring automático</p>
+  <p class="text-gray-500 text-sm">Identifica en qué áreas tu modelo tiene exposición y qué cambiar primero.</p>
+</div>
+
+<!-- SCORECARD -->
+<main class="max-w-2xl mx-auto px-6 pb-20" id="scorecard-main">
+
+  <!-- PROGRESS -->
+  <div class="mb-8">
+    <div class="flex justify-between text-xs text-gray-500 mb-2">
+      <span id="progress-label">Pregunta 1 de 12</span>
+      <span id="progress-pct">0%</span>
+    </div>
+    <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+      <div id="progress-bar" class="h-full rounded-full transition-all duration-500" style="width:0%;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899)"></div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="questions-container" class="space-y-6"></div>
+
+  <!-- RESULTS (hidden initially) -->
+  <div id="results-section" class="hidden fade-in">
+
+    <div class="glass rounded-2xl p-8 mb-6 text-center">
+      <p class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Tu puntuación global</p>
+      <div class="flex justify-center mb-4">
+        <div id="score-circle" class="score-circle" style="background:conic-gradient(from 0deg,#8B5CF6 0%,#EC4899 0%,rgba(255,255,255,0.04) 0%)">
+          <span id="score-number" class="text-3xl font-bold text-white" style="font-family:'DM Sans',sans-serif">0</span>
+          <span class="text-xs text-gray-400">/ 100</span>
+        </div>
+      </div>
+      <div id="score-badge" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-3"></div>
+      <p id="score-summary" class="text-gray-400 text-sm max-w-sm mx-auto"></p>
+    </div>
+
+    <!-- Dimensions -->
+    <div class="glass rounded-2xl p-6 mb-6">
+      <p class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-5">Resultados por dimensión</p>
+      <div id="dimensions-results" class="space-y-5"></div>
+    </div>
+
+    <!-- Recommendations -->
+    <div id="recommendations" class="glass rounded-2xl p-6 mb-6">
+      <p class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Lo que debes cambiar primero</p>
+      <div id="recommendations-content" class="space-y-3"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="glass rounded-2xl p-6 mb-6" style="border-color:rgba(139,92,246,0.2)">
+      <p class="text-[#8B5CF6] text-xs font-semibold tracking-widest uppercase mb-2">Próximo paso</p>
+      <h3 class="text-white font-bold text-lg mb-3" style="font-family:'DM Sans',sans-serif">Analizamos tu modelo en 30 minutos</h3>
+      <p class="text-gray-400 text-sm mb-4">Revisamos tus resultados, identificamos el mayor punto de palanca y te explicamos qué instalaríamos primero. Sin compromiso.</p>
+      <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full text-center">Agendar diagnóstico gratuito</a>
+    </div>
+
+    <div class="text-center">
+      <a href="../blog/modelo-consultoria-b2b-roto.html" class="text-[#8B5CF6] text-sm hover:text-[#a78bfa] transition-colors underline underline-offset-2">Volver al artículo</a>
+    </div>
+  </div>
+
+</main>
+
+<script>
+const DIMENSIONS = [
+  {
+    id: 'riesgo',
+    label: 'Alineación de riesgo',
+    description: 'Hasta qué punto compartes el riesgo con el cliente'
+  },
+  {
+    id: 'activos',
+    label: 'Propiedad de activos',
+    description: 'Si los activos generados quedan en el cliente'
+  },
+  {
+    id: 'dependencia',
+    label: 'Independencia del cliente',
+    description: 'Si el cliente puede operar sin ti a los 6 meses'
+  },
+  {
+    id: 'resultados',
+    label: 'Orientación a resultados',
+    description: 'Si tus incentivos están alineados con los resultados reales'
+  }
+];
+
+const QUESTIONS = [
+  {
+    id: 'q1',
+    dimension: 'riesgo',
+    text: '¿Cómo estructuras el pago de tus proyectos?',
+    options: [
+      { text: 'Fee fijo upfront antes de empezar', score: 0 },
+      { text: 'Fee mensual sin vinculación a resultados', score: 25 },
+      { text: 'Parte fija + parte variable ligada a KPIs', score: 75 },
+      { text: 'Totalmente vinculado a resultados', score: 100 }
+    ]
+  },
+  {
+    id: 'q2',
+    dimension: 'riesgo',
+    text: '¿Qué pasa si el proyecto no genera los resultados esperados?',
+    options: [
+      { text: 'El cliente paga igual — es su responsabilidad ejecutar', score: 0 },
+      { text: 'Ofrecemos sesiones adicionales sin coste extra', score: 33 },
+      { text: 'Revisamos el plan y ajustamos sin coste adicional', score: 66 },
+      { text: 'No cobramos o devolvemos parte del fee', score: 100 }
+    ]
+  },
+  {
+    id: 'q3',
+    dimension: 'riesgo',
+    text: 'Cuando cualificas a un cliente nuevo, ¿qué criterio pesa más?',
+    options: [
+      { text: 'Que tenga presupuesto disponible', score: 0 },
+      { text: 'Que sea del sector donde trabajamos', score: 33 },
+      { text: 'Que tenga el perfil adecuado para nuestra metodología', score: 66 },
+      { text: 'Que estemos seguros de poder generarle resultados', score: 100 }
+    ]
+  },
+  {
+    id: 'q4',
+    dimension: 'activos',
+    text: 'Los entregables que produces en un proyecto, ¿dónde quedan?',
+    options: [
+      { text: 'En nuestra propiedad intelectual — el cliente usa el resultado', score: 0 },
+      { text: 'En un área gris — usamos templates propios adaptados', score: 33 },
+      { text: 'Mayormente en propiedad del cliente, con algunos elementos nuestros', score: 66 },
+      { text: 'Completamente en propiedad del cliente desde el día uno', score: 100 }
+    ]
+  },
+  {
+    id: 'q5',
+    dimension: 'activos',
+    text: 'Si tu empresa cerrara mañana, ¿qué quedaría en los clientes actuales?',
+    options: [
+      { text: 'Informes y recomendaciones', score: 0 },
+      { text: 'Algunos procesos documentados y los informes', score: 33 },
+      { text: 'Sistemas parcialmente instalados y documentados', score: 66 },
+      { text: 'Infraestructura operativa completa, documentada y funcionando', score: 100 }
+    ]
+  },
+  {
+    id: 'q6',
+    dimension: 'activos',
+    text: 'Tus procesos y metodología, ¿están documentados para el cliente?',
+    options: [
+      { text: 'No — el know-how está en nuestras cabezas', score: 0 },
+      { text: 'Parcialmente — algunos procesos tienen documentación', score: 33 },
+      { text: 'En su mayoría sí, aunque con gaps', score: 66 },
+      { text: 'Completamente — el cliente puede replicar sin nosotros', score: 100 }
+    ]
+  },
+  {
+    id: 'q7',
+    dimension: 'dependencia',
+    text: 'Un cliente que lleva 12 meses contigo, ¿podría prescindir de vosotros hoy?',
+    options: [
+      { text: 'No — nos necesita para seguir funcionando', score: 0 },
+      { text: 'Con dificultad — habría fricción considerable', score: 33 },
+      { text: 'Mayormente sí, pero perdería capacidad', score: 66 },
+      { text: 'Sí — tiene el sistema instalado y operativo', score: 100 }
+    ]
+  },
+  {
+    id: 'q8',
+    dimension: 'dependencia',
+    text: '¿Cuántos clientes llevan más de 24 meses contigo porque realmente necesitan tu servicio?',
+    options: [
+      { text: 'La mayoría — son relaciones de largo plazo activas', score: 100 },
+      { text: 'Varios, aunque algunos podrían haber terminado antes', score: 66 },
+      { text: 'Pocos — la mayoría renueva por inercia', score: 33 },
+      { text: 'Casi ninguno — los proyectos terminan cuando termina el scope', score: 0 }
+    ]
+  },
+  {
+    id: 'q9',
+    dimension: 'dependencia',
+    text: 'Cuando un cliente termina un proyecto, ¿qué pasa normalmente?',
+    options: [
+      { text: 'Vuelve para el siguiente proyecto — seguimos siendo necesarios', score: 0 },
+      { text: 'Sigue con soporte o retainer ligero', score: 33 },
+      { text: 'Opera solo, con consultas puntuales', score: 66 },
+      { text: 'Opera completamente solo con el sistema instalado', score: 100 }
+    ]
+  },
+  {
+    id: 'q10',
+    dimension: 'resultados',
+    text: '¿Tienes KPIs acordados antes de empezar cada proyecto?',
+    options: [
+      { text: 'No — los resultados se evalúan cualitativamente', score: 0 },
+      { text: 'A veces — cuando el cliente los pide', score: 33 },
+      { text: 'Generalmente sí, aunque no siempre formalizados', score: 66 },
+      { text: 'Siempre — son parte del contrato', score: 100 }
+    ]
+  },
+  {
+    id: 'q11',
+    dimension: 'resultados',
+    text: 'Cuando un cliente no obtiene los resultados esperados, ¿cómo lo gestionas?',
+    options: [
+      { text: 'Explicamos por qué la ejecución no fue óptima', score: 0 },
+      { text: 'Ofrecemos revisión y nuevo plan sin coste', score: 33 },
+      { text: 'Asumimos parte de la responsabilidad y ajustamos el proyecto', score: 66 },
+      { text: 'Tenemos penalizaciones contractuales que nos obligan a resolver', score: 100 }
+    ]
+  },
+  {
+    id: 'q12',
+    dimension: 'resultados',
+    text: '¿Puedes citar tres casos recientes con resultados medibles y verificables?',
+    options: [
+      { text: 'No — los resultados son difíciles de aislar', score: 0 },
+      { text: 'Uno o dos, con datos parciales', score: 33 },
+      { text: 'Sí, aunque la metodología de medición varía', score: 66 },
+      { text: 'Sí — los tenemos documentados con métricas exactas', score: 100 }
+    ]
+  }
+];
+
+// State
+const answers = {};
+let currentQ = 0;
+let resultsShown = false;
+
+function renderQuestions() {
+  const container = document.getElementById('questions-container');
+  container.innerHTML = '';
+  QUESTIONS.forEach((q, idx) => {
+    const block = document.createElement('div');
+    block.className = 'question-block glass rounded-2xl p-6' + (answers[q.id] !== undefined ? ' answered' : '');
+    block.id = 'block-' + q.id;
+    block.innerHTML = `
+      <div class="flex items-start gap-3 mb-4">
+        <span style="flex-shrink:0;width:24px;height:24px;border-radius:50%;background:${answers[q.id] !== undefined ? 'rgba(139,92,246,0.15)' : 'rgba(255,255,255,0.05)'};border:1px solid ${answers[q.id] !== undefined ? 'rgba(139,92,246,0.3)' : 'rgba(255,255,255,0.08)'};display:flex;align-items:center;justify-content:center;color:${answers[q.id] !== undefined ? '#8B5CF6' : '#6b7280'};font-size:11px;font-weight:700">${idx + 1}</span>
+        <p style="color:#e5e5e5;font-size:0.9375rem;line-height:1.6;font-weight:500">${q.text}</p>
+      </div>
+      <div class="space-y-2 pl-9">
+        ${q.options.map((opt, oi) => `
+          <button class="option-btn${answers[q.id] === oi ? ' selected' : ''}" data-qid="${q.id}" data-oi="${oi}" data-score="${opt.score}">
+            ${opt.text}
+          </button>
+        `).join('')}
+      </div>
+    `;
+    container.appendChild(block);
+  });
+
+  container.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const qid = btn.dataset.qid;
+      const oi = parseInt(btn.dataset.oi);
+      const score = parseInt(btn.dataset.score);
+      answers[qid] = oi;
+      answers[qid + '_score'] = score;
+
+      // Update UI for this question
+      const block = document.getElementById('block-' + qid);
+      block.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      block.classList.add('answered');
+
+      updateProgress();
+      checkComplete();
+    });
+  });
+}
+
+function updateProgress() {
+  const answered = QUESTIONS.filter(q => answers[q.id] !== undefined).length;
+  const pct = Math.round((answered / QUESTIONS.length) * 100);
+  document.getElementById('progress-label').textContent = `Pregunta ${Math.min(answered + 1, QUESTIONS.length)} de ${QUESTIONS.length}`;
+  document.getElementById('progress-pct').textContent = pct + '%';
+  document.getElementById('progress-bar').style.width = pct + '%';
+}
+
+function checkComplete() {
+  const answered = QUESTIONS.filter(q => answers[q.id] !== undefined).length;
+  if (answered === QUESTIONS.length && !resultsShown) {
+    resultsShown = true;
+    setTimeout(showResults, 400);
+  }
+}
+
+function showResults() {
+  // Calculate scores per dimension
+  const dimScores = {};
+  DIMENSIONS.forEach(d => {
+    const qs = QUESTIONS.filter(q => q.dimension === d.id);
+    const total = qs.reduce((acc, q) => acc + (answers[q.id + '_score'] || 0), 0);
+    dimScores[d.id] = Math.round(total / qs.length);
+  });
+
+  // Global score
+  const globalScore = Math.round(Object.values(dimScores).reduce((a, b) => a + b, 0) / DIMENSIONS.length);
+
+  // Update score circle
+  document.getElementById('score-number').textContent = globalScore;
+  const pct = globalScore / 100;
+  const color1 = '#8B5CF6';
+  const color2 = '#EC4899';
+  document.getElementById('score-circle').style.background = `conic-gradient(from 0deg, ${color1} 0%, ${color2} ${pct * 100}%, rgba(255,255,255,0.04) ${pct * 100}%)`;
+
+  // Badge and summary
+  const badge = document.getElementById('score-badge');
+  const summary = document.getElementById('score-summary');
+  if (globalScore >= 70) {
+    badge.className = 'inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-3 badge-bajo';
+    badge.textContent = 'Modelo sólido';
+    summary.textContent = 'Tu modelo tiene buena alineación de incentivos. Hay áreas de mejora, pero la estructura base es la correcta.';
+  } else if (globalScore >= 40) {
+    badge.className = 'inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-3 badge-medio';
+    badge.textContent = 'Riesgo medio';
+    summary.textContent = 'Tu modelo tiene elementos sólidos pero también vulnerabilidades estructurales que el mercado va a hacer cada vez más visibles.';
+  } else {
+    badge.className = 'inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-3 badge-alto';
+    badge.textContent = 'Exposición alta';
+    summary.textContent = 'Tu modelo está estructurado principalmente alrededor de outputs y fees fijos. Los clientes B2B sofisticados lo van a cuestionar cada vez más.';
+  }
+
+  // Dimensions
+  const dimsContainer = document.getElementById('dimensions-results');
+  dimsContainer.innerHTML = '';
+  const sortedDims = [...DIMENSIONS].sort((a, b) => dimScores[a.id] - dimScores[b.id]);
+  sortedDims.forEach(d => {
+    const s = dimScores[d.id];
+    let barColor = '#10B981';
+    if (s < 40) barColor = '#EF4444';
+    else if (s < 70) barColor = '#F59E0B';
+    dimsContainer.innerHTML += `
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <span style="color:#e5e5e5;font-size:0.875rem;font-weight:600">${d.label}</span>
+          <span style="color:${barColor};font-size:0.875rem;font-weight:700">${s}/100</span>
+        </div>
+        <p style="color:#6b7280;font-size:0.75rem;margin-bottom:6px">${d.description}</p>
+        <div class="dim-bar"><div class="dim-bar-fill" style="width:${s}%;background:${barColor}"></div></div>
+      </div>
+    `;
+  });
+
+  // Recommendations
+  const recContent = document.getElementById('recommendations-content');
+  recContent.innerHTML = '';
+  const worstDims = sortedDims.filter(d => dimScores[d.id] < 50);
+  if (worstDims.length === 0) {
+    recContent.innerHTML = '<p style="color:#9ca3af;font-size:0.875rem">Tu modelo está bien estructurado. El siguiente paso es optimizar el go-to-market y la cualificación de clientes.</p>';
+  } else {
+    const recs = {
+      riesgo: {
+        title: 'Introduce skin in the game',
+        text: 'Si puedes dar el salto, vincula al menos una parte de tus fees a resultados medibles. Esto cambia la dinámica de la relación y te obliga a ser más selectivo con los clientes que aceptas.'
+      },
+      activos: {
+        title: 'Documenta lo que instalas',
+        text: 'Empieza a documentar tus procesos de forma que el cliente pueda replicarlos sin ti. Esto no reduce tu valor — lo aumenta. Un cliente que confía en que los activos quedan suyos paga más y más rápido.'
+      },
+      dependencia: {
+        title: 'Diseña para la independencia del cliente',
+        text: 'Reorienta el éxito del proyecto hacia que el cliente no te necesite en 12 meses. Paradójicamente, los clientes que saben que puedes prescindir de ti son los que más repiten y refieren.'
+      },
+      resultados: {
+        title: 'Define los KPIs antes de empezar',
+        text: 'Propón siempre dos o tres métricas concretas medibles antes de firmar. No como cláusula de penalización — como mecanismo de alineación. Si el cliente no quiere acordar métricas, eso te dice algo importante.'
+      }
+    };
+    worstDims.slice(0, 3).forEach((d, i) => {
+      const r = recs[d.id];
+      recContent.innerHTML += `
+        <div style="border-left:2px solid rgba(139,92,246,0.3);padding-left:1rem">
+          <p style="color:#fff;font-size:0.875rem;font-weight:600;margin-bottom:4px">${i + 1}. ${r.title}</p>
+          <p style="color:#9ca3af;font-size:0.8125rem;line-height:1.6">${r.text}</p>
+        </div>
+      `;
+    });
+  }
+
+  // Show results
+  document.getElementById('results-section').classList.remove('hidden');
+  document.getElementById('results-section').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// Init
+renderQuestions();
+updateProgress();
+</script>
+</body>
+</html>

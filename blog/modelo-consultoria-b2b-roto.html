@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El modelo de consultoría B2B está roto (y todos sabemos por qué) | GGC</title>
+  <meta name="description" content="El modelo tradicional de consultoría transfiere todo el riesgo al cliente. Pagas por estrategia, no por resultados. Hay un modelo alternativo que funciona mejor para los dos lados.">
+  <link rel="canonical" href="https://globalgrowth.consulting/blog/modelo-consultoria-b2b-roto">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://globalgrowth.consulting/blog/modelo-consultoria-b2b-roto">
+  <meta property="og:title" content="El modelo de consultoría B2B está roto (y todos sabemos por qué)">
+  <meta property="og:description" content="El modelo tradicional de consultoría transfiere todo el riesgo al cliente. Pagas por estrategia, no por resultados. Hay un modelo alternativo que funciona mejor para los dos lados.">
+  <meta property="og:locale" content="es_ES">
+  <meta property="article:published_time" content="2026-05-03">
+  <meta property="article:author" content="Xavi Fortuna">
+  <meta property="article:section" content="Desde las trincheras">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="author" content="Xavi Fortuna">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "El modelo de consultoría B2B está roto (y todos sabemos por qué)",
+    "description": "El modelo tradicional de consultoría transfiere todo el riesgo al cliente. Pagas por estrategia, no por resultados. Hay un modelo alternativo que funciona mejor para los dos lados.",
+    "datePublished": "2026-05-03",
+    "dateModified": "2026-05-03",
+    "author": {"@type":"Person","name":"Xavi Fortuna","jobTitle":"CEO & Head of Growth","url":"https://linkedin.com/in/xavierfortuna/"},
+    "publisher": {"@type":"Organization","name":"Global Growth Consulting","url":"https://globalgrowth.consulting","logo":{"@type":"ImageObject","url":"https://globalgrowth.consulting/logo.png"}},
+    "mainEntityOfPage": {"@type":"WebPage","@id":"https://globalgrowth.consulting/blog/modelo-consultoria-b2b-roto"},
+    "articleSection": "Desde las trincheras",
+    "wordCount": 1900,
+    "timeRequired": "PT8M"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#8A8A8A',700:'#6B6B6B'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-outline{border:1px solid rgba(139,92,246,0.4);color:#8B5CF6;transition:all .3s ease}
+    .btn-outline:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.08)}
+    .nav-blur{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(12,10,29,0.7);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .mobile-menu{transform:translateX(100%);transition:transform .3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;margin-top:2.5rem;margin-bottom:1rem;line-height:1.3}
+    .article-body h3{font-size:1.25rem;font-weight:600;color:#fff;margin-top:2rem;margin-bottom:0.75rem;line-height:1.4}
+    .article-body p{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:1.25rem}
+    .article-body ul,.article-body ol{margin-bottom:1.25rem;padding-left:1.5rem}
+    .article-body li{font-size:1.0625rem;line-height:1.8;color:#b0b0b0;margin-bottom:0.5rem}
+    .article-body strong{color:#e0e0e0;font-weight:600}
+    .article-body blockquote{border-left:3px solid transparent;border-image:linear-gradient(180deg,#8B5CF6,#EC4899) 1;padding-left:1.25rem;margin:1.5rem 0;font-style:italic;color:#999}
+    .scroll-popup{transform:translateY(120%);transition:transform .4s ease,opacity .4s ease;opacity:0}
+    .scroll-popup.show{transform:translateY(0);opacity:1}
+    a:focus-visible,button:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.btn-g,.btn-outline{transition:none}.btn-g::after{animation:none}.scroll-popup{transition:none}}
+    section[id]{scroll-margin-top:80px}
+    .modelo-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.04)}
+    .modelo-cell{padding:1rem 1.25rem;background:#0C0A1D}
+    .modelo-cell.header{background:#151331;font-weight:700;font-size:0.8125rem;text-transform:uppercase;letter-spacing:.08em;color:#999}
+    .modelo-cell.bad{color:#F87171}
+    .modelo-cell.good{color:#34D399}
+    .step-card{border-left:2px solid rgba(139,92,246,0.3);padding-left:1.25rem;margin-bottom:1.5rem}
+    .step-num{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.3);color:#8B5CF6;font-size:0.75rem;font-weight:700;margin-bottom:0.5rem}
+  </style>
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+<div id="progress" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);z-index:100;width:0;transition:width .1s"></div>
+
+<!-- NAV -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="../index.html#sistema" class="text-sm text-gray-400 hover:text-white transition-colors">Sistema</a>
+      <a href="../index.html#resultados" class="text-sm text-gray-400 hover:text-white transition-colors">Resultados</a>
+      <a href="../blog.html" class="text-sm text-white font-medium transition-colors">Blog</a>
+      <a href="../index.html#proceso" class="text-sm text-gray-400 hover:text-white transition-colors">Proceso</a>
+      <a href="../agendar.html" class="btn-g px-5 py-2.5 rounded-lg text-sm">Aplica ahora</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Abrir menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-72 bg-[#151331] z-50 flex flex-col p-8 gap-6 md:hidden">
+    <button id="closeMenu" class="self-end text-white mb-4" aria-label="Cerrar menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <a href="../index.html#sistema" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Sistema</a>
+    <a href="../index.html#resultados" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Resultados</a>
+    <a href="../blog.html" class="text-lg text-white font-medium transition-colors mobile-link">Blog</a>
+    <a href="../index.html#proceso" class="text-lg text-gray-300 hover:text-white transition-colors mobile-link">Proceso</a>
+    <a href="../agendar.html" class="btn-g px-5 py-3 rounded-lg text-center text-sm mt-4 mobile-link">Aplica ahora</a>
+  </div>
+</nav>
+
+<!-- ARTICLE -->
+<main class="pt-28 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <nav class="mb-8 reveal" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 text-sm text-gray-500">
+        <li><a href="../index.html" class="hover:text-gray-300 transition-colors">Inicio</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li><span class="text-[#8B5CF6]">Desde las trincheras</span></li>
+        <li><span class="mx-1">&gt;</span></li>
+        <li class="text-gray-400 truncate max-w-[200px]">El modelo de consultoría B2B está roto</li>
+      </ol>
+    </nav>
+
+    <header class="max-w-3xl mx-auto mb-12 reveal">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-[#8B5CF6]/30 text-[#8B5CF6] bg-[#8B5CF6]/5 mb-6">Desde las trincheras</span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        El modelo de consultoría B2B está roto (y todos sabemos por qué)
+      </h1>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+        <span class="font-medium text-white">Xavi Fortuna</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>3 de mayo de 2026</span>
+        <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>8 min lectura</span>
+      </div>
+    </header>
+
+    <div class="flex gap-12 max-w-7xl mx-auto">
+
+      <article class="max-w-3xl w-full article-body">
+
+        <div class="reveal">
+          <p>
+            El modelo funciona así: el cliente paga. El consultor entrega un diagnóstico, un plan estratégico, una serie de recomendaciones. El cliente asiente. El consultor cobra. Si los resultados no llegan, el problema es que el cliente no ejecutó bien.
+          </p>
+          <p>
+            Este modelo lleva décadas funcionando. Y está roto desde el principio.
+          </p>
+          <p>
+            Lo sé porque lo viví. Durante los primeros años de GGC trabajamos así. Entregábamos planes. Entregábamos estrategias. Entregábamos decks. Eran buenos, detallados, bien argumentados. Y muchos clientes no conseguían lo que necesitaban, porque entre el plan y los resultados hay una brecha enorme que el modelo tradicional no cubre. Y nosotros cobrábamos igual.
+          </p>
+          <p>
+            Ese es el problema estructural que nadie en el sector quiere nombrar en voz alta: el modelo tradicional de consultoría B2B transfiere todo el riesgo al cliente y ninguno al proveedor.
+          </p>
+
+          <h2>Los tres problemas estructurales del modelo clásico</h2>
+
+          <h3>1. Pagas por outputs, no por outcomes</h3>
+          <p>
+            La unidad de valor en consultoría tradicional es el entregable. Un informe, un plan, un taller, un deck. El consultor optimiza para producir entregables de calidad. El cliente necesita resultados de negocio.
+          </p>
+          <p>
+            Son dos cosas diferentes. Un diagnóstico excelente puede no mover una sola cifra. Un plan estratégico impecable puede quedarse en un cajón. La calidad del entregable no predice en absoluto la calidad del resultado. Y sin embargo, el pago se estructura alrededor del entregable.
+          </p>
+          <p>
+            Cuando el incentivo del consultor es producir entregables buenos, el sistema está alineado para producir entregables. Cuando el incentivo debería ser resultados de negocio, el sistema está desalineado desde el día uno.
+          </p>
+
+          <h3>2. La dependencia que nunca se resuelve</h3>
+          <p>
+            El segundo problema es más sutil y más dañino. El modelo clásico no instala capacidades en la organización del cliente. Resuelve el problema puntual. O lo parece resolver.
+          </p>
+          <p>
+            Llega el consultor, hace el diagnóstico, diseña el sistema, se va. El cliente tiene el plan. No tiene el músculo para ejecutarlo. No tiene los procesos documentados. No tiene el know-how interiorizado. Tiene un documento que describe lo que debería hacer.
+          </p>
+          <p>
+            Así que en seis meses, el cliente necesita al consultor de nuevo. Para actualizar el plan. Para revisar la estrategia. Para "acompañar" la implementación. El modelo crea dependencia sistémica, no independencia operativa.
+          </p>
+          <p>
+            Y esa dependencia es cómoda para el proveedor —garantiza retenciones— pero destruye valor real para el cliente.
+          </p>
+
+          <h3>3. El riesgo siempre cae del mismo lado</h3>
+          <p>
+            Esta es la parte que más incomoda cuando la nombras en una sala con consultores: en el modelo clásico, el cliente asume el 100% del riesgo de ejecución.
+          </p>
+          <p>
+            El consultor cobra si el cliente ejecuta bien o mal. Cobra si los resultados llegan o no llegan. Su riesgo es reputacional —que el cliente no repita o no refiera—, pero ese riesgo es difuso y a largo plazo. El riesgo económico inmediato lo asume quien paga.
+          </p>
+          <p>
+            Esto genera un problema de alineación de incentivos que contamina toda la relación. El consultor tiene incentivo para parecer útil, no necesariamente para ser útil. El cliente tiene incentivo para defender su inversión aunque los resultados no lleguen. Y los dos acaban en conversaciones sobre "valor percibido" en lugar de sobre resultados reales.
+          </p>
+
+          <blockquote>
+            El modelo de consultoría tradicional está diseñado para proteger al proveedor, no para maximizar los resultados del cliente.
+          </blockquote>
+        </div>
+
+        <!-- Tabla comparativa -->
+        <div class="glass rounded-2xl overflow-hidden my-8 reveal">
+          <div class="p-6 border-b border-white/5">
+            <h3 class="text-white font-bold text-lg" style="font-family:'DM Sans',sans-serif">Modelo tradicional vs. modelo de infraestructura</h3>
+          </div>
+          <div class="overflow-x-auto">
+            <div class="min-w-[520px]">
+              <div class="modelo-row">
+                <div class="modelo-cell header">Modelo tradicional</div>
+                <div class="modelo-cell header">Modelo de infraestructura</div>
+              </div>
+              <div class="modelo-row">
+                <div class="modelo-cell bad text-sm">Pagas por horas o por proyecto</div>
+                <div class="modelo-cell good text-sm">Pagas vinculado a resultados</div>
+              </div>
+              <div class="modelo-row">
+                <div class="modelo-cell bad text-sm">Entregable = informe o recomendación</div>
+                <div class="modelo-cell good text-sm">Entregable = sistema funcionando</div>
+              </div>
+              <div class="modelo-row">
+                <div class="modelo-cell bad text-sm">El riesgo lo asume el cliente</div>
+                <div class="modelo-cell good text-sm">El riesgo lo comparte el proveedor</div>
+              </div>
+              <div class="modelo-row">
+                <div class="modelo-cell bad text-sm">Crea dependencia del consultor</div>
+                <div class="modelo-cell good text-sm">Instala capacidad propia</div>
+              </div>
+              <div class="modelo-row">
+                <div class="modelo-cell bad text-sm">Activo: el know-how se va con el consultor</div>
+                <div class="modelo-cell good text-sm">Activo: el sistema queda en propiedad del cliente</div>
+              </div>
+              <div class="modelo-row">
+                <div class="modelo-cell bad text-sm">Incentivo del proveedor: parecer útil</div>
+                <div class="modelo-cell good text-sm">Incentivo del proveedor: generar resultados reales</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h2>Lo que los datos de 627 clientes dicen</h2>
+          <p>
+            No hablo desde la teoría. Hablo desde el análisis de 627 empresas con las que hemos trabajado en los últimos años.
+          </p>
+          <p>
+            De las empresas que llegaron a nosotros habiendo trabajado previamente con consultores o agencias bajo el modelo clásico, el <strong>73% reportó haber pagado por proyectos que no generaron el ROI esperado</strong>. No porque los entregables fueran malos. Sino porque la brecha entre el plan y la ejecución nadie la cubrió.
+          </p>
+          <p>
+            El patrón más común era este: la empresa contrató a alguien para diseñar la estrategia comercial. Recibió el plan. No tenía equipo para ejecutarlo. El consultor no estaba disponible para ayudar en la ejecución —no era su modelo. La empresa intentó implementar sola y se atascó. Seis meses después, volvió a pagar por una "revisión estratégica" para entender por qué no había funcionado.
+          </p>
+          <p>
+            Los resultados del modelo que nosotros instalamos son diferentes. No porque seamos mejores estrategas. Sino porque el modelo en sí tiene incentivos distintos.
+          </p>
+
+          <h2>Por qué el modelo success-based cambia las reglas</h2>
+          <p>
+            En GGC, eliminamos el fee inicial hace tiempo. Cobramos vinculado a resultados. Esto no es marketing. Es una decisión que tiene consecuencias operativas profundas.
+          </p>
+          <p>
+            Cuando no cobras salvo que el cliente consiga resultados, dejas de ser proveedor de servicios y te conviertes en partner de negocio. La diferencia no es semántica. Es estructural.
+          </p>
+          <p>
+            Las cuatro consecuencias directas de ese cambio:
+          </p>
+
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <p class="text-white font-semibold text-sm mb-1">Selección más estricta de clientes</p>
+            <p class="text-gray-400 text-sm">Si cobras vinculado a resultados, no puedes aceptar clientes con los que no estés seguro de generar resultados. Eso fuerza una cualificación rigurosa en el onboarding. Solo trabajamos con empresas donde vemos que el sistema puede funcionar.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <p class="text-white font-semibold text-sm mb-1">Instalación, no consultoría</p>
+            <p class="text-gray-400 text-sm">No entregamos planes. Instalamos sistemas. La diferencia: el sistema queda operativo en la organización del cliente, documentado, con procesos claros, con la infraestructura técnica configurada. El cliente no depende de nosotros para que funcione.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <p class="text-white font-semibold text-sm mb-1">Los activos quedan en propiedad del cliente</p>
+            <p class="text-gray-400 text-sm">El ICP documentado, las secuencias construidas, el CRM configurado, los playbooks de ventas, los procesos de cualificación — todo eso queda. Si mañana GGC desaparece, el cliente tiene el sistema funcionando. Eso es lo que significa instalar infraestructura, no alquilar servicios.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <p class="text-white font-semibold text-sm mb-1">Accountability real en los dos lados</p>
+            <p class="text-gray-400 text-sm">Cuando el proveedor tiene skin in the game, las conversaciones cambian. No hay lugar para el "el problema es que no ejecutasteis bien". Si el sistema no genera resultados, es un problema compartido que hay que resolver juntos. Eso cambia la dinámica de la relación completa.</p>
+          </div>
+
+          <h2>Por qué la mayoría de consultoras no cambian el modelo</h2>
+          <p>
+            La respuesta corta: porque el modelo clásico es más seguro para el proveedor.
+          </p>
+          <p>
+            El modelo success-based obliga a tener muy claro qué se está instalando, cómo se mide, qué variables están bajo el control del sistema y cuáles no. Eso requiere rigor operativo que muchos consultores no tienen —o no quieren desarrollar.
+          </p>
+          <p>
+            También requiere confianza en que el sistema funciona. Si no estás seguro de que tu metodología genera resultados consistentes, no puedes cobrar vinculado a esos resultados. El modelo te obliga a saber exactamente qué vendes y cuándo funciona.
+          </p>
+          <p>
+            Y finalmente: en el modelo clásico, un consultor mediocre puede tener una carrera larga. En el modelo success-based, la mediocridad se penaliza directamente en la cuenta de resultados.
+          </p>
+
+          <h2>Cómo saber si tu modelo actual tiene fecha de caducidad</h2>
+          <p>
+            Si eres una firma de servicios B2B, hay cinco preguntas que determinan si tu modelo es sostenible a tres años vista:
+          </p>
+          <ul>
+            <li>¿Tus clientes renuevan porque están obteniendo resultados o porque cambiar de proveedor es incómodo?</li>
+            <li>¿Podrías cobrar cero si en doce meses tus clientes no mejoran su situación de partida?</li>
+            <li>¿Los activos que produces quedan en propiedad del cliente o en la propiedad intelectual de tu firma?</li>
+            <li>¿Tu modelo de pricing está vinculado a outputs o a outcomes?</li>
+            <li>¿Tus clientes podrían prescindir de ti en seis meses sin que su sistema dejara de funcionar?</li>
+          </ul>
+          <p>
+            Si la respuesta honesta a la mayoría de estas preguntas incomoda, el modelo tiene un problema estructural que el mercado va a hacer cada vez más visible.
+          </p>
+          <p>
+            Los clientes B2B son más sofisticados hoy. Tienen más opciones. Y están aprendiendo a distinguir entre consultores que les venden seguridad y partners que les venden resultados.
+          </p>
+          <p>
+            Si quieres evaluar tu modelo con más detalle, el scorecard de abajo te ayuda a identificar en qué dimensiones tienes exposición y qué puedes cambiar. Y si quieres hablarlo con más contexto, <a href="../agendar.html" class="text-[#8B5CF6] hover:text-[#a78bfa] transition-colors underline underline-offset-2">podemos hacerlo en 30 minutos</a>.
+          </p>
+        </div>
+
+        <!-- Lead Magnet -->
+        <div id="lead-magnet" class="glass rounded-2xl p-8 my-10 reveal">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-[#8B5CF6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold tracking-widest uppercase text-[#8B5CF6] mb-1">Scorecard gratuito</p>
+              <h3 class="text-white font-bold text-lg" style="font-family:'DM Sans',sans-serif">¿Tu modelo de consultoría tiene fecha de caducidad?</h3>
+              <p class="text-gray-400 text-sm mt-2">12 preguntas. 4 dimensiones. Scoring automático con benchmarks del sector. Identifica en qué áreas tu modelo tiene exposición y qué cambiar primero.</p>
+            </div>
+          </div>
+          <form id="leadMagnetForm" class="space-y-3">
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input type="email" id="lmEmail" placeholder="tu@empresa.com" required
+                class="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#8B5CF6]/50">
+              <button type="submit" class="btn-g px-6 py-3 rounded-lg text-sm whitespace-nowrap">
+                Hacer el scorecard gratis
+              </button>
+            </div>
+            <p class="text-gray-600 text-xs">Sin spam. Solo el scorecard y el blog semanal si quieres seguir.</p>
+          </form>
+          <div id="leadMagnetSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+            Perfecto. Te enviamos acceso al scorecard ahora mismo.
+          </div>
+        </div>
+
+        <!-- Related -->
+        <div class="reveal mt-12 pt-8 border-t border-white/5">
+          <h3 class="text-white font-bold text-lg mb-6" style="font-family:'DM Sans',sans-serif">También te puede interesar</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <a href="agencias-marketing-no-arreglan-ventas.html" class="glass rounded-xl p-5 hover:border-[#8B5CF6]/30 transition-colors group">
+              <span class="text-xs text-[#8B5CF6] font-semibold uppercase tracking-wider">Desde las trincheras</span>
+              <p class="text-white text-sm font-medium mt-2 group-hover:text-[#a78bfa] transition-colors">Por qué las agencias de marketing no arreglan tu problema de ventas</p>
+            </a>
+            <a href="instalar-vs-externalizar-comercial.html" class="glass rounded-xl p-5 hover:border-[#8B5CF6]/30 transition-colors group">
+              <span class="text-xs text-[#8B5CF6] font-semibold uppercase tracking-wider">Revenue Infrastructure</span>
+              <p class="text-white text-sm font-medium mt-2 group-hover:text-[#a78bfa] transition-colors">Instalar vs externalizar: por qué dejamos activos, no informes</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- CTA final -->
+        <div class="grid md:grid-cols-2 gap-6 mt-12 reveal">
+          <div class="glass rounded-2xl p-6">
+            <p class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-3">Recurso gratuito</p>
+            <p class="text-white font-semibold mb-4">Scorecard: ¿Tu modelo tiene fecha de caducidad?</p>
+            <button onclick="document.getElementById('lm-popup').style.display='flex'" class="btn-outline px-6 py-3 rounded-lg text-sm w-full">Hacer el scorecard</button>
+          </div>
+          <div class="glass rounded-2xl p-6" style="border-color:rgba(139,92,246,0.2)">
+            <p class="text-xs font-semibold tracking-widest uppercase text-[#8B5CF6] mb-3">Diagnóstico gratuito</p>
+            <p class="text-white font-semibold mb-4">Analizamos tu modelo actual y te decimos qué cambiar primero.</p>
+            <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full text-center">Agendar diagnóstico</a>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="hidden lg:block w-80 flex-shrink-0">
+        <div class="sticky top-28 space-y-6">
+          <div class="glass rounded-2xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#8B5CF6] to-[#EC4899] flex items-center justify-center text-white font-bold text-sm">XF</div>
+              <div>
+                <p class="text-white font-semibold text-sm">Xavi Fortuna</p>
+                <p class="text-gray-500 text-xs">CEO, Global Growth Consulting</p>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">Eliminamos el fee inicial hace años. No como táctica de marketing — como consecuencia lógica de creer en lo que instalamos. Si no funciona, no cobramos.</p>
+          </div>
+
+          <div class="glass rounded-2xl p-6">
+            <p class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Los 3 problemas</p>
+            <div class="space-y-0">
+              <div class="flex items-start gap-2 py-2 border-b border-white/5">
+                <span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                <span class="text-gray-400 text-xs">Pagas por outputs, no por outcomes</span>
+              </div>
+              <div class="flex items-start gap-2 py-2 border-b border-white/5">
+                <span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                <span class="text-gray-400 text-xs">La dependencia que nunca se resuelve</span>
+              </div>
+              <div class="flex items-start gap-2 py-2">
+                <span class="text-[#8B5CF6] text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                <span class="text-gray-400 text-xs">El riesgo siempre cae del mismo lado</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass rounded-2xl p-6" style="border-color:rgba(139,92,246,0.2)">
+            <p class="text-white font-semibold text-sm mb-2">¿Cómo está estructurado tu modelo?</p>
+            <p class="text-gray-400 text-xs mb-4">En 30 minutos lo analizamos y te decimos si tiene los tres problemas o solo algunos.</p>
+            <a href="../agendar.html" class="btn-g inline-block px-5 py-2.5 rounded-lg text-sm w-full text-center">Agendar diagnóstico</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<!-- SCROLL POPUP -->
+<div id="scrollPopup" class="scroll-popup fixed bottom-6 right-6 z-40 max-w-xs w-full">
+  <div class="glass rounded-2xl p-5 shadow-2xl" style="border-color:rgba(139,92,246,0.3)">
+    <button id="closePopup" class="absolute top-3 right-3 text-gray-500 hover:text-white transition-colors" aria-label="Cerrar">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <p class="text-white font-semibold text-sm mb-1">Scorecard: ¿tu modelo tiene fecha de caducidad?</p>
+    <p class="text-gray-400 text-xs mb-3">12 preguntas. Scoring automático. Benchmarks del sector.</p>
+    <button onclick="document.getElementById('lead-magnet').scrollIntoView({behavior:'smooth'});document.getElementById('scrollPopup').classList.remove('show')" class="btn-g px-4 py-2 rounded-lg text-xs w-full">Hacer el scorecard gratis</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <div class="md:col-span-2">
+        <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto mb-4">
+        <p class="text-gray-500 text-sm leading-relaxed">Instalamos infraestructura comercial B2B permanente.<br>627+ clientes. ~1.5M€ revenue generado.</p>
+      </div>
+      <div>
+        <p class="text-white font-semibold text-sm mb-4">Recursos</p>
+        <ul class="space-y-2">
+          <li><a href="../blog.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Blog</a></li>
+          <li><a href="../agendar.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Agendar</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-semibold text-sm mb-4">Legal</p>
+        <ul class="space-y-2">
+          <li><a href="../aviso-legal.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Aviso legal</a></li>
+          <li><a href="../privacidad.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Privacidad</a></li>
+          <li><a href="../cookies.html" class="text-gray-500 text-sm hover:text-gray-300 transition-colors">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-gray-600 text-sm">© 2026 Global Growth Consulting. Todos los derechos reservados.</p>
+      <p class="text-gray-600 text-sm">Moll de Lleida, Bloque 2 Oficina N/O, 43002 Tarragona</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const s=document.documentElement,h=s.scrollHeight-s.clientHeight,p=(s.scrollTop/h)*100;prog.style.width=p+'%';},{passive:true});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const mb=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu'),cm=document.getElementById('closeMenu');
+mb.onclick=()=>mm.classList.add('open');
+cm.onclick=()=>mm.classList.remove('open');
+document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>mm.classList.remove('open')));
+let shown=false;
+window.addEventListener('scroll',()=>{if(!shown&&window.scrollY>600){shown=true;document.getElementById('scrollPopup').classList.add('show')}},{passive:true});
+document.getElementById('closePopup').onclick=()=>document.getElementById('scrollPopup').classList.remove('show');
+document.getElementById('leadMagnetForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const email=document.getElementById('lmEmail').value;
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='Enviando...';btn.disabled=true;
+  try{await fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,magnet:'scorecard-modelo-consultoria'})});}catch(err){}
+  document.getElementById('leadMagnetForm').classList.add('hidden');
+  document.getElementById('leadMagnetSuccess').classList.remove('hidden');
+});
+</script>
+
+<!-- Lead Magnet Popup -->
+<div id="lm-popup" style="display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);align-items:center;justify-content:center" onclick="if(event.target===this)this.style.display='none'">
+<div style="background:#151331;border:1px solid rgba(255,255,255,0.1);border-radius:16px;max-width:440px;width:90%;padding:32px;position:relative">
+<button onclick="document.getElementById('lm-popup').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#666;font-size:24px;cursor:pointer;line-height:1">&times;</button>
+<p style="color:#8B5CF6;font-size:11px;text-transform:uppercase;letter-spacing:.2em;font-weight:600;margin-bottom:8px">Scorecard gratuito</p>
+<h3 style="color:#fff;font-size:18px;font-weight:700;margin-bottom:8px">&iquest;Tu modelo de consultor&iacute;a tiene fecha de caducidad?</h3>
+<p style="color:#9ca3af;font-size:14px;margin-bottom:20px">12 preguntas. Scoring autom&aacute;tico. Benchmarks del sector. D&eacute;janos tu email y te enviamos acceso en 2 minutos.</p>
+<form id="lm-popup-form" style="display:flex;flex-direction:column;gap:10px">
+<input type="text" name="nombre" placeholder="Tu nombre" required style="padding:12px 16px;border-radius:8px;background:#0C0A1D;border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:14px">
+<input type="email" name="email" placeholder="Tu email profesional" required style="padding:12px 16px;border-radius:8px;background:#0C0A1D;border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:14px">
+<label style="display:flex;align-items:start;gap:8px;cursor:pointer"><input type="checkbox" name="privacy" required style="margin-top:3px;accent-color:#8B5CF6"><span style="color:#6b7280;font-size:11px">Acepto la <a href="../privacidad" style="text-decoration:underline;color:#6b7280">pol&iacute;tica de privacidad</a>.</span></label>
+<button type="submit" style="padding:14px;border-radius:8px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;border:none;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899)">Hacer el scorecard gratis</button>
+</form>
+<div id="lm-popup-ok" style="display:none;padding:16px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:8px;color:#4ade80;font-size:14px;text-align:center;margin-top:12px">Revisa tu email en 2 minutos.</div>
+</div>
+</div>
+<script>
+(function(){
+var pf=document.getElementById('lm-popup-form');
+if(!pf)return;
+pf.addEventListener('submit',function(e){
+e.preventDefault();
+var d=new FormData(pf),o={};d.forEach(function(v,k){o[k]=v});
+o.source='Scorecard: \u00bfTu modelo de consultor\u00eda tiene fecha de caducidad?';
+o.page='lead-magnets/scorecard-modelo-consultoria';
+var btn=pf.querySelector('button[type="submit"]');btn.textContent='Enviando...';btn.disabled=true;
+fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)})
+.then(function(){pf.style.display='none';document.getElementById('lm-popup-ok').style.display='block';setTimeout(function(){window.location.href='../lead-magnets/scorecard-modelo-consultoria'},1500)})
+.catch(function(){btn.textContent='Hacer el scorecard gratis';btn.disabled=false});
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var p=document.getElementById('lm-popup');if(p)p.style.display='none'}});
+})();
+</script>
+</body>
+</html>

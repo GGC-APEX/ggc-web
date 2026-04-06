@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pipeline Audit Scorecard — 8 dimensiones | GGC</title>
+  <meta name="description" content="Autoevaluación en 8 dimensiones con scoring automático y benchmarks del sector. Descubre en qué posición está tu infraestructura comercial B2B.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="Pipeline Audit Scorecard — 8 dimensiones con benchmarks B2B">
+  <meta property="og:description" content="Evalúa tu infraestructura comercial en 8 dimensiones clave. Scoring automático con benchmarks del sector.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0C0A1D">
+  <link rel="icon" type="image/png" href="../logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config={theme:{extend:{
+    colors:{navy:{DEFAULT:'#0C0A1D',card:'#151331',card2:'#1A1740',border:'rgba(255,255,255,0.06)'},cyan:'#22D3EE',blue:'#3B82F6',purple:'#8B5CF6',pink:'#EC4899',magenta:'#D946EF',gray:{300:'#D4D4D4',400:'#E5E5E5',500:'#B0B0B0',600:'#B0B0B0',700:'#9A9A9A'}},
+    fontFamily:{display:['Playfair Display','serif'],body:['DM Sans','sans-serif']}
+  }}}
+  </script>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;font-weight:420;background:#0C0A1D;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+    h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+
+    .gr{background:linear-gradient(135deg,#22D3EE,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(21,19,49,0.5);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+    .btn-g{position:relative;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899);color:#fff;font-weight:700;border:none;transition:all .3s ease;box-shadow:0 0 20px rgba(139,92,246,0.2);overflow:hidden;cursor:pointer;display:inline-block;text-align:center}
+    .btn-g:hover{box-shadow:0 0 40px rgba(139,92,246,0.4);transform:translateY(-2px)}
+    .btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,.2) 50%,transparent 80%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite}
+    @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+    .btn-g:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-g:disabled::after{animation:none}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeIn .5s ease forwards}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(139,92,246,0.15)}50%{box-shadow:0 0 40px rgba(139,92,246,0.3)}}
+    .pulse-glow{animation:pulse-glow 3s ease-in-out infinite}
+
+    /* Score options */
+    .score-opt{border:1.5px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 6px;text-align:center;cursor:pointer;transition:all .2s ease;background:rgba(255,255,255,0.02);flex:1}
+    .score-opt:hover{border-color:rgba(139,92,246,0.3);background:rgba(139,92,246,0.04)}
+    .score-opt.selected-1{border-color:rgba(236,72,153,0.5);background:rgba(236,72,153,0.08)}
+    .score-opt.selected-2{border-color:rgba(236,72,153,0.4);background:rgba(236,72,153,0.06)}
+    .score-opt.selected-3{border-color:rgba(59,130,246,0.4);background:rgba(59,130,246,0.06)}
+    .score-opt.selected-4{border-color:rgba(34,211,238,0.4);background:rgba(34,211,238,0.06)}
+    .score-opt.selected-5{border-color:rgba(34,211,238,0.5);background:rgba(34,211,238,0.08)}
+
+    /* Gauge */
+    .gauge-ring{width:160px;height:160px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center}
+    .gauge-ring::before{content:'';position:absolute;inset:0;border-radius:50%;border:8px solid rgba(255,255,255,0.05)}
+    .big-score{font-size:3.5rem;font-weight:800;line-height:1;font-family:'DM Sans',sans-serif}
+
+    /* Bar chart */
+    .dim-bar{height:8px;border-radius:4px;transition:width .6s ease}
+
+    /* Progress dot */
+    .dim-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.1);transition:background .2s}
+    .dim-dot.active{background:linear-gradient(135deg,#8B5CF6,#EC4899)}
+    .dim-dot.done{background:rgba(34,211,238,0.6)}
+
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8B5CF6;outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){.fade-in{animation:none;opacity:1}.pulse-glow{animation:none}.btn-g::after{animation:none}.dim-bar{transition:none}}
+  </style>
+  <script defer src="../_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="border-b border-white/5">
+  <div class="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../logo.png" alt="Global Growth Consulting" class="h-8 w-auto">
+    </a>
+    <span class="text-xs text-gray-500 uppercase tracking-widest hidden sm:block">Herramienta gratuita</span>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 py-12">
+
+  <!-- HERO -->
+  <div class="text-center mb-10">
+    <p class="text-xs font-semibold gr uppercase tracking-widest mb-4">Scorecard de auditoría</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4" style="font-family:'Playfair Display',serif">
+      Pipeline Audit Scorecard:<br class="hidden sm:block"> <span class="gr">8 dimensiones</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      Evalúa tu infraestructura comercial en las 8 dimensiones que separan a las empresas B2B que crecen predeciblemente de las que van de mes en mes.
+    </p>
+    <div class="flex items-center justify-center gap-6 mt-6 text-sm text-gray-500">
+      <span>⏱ ~10 minutos</span>
+      <span>·</span>
+      <span>8 dimensiones</span>
+      <span>·</span>
+      <span>Benchmark incluido</span>
+    </div>
+  </div>
+
+  <!-- PROGRESS DOTS -->
+  <div id="progressDots" class="flex items-center justify-center gap-2 mb-8">
+  </div>
+  <div class="mb-2 text-center">
+    <span id="stepIndicator" class="text-xs text-gray-500">Dimensión 1 de 8</span>
+  </div>
+
+  <!-- DIMENSION CARDS (shown one at a time) -->
+  <div id="scorecardsContainer">
+  </div>
+
+  <!-- NAV BUTTONS -->
+  <div id="navButtons" class="flex gap-3 mt-6">
+    <button id="prevBtn" onclick="prev()" class="px-6 py-3 rounded-xl border border-white/10 text-sm text-gray-400 hover:text-white hover:border-white/20 transition-all hidden">Anterior</button>
+    <button id="nextBtn" onclick="next()" class="btn-g flex-1 px-6 py-3.5 rounded-xl text-sm">Siguiente dimensión</button>
+  </div>
+
+  <!-- RESULTS (hidden) -->
+  <div id="resultsSection" class="hidden mt-4 fade-in">
+
+    <!-- Score gauge -->
+    <div class="glass rounded-2xl p-8 text-center mb-6 pulse-glow">
+      <p class="text-xs font-semibold gr uppercase tracking-widest mb-6">Tu resultado</p>
+      <div class="flex justify-center mb-6">
+        <div id="gaugeRing" class="gauge-ring">
+          <div class="text-center">
+            <p id="totalScore" class="big-score gr">--</p>
+            <p class="text-xs text-gray-400">de 40 puntos</p>
+          </div>
+        </div>
+      </div>
+      <h2 id="levelTitle" class="text-2xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">--</h2>
+      <p id="levelDesc" class="text-gray-400 text-sm max-w-lg mx-auto">--</p>
+    </div>
+
+    <!-- Dimension breakdown -->
+    <div class="glass rounded-2xl p-6 mb-6">
+      <h3 class="text-lg font-bold text-white mb-5" style="font-family:'Playfair Display',serif">Desglose por dimensión</h3>
+      <div id="dimBreakdown" class="space-y-4"></div>
+    </div>
+
+    <!-- Benchmark -->
+    <div class="glass rounded-2xl p-6 mb-6">
+      <h3 class="text-lg font-bold text-white mb-4" style="font-family:'Playfair Display',serif">Dónde estás vs. el mercado</h3>
+      <div class="grid grid-cols-3 gap-4 text-center">
+        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+          <p class="text-2xl font-bold text-pink">12-20</p>
+          <p class="text-xs text-gray-500 mt-1">Empresas B2B promedio en España</p>
+        </div>
+        <div class="p-4 rounded-xl bg-purple/5 border border-purple/20">
+          <p id="benchmarkYou" class="text-2xl font-bold gr">--</p>
+          <p class="text-xs text-gray-400 mt-1">Tu puntuación</p>
+        </div>
+        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+          <p class="text-2xl font-bold text-cyan">32+</p>
+          <p class="text-xs text-gray-500 mt-1">Top 10% clientes de GGC</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead capture -->
+    <div class="glass rounded-2xl p-8 text-center mb-6">
+      <h2 class="text-2xl font-bold text-white mb-2" style="font-family:'Playfair Display',serif">Recibe tu plan de mejora por email</h2>
+      <p class="text-gray-400 text-sm mb-6 max-w-lg mx-auto">
+        Te enviamos un plan de acción personalizado con los 3 pasos concretos para mejorar las dimensiones donde tienes más brecha.
+      </p>
+      <form id="leadForm" class="max-w-md mx-auto space-y-3">
+        <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="email" name="email" placeholder="Tu email profesional" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="text" name="empresa" placeholder="Nombre de tu empresa" required class="w-full px-4 py-3 rounded-lg bg-[#0C0A1D] border border-white/10 text-white text-sm placeholder-gray-500 focus:border-[#8B5CF6] focus:outline-none transition-colors">
+        <input type="hidden" name="source" value="Pipeline Audit Scorecard">
+        <input type="hidden" name="page" value="lead-magnets/pipeline-audit-scorecard">
+        <input type="hidden" id="hiddenTotal" name="score_total" value="">
+        <input type="hidden" id="hiddenScores" name="scores_by_dimension" value="">
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="privacy" required class="mt-1 accent-[#8B5CF6]">
+          <span class="text-xs text-gray-500">Acepto la <a href="../privacidad.html" class="underline hover:text-white transition-colors">política de privacidad</a>. Recibiré comunicaciones que puedo cancelar en cualquier momento.</span>
+        </label>
+        <button type="submit" class="btn-g w-full px-6 py-3.5 rounded-xl text-sm">Recibe tu plan de mejora</button>
+      </form>
+      <div id="leadSuccess" class="hidden mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+        Enviado. Revisa tu bandeja en los próximos minutos.
+      </div>
+      <p class="text-xs text-gray-500 mt-3">Sin spam. Plan concreto, no genérico.</p>
+    </div>
+
+    <!-- CTAs -->
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-sm text-gray-400 mb-3">¿Quieres instalar lo que te falta?</p>
+        <a href="../agendar.html" class="btn-g inline-block px-6 py-3 rounded-lg text-sm w-full">Agendar sesión estratégica</a>
+        <p class="text-xs text-gray-500 mt-2">30 min. Sin compromiso.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl bg-white/[0.02] border border-white/5">
+        <p class="text-sm text-gray-400 mb-3">Ver cómo lo hacen otras empresas</p>
+        <a href="../blog.html" class="inline-block px-6 py-3 rounded-lg text-sm w-full border border-[#8B5CF6]/40 text-[#8B5CF6] hover:bg-[#8B5CF6]/5 transition-colors">Ir al blog</a>
+        <p class="text-xs text-gray-500 mt-2">Casos reales y frameworks</p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8 mt-12">
+  <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../logo.png" alt="GGC" class="h-6 w-auto opacity-50">
+      <span class="text-xs text-gray-500">&copy; 2026 Global Growth Consulting</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-gray-500">
+      <a href="../blog.html" class="hover:text-gray-300 transition-colors">Blog</a>
+      <a href="../privacidad.html" class="hover:text-gray-300 transition-colors">Privacidad</a>
+      <a href="../agendar.html" class="hover:text-gray-300 transition-colors">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+var DIMENSIONS = [
+  {
+    id: 'D1',
+    title: 'Calidad del pipeline activo',
+    question: '¿Cómo describirías la calidad real de los deals en tu pipeline ahora mismo?',
+    benchmark: 'El 65% de empresas B2B en España tienen un pipeline con más del 40% de oportunidades ficticias o sin posibilidad real de cierre.',
+    options: [
+      { val:1, label:'Muy baja', desc:'Más del 50% de los deals probablemente no van a cerrar' },
+      { val:2, label:'Baja', desc:'Entre el 30-50% son oportunidades reales' },
+      { val:3, label:'Media', desc:'Entre el 50-70% tienen posibilidad real de cierre' },
+      { val:4, label:'Alta', desc:'Más del 70% son oportunidades cualificadas' },
+      { val:5, label:'Excelente', desc:'Pipeline limpio, con criterios estrictos de entrada' }
+    ]
+  },
+  {
+    id: 'D2',
+    title: 'Proceso de cualificación',
+    question: '¿Con qué rigor cualificas a los leads antes de que entren al pipeline?',
+    benchmark: 'El 78% de equipos comerciales B2B no tienen criterios objetivos de cualificación documentados.',
+    options: [
+      { val:1, label:'Sin proceso', desc:'Entra cualquier lead que exprese interés mínimo' },
+      { val:2, label:'Básico', desc:'Preguntamos sobre presupuesto pero sin criterios formales' },
+      { val:3, label:'Estructurado', desc:'Tenemos algunas preguntas clave pero no es sistemático' },
+      { val:4, label:'Riguroso', desc:'Framework definido con criterios medibles (BANT o similar)' },
+      { val:5, label:'Optimizado', desc:'Cualificación en 2 pasos con scoring automático y feedback loop' }
+    ]
+  },
+  {
+    id: 'D3',
+    title: 'Gestión y salud del CRM',
+    question: '¿En qué estado está vuestro CRM como herramienta de gestión comercial?',
+    benchmark: 'Solo el 28% de equipos comerciales B2B usan su CRM como sistema de gestión real. El resto lo usa como repositorio de contactos.',
+    options: [
+      { val:1, label:'No existe / inútil', desc:'No tenemos CRM o nadie lo usa realmente' },
+      { val:2, label:'Repositorio', desc:'Solo guardamos contactos, poco más' },
+      { val:3, label:'Básico activo', desc:'Registramos deals y actividades de forma irregular' },
+      { val:4, label:'Sistema útil', desc:'Se usa consistentemente, datos limpios, stages definidos' },
+      { val:5, label:'Motor comercial', desc:'CRM integrado, datos en tiempo real, automatizaciones activas' }
+    ]
+  },
+  {
+    id: 'D4',
+    title: 'Previsibilidad y forecast',
+    question: '¿Con qué precisión puedes predecir el revenue del mes que viene?',
+    benchmark: 'El 71% de los CEOs de empresas B2B <2M€ no pueden prever su revenue del mes siguiente con menos de un 30% de error.',
+    options: [
+      { val:1, label:'Imprevisible', desc:'No tengo idea de lo que va a entrar el mes que viene' },
+      { val:2, label:'Muy impreciso', desc:'Error superior al 40%' },
+      { val:3, label:'Irregular', desc:'A veces acierto, a veces fallo mucho (20-40% de error)' },
+      { val:4, label:'Bastante preciso', desc:'Error inferior al 20% de forma consistente' },
+      { val:5, label:'Predecible', desc:'Forecast con menos del 10% de error. Tengo visibilidad a 90 días.' }
+    ]
+  },
+  {
+    id: 'D5',
+    title: 'Velocidad del ciclo de venta',
+    question: '¿Tienes control sobre la velocidad a la que avanzan tus deals?',
+    benchmark: 'Las empresas con proceso comercial documentado cierran un 28% más rápido que las que gestionan deal por deal.',
+    options: [
+      { val:1, label:'Sin control', desc:'Cada deal avanza (o no) a su propio ritmo, sin gestión activa' },
+      { val:2, label:'Reactivo', desc:'Avanzamos cuando el cliente nos contacta' },
+      { val:3, label:'Parcial', desc:'Hacemos follow-up pero sin sistema estructurado' },
+      { val:4, label:'Activo', desc:'Proceso con next steps definidos y seguimiento proactivo' },
+      { val:5, label:'Sistemático', desc:'Ciclo de venta optimizado, secuencias automáticas, tiempos controlados' }
+    ]
+  },
+  {
+    id: 'D6',
+    title: 'Tasas de conversión por fase',
+    question: '¿Conoces tus tasas de conversión entre cada fase del pipeline?',
+    benchmark: 'El 82% de los equipos comerciales B2B no sabe en qué fase del pipeline pierde más oportunidades.',
+    options: [
+      { val:1, label:'No las conozco', desc:'No tenemos datos de conversión por fase' },
+      { val:2, label:'Dato global', desc:'Solo sé la tasa de cierre final, no por fases' },
+      { val:3, label:'Parcial', desc:'Tengo datos de algunas fases pero no de todas' },
+      { val:4, label:'Completo', desc:'Conozco la conversión en cada fase y lo reviso periódicamente' },
+      { val:5, label:'Optimizado', desc:'Tengo benchmarks por fase, los trackeo semanalmente y actúo sobre las bajas' }
+    ]
+  },
+  {
+    id: 'D7',
+    title: 'Autonomía del equipo comercial',
+    question: '¿Qué pasa si tú (el CEO) desapareces una semana del proceso de ventas?',
+    benchmark: 'En el 68% de las empresas B2B <3M€, las ventas se detienen o reducen más del 50% cuando el CEO no está activo en el proceso.',
+    options: [
+      { val:1, label:'Todo para', desc:'Sin mí no se cierra nada. Soy el proceso.' },
+      { val:2, label:'Casi todo para', desc:'Algún deal avanza pero los cierres dependen de mí' },
+      { val:3, label:'Ralentización', desc:'El equipo gestiona pero necesita mi validación frecuente' },
+      { val:4, label:'Funciona bien', desc:'El equipo cierra. Solo intervengo en deals estratégicos' },
+      { val:5, label:'Totalmente autónomo', desc:'El proceso funciona independientemente de mi presencia' }
+    ]
+  },
+  {
+    id: 'D8',
+    title: 'Documentación del proceso',
+    question: '¿Qué nivel de documentación tiene tu proceso comercial?',
+    benchmark: 'Las empresas con proceso comercial documentado tienen una tasa de incorporación de nuevos comerciales un 3x más rápida.',
+    options: [
+      { val:1, label:'Nada documentado', desc:'Todo está en la cabeza del CEO o del comercial senior' },
+      { val:2, label:'Fragmentado', desc:'Hay algunos scripts o notas pero no hay un sistema' },
+      { val:3, label:'Básico', desc:'Tenemos el proceso descrito pero no es un playbook completo' },
+      { val:4, label:'Playbook completo', desc:'Proceso, scripts, objeciones y criterios están documentados' },
+      { val:5, label:'Sistema vivo', desc:'Playbook completo, actualizado regularmente, con métricas de efectividad' }
+    ]
+  }
+];
+
+var answers = {};
+var current = 0;
+
+function renderDots(){
+  var container = document.getElementById('progressDots');
+  container.innerHTML = '';
+  DIMENSIONS.forEach(function(_, i){
+    var dot = document.createElement('div');
+    dot.className = 'dim-dot' + (i === current ? ' active' : '') + (answers[DIMENSIONS[i].id] !== undefined && i !== current ? ' done' : '');
+    container.appendChild(dot);
+  });
+  document.getElementById('stepIndicator').textContent = 'Dimensión ' + (current+1) + ' de ' + DIMENSIONS.length;
+}
+
+function renderCurrent(){
+  var dim = DIMENSIONS[current];
+  var container = document.getElementById('scorecardsContainer');
+  var selVal = answers[dim.id];
+
+  container.innerHTML =
+    '<div class="glass rounded-2xl p-6 sm:p-8 fade-in">' +
+      '<div class="flex items-start justify-between gap-4 mb-6">' +
+        '<div>' +
+          '<p class="text-xs font-semibold text-purple uppercase tracking-widest mb-1">' + dim.title + '</p>' +
+          '<h2 class="text-xl sm:text-2xl font-bold text-white leading-snug" style="font-family:\'Playfair Display\',serif">' + dim.question + '</h2>' +
+        '</div>' +
+        '<span class="text-3xl font-black text-white/10 flex-shrink-0" style="font-family:\'DM Sans\',sans-serif">' + (current+1) + '</span>' +
+      '</div>' +
+      '<div class="flex gap-2 mb-6" id="optRow">' +
+        dim.options.map(function(o){
+          var sel = selVal === o.val;
+          return '<div class="score-opt' + (sel ? ' selected-'+o.val : '') + '" data-val="' + o.val + '" role="radio" aria-checked="' + sel + '" tabindex="0">' +
+            '<p class="text-lg font-black text-white">' + o.val + '</p>' +
+            '<p class="text-xs text-gray-500 mt-0.5 leading-tight hidden sm:block">' + o.label + '</p>' +
+          '</div>';
+        }).join('') +
+      '</div>' +
+      (selVal ? '<div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 mb-4 fade-in">' +
+        '<p class="text-xs text-gray-400 leading-relaxed"><span class="font-semibold text-white">' + dim.options[selVal-1].label + ':</span> ' + dim.options[selVal-1].desc + '</p>' +
+      '</div>' : '') +
+      '<div class="p-4 rounded-xl bg-purple/5 border border-purple/10">' +
+        '<p class="text-xs text-gray-500"><span class="font-semibold text-purple">Benchmark:</span> ' + dim.benchmark + '</p>' +
+      '</div>' +
+    '</div>';
+
+  // Bind click events
+  document.querySelectorAll('#optRow .score-opt').forEach(function(el){
+    el.addEventListener('click', function(){
+      answers[dim.id] = parseInt(el.getAttribute('data-val'));
+      renderCurrent();
+      updateNav();
+    });
+    el.addEventListener('keydown', function(e){
+      if(e.key===' '||e.key==='Enter'){e.preventDefault();answers[dim.id]=parseInt(el.getAttribute('data-val'));renderCurrent();updateNav();}
+    });
+  });
+
+  renderDots();
+  updateNav();
+}
+
+function updateNav(){
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+
+  if(current > 0) prevBtn.classList.remove('hidden'); else prevBtn.classList.add('hidden');
+
+  var allDone = DIMENSIONS.every(function(d){return answers[d.id]!==undefined;});
+  if(current === DIMENSIONS.length-1){
+    nextBtn.textContent = allDone ? 'Ver mis resultados' : 'Ver resultados (responde esta dimensión)';
+    nextBtn.disabled = !allDone;
+  } else {
+    nextBtn.textContent = answers[DIMENSIONS[current].id]!==undefined ? 'Siguiente dimensión' : 'Selecciona una opción';
+    nextBtn.disabled = answers[DIMENSIONS[current].id]===undefined;
+  }
+}
+
+function next(){
+  if(current < DIMENSIONS.length-1){
+    current++;
+    renderCurrent();
+    window.scrollTo({top:0,behavior:'smooth'});
+  } else {
+    showResults();
+  }
+}
+
+function prev(){
+  if(current > 0){
+    current--;
+    renderCurrent();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+}
+
+window.next = next;
+window.prev = prev;
+
+function showResults(){
+  document.getElementById('scorecardsContainer').classList.add('hidden');
+  document.getElementById('navButtons').classList.add('hidden');
+  document.getElementById('progressDots').classList.add('hidden');
+  document.getElementById('stepIndicator').classList.add('hidden');
+  document.getElementById('resultsSection').classList.remove('hidden');
+
+  var total = DIMENSIONS.reduce(function(acc, d){ return acc + (answers[d.id]||0); }, 0);
+  var maxScore = DIMENSIONS.length * 5; // 40
+
+  document.getElementById('totalScore').textContent = total;
+  document.getElementById('benchmarkYou').textContent = total;
+  document.getElementById('hiddenTotal').value = total;
+  document.getElementById('hiddenScores').value = DIMENSIONS.map(function(d){return d.id+':'+answers[d.id];}).join(',');
+
+  var levelTitle, levelDesc;
+  if(total >= 34){
+    levelTitle = 'Infraestructura comercial de primer nivel';
+    levelDesc = 'Estás en el top 10% de empresas B2B en España. Tus sistemas son sólidos. El siguiente paso es escalar y optimizar lo que ya funciona.';
+  } else if(total >= 26){
+    levelTitle = 'Base sólida con brechas concretas';
+    levelDesc = 'Tienes buena base pero hay dimensiones con margen de mejora claro. Cerrar esas brechas puede suponer un 30-40% más de revenue predecible.';
+  } else if(total >= 18){
+    levelTitle = 'Crecimiento sin sistema estable';
+    levelDesc = 'Estás por encima de la media pero tu crecimiento depende más del esfuerzo que de la infraestructura. Con sistema, el mismo esfuerzo genera 2-3x más.';
+  } else {
+    levelTitle = 'Infraestructura comercial frágil';
+    levelDesc = 'Tu pipeline actual es vulnerable a cualquier cambio del mercado o del equipo. La buena noticia: con los sistemas correctos, este es el escenario de mayor upside.';
+  }
+
+  document.getElementById('levelTitle').textContent = levelTitle;
+  document.getElementById('levelDesc').textContent = levelDesc;
+
+  // Dimension breakdown
+  var breakdown = document.getElementById('dimBreakdown');
+  breakdown.innerHTML = '';
+  DIMENSIONS.forEach(function(dim){
+    var score = answers[dim.id]||0;
+    var pct = (score/5)*100;
+    var colorClass = score>=4 ? 'from-cyan to-blue' : score===3 ? 'from-blue to-purple' : 'from-purple to-pink';
+    var div = document.createElement('div');
+    div.innerHTML =
+      '<div class="flex items-center justify-between mb-1">' +
+        '<span class="text-sm text-gray-400">' + dim.title + '</span>' +
+        '<span class="text-sm font-bold ' + (score>=4?'text-cyan':score===3?'text-blue':'text-pink') + '">' + score + '/5</span>' +
+      '</div>' +
+      '<div class="w-full h-2 rounded-full bg-white/5">' +
+        '<div class="dim-bar bg-gradient-to-r ' + colorClass + '" style="width:' + pct + '%"></div>' +
+      '</div>';
+    breakdown.appendChild(div);
+  });
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Lead form
+document.getElementById('leadForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  var data = {
+    nombre: form.nombre.value,
+    email: form.email.value,
+    empresa: form.empresa.value,
+    source: 'Pipeline Audit Scorecard',
+    page: 'lead-magnets/pipeline-audit-scorecard',
+    score_total: form.score_total.value,
+    scores_by_dimension: form.scores_by_dimension.value,
+    timestamp: new Date().toISOString()
+  };
+
+  fetch('/api/lead-magnet', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  })
+  .then(function(){
+    form.classList.add('hidden');
+    document.getElementById('leadSuccess').classList.remove('hidden');
+  })
+  .catch(function(){
+    form.classList.add('hidden');
+    document.getElementById('leadSuccess').classList.remove('hidden');
+  });
+});
+
+// Init
+renderCurrent();
+
+})();
+</script>
+</body>
+</html>
