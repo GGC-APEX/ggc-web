@@ -89,45 +89,60 @@ Lead → Reunión → Propuesta → Negociación → Cierre
 
 ---
 
-## Slide 5 — Métricas 4 y 5: Conversión Reunión → Propuesta y Cierre
-**Tipo:** Embudo visual
+## Slide 5 — Métricas 4 y 5: Cualificación y Win Rate
+**Tipo:** Benchmarks con diagnóstico
 
 **Titular:**
 > MÉTRICAS 4 + 5
-> El Embudo Real
+> Cualificación y Win Rate
 
-**Visual: embudo con números**
+**Métrica 4 — Ratio de cualificación (cajas):**
 ```
-        100 contactados
-              ↓
-        10 reuniones (10%)
-              ↓
-         6 propuestas (60%)
-              ↓
-         2-3 cierres (40%)
+✅ Saludable:   40-60%  →  Targeting preciso
+⚠️ Alarma:      <30%   →  Reuniones equivocadas
 ```
 
-**Texto:**
-> Si no mides cada salto, no sabes dónde se rompe tu embudo.
+**Texto M4:**
+> De tus reuniones, ¿qué % tiene problema real + presupuesto + decisor + timing?
+> Si es <30%, no necesitas más reuniones. Necesitas mejores reuniones.
+
+**Métrica 5 — Win rate por fuente:**
+```
+Referrals:  40-60%   (llegan con confianza prestada)
+Inbound:    20-35%   (ya mostraron interés)
+Outbound:   15-25%   (tú inicias la conversación)
+```
+
+**Texto M5:**
+> Un win rate global de "20%" esconde más de lo que revela. Desglosa por fuente.
 
 ---
 
-## Slide 6 — Métricas 6 y 7: LTV y CAC
-**Tipo:** Ratio financiero
+## Slide 6 — Métricas 6 y 7: Productividad y Payback
+**Tipo:** El ROI del sistema
 
 **Titular:**
 > MÉTRICAS 6 + 7
-> LTV y CAC — el ratio que lo explica todo
+> Productividad y Payback
 
-**Visual: fórmula grande**
+**Métrica 6 — Revenue por FTE comercial:**
 ```
-LTV / CAC > 3  →  Negocio sano
-LTV / CAC < 1  →  Estás perdiendo dinero en cada cliente
+✅ Operación eficiente:    €300K–€500K/año por persona
+⚠️ Señal de alerta:        <€200K/año por persona
 ```
 
-**Texto:**
-> Muchos equipos B2B optimizan el CAC pero nunca miran el LTV.
-> Es como ir de dieta sin subirse a la báscula.
+**Texto M6:**
+> Si estás por debajo de 200K€/FTE, el problema no es el talento.
+> Es que tus comerciales pasan el 60-70% del tiempo en tareas que no son vender.
+
+**Métrica 7 — Payback period del sistema:**
+```
+APEX OS™:             60-90 días
+Contratar comercial:  6-12 meses (si funciona)
+```
+
+**Texto M7:**
+> Un comercial tarda 4 meses en hacer ramp-up. La infraestructura, semanas.
 
 ---
 
@@ -140,13 +155,13 @@ LTV / CAC < 1  →  Estás perdiendo dinero en cada cliente
 **Visual: tabla**
 | # | Métrica | ¿La mides? |
 |---|---------|-----------|
-| 1 | CPR (Coste/Reunión) | ☐ |
-| 2 | Conversión Outreach→Reunión | ☐ |
+| 1 | CPR (Coste por Reunión Cualificada) | ☐ |
+| 2 | Conversión Outreach → Reunión | ☐ |
 | 3 | Velocidad de Pipeline | ☐ |
-| 4 | Reunión→Propuesta | ☐ |
-| 5 | Propuesta→Cierre | ☐ |
-| 6 | LTV | ☐ |
-| 7 | CAC | ☐ |
+| 4 | Ratio de Cualificación | ☐ |
+| 5 | Win Rate por Fuente | ☐ |
+| 6 | Revenue por FTE Comercial | ☐ |
+| 7 | Payback Period del Sistema | ☐ |
 
 **Texto:**
 > Si marcas menos de 5, estás volando a ciegas.

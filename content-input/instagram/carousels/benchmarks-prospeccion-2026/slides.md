@@ -80,37 +80,44 @@
 > EMAIL FRÍO
 > Benchmarks España 2026
 
-**Visual: barras horizontales**
+**Visual: tabla de 3 filas (datos reales GGC)**
 ```
-Top performers (sistema + personalización):   ████████   12-18%
-Media del mercado:                            ███         3-5%
-Envíos masivos genéricos:                    █           0.5-1%
+Clientes GGC (sistema calibrado):    ████████████  11.4%
+Top 10% del mercado:                 █████████      8.1%
+Media del mercado B2B español:       ███            3.2%
 ```
 
 **Dato contexto:**
-> En 2024 la media era del 5-8%.
-> Los volúmenes masivos ya no funcionan.
-> La personalización escalable sí.
+> El 62% de equipos abandona después de 2 follow-ups.
+> Los que llegan a 5 follow-ups bien espaciados convierten un 34% más.
+> La persistencia correcta supera al copy perfecto.
 
 ---
 
-## Slide 5 — Benchmarks por Canal: LinkedIn
+## Slide 5 — Benchmarks por Canal: LinkedIn + Llamadas
 **Tipo:** Datos con contexto
 
 **Titular:**
-> LINKEDIN
+> LINKEDIN Y LLAMADAS
 > Benchmarks España 2026
 
-**Visual: comparativa**
+**LinkedIn:**
 ```
-InMail personalizado con trigger:     ██████████  15-25%
-Connection request con nota:          █████        8-12%
-InMail genérico masivo:              ██            2-4%
+Clientes GGC:       18.7%
+Top 10% mercado:    14.2%
+Media mercado:       5.8%
 ```
 
-**Cambio relevante:**
-> LinkedIn redujo los límites de invitaciones en 2024.
-> Quienes tenían sistema aguantaron. Quienes dependían del volumen, no.
+**Llamadas (el canal más infravalorado):**
+```
+Clientes GGC:       6.2% conversión a reunión
+Top 10%:            4.5%
+Media mercado:       1.8%
+```
+
+**Texto:**
+> LinkedIn da 1.6x más respuesta que email frío en España.
+> La llamada después de email + LinkedIn convierte mejor que cualquier canal solo.
 
 ---
 
@@ -121,18 +128,16 @@ InMail genérico masivo:              ██            2-4%
 > OUTREACH MULTICANAL
 > El benchmark real
 
-**Visual: número gigante dorado**
-> **22.3%**
-> Tasa de respuesta top performers multicanal
-
-**Comparativa:**
+**Visual: tabla completa**
 ```
-Top performers multicanal (GGC clientes):  22.3%
-Media del mercado B2B España:               4-6%
+Clientes GGC (email + LinkedIn + llamada):  22.3%
+Top 10% del mercado:                        16.8%
+Media del mercado B2B España:                7.4%
 ```
 
-**Texto:**
-> La diferencia: secuencias con contexto real, no copiar-pegar en 3 canales.
+**Por qué 22.3% vs 7.4%:**
+> Los equipos que combinan los 3 canales en secuencia coordinada generan
+> **3.2x más reuniones** que los que usan un solo canal con la misma lista.
 
 ---
 
@@ -142,18 +147,18 @@ Media del mercado B2B España:               4-6%
 **Titular:**
 > LOS NÚMEROS QUE PREDICEN TU P&L
 
-**Visual: 3 métricas grandes**
+**Visual: 3 métricas grandes (datos reales GGC)**
 ```
-[CPR GGC clientes]      [Ciclo de venta GGC]    [vs. Sector]
-    €75-150                    38 días              90+ días
-  vs €300-500
+[CPR — Coste/Reunión]    [Ciclo de venta]       [vs. Sector]
+    €89 (GGC)               38 días (GGC)          87 días
+  vs €285 mercado         (69% menos)            (mercado)
 ```
 
 **Cálculo:**
-> 20 reuniones/mes con CPR de €400 = €8.000/mes = €96.000/año
-> 20 reuniones/mes con CPR de €120 = €2.400/mes = €28.800/año
+> 20 reuniones/mes con CPR de €285 = €5.700/mes = €68.400/año
+> 20 reuniones/mes con CPR de €89 = €1.780/mes = €21.360/año
 >
-> **Diferencia: 67.200€/año. Suficiente para otro comercial.**
+> **Diferencia: 47.040€/año. Con la misma cantidad de reuniones.**
 
 ---
 
@@ -185,11 +190,11 @@ Si estás prospectando en España en 2026, necesitas datos del mercado en el que
 
 Esto es lo que vemos en 627+ empresas B2B de servicios profesionales en España:
 
-• Email frío top performers: 12-18% de respuesta
-• LinkedIn con trigger personalizado: 15-25%
-• Multicanal coordinado: hasta 22.3%
-• CPR con sistema: €75-150 (vs €300-500 sin sistema)
-• Ciclo de venta: 38 días (vs 90+ días sector)
+• Email frío (clientes GGC): 11.4% de respuesta (vs 3.2% media mercado)
+• LinkedIn (clientes GGC): 18.7% (vs 5.8% media mercado)
+• Multicanal coordinado (clientes GGC): 22.3% (vs 7.4% media)
+• CPR: €89 (vs €285 media del mercado — 69% menos)
+• Ciclo de venta: 38 días (vs 87 días del sector)
 
 Si tus números están por debajo, no es mala suerte. Es un problema de sistema.
 

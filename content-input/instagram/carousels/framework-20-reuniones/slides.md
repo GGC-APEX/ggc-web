@@ -71,105 +71,113 @@
 
 ---
 
-## Slide 4 — Infraestructura 2: Lista y Targeting
-**Tipo:** Proceso de construcción
+## Slide 4 — Infraestructura 2: Motor de Prospección Multicanal
+**Tipo:** Proceso de secuencia
 
 **Titular (número dorado):**
 > INFRAESTRUCTURA 2
-> Lista de Alta Precisión
+> Motor de Prospección Multicanal
 
 **Texto:**
-> No es cantidad. Es precisión.
+> No es cantidad. Es precisión y contexto en el canal correcto.
 
-**Proceso visual:**
+**Secuencia de 5-7 touchpoints en 21 días:**
 ```
-10.000 contactos genéricos
-         ↓ (ICP firmográfico)
-2.000 empresas que encajan
-         ↓ (ICP tecnográfico)
-600 con el stack/problema correcto
-         ↓ (señales de timing)
-300 cuentas activas ahora mismo
+Email + LinkedIn + señales de intención + contenido estratégico
 ```
+
+**Segmentación real (ejemplo):**
+> ❌ "Empresas de tecnología"
+> ✅ "CTOs de SaaS B2B entre 2M–10M ARR con equipo comercial de 3-5 personas estancado en revenue"
 
 **Dato:**
-> "Una lista de 300 bien segmentada supera a una lista de 10.000 genéricos en volumen de reuniones generadas."
+> **15-25 reuniones/mes por SDR** con este motor activo.
+> La clave: calidad de segmentación + relevancia del mensaje.
 
 ---
 
-## Slide 5 — Infraestructura 3: Secuencia Multicanal
-**Tipo:** Timeline de secuencia
+## Slide 5 — Infraestructura 3: Activos de Conversión
+**Tipo:** Antes/después del lead que llega
 
 **Titular (número dorado):**
 > INFRAESTRUCTURA 3
-> Secuencia Multicanal
-
-**Visual: timeline con canales**
-```
-Día 1:  Email personalizado (con trigger específico)
-Día 3:  LinkedIn connection + nota contextual
-Día 6:  Llamada corta (30 seg., sin pitch)
-Día 9:  Email 2 (caso de éxito relevante)
-Día 12: LinkedIn mensaje directo
-Día 17: Email final (break-up)
-```
-
-**Benchmarks:**
-> Multicanal coordinado: **8-12% conversión a reunión**
-> Canal único: **1-2%**
+> Activos de Conversión
 
 **Texto:**
-> No es spam. Es contexto en el canal correcto en el momento correcto.
+> Un lead te responde. Bien. ¿Qué va a encontrar cuando te busque en Google?
+
+**Los 4 activos que trabajan por ti cuando no estás:**
+```
+[Landing pages que califican]
+→ No "nuestros servicios". Transformación + para quién + CTA.
+
+[Casos de éxito con datos reales]
+→ No "el cliente está contento". Números concretos.
+
+[Contenido que elimina objeciones]
+→ Preguntas respondidas antes de la llamada = llamada 10x más productiva.
+
+[Lead magnets que atraen al ICP]
+→ No curiosos. La persona exacta que quieres en una llamada.
+```
+
+**Resultado:**
+> El lead llega a la reunión sabiendo quién eres y por qué escucharte. La venta empieza medio hecha.
 
 ---
 
-## Slide 6 — Infraestructura 4: Cualificación Activa
-**Tipo:** Sistema de filtro
+## Slide 6 — Infraestructura 4: Proceso de Ventas Replicable
+**Tipo:** Documentación como sistema
 
 **Titular (número dorado):**
 > INFRAESTRUCTURA 4
-> Cualificación Activa
+> Proceso de Ventas Replicable
 
 **Texto:**
-> Una reunión con quien no puede comprar no es una oportunidad. Es tiempo perdido.
+> Si cada comercial abre la llamada diferente, cualifica diferente y maneja objeciones diferente, no tienes proceso. Tienes improvisación.
 
-**Framework BANT adaptado (4 cajas):**
+**Los 4 componentes documentados:**
 ```
-[BUDGET]           [AUTHORITY]
-¿Tiene presupuesto? ¿Decide o influye?
+[Guión de discovery]          [Framework BANT adaptado]
+Primera llamada = entender,   Budget · Authority · Need
+no vender                     · Timeline
 
-[NEED]             [TIMING]
-¿Tiene el problema? ¿Lo reconoce como urgente?
+[Playbook de objeciones]      [Criterios de avance]
+"Es caro" / "Ya tenemos       ¿Qué debe pasar para pasar
+algo" / "No es buen momento"  de etapa? Sin criterios = ficción
 ```
 
-**Regla:**
-> Si no puedes responder estas 4 preguntas antes de la reunión, la reunión no está bien cualificada.
+**Dato:**
+> Equipos con proceso documentado cierran un **35% más** que los que improvisan.
 
 ---
 
-## Slide 7 — Infraestructura 5: Datos y Mejora
-**Tipo:** Sistema de optimización
+## Slide 7 — Infraestructura 5: Motor de Escalado
+**Tipo:** Sistema autónomo
 
 **Titular (número dorado):**
 > INFRAESTRUCTURA 5
-> Loop de Datos
-
-**Visual: ciclo de mejora**
-```
-Ejecutar → Medir → Analizar → Optimizar → Ejecutar
-```
-
-**KPIs que trackear (tabla):**
-| Métrica | Medir cada |
-|---------|-----------|
-| CPR | Semana |
-| Tasa respuesta por canal | Semana |
-| Conversión reunión→propuesta | Mes |
-| Ciclo de venta | Mes |
+> Motor de Escalado
 
 **Texto:**
-> Sin esta infraestructura, las otras 4 degradan con el tiempo.
-> Con ella, mejoran solas.
+> ¿Cómo mantienes 20 reuniones/semana sin que el fundador trabaje 14 horas?
+
+**3 componentes:**
+```
+[Automatización de tareas repetitivas]
+Seguimientos, reportes, scheduling — sin intervención humana.
+
+[Delegación estructurada del CEO]
+Documentar + entrenar + métricas. Sin esto, es autoempleo caro.
+
+[Revisión semanal con datos]
+"Hicimos 47 contactos, 12 respuestas, 6 reuniones, 2 propuestas.
+La conversión bajó 8%. Revisamos la secuencia del segmento X."
+```
+
+**Timeline real:**
+> Primeras reuniones: semana 3
+> Velocidad crucero (20 reuniones/semana): semana 6-8
 
 ---
 
@@ -183,13 +191,13 @@ Ejecutar → Medir → Analizar → Optimizar → Ejecutar
 **Visual: bloques apilados de abajo a arriba**
 ```
 ┌────────────────────────────┐
-│   5. DATOS Y OPTIMIZACIÓN  │
+│   5. MOTOR DE ESCALADO     │
 ├────────────────────────────┤
-│   4. CUALIFICACIÓN ACTIVA  │
+│   4. PROCESO REPLICABLE    │
 ├────────────────────────────┤
-│   3. SECUENCIA MULTICANAL  │
+│   3. ACTIVOS DE CONVERSIÓN │
 ├────────────────────────────┤
-│   2. LISTA DE PRECISIÓN    │
+│   2. MOTOR MULTICANAL      │
 ├────────────────────────────┤
 │   1. EMPAQUETADO DE OFERTA │ ← EMPIEZA AQUÍ
 └────────────────────────────┘

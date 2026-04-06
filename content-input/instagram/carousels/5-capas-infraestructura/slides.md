@@ -97,21 +97,23 @@ Email frío → LinkedIn → Llamada → Email 2 → LinkedIn 2
 ---
 
 ## Slide 6 — Capa 5: Datos y Optimización
-**Tipo:** Dashboard minimalista
+**Tipo:** Efecto compuesto
 
 **Titular:**
 > CAPA 5
 > Datos + Mejora Continua
 
-**Visual: 3 métricas en cajas doradas**
+**Visual: 3 datos clave en cajas doradas**
 ```
-[CPR]           [Tasa respuesta]    [Ciclo de venta]
-€75-150         8-12%               38 días (GGC)
-vs €300-500     vs 1-2%             vs 90+ días sector
+[Efecto compuesto]          [Piloto automático]      [Revisión semanal]
+10% mejora en cada         90 días para que         2-3 horas/semana
+métrica = +60% total       el sistema se            cuando está
+de resultados              mantenga solo             calibrado
 ```
 
 **Texto:**
 > Sin datos no hay mejora. Sin mejora no hay sistema.
+> Las primeras 4 capas arrancan el motor. La 5ª lo hace imparable.
 
 ---
 

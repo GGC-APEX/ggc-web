@@ -93,27 +93,33 @@ Tamaño: 20-100 empleados
 ---
 
 ## Slide 5 — Dimensión 3: Comportamental
-**Tipo:** Preguntas clave
+**Tipo:** Señales online del target
 
 **Titular (número dorado):**
 > 3
 > COMPORTAMENTAL
 
-**Preguntas que debes poder responder:**
-- ¿Quién decide la compra?
-- ¿Cuánto dura su ciclo de venta típico?
-- ¿Qué objeciones aparecen siempre?
-- ¿Cómo compran (evaluación interna, comité, top-down)?
+**Texto:**
+> Cómo se comporta la empresa y su equipo directivo online.
+> Lo que publican, lo que consumen, lo que articulan como problema.
 
-**Visual: mapa de decisión simplificado**
+**Señales que buscar (cajas):**
 ```
-CEO → Aprueba presupuesto
-CDO/CMO → Influye en decisión
-Ops/Sales Manager → Usuario final
+[LinkedIn del CEO]
+¿Ha publicado en los últimos 30 días sobre dificultades para escalar ventas?
+
+[Seguimiento de perfiles]
+¿El director de operaciones sigue a perfiles de ventas B2B?
+
+[Contrataciones recientes]
+¿Han contratado 3 personas de revenue en 60 días?
+
+[Contenido que consumen]
+¿Qué eventos asisten? ¿Qué problemas articulan públicamente?
 ```
 
 **Texto:**
-> Si no sabes a quién hablas realmente, hablas con todos y no convences a ninguno.
+> Una empresa que habla de sus problemas en LinkedIn ya te está diciendo que está lista para una conversación.
 
 ---
 
@@ -147,17 +153,17 @@ Ops/Sales Manager → Usuario final
 **Titular:**
 > CON LAS 4 DIMENSIONES:
 
-**Visual: dos columnas**
-| ANTES | DESPUÉS |
+**Visual: dos columnas (datos del blog)**
+| ANTES (ICP 2D) | DESPUÉS (ICP 4D) |
 |---|---|
 | Lista de 10.000 | Lista de 380 |
-| Tasa respuesta 1-2% | Tasa respuesta 9.2% |
-| CPR €300-500 | CPR €75-150 |
-| Mensaje genérico | Mensaje específico |
+| Tasa respuesta 0.8% | Tasa respuesta 9.2% |
+| Mensajes genéricos | Razón concreta para contactar |
 | Outreach a ciegas | Timing perfecto |
+| Frustración del equipo | Sistema predecible |
 
 **Dato grande (dorado):**
-> "3x más conversión con ICP en 4 dimensiones"
+> "3x más conversión outreach → reunión con ICP en 4 dimensiones"
 
 ---
 
