@@ -794,55 +794,37 @@
 
   <!-- Vercel Analytics -->
   <script defer src="../_vercel/insights/script.js"></script>
-<!-- Lead Magnet Popup -->$'
-'<div id="lm-popup" style="display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);align-items:center;justify-content:center" onclick="if(event.target===this)this.style.display='none'">$'
-'  <div style="background:#151331;border:1px solid rgba(255,255,255,0.1);border-radius:16px;max-width:440px;width:90%;padding:32px;position:relative">$'
-'    <button onclick="document.getElementById('lm-popup').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#666;font-size:20px;cursor:pointer"><script>$'
-'(function(){$'
-'  var t=document.getElementById('lm-popup-title');$'
-'  if(t)t.textContent='blog_template_seguimiento_21dias';$'
-'  var pf=document.getElementById('lm-popup-form');$'
-'  if(pf){pf.addEventListener('submit',function(e){$'
-'    e.preventDefault();$'
-'    var d=new FormData(pf);var o={};d.forEach(function(v,k){o[k]=v});$'
-'    o.source='blog_template_seguimiento_21dias';o.page='lead-magnets/plantilla-workflow-seguimiento-ia';$'
-'    var btn=pf.querySelector('button[type="submit"]');btn.textContent='Enviando...';btn.disabled=true;$'
-'    fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)})$'
-'    .then(function(){pf.style.display='none';document.getElementById('lm-popup-ok').style.display='block';setTimeout(function(){window.location.href='../lead-magnets/plantilla-workflow-seguimiento-ia'},1500)})$'
-'    .catch(function(){btn.textContent='Descargar gratis';btn.disabled=false});$'
-'  })}$'
-'  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var p=document.getElementById('lm-popup');if(p)p.style.display='none'}});$'
-'})();$'
-'</script>
-</body>times;</button>$'
-'    <p style="color:#8B5CF6;font-size:11px;text-transform:uppercase;letter-spacing:.2em;font-weight:600;margin-bottom:8px">Recurso gratuito</p>$'
-'    <h3 style="color:#fff;font-size:18px;font-weight:700;margin-bottom:8px" id="lm-popup-title"></h3>$'
-'    <p style="color:#9ca3af;font-size:14px;margin-bottom:20px">Déjanos tu email y te lo enviamos en 2 minutos.</p>$'
-'    <form id="lm-popup-form" style="display:flex;flex-direction:column;gap:10px">$'
-'      <input type="text" name="nombre" placeholder="Tu nombre" required style="padding:12px 16px;border-radius:8px;background:#0C0A1D;border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:14px">$'
-'      <input type="email" name="email" placeholder="Tu email profesional" required style="padding:12px 16px;border-radius:8px;background:#0C0A1D;border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:14px">$'
-'      <label style="display:flex;align-items:start;gap:8px;cursor:pointer"><input type="checkbox" name="privacy" required style="margin-top:3px;accent-color:#8B5CF6"><span style="color:#6b7280;font-size:11px">Acepto la <a href="../privacidad" style="text-decoration:underline;color:#6b7280">política de privacidad</a>.</span></label>$'
-'      <button type="submit" class="btn-g" style="padding:14px;border-radius:8px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;border:none">Descargar gratis</button>$'
-'    </form>$'
-'    <div id="lm-popup-ok" style="display:none;padding:16px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:8px;color:#4ade80;font-size:14px;text-align:center;margin-top:12px">✓ Revisa tu email en 2 minutos.</div>$'
-'  </div>$'
-'</div>
-<script>$'
-'(function(){$'
-'  var t=document.getElementById('lm-popup-title');$'
-'  if(t)t.textContent='blog_template_seguimiento_21dias';$'
-'  var pf=document.getElementById('lm-popup-form');$'
-'  if(pf){pf.addEventListener('submit',function(e){$'
-'    e.preventDefault();$'
-'    var d=new FormData(pf);var o={};d.forEach(function(v,k){o[k]=v});$'
-'    o.source='blog_template_seguimiento_21dias';o.page='lead-magnets/plantilla-workflow-seguimiento-ia';$'
-'    var btn=pf.querySelector('button[type="submit"]');btn.textContent='Enviando...';btn.disabled=true;$'
-'    fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)})$'
-'    .then(function(){pf.style.display='none';document.getElementById('lm-popup-ok').style.display='block';setTimeout(function(){window.location.href='../lead-magnets/plantilla-workflow-seguimiento-ia'},1500)})$'
-'    .catch(function(){btn.textContent='Descargar gratis';btn.disabled=false});$'
-'  })}$'
-'  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var p=document.getElementById('lm-popup');if(p)p.style.display='none'}});$'
-'})();$'
-'</script>
+<!-- Lead Magnet Popup -->
+<div id="lm-popup" style="display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);align-items:center;justify-content:center" onclick="if(event.target===this)this.style.display='none'">
+<div style="background:#151331;border:1px solid rgba(255,255,255,0.1);border-radius:16px;max-width:440px;width:90%;padding:32px;position:relative">
+<button onclick="document.getElementById('lm-popup').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#666;font-size:24px;cursor:pointer;line-height:1">&times;</button>
+<p style="color:#8B5CF6;font-size:11px;text-transform:uppercase;letter-spacing:.2em;font-weight:600;margin-bottom:8px">Recurso gratuito</p>
+<h3 style="color:#fff;font-size:18px;font-weight:700;margin-bottom:8px">Template: Secuencia de seguimiento automatizada de 21 dias</h3>
+<p style="color:#9ca3af;font-size:14px;margin-bottom:20px">Déjanos tu email y te lo enviamos en 2 minutos.</p>
+<form id="lm-popup-form" style="display:flex;flex-direction:column;gap:10px">
+<input type="text" name="nombre" placeholder="Tu nombre" required style="padding:12px 16px;border-radius:8px;background:#0C0A1D;border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:14px">
+<input type="email" name="email" placeholder="Tu email profesional" required style="padding:12px 16px;border-radius:8px;background:#0C0A1D;border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:14px">
+<label style="display:flex;align-items:start;gap:8px;cursor:pointer"><input type="checkbox" name="privacy" required style="margin-top:3px;accent-color:#8B5CF6"><span style="color:#6b7280;font-size:11px">Acepto la <a href="../privacidad" style="text-decoration:underline;color:#6b7280">política de privacidad</a>.</span></label>
+<button type="submit" style="padding:14px;border-radius:8px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;border:none;background:linear-gradient(135deg,#3B82F6,#8B5CF6,#EC4899)">Descargar gratis</button>
+</form>
+<div id="lm-popup-ok" style="display:none;padding:16px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:8px;color:#4ade80;font-size:14px;text-align:center;margin-top:12px">Revisa tu email en 2 minutos.</div>
+</div>
+</div>
+<script>
+(function(){
+var pf=document.getElementById('lm-popup-form');
+if(!pf)return;
+pf.addEventListener('submit',function(e){
+e.preventDefault();
+var d=new FormData(pf),o={};d.forEach(function(v,k){o[k]=v});
+o.source='blog_template_seguimiento_21dias';o.page='lead-magnets/plantilla-workflow-seguimiento-ia';
+var btn=pf.querySelector('button[type="submit"]');btn.textContent='Enviando...';btn.disabled=true;
+fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)})
+.then(function(){pf.style.display='none';document.getElementById('lm-popup-ok').style.display='block';setTimeout(function(){window.location.href='../lead-magnets/plantilla-workflow-seguimiento-ia'},1500)})
+.catch(function(){btn.textContent='Descargar gratis';btn.disabled=false});
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var p=document.getElementById('lm-popup');if(p)p.style.display='none'}});
+})();
+</script>
 </body>
 </html>
