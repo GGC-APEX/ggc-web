@@ -63,6 +63,7 @@ function scheduleAt(businessDays) {
 async function sendEmail(resendKey, { to, subject, html, scheduledAt: when }) {
   const body = {
     from: 'Xavi Fortuna <xavi@globalgrowth.consulting>',
+    reply_to: 'xavi.fortuna@globalgrowth.consulting',
     to,
     subject,
     html,
@@ -167,7 +168,7 @@ export default async function handler(req, res) {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          from: 'GGC Web <xavi@globalgrowth.consulting>',
+          from: 'GGC Web <xavi.fortuna@globalgrowth.consulting>',
           to: NOTIFY_EMAIL,
           subject: `📩 Nuevo suscriptor newsletter: ${email}`,
           html: `<p><strong>Nuevo suscriptor newsletter:</strong></p><ul><li><strong>Email:</strong> ${email}</li><li><strong>Nombre:</strong> ${nombre || '—'}</li><li><strong>Fuente:</strong> ${source || '—'}</li><li><strong>Página:</strong> ${page || '—'}</li><li><strong>Fecha:</strong> ${fecha}</li></ul><p style="color:#666;font-size:12px">Secuencia drip de 5 emails programada vía Resend (días 0, 2, 4, 6, 8 laborables a las 10:00 CET).</p>`

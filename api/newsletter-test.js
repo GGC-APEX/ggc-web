@@ -72,6 +72,7 @@ export default async function handler(req, res) {
 
     const body = {
       from: 'Xavi Fortuna <xavi@globalgrowth.consulting>',
+      reply_to: 'xavi.fortuna@globalgrowth.consulting',
       to: email,
       subject: SUBJECTS[i],
       html,
