@@ -1,6 +1,8 @@
 import React from 'react';
-import { Still } from 'remotion';
+import { Still, Composition } from 'remotion';
 import { theme } from './theme.js';
+import { Reel1_TransicionarConversacion } from './reels/Reel1_TransicionarConversacion.jsx';
+import { Reel2_ProtocoloPrimerosMill } from './reels/Reel2_ProtocoloPrimerosMill.jsx';
 
 // Carousel 1: Las 5 Capas
 import { Slide1, Slide2, Slide3, Slide4, Slide5Real, Slide6, Slide7, Slide8 } from './carousels/Carousel1_5Capas.jsx';
@@ -78,5 +80,23 @@ export const RemotionRoot = () => (
         height={height}
       />
     ))}
+
+    {/* Instagram Reels — 9:16 vertical video */}
+    <Composition
+      id="Reel1-TransicionarConversacion"
+      component={Reel1_TransicionarConversacion}
+      durationInFrames={600}
+      fps={30}
+      width={1080}
+      height={1920}
+    />
+    <Composition
+      id="Reel2-ProtocoloPrimerosMill"
+      component={Reel2_ProtocoloPrimerosMill}
+      durationInFrames={750}
+      fps={30}
+      width={1080}
+      height={1920}
+    />
   </>
 );
