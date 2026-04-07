@@ -13,64 +13,79 @@ export default async function handler(req, res) {
   const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK_URL;
   const fecha = new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' });
 
-  // Resource catalog: source/slug → display name + URL
-  const RESOURCES = {
-    'exit-intent': {
-      name: 'Checklist: 12 Componentes de Infraestructura Comercial B2B',
-      url: 'https://globalgrowth.consulting/lead-magnets/checklist-infraestructura-b2b',
-      subject: 'Tu diagnóstico de infraestructura comercial está listo',
-      intro: 'Has dado el primer paso para dejar de improvisar en ventas. Aquí tienes el checklist con los 12 componentes que necesita tu infraestructura comercial B2B.',
-    },
-    'diagnostico-cuellos-botella': {
-      name: 'Diagnóstico: Los 3 Cuellos de Botella del Crecimiento B2B',
-      url: 'https://globalgrowth.consulting/lead-magnets/diagnostico-cuellos-botella',
-      subject: 'Tu diagnóstico de crecimiento B2B está listo',
-      intro: 'Descubre en 5 minutos cuál de los 3 cuellos de botella está frenando tu crecimiento.',
-    },
-    'checklist-infraestructura-b2b': {
-      name: 'Checklist: 12 Componentes de Infraestructura Comercial B2B',
-      url: 'https://globalgrowth.consulting/lead-magnets/checklist-infraestructura-b2b',
-      subject: 'Tu checklist de infraestructura comercial está listo',
-      intro: 'Aquí tienes los 12 componentes que separan a las empresas B2B que venden con sistema de las que improvisan.',
-    },
-    'calculadora-framework-apex': {
-      name: 'Calculadora APEX: ROI de tu Infraestructura Comercial',
-      url: 'https://globalgrowth.consulting/lead-magnets/calculadora-framework-apex',
-      subject: 'Tu calculadora APEX está lista',
-      intro: 'Calcula el retorno de instalar infraestructura comercial permanente en tu empresa.',
-    },
-    'guia-prompts-ia-prospeccion': {
-      name: 'Guía: Prompts de IA para Prospección B2B',
-      url: 'https://globalgrowth.consulting/lead-magnets/guia-prompts-ia-prospeccion',
-      subject: 'Tu guía de prompts de IA para prospección está lista',
-      intro: 'Los prompts exactos que usamos para investigar cuentas y personalizar outreach con IA.',
-    },
-    'scorecard-dependencia-ceo': {
-      name: 'Scorecard: ¿Cuánto Depende tu Empresa de Ti para Vender?',
-      url: 'https://globalgrowth.consulting/lead-magnets/scorecard-dependencia-ceo',
-      subject: 'Tu scorecard de dependencia comercial está listo',
-      intro: 'Descubre si tu empresa puede vender sin que tú estés encima de cada oportunidad.',
-    },
-    'plantilla-icp-4-dimensiones': {
-      name: 'Plantilla ICP: Define tu Cliente Ideal en 4 Dimensiones',
-      url: 'https://globalgrowth.consulting/lead-magnets/plantilla-icp-4-dimensiones',
-      subject: 'Tu plantilla ICP está lista',
-      intro: 'La plantilla que usamos con más de 627 clientes para definir su perfil de cliente ideal con precisión.',
-    },
-    'template-outbound-multicanal': {
-      name: 'Template: Secuencia Outbound Multicanal de 14 Días',
-      url: 'https://globalgrowth.consulting/lead-magnets/template-outbound-multicanal',
-      subject: 'Tu template de secuencia outbound está listo',
-      intro: 'La secuencia multicanal de 14 días que genera reuniones cualificadas sin parecer spam.',
-    },
+  // Lead magnet catalog: slug → display name
+  // Keyed by the lead-magnets/ filename (without .html)
+  const LEAD_MAGNETS = {
+    'auditoria-pipeline-inflado': 'Auditoría: 10 Señales de Pipeline Inflado',
+    'calculadora-coste-oportunidad-ceo': 'Calculadora: El Coste de Oportunidad del CEO que Vende',
+    'calculadora-coste-reunion': 'Calculadora: Coste Real por Reunión Cualificada',
+    'calculadora-costes-ceo-pipeline': 'Calculadora: ¿Cuánto le Cuesta a tu Empresa que Seas Tú el Pipeline?',
+    'calculadora-framework-apex': 'Calculadora: ¿Cuántas Reuniones Puede Generar tu Infraestructura Comercial?',
+    'calculadora-roi-infraestructura': 'Calculadora ROI: Infraestructura vs Fee de Agencia',
+    'case-study-2-a-18-reuniones': 'Case Study: De 2 a 18 Reuniones/Semana en 45 Días',
+    'checklist-infraestructura-b2b': 'Checklist: 12 Componentes de una Infraestructura Comercial B2B',
+    'checklist-marketing-vs-infraestructura': 'Checklist: ¿Necesitas Marketing o Infraestructura?',
+    'checklist-que-automatizar': 'Checklist: Qué Automatizar y Qué No en Ventas B2B',
+    'comparativa-agencia-vs-infraestructura': 'Comparativa: Modelo Agencia vs Modelo Infraestructura',
+    'crm-pipeline-checklist-ceos-b2b': 'CRM & Pipeline Checklist para CEOs B2B — 27 Puntos',
+    'dashboard-7-metricas-outbound': 'Dashboard: Las 7 Métricas que Importan en Outbound B2B',
+    'dashboard-kpis-infraestructura': 'Dashboard de KPIs de Infraestructura Comercial B2B',
+    'diagnostico-5-factores-fracaso': 'Diagnóstico: Los 5 Factores que Hacen Fracasar Proyectos Comerciales B2B',
+    'diagnostico-cuellos-botella': 'Diagnóstico: Los 3 Cuellos de Botella del Crecimiento B2B',
+    'framework-icp-scoring': 'Framework: ICP Scoring Matrix',
+    'glosario-revenue-infrastructure': 'Glosario: Revenue Infrastructure — 25 Términos Clave',
+    'guia-prompts-ia-prospeccion': 'Guía: 7 Prompts de IA para Prospección B2B',
+    'guia-prompts-investigacion-cuenta': '15 Prompts de IA para Investigar Cuentas B2B en 2 Minutos',
+    'infografia-5-capas-apex': 'Las 5 Capas de APEX OS — Infografía Interactiva',
+    'informe-benchmarks-prospeccion-b2b': 'Informe: Benchmarks de Prospección B2B en España 2026',
+    'listas-zombi-lm': 'Checklist: Auditoría de Listas B2B — 20 Señales de Datos Muertos',
+    'mapa-dependencias-criticas': 'Mapa de Dependencias Críticas en tu Proceso Comercial',
+    'pipeline-audit-scorecard': 'Pipeline Audit Scorecard — 8 Dimensiones',
+    'plantilla-icp-4-dimensiones': 'Plantilla: ICP en 4 Dimensiones con Sistema de Scoring',
+    'plantilla-secuencia-linkedin': 'Plantilla: Secuencia LinkedIn B2B en 5 Pasos',
+    'plantilla-workflow-seguimiento-ia': 'Workflow de Seguimiento Automatizado con IA',
+    'roadmap-escalado-comercial-b2b': 'Roadmap: Las 4 Fases de Escalado Comercial B2B',
+    'roi-calculator-apex-os': 'ROI Calculator — Infraestructura Comercial B2B con APEX OS',
+    'scorecard-dependencia-ceo': 'Test: ¿Tu Empresa Depende de Ti para Vender?',
+    'scorecard-modelo-consultoria': 'Scorecard: ¿Tu Modelo de Consultoría Tiene Fecha de Caducidad?',
+    'scorecard-preparacion-delegar-ventas': 'Scorecard: ¿Estás Preparado para Delegar Ventas?',
+    'swipe-file-emails-frios': 'Swipe File: 12 Emails Fríos B2B con >40% Open Rate',
+    'template-outbound-multicanal': 'Plantilla: Secuencia de Outbound Multicanal de 21 Días',
+    'test-crecimiento-vs-momentum': 'Test: ¿Tienes Crecimiento o Momentum?',
+    'tutorial-stack-enriquecimiento': 'Stack de Enriquecimiento de Datos B2B: Tutorial Completo',
+    'workflow-multicanal-14-dias': 'Workflow: Secuencia Multicanal de 14 Días',
   };
 
-  const slug = resourceSlug || source || '';
-  const resource = RESOURCES[slug] || null;
-  const resourceName = resource ? resource.name : (source || 'Recurso GGC');
-  const resourceUrl = resource ? resource.url : (page && page.startsWith('http') ? page : `https://globalgrowth.consulting/${page || ''}`);
-  const emailSubject = resource ? resource.subject : `Tu recurso está listo — ${resourceName}`;
-  const emailIntro = resource ? resource.intro : 'Gracias por tu interés. Aquí tienes tu recurso:';
+  // Exit-intent has custom copy (no page field)
+  const EXIT_INTENT = {
+    name: 'Checklist: 12 Componentes de Infraestructura Comercial B2B',
+    url: 'https://globalgrowth.consulting/lead-magnets/checklist-infraestructura-b2b',
+    subject: 'Tu diagnóstico de infraestructura comercial está listo',
+    intro: 'Has dado el primer paso para dejar de improvisar en ventas. Aquí tienes el checklist con los 12 componentes que necesita tu infraestructura comercial B2B.',
+  };
+
+  // Resolve the lead magnet slug from the page field (e.g. "lead-magnets/checklist-infraestructura-b2b" → "checklist-infraestructura-b2b")
+  const lmSlug = page ? page.replace(/^lead-magnets\//, '').replace(/\.html$/, '') : '';
+  const isExitIntent = source === 'exit-intent';
+
+  let resourceName, resourceUrl, emailSubject, emailIntro;
+
+  if (isExitIntent) {
+    resourceName = EXIT_INTENT.name;
+    resourceUrl = EXIT_INTENT.url;
+    emailSubject = EXIT_INTENT.subject;
+    emailIntro = EXIT_INTENT.intro;
+  } else if (lmSlug && LEAD_MAGNETS[lmSlug]) {
+    resourceName = LEAD_MAGNETS[lmSlug];
+    resourceUrl = `https://globalgrowth.consulting/lead-magnets/${lmSlug}`;
+    emailSubject = `Tu recurso está listo — ${resourceName}`;
+    emailIntro = `Gracias por tu interés. Aquí tienes tu recurso:`;
+  } else {
+    resourceName = source || 'Recurso GGC';
+    resourceUrl = page && page.startsWith('http') ? page : `https://globalgrowth.consulting/${page || ''}`;
+    emailSubject = `Tu recurso está listo — Global Growth Consulting`;
+    emailIntro = 'Gracias por tu interés. Aquí tienes tu recurso:';
+  }
 
   try {
     // 1. Resource email to lead
