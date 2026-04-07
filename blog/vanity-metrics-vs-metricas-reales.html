@@ -425,7 +425,7 @@
     </button>
     <p class="text-white font-semibold text-sm mb-1">Dashboard de métricas reales</p>
     <p class="text-gray-400 text-xs mb-3">Las 7 que de verdad importan. Listo para usar en Google Sheets o tu CRM.</p>
-    <button onclick="document.getElementById('lead-magnet').scrollIntoView({behavior:'smooth'});document.getElementById('scrollPopup').classList.remove('show')" class="btn-g px-4 py-2 rounded-lg text-xs w-full">Descargar gratis</button>
+    <button onclick="document.getElementById('lm-popup').style.display='flex';document.getElementById('scrollPopup').classList.remove('show')" class="btn-g px-4 py-2 rounded-lg text-xs w-full">Descargar gratis</button>
   </div>
 </div>
 
@@ -477,7 +477,7 @@ document.getElementById('leadMagnetForm').addEventListener('submit',async e=>{
   const email=document.getElementById('lmEmail').value;
   const btn=e.target.querySelector('button[type=submit]');
   btn.textContent='Enviando...';btn.disabled=true;
-  try{await fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,magnet:'dashboard-7-metricas-outbound-b2b'})});}catch(err){}
+  try{await fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'blog_dashboard_metricas',page:'lead-magnets/dashboard-7-metricas-outbound'})});}catch(err){}
   document.getElementById('leadMagnetForm').classList.add('hidden');
   document.getElementById('leadMagnetSuccess').classList.remove('hidden');
 });
@@ -506,10 +506,10 @@ if(!pf)return;
 pf.addEventListener('submit',function(e){
 e.preventDefault();
 var d=new FormData(pf),o={};d.forEach(function(v,k){o[k]=v});
-o.source='Recurso GGC';o.page='recursos';
+o.source='blog_dashboard_metricas';o.page='lead-magnets/dashboard-7-metricas-outbound';
 var btn=pf.querySelector('button[type="submit"]');btn.textContent='Enviando...';btn.disabled=true;
 fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)})
-.then(function(){pf.style.display='none';document.getElementById('lm-popup-ok').style.display='block';setTimeout(function(){window.location.href='../recursos'},1500)})
+.then(function(){pf.style.display='none';document.getElementById('lm-popup-ok').style.display='block';setTimeout(function(){window.location.href='../lead-magnets/dashboard-7-metricas-outbound'},1500)})
 .catch(function(){btn.textContent='Descargar gratis';btn.disabled=false});
 });
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){var p=document.getElementById('lm-popup');if(p)p.style.display='none'}});

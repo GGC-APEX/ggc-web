@@ -444,7 +444,7 @@
     </button>
     <p class="text-white font-semibold text-sm mb-1">Scorecard: ¿tu modelo tiene fecha de caducidad?</p>
     <p class="text-gray-400 text-xs mb-3">12 preguntas. Scoring automático. Benchmarks del sector.</p>
-    <button onclick="document.getElementById('lead-magnet').scrollIntoView({behavior:'smooth'});document.getElementById('scrollPopup').classList.remove('show')" class="btn-g px-4 py-2 rounded-lg text-xs w-full">Hacer el scorecard gratis</button>
+    <button onclick="document.getElementById('lm-popup').style.display='flex';document.getElementById('scrollPopup').classList.remove('show')" class="btn-g px-4 py-2 rounded-lg text-xs w-full">Hacer el scorecard gratis</button>
   </div>
 </div>
 
@@ -496,7 +496,7 @@ document.getElementById('leadMagnetForm').addEventListener('submit',async e=>{
   const email=document.getElementById('lmEmail').value;
   const btn=e.target.querySelector('button[type=submit]');
   btn.textContent='Enviando...';btn.disabled=true;
-  try{await fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,magnet:'scorecard-modelo-consultoria'})});}catch(err){}
+  try{await fetch('/api/lead-magnet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'blog_scorecard_modelo',page:'lead-magnets/scorecard-modelo-consultoria'})});}catch(err){}
   document.getElementById('leadMagnetForm').classList.add('hidden');
   document.getElementById('leadMagnetSuccess').classList.remove('hidden');
 });
