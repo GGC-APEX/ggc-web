@@ -143,6 +143,8 @@ function isSuspiciousName(name) {
   const trimmed = name.trim();
   if (trimmed.length < 15) return false;
   if (/\s/.test(trimmed)) return false;
+  // User typed an email into the name field — annoying, but real user, let through.
+  if (trimmed.includes('@') || trimmed.includes('.')) return false;
   const vowels = (trimmed.match(/[aeiouAEIOUáéíóúÁÉÍÓÚ]/g) || []).length;
   return (vowels / trimmed.length) < 0.25;
 }
@@ -153,7 +155,8 @@ function checkTiming(ts) {
   if (!t || isNaN(t)) return { ok: false, reason: 'invalid' };
   const age = Date.now() - t;
   if (age < 1500) return { ok: false, reason: 'too-fast' };
-  if (age > 30 * 60 * 1000) return { ok: false, reason: 'too-old' };
+  // Only enforce lower bound. Users leaving a tab open for hours is legitimate;
+  // a stale _ts from a very old cached page is harmless.
   return { ok: true, reason: 'ok' };
 }
 
